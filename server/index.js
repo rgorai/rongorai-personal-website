@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'production') {
   console.log('serving prod build')
   app.use(express.static(path.resolve('client', 'build')))
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve('client', 'build', 'index.html'))
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   })
 } else {
   configRoutes(app)
