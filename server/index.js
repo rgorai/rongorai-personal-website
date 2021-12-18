@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }))
 
 configRoutes(app)
 
-if (process.env.NODE_ENV === 'prod') {
+if (process.env.NODE_ENV === 'production') {
   console.log('serving prod build')
   app.use(express.static(path.join('/client/build')))
   app.get('*', (req, res) => {
