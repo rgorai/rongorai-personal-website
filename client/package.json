@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "description": "Client for Ron Gorai's personal website",
+  "homepage": "https://rongorai.herokuapp.com/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
