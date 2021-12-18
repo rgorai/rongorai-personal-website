@@ -11,14 +11,14 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-configRoutes(app)
-
 if (process.env.NODE_ENV === 'production') {
   console.log('serving prod build')
-  app.use(express.static(path.join('/client/build')))
+  app.use(express.static(path.resolve('client', 'build')))
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+    res.sendFile(path.resolve('client', 'build', 'index.html'))
   })
+} else {
+  configRoutes(app)
 }
 
 app.listen(PORT, () => {
