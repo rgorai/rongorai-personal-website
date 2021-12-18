@@ -1,0 +1,32 @@
+{
+  "name": "rongorai.github.io",
+  "version": "1.0.0",
+  "description": "Ron Gorai' personal website",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "start-watch": "nodemon server/index.js",
+    "dev": "concurrently \"npm run start-watch\" \"cd client && yarn start\"",
+    "heroku-postbuild": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rgorai/rongorai.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rgorai/rongorai.github.io/issues"
+  },
+  "homepage": "https://github.com/rgorai/rongorai.github.io#readme",
+  "devDependencies": {
+    "concurrently": "^6.5.0",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mongodb": "^4.2.2",
+    "path": "^0.12.7"
+  }
+}
