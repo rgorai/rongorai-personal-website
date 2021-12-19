@@ -7,7 +7,8 @@ const main = async () => {
   // time seeding
   console.time('Time')
 
-  
+  let i =0;
+  i++;
 
   // seeding complete
   console.log('\nDone seeding database')
