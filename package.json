@@ -9,17 +9,12 @@
     "start-watch": "nodemon server/index.js",
     "dev": "concurrently \"npm run start-watch\" \"cd client && yarn dev\"",
     "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
-    "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "prepare": "husky install",
+    "precommit": "lint-staged"
   },
   "lint-staged": {
     "**/*.js": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "repository": {
