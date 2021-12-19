@@ -266,7 +266,7 @@
     "prefer-object-spread": "off",
     "quote-props": "off",
     "quotes": "off",
-    "semi": "off",
+    "semi": ["warn", "never"],
     "semi-spacing": "off",
     "semi-style": "off",
     "sort-keys": "off",

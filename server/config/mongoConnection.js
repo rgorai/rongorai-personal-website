@@ -3,8 +3,8 @@ import { MongoClient } from 'mongodb'
 const settings = {
   mongoConfig: {
     serverUrl: process.env.MONGO_URI,
-    database: 'rongorai-personal-website-db'
-  }
+    database: 'rongorai-personal-website-db',
+  },
 }
 const { mongoConfig } = settings
 
