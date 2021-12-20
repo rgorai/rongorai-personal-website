@@ -29,7 +29,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules" : {
+      "import/order": 1
+    }
   },
   "browserslist": {
     "production": [
