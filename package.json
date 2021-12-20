@@ -1,5 +1,5 @@
 {
-  "name": "rongorai.github.io",
+  "name": "rongorai-personal-website",
   "version": "1.0.0",
   "description": "Ron Gorai's personal website",
   "main": "server/index.js",
@@ -21,14 +21,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rgorai/rongorai.github.io.git"
+    "url": "git+https://github.com/rgorai/rongorai-personal-website.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rgorai/rongorai.github.io/issues"
+    "url": "https://github.com/rgorai/rongorai-personal-website/issues"
   },
-  "homepage": "https://github.com/rgorai/rongorai.github.io#readme",
+  "homepage": "https://github.com/rgorai/rongorai-personal-website#readme",
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.5",
     "concurrently": "^6.5.0",

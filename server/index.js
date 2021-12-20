@@ -1,12 +1,14 @@
 import express from 'express'
 import cors from 'cors'
-import { resolve } from 'path'
+import path from 'path'
+import { fileURLToPath } from 'url'
 import dotenv from 'dotenv'
 import configRoutes from './routes/index.js'
 
 dotenv.config()
 
 const PORT = process.env.PORT || 5000
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const app = express()
 app.use(cors())
@@ -14,9 +16,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(resolve('client', 'build')))
+  app.use(express.static(path.resolve('client', 'build')))
   app.get('*', (req, res) => {
-    res.sendFile(resolve(__dirname, 'client', 'build', 'index.html'))
+    res.sendFile(path.resolve('client', 'build', 'index.html'))
   })
 } else {
   configRoutes(app)
