@@ -6,5 +6,5 @@
   "useTabs": false,
   "bracketSameLine": false,
   "arrowParens": "always",
-  "printWidth": 80
+  "printWidth": 70
 }

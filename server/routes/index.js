@@ -1,16 +1,12 @@
 // const movieRoutes = require('./movies')
+import guestbookRouter from './guestbook.js'
 
-const constructorMethod = (app) => {
-  // app.use('/api/movies', movieRoutes)
-  app.get('/api/test', (req, res) => {
-    res.status(200).send('hello')
-  })
-
-  
+const configRoutes = (app) => {
+  app.use('/api/guestbook', guestbookRouter)
 
   app.use('*', (req, res) => {
     res.sendStatus(404)
   })
 }
 
-module.exports = constructorMethod
+export default configRoutes

@@ -2,10 +2,12 @@
   "env": {
     "browser": true,
     "es6": true
-    // "commonjs": true
   },
   "extends": ["airbnb-base"],
   "rules": {
+    "import/extensions": 0,
+    "import/prefer-default-export": 0,
+
     // disable es6 rules -- start
     "arrow-body-style": 1,
     "arrow-parens": 1,

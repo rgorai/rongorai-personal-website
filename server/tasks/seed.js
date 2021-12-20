@@ -1,4 +1,8 @@
-import { connectToDb, closeConnection } from '../config/mongoConnection'
+import {
+  connectToDb,
+  closeConnection,
+} from '../config/mongoConnection.js'
+import { createEntry } from '../data/guestbook.js'
 
 const main = async () => {
   const db = await connectToDb()
@@ -7,8 +11,7 @@ const main = async () => {
   // time seeding
   console.time('Time')
 
-  let i =0;
-  i++;
+  await createEntry('rong', 'owner', 'hello')
 
   // seeding complete
   console.log('\nDone seeding database')

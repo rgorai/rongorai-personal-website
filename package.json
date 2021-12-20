@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "Ron Gorai's personal website",
   "main": "server/index.js",
-  "sourceType": "module",
+  "type": "module",
   "scripts": {
     "start": "node server/index.js",
     "start-watch": "nodemon server/index.js",
     "dev": "concurrently \"npm run start-watch\" \"cd client && yarn dev\"",
     "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
     "prepare": "husky install",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "seed": "node server/tasks/seed.js"
   },
   "lint-staged": {
     "**/*.js": [
