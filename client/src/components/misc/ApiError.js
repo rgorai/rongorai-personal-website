@@ -7,7 +7,8 @@ const ApiError = (props) => {
       <div className="api-error-status">{status}</div>
       <div className="api-error-text">{statusText}</div>
 
-      {process.env.NODE_ENV === 'development' && <div>{data}</div>}
+      {/* {process.env.NODE_ENV === 'development' && <div>{data}</div>} */}
+      <div>{data}</div>
     </div>
   )
 }
