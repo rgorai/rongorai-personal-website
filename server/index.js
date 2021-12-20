@@ -20,9 +20,9 @@ if (process.env.NODE_ENV === 'production') {
   app.get('*', (req, res) => {
     res.sendFile(path.resolve('client', 'build', 'index.html'))
   })
-} else {
-  configRoutes(app)
 }
+
+configRoutes(app)
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`)
