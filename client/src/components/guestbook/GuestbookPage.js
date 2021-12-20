@@ -7,7 +7,7 @@ import GuestbookList from './GuestbookList'
 
 const GuestbookPage = (props) => {
   const [apiError, setApiError] = useState(null)
-  const [guestbook, setGuestbook] = useState([])
+  const [guestbook, setGuestbook] = useState(null)
 
   // request guestbook data
   useEffect(() => {
