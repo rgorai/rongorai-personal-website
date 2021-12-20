@@ -7,8 +7,7 @@ const guestbookRouter = express.Router()
 // send all guestbook entries
 guestbookRouter.get('/', async (req, res) => {
   try {
-    // res.status(200).json(await getAllEntries())
-    res.status(200).json('THIS SHOULD WORK')
+    res.status(200).json(await getAllEntries())
   } catch (e) {
     console.log(String(e))
     res.status(404).send(String(e))
