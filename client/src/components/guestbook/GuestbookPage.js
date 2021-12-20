@@ -13,8 +13,14 @@ const GuestbookPage = (props) => {
   useEffect(() => {
     axios
       .get('/api/guestbook')
-      .then((res) => setGuestbook(res.data))
-      .catch((err) => setApiError(err.response.data))
+      .then((res) => {
+        console.log(res.data)
+        setGuestbook(res.data)
+      })
+      .catch((err) => {
+        console.log(err)
+        setApiError(err.response.data)
+      })
   }, [])
 
   return apiError ? (
