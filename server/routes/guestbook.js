@@ -9,6 +9,7 @@ guestbookRouter.get('/', async (req, res) => {
   try {
     res.status(200).json(await getAllEntries())
   } catch (e) {
+    console.log(String(e))
     res.status(500).send(String(e))
   }
 })
