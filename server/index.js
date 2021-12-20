@@ -13,11 +13,12 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-configRoutes(app)
+// configRoutes(app)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.resolve('client', 'build')))
-  app.get('*', (req, res) => {
+  configRoutes(app)
+  app.get('/*', (req, res) => {
     res.sendFile(path.resolve('client', 'build', 'index.html'))
   })
 }
