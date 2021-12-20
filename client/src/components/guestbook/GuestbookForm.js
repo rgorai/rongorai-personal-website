@@ -46,7 +46,7 @@ const GuestbookForm = (props) => {
         onChange={(e) => setName(e.target.value)}
       />
 
-      <label className="form-label" htmlFor="name-input">
+      <label className="form-label" htmlFor="description-input">
         Description
       </label>
       <input
@@ -59,7 +59,7 @@ const GuestbookForm = (props) => {
         onChange={(e) => setDescription(e.target.value)}
       />
 
-      <label className="form-label" htmlFor="name-input">
+      <label className="form-label" htmlFor="message-input">
         Message
       </label>
       <input
