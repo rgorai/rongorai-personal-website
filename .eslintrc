@@ -1,12 +1,21 @@
 {
   "env": {
     "browser": true,
-    "es6": true
+    "commonjs": true,
+    "es6": true,
+    "node": true,
+    "jest": true
   },
   "extends": ["airbnb-base"],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "requireConfigFile": false
+  },
   "rules": {
     "import/extensions": 0,
     "import/prefer-default-export": 0,
+    "import/order": 1,
 
     // disable es6 rules -- start
     "arrow-body-style": 1,
@@ -287,9 +296,5 @@
     "unicode-bom": "off",
     "wrap-regex": "off"
     // Stylistic Issues -- end
-  },
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module"
   }
 }

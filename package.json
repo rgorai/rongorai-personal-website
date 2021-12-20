@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/rgorai/rongorai.github.io#readme",
   "devDependencies": {
+    "@babel/eslint-parser": "^7.16.5",
     "concurrently": "^6.5.0",
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
