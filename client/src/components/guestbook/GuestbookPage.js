@@ -19,7 +19,7 @@ const GuestbookPage = (props) => {
       })
       .catch((err) => {
         console.log(err)
-        setApiError(err.response.data)
+        setApiError(err.response)
       })
   }, [])
 
