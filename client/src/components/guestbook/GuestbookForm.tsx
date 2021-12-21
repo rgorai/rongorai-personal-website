@@ -3,15 +3,19 @@ import axios from 'axios'
 import { isValidString } from '../../services/errors'
 import FormError from '../misc/FormError'
 
-const GuestbookForm = (props) => {
-  const [formError, setFormError] = useState(null)
+interface Props {
+  
+}
+
+const GuestbookForm = (props : Props) => {
+  const [formError, setFormError] = useState('')
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [message, setMessage] = useState('')
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: any) => {
     e.preventDefault()
-    setFormError(null)
+    setFormError('')
 
     // error check
     try {
@@ -80,7 +84,7 @@ const GuestbookForm = (props) => {
         Submit
       </button>
 
-      {formError && <FormError message={formError} />}
+      {formError.length > 0 && <FormError message={formError} />}
     </form>
   )
 }

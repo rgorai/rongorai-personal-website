@@ -1,4 +1,4 @@
-import './App.css'
+import './App.css';
 import {
   BrowserRouter,
   Routes,
@@ -9,6 +9,7 @@ import ApiError from './components/misc/ApiError'
 import GuestbookPage from './components/guestbook/GuestbookPage'
 import MaintenanceNotice from './components/homepage/MaintenanceNotice'
 
+
 function App() {
   return (
     <div className="App">
@@ -17,9 +18,8 @@ function App() {
 
         <main>
           <Routes>
-            <Route exact path="/" element={<MaintenanceNotice />} />
+            <Route path="/" element={<MaintenanceNotice />} />
             <Route
-              exact
               path="/guestbook"
               element={<GuestbookPage />}
             />
@@ -39,7 +39,7 @@ function App() {
         </main>
       </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
