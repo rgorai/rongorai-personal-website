@@ -1,4 +1,8 @@
-const GuestbookList = (props) => {
+interface Props {
+  data: Array<any>
+}
+
+const GuestbookList = (props: Props) => {
   return (
     <div className="guestbook-list-container">
       {props.data.length === 0 ? (

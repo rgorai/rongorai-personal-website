@@ -1,4 +1,4 @@
-const isValidString = (data) => {
+const isValidString = (data: any) => {
   for (const k in data)
     if (
       typeof data[k] !== 'string' ||

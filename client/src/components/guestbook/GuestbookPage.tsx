@@ -5,7 +5,9 @@ import ApiError from '../misc/ApiError'
 import GuestbookForm from './GuestbookForm'
 import GuestbookList from './GuestbookList'
 
-const GuestbookPage = (props) => {
+interface Props {}
+
+const GuestbookPage = (props: Props) => {
   const [apiError, setApiError] = useState(null)
   const [guestbook, setGuestbook] = useState(null)
 

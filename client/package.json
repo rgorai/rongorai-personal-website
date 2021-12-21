@@ -33,7 +33,8 @@
       "react-app/jest"
     ],
     "rules": {
-      "import/order": 1
+      "import/order": 1,
+      "no-throw-literal": 0
     }
   },
   "browserslist": {

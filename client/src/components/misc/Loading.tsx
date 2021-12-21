@@ -1,4 +1,4 @@
-const Loading = (props) => {
+const Loading = () => {
   return <div>Loading</div>
 }
 
