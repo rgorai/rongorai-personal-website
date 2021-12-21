@@ -13,7 +13,7 @@
     "seed": "node server/tasks/seed.js"
   },
   "lint-staged": {
-    "**/*.js": [
+    "**/*{.tsx, .ts, .js, .css}": [
       "eslint --fix",
       "prettier --write"
     ]
