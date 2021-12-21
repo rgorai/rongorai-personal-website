@@ -1,6 +1,12 @@
 // import './apiError.css'
 
-const ApiError = (props) => {
+interface Props {
+  status: number,
+  statusText: String,
+  data: any
+}
+
+const ApiError = (props: Props) => {
   const { status, statusText, data } = props
   return (
     <div className="api-error-container">

@@ -1,6 +1,10 @@
 // import './formError.css'
 
-const FormError = (props) => {
+interface Props {
+  message: String
+}
+
+const FormError = (props: Props) => {
   const { message } = props
   return <div className="form-error">{message}</div>
 }

@@ -1,4 +1,4 @@
-import './App.css'
+import './App.css';
 import {
   BrowserRouter,
   Routes,
@@ -7,22 +7,19 @@ import {
 } from 'react-router-dom'
 import ApiError from './components/misc/ApiError'
 import GuestbookPage from './components/guestbook/GuestbookPage'
+import MaintenanceNotice from './components/homepage/MaintenanceNotice'
+
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <header className="App-header">Ron Gorai's Website</header>
+        {/* <header className="App-header">Ron Gorai's Website</header> */}
 
         <main>
           <Routes>
+            <Route path="/" element={<MaintenanceNotice />} />
             <Route
-              exact
-              path="/"
-              element={<div>Under Maintenance!</div>}
-            />
-            <Route
-              exact
               path="/guestbook"
               element={<GuestbookPage />}
             />
@@ -42,7 +39,7 @@ function App() {
         </main>
       </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

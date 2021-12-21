@@ -40,7 +40,6 @@ const getEntry = async (entryId) => {
 
 const getAllEntries = async () => {
   const guestbook = await guestbookCollection()
-  console.log('guestbook', guestbook)
   return await guestbook
     .find({})
     .map((e) => ({ ...e, _id: String(e._id) }))
