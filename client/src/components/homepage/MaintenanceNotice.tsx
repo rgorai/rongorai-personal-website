@@ -13,9 +13,10 @@ const MaintenanceNotice = () => {
         <h2>What's in store:</h2>
         <div className="maint-notice">
           I am rebuilding my website from the ground up using the MERN
-          full-stack, utilizing the modern technologies like TypeScript and Sass. Users will be able to view and read about
-          different aspects of my life and sign/view a guestbook for
-          my site.
+          full-stack, utilizing the modern technologies like
+          TypeScript and Sass. Users will be able to view and read
+          about different aspects of my life and sign/view a guestbook
+          for my site.
         </div>
       </div>
     </>
