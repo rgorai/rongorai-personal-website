@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import axios from 'axios'
-import { isValidString } from '../../services/errors'
-import FormError from '../misc/FormError'
+import { isValidString } from '../services/errors'
+import FormError from '../Misc/FormError'
 
-interface Props {
-  
-}
+interface Props {}
 
-const GuestbookForm = (props : Props) => {
+const GuestbookForm = (props: Props) => {
   const [formError, setFormError] = useState('')
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')

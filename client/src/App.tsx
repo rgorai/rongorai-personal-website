@@ -1,14 +1,13 @@
-import './App.css';
+import './App.scss'
 import {
   BrowserRouter,
   Routes,
   Route,
   Navigate,
 } from 'react-router-dom'
-import ApiError from './components/misc/ApiError'
-import GuestbookPage from './components/guestbook/GuestbookPage'
-import MaintenanceNotice from './components/homepage/MaintenanceNotice'
-
+import ApiError from './Misc/ApiError'
+import GuestbookPage from './Guestbook/GuestbookPage'
+import MaintenanceNotice from './Homepage/MaintenanceNotice'
 
 function App() {
   return (
@@ -19,10 +18,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<MaintenanceNotice />} />
-            <Route
-              path="/guestbook"
-              element={<GuestbookPage />}
-            />
+            <Route path="/guestbook" element={<GuestbookPage />} />
             <Route
               path="*"
               element={
@@ -39,7 +35,7 @@ function App() {
         </main>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

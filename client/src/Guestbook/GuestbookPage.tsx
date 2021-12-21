@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import Loading from '../misc/Loading'
-import ApiError from '../misc/ApiError'
+import Loading from '../Misc/Loading'
+import ApiError from '../Misc/ApiError'
 import GuestbookForm from './GuestbookForm'
 import GuestbookList from './GuestbookList'
 

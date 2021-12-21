@@ -1,8 +1,8 @@
 // import './apiError.css'
 
 interface Props {
-  status: number,
-  statusText: String,
+  status: number
+  statusText: String
   data: any
 }
 

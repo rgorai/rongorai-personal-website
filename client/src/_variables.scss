@@ -1,0 +1,16 @@
+// colors
+$site-background-color: #bec1c7;
+$nav-background-color: #40495c;
+$card-background-color: #ffffff;
+
+
+// mixins
+@mixin card-background {
+  background-color: #eeeeee;
+  padding: 30px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 3px 8px rgba(131, 131, 131, 0.664);
+}
