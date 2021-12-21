@@ -18,8 +18,8 @@
       "prettier --write"
     ],
     "**/*.scss": [
-      "stylelint --fix",
-      "prettier --write"
+      "prettier --write",
+      "stylelint --fix"
     ]
   },
   "repository": {
