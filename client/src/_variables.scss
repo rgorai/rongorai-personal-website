@@ -4,12 +4,12 @@ $nav-background-color: #293652;
 
 // mixins
 @mixin card-background($pad: 2em) {
-  background-color: rgb(248 248 248);
+  background-color: rgb(248, 248, 248);
   padding: $pad;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 3px 8px rgb(131 131 131 / 66.4%);
+  box-shadow: 0 3px 8px rgb(131, 131, 131, 66.4%);
   box-sizing: border-box;
 }
