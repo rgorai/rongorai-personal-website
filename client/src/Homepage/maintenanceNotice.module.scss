@@ -20,7 +20,9 @@
 .maint_notice {
   @include card-background;
 
-  width: 500px;
+  width: 800%;
+
+  // max-width: 500px;
   margin-top: 40px;
 
   h2 {
