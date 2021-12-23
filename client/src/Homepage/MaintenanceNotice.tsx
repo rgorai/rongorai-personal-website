@@ -8,9 +8,9 @@ const MaintenanceNotice = () => {
 
   return (
     <>
-      <div className={styles.maint_notice_container}>
+      <div className={styles.maintNoticeContainer}>
         <h1>Ron Gorai's Website</h1>
-        <div className={styles.maint_notice}>
+        <div className={styles.maintNotice}>
           <h2>Under Maintenance!</h2>
           <h3>What's in store:</h3>
           <p>

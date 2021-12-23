@@ -8,12 +8,13 @@ import {
 import ApiError from './Misc/ApiError'
 import GuestbookPage from './Guestbook/GuestbookPage'
 import MaintenanceNotice from './Homepage/MaintenanceNotice'
+import NavBar from './Homepage/NavBar'
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <header className="App-header">Ron Gorai's Website</header> */}
+        <NavBar />
 
         <main>
           <Routes>
