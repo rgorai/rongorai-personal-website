@@ -1,4 +1,3 @@
-import './App.scss'
 import {
   BrowserRouter,
   Routes,
@@ -18,7 +17,14 @@ function App() {
 
         <main>
           <Routes>
-            <Route path="/" element={<MaintenanceNotice />} />
+            <Route
+              path="/"
+              element={<Navigate replace to="/home" />}
+            />
+            <Route path="/home" element={<MaintenanceNotice />} />
+            <Route path="/projects" element={<MaintenanceNotice />} />
+            <Route path="/hobbies" element={<MaintenanceNotice />} />
+            <Route path="/about" element={<MaintenanceNotice />} />
             <Route path="/guestbook" element={<GuestbookPage />} />
             <Route
               path="*"

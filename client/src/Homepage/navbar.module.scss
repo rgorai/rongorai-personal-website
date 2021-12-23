@@ -1,7 +1,42 @@
-.navItem {
-  // color: red;
-}
+@use '../variables' as *;
 
-.activeNav {
-  color: red;
+.navbar {
+  @include display-flex(row);
+
+  background-color: $nav-background-color;
+  margin: 0;
+  position: fixed;
+  width: 100%;
+  height: 4em;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+
+  .logo {
+    margin-left: 1.5em;
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+
+  .noDec {
+    color: white;
+    text-decoration: none;
+  }
+
+  .navItem {
+    margin-right: 0.75em;
+    font-size: 1.1em;
+  }
+
+  .activeNav {
+    color: red;
+    font-weight: 700;
+  }
+
+  ul {
+    list-style-type: none;
+
+    li {
+      float: left;
+    }
+  }
 }

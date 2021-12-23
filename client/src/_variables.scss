@@ -13,3 +13,9 @@ $nav-background-color: #293652;
   box-shadow: 0 3px 8px rgb(131, 131, 131, 66.4%);
   box-sizing: border-box;
 }
+
+@mixin display-flex($direction) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+}
