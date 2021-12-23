@@ -45,6 +45,7 @@
     "stylelint-config-standard-scss": "^3.0.0"
   },
   "dependencies": {
+    "classnames": "^2.3.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "eslint-config-airbnb": "^19.0.2",
