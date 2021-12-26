@@ -8,6 +8,7 @@ import ApiError from './Misc/ApiError'
 import GuestbookPage from './Guestbook/GuestbookPage'
 import MaintenanceNotice from './Homepage/MaintenanceNotice'
 import NavBar from './Homepage/NavBar'
+import HomePage from './Homepage/HomePage'
 
 function App() {
   return (
@@ -18,13 +19,13 @@ function App() {
         <main>
           <Routes>
             <Route
-              path="/"
-              element={<Navigate replace to="/home" />}
+              path="/home"
+              element={<Navigate replace to="/" />}
             />
-            <Route path="/home" element={<MaintenanceNotice />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<MaintenanceNotice />} />
             <Route path="/projects" element={<MaintenanceNotice />} />
             <Route path="/hobbies" element={<MaintenanceNotice />} />
-            <Route path="/about" element={<MaintenanceNotice />} />
             <Route path="/guestbook" element={<GuestbookPage />} />
             <Route
               path="*"

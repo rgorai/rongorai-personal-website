@@ -1,0 +1,29 @@
+@use '../variables' as *;
+
+.homepageContainer {
+  @include display-flex(row);
+
+  width: min-content;
+  margin: 5em auto 0;
+
+  .messageContainer {
+    margin-right: 4em;
+
+    .title {
+      min-width: max-content;
+      font-size: 5em;
+      font-weight: 600;
+      color: white;
+    }
+
+    .welcome {
+      font-size: 3em;
+      font-weight: 300;
+      color: white;
+    }
+  }
+
+  .profileImg {
+    height: 40em;
+  }
+}

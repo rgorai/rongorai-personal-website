@@ -4,12 +4,11 @@ import { isValidString } from '../errors.js'
 
 const fileRouter = express.Router()
 
-// send requested file
-fileRouter.get('/', async (req, res) => {
-  const { filepath } = req.body
+fileRouter.get('/:encodedFilepath', async (req, res) => {
+  const { encodedFilepath } = req.params
 
   try {
-    isValidString({ filepath })
+    isValidString({ encodedFilepath })
   } catch (e) {
     return res.status(400).send(String(e))
   }
@@ -17,7 +16,13 @@ fileRouter.get('/', async (req, res) => {
   try {
     res
       .status(200)
-      .sendFile(path.resolve('server', 'files', filepath))
+      .sendFile(
+        path.resolve(
+          'server',
+          'files',
+          decodeURIComponent(encodedFilepath)
+        )
+      )
   } catch (e) {
     res.status(404).send(String(e))
   }

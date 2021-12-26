@@ -7,14 +7,23 @@
   margin: 0;
   position: fixed;
   width: 100%;
-  height: 4em;
+  height: 5em;
   box-sizing: border-box;
   border-bottom: 1px solid black;
 
   .logo {
+    @include display-flex(row);
+
     margin-left: 1.5em;
-    font-size: 1.5em;
-    font-weight: 700;
+    font-size: 1.75em;
+    font-weight: 600;
+    height: 55%;
+  }
+
+  .logoImg {
+    height: 100%;
+    border-radius: 8px;
+    margin-right: 0.5em;
   }
 
   .noDec {
@@ -23,8 +32,8 @@
   }
 
   .navItem {
-    margin-right: 0.75em;
-    font-size: 1.1em;
+    margin-right: 1em;
+    font-size: 1.15em;
   }
 
   .activeNav {
@@ -35,8 +44,16 @@
   ul {
     list-style-type: none;
 
+    // margin-left: 4em;
+
     li {
       float: left;
+
+      // padding: 5px;
+      // width: 100%;
+      // width: calc(var(max-content) + 0.5em);
+      // box-sizing: border-box;
+      // border: 3px solid black;
     }
   }
 }
