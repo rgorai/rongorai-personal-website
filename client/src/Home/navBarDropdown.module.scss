@@ -1,0 +1,14 @@
+@use '../variables' as *;
+
+.navDropdownContainer {
+  background-color: $dropdown-background-color;
+  position: absolute;
+
+  ul {
+    list-style-type: none;
+
+    li {
+      float: initial;
+    }
+  }
+}
