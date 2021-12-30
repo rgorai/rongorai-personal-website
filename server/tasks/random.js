@@ -1,3 +1,6 @@
 const test = '/home/profile-image.jpg'
 
-console.log(encodeURIComponent(test))
+const a = 'a'
+const b = 'b'
+
+console.log({ a, b })

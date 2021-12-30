@@ -1,0 +1,32 @@
+@use '../variables' as *;
+@use 'sass:color';
+
+.navDropdownContainer {
+  background-color: $dropdown-background-color;
+  position: absolute;
+
+  // border-radius: 8px;
+  box-shadow: 0 1px 8px rgb(71, 71, 71);
+  height: max-content;
+
+  .subNavItem {
+    color: white;
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    display: block;
+
+    &:hover {
+      background-color: color.adjust($dropdown-background-color, $lightness: 10%);
+    }
+  }
+
+  ul {
+    @include display-flex(column, flex-start);
+
+    padding: 0;
+
+    li {
+      width: 100%;
+    }
+  }
+}

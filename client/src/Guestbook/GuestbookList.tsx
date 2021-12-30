@@ -1,5 +1,5 @@
 interface Props {
-  data: Array<any>
+  data: Array<{ [key: string]: string }>
 }
 
 const GuestbookList = (props: Props) => {

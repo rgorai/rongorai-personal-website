@@ -7,15 +7,15 @@
   margin: 0;
   position: fixed;
   width: 100%;
-  height: 5em;
+  height: 4rem;
   box-sizing: border-box;
   border-bottom: 1px solid black;
 
   .logo {
     @include display-flex(row);
 
-    margin-left: 1.5em;
-    font-size: 1.75em;
+    margin-left: 2rem;
+    font-size: 1.7rem;
     font-weight: 600;
     height: 55%;
   }
@@ -23,37 +23,34 @@
   .logoImg {
     height: 100%;
     border-radius: 8px;
-    margin-right: 0.5em;
+    margin-right: 0.75rem;
   }
 
-  .noDec {
+  .navItem {
     color: white;
     text-decoration: none;
   }
 
-  .navItem {
-    margin-right: 1em;
-    font-size: 1.15em;
+  .navLink {
+    margin-right: 1rem;
+  }
+
+  .navArrow {
+    margin-left: 0.25rem;
+
+    // font-size: 1.2rem;
   }
 
   .activeNav {
-    color: red;
+    color: $active-nav-color;
     font-weight: 700;
   }
 
   ul {
+    @include display-flex(row);
+
     list-style-type: none;
-
-    // margin-left: 4em;
-
-    li {
-      float: left;
-
-      // padding: 5px;
-      // width: 100%;
-      // width: calc(var(max-content) + 0.5em);
-      // box-sizing: border-box;
-      // border: 3px solid black;
-    }
+    margin: 0;
+    height: 100%;
   }
 }

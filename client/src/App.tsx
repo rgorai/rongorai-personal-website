@@ -6,9 +6,9 @@ import {
 } from 'react-router-dom'
 import ApiError from './Misc/ApiError'
 import GuestbookPage from './Guestbook/GuestbookPage'
-import MaintenanceNotice from './Homepage/MaintenanceNotice'
-import NavBar from './Homepage/NavBar'
-import HomePage from './Homepage/HomePage'
+import MaintenanceNotice from './Home/MaintenanceNotice'
+import NavBar from './Home/NavBar'
+import HomePage from './Home/HomePage'
 
 function App() {
   return (

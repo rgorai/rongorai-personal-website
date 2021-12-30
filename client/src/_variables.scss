@@ -1,6 +1,8 @@
 // colors
 $site-background-color: #707783;
 $nav-background-color: #293652;
+$dropdown-background-color: rgb(117, 117, 117);
+$active-nav-color: red;
 
 // mixins
 @mixin card-background($pad: 2em) {
@@ -10,12 +12,12 @@ $nav-background-color: #293652;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 3px 8px rgb(131, 131, 131, 66.4%);
+  box-shadow: 0 3px 8px rgba(75, 75, 75, 91.1%);
   box-sizing: border-box;
 }
 
-@mixin display-flex($direction) {
+@mixin display-flex($direction, $alignment: center) {
   display: flex;
   flex-direction: $direction;
-  align-items: center;
+  align-items: $alignment;
 }

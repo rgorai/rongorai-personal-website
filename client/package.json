@@ -35,7 +35,17 @@
     ],
     "rules": {
       "import/order": 1,
-      "no-throw-literal": 0
+      "no-throw-literal": 0,
+      "object-curly-spacing": ["warn", "always"],
+      "space-in-parens": ["warn", "never"],
+      "space-unary-ops": [1, {
+        "words": true, 
+        "nonwords": false
+      }],
+      "spaced-comment": 1,
+      "prefer-destructuring": 1,
+      "no-multi-spaces": 1,
+      "semi": ["warn", "never"]
     }
   },
   "browserslist": {
