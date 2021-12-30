@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import styles from './homepage.module.scss'
+import styles from '../styles/homePage.module.scss'
 
 const HomePage = () => {
   useEffect(() => {
@@ -7,7 +7,7 @@ const HomePage = () => {
   }, [])
 
   return (
-    <div className={styles.homepageContainer}>
+    <div className={styles.homePageContainer}>
       <div className={styles.messageContainer}>
         <div className={styles.title}>Ron Gorai</div>
         <div className={styles.welcome}>Welcome to my website</div>

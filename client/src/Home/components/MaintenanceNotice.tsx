@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import styles from './maintenanceNotice.module.scss'
+import styles from '../styles/maintenanceNotice.module.scss'
 
 const MaintenanceNotice = () => {
   useEffect(() => {

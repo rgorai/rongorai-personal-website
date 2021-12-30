@@ -4,11 +4,12 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom'
-import ApiError from './Misc/ApiError'
-import GuestbookPage from './Guestbook/GuestbookPage'
-import MaintenanceNotice from './Home/MaintenanceNotice'
-import NavBar from './Home/NavBar'
-import HomePage from './Home/HomePage'
+import ApiError from './Misc/components/ApiError'
+import GuestbookPage from './Guestbook/components/GuestbookPage'
+import MaintenanceNotice from './Home/components/MaintenanceNotice'
+import NavBar from './Home/components/NavBar'
+import HomePage from './Home/components/HomePage'
+import AboutPage from './About/components/AboutPage'
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
               element={<Navigate replace to="/" />}
             />
             <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<MaintenanceNotice />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/projects" element={<MaintenanceNotice />} />
             <Route path="/hobbies" element={<MaintenanceNotice />} />
             <Route path="/guestbook" element={<GuestbookPage />} />

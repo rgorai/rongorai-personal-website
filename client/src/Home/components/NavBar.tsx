@@ -1,11 +1,11 @@
 import { Link, useLocation } from 'react-router-dom'
 import cx from 'classnames'
 import { useState } from 'react'
-import styles from './navBar.module.scss'
+import styles from '../styles/navBar.module.scss'
 import NavBarDropdown from './NavBarDropdown'
 
 const navLinks = [
-  { name: 'ABOUT', link: '/about' },
+  { name: 'ABOUT', link: '/about', submenu: ['Website', 'Myself'] },
   {
     name: 'PROJECTS',
     link: '/projects',
