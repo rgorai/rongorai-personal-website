@@ -13,6 +13,7 @@ const NavBarDropdown = (props: Props) => {
         {props.menuItems.map((e, i) => (
           <li key={i}>
             <Link
+              className={styles.subNavItem}
               to={`/${props.origin.toLowerCase()}/${e.toLowerCase()}`}
             >
               {e}

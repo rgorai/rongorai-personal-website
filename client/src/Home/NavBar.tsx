@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import cx from 'classnames'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import styles from './navBar.module.scss'
 import NavBarDropdown from './NavBarDropdown'
 
@@ -9,12 +9,12 @@ const navLinks = [
   {
     name: 'PROJECTS',
     link: '/projects',
-    submenu: ['PROFESSIONAL', 'PERSONAL'],
+    submenu: ['Professional', 'Personal'],
   },
   {
     name: 'HOBBIES',
     link: '/hobbies',
-    submenu: ['MUSIC', 'STEM', 'BOWLING', 'SNOWBOARDING'],
+    submenu: ['Music', 'STEM', 'Bowling', 'Snowboarding'],
   },
   { name: 'GUESTBOOK', link: '/guestbook' },
 ]
@@ -29,10 +29,6 @@ const NavBar = () => {
     }
   )
 
-  useEffect(() => {
-    console.log(navDropdowns)
-  }, [navDropdowns])
-
   const showDropdown = (name: string) => {
     const temp = { ...navDropdowns }
     Object.keys(temp).forEach((k) => {
@@ -40,7 +36,7 @@ const NavBar = () => {
     })
     setNavDropdowns(temp)
   }
-  const hideDropdown = (name: string) => {
+  const hideDropdown = () => {
     const temp = { ...navDropdowns }
     Object.keys(temp).forEach((k) => {
       temp[k] = false
@@ -63,7 +59,8 @@ const NavBar = () => {
           <li
             key={i}
             onMouseEnter={() => showDropdown(e.name)}
-            onMouseLeave={() => hideDropdown(e.name)}
+            onMouseLeave={() => hideDropdown()}
+            onClick={() => hideDropdown()}
           >
             <Link
               className={cx(styles.navLink, styles.navItem)}

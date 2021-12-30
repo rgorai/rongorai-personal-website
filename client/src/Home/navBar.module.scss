@@ -33,12 +33,12 @@
 
   .navLink {
     margin-right: 1rem;
+  }
 
-    .navArrow {
-      margin-left: 0.25rem;
+  .navArrow {
+    margin-left: 0.25rem;
 
-      // font-size: 1.2rem;
-    }
+    // font-size: 1.2rem;
   }
 
   .activeNav {
@@ -47,10 +47,10 @@
   }
 
   ul {
-    list-style-type: none;
+    @include display-flex(row);
 
-    li {
-      float: left;
-    }
+    list-style-type: none;
+    margin: 0;
+    height: 100%;
   }
 }
