@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
-import { isValidString } from '../services/errors'
-import FormError from '../Misc/FormError'
+import { isValidString } from '../../services/errors'
+import FormError from '../../Misc/components/FormError'
 
 interface Props {}
 

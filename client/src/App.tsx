@@ -4,11 +4,11 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom'
-import ApiError from './Misc/ApiError'
-import GuestbookPage from './Guestbook/GuestbookPage'
-import MaintenanceNotice from './Home/MaintenanceNotice'
-import NavBar from './Home/NavBar'
-import HomePage from './Home/HomePage'
+import ApiError from './Misc/components/ApiError'
+import GuestbookPage from './Guestbook/components/GuestbookPage'
+import MaintenanceNotice from './Home/components/MaintenanceNotice'
+import NavBar from './Home/components/NavBar'
+import HomePage from './Home/components/HomePage'
 
 function App() {
   return (

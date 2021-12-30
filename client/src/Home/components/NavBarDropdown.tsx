@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import styles from './navBarDropdown.module.scss'
+import styles from '../styles/navBarDropdown.module.scss'
 
 interface Props {
   origin: string

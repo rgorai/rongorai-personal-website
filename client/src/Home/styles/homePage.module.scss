@@ -1,6 +1,6 @@
-@use '../variables' as *;
+@use '../../variables' as *;
 
-.homepageContainer {
+.homePageContainer {
   @include display-flex(row);
 
   width: min-content;
