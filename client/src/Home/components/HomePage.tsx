@@ -15,7 +15,7 @@ const HomePage = () => {
       <img
         className={styles.profileImg}
         src={`/api/files/${encodeURIComponent(
-          'home/profile-image.jpg'
+          'home/profile-image-white.jpg'
         )}`}
         alt="Profile"
       />

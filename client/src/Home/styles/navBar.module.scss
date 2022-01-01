@@ -23,7 +23,8 @@
   .logoImg {
     height: 100%;
     border-radius: 8px;
-    margin-right: 0.75rem;
+
+    // margin-right: 0.75rem;
   }
 
   .navItem {
@@ -51,6 +52,8 @@
 
     list-style-type: none;
     margin: 0;
+    margin-left: 1.5rem;
+    padding: 0;
     height: 100%;
   }
 }

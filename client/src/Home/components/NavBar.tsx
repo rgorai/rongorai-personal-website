@@ -5,7 +5,11 @@ import styles from '../styles/navBar.module.scss'
 import NavBarDropdown from './NavBarDropdown'
 
 const navLinks = [
-  { name: 'ABOUT', link: '/about', submenu: ['Website', 'Myself'] },
+  {
+    name: 'ABOUT',
+    link: '/about',
+    submenu: ['Myself', 'This Site'],
+  },
   {
     name: 'PROJECTS',
     link: '/projects',
@@ -49,10 +53,10 @@ const NavBar = () => {
       <Link className={cx(styles.logo, styles.navItem)} to="/">
         <img
           className={styles.logoImg}
-          src={process.env.PUBLIC_URL + 'logo.svg'}
+          src={`/api/files/${encodeURIComponent('home/logo.svg')}`}
           alt="Logo"
         />
-        <span>Ron Gorai</span>
+        {/* <span>Ron Gorai</span> */}
       </Link>
       <ul>
         {navLinks.map((e, i) => (

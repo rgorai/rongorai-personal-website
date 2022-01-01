@@ -1,0 +1,13 @@
+@use '../../variables' as *;
+
+.guestbookPageContainer {
+  @include display-flex(row);
+
+  // display: inline-grid;
+  // grid-template-columns: 50%;
+  // align-items: center;
+
+  width: 100%;
+  margin: 1rem auto;
+  justify-content: space-between;
+}

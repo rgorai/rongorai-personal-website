@@ -14,7 +14,9 @@ const NavBarDropdown = (props: Props) => {
           <li key={i}>
             <Link
               className={styles.subNavItem}
-              to={`/${props.origin.toLowerCase()}/${e.toLowerCase()}`}
+              to={`/${props.origin.toLowerCase()}/${e
+                .replace(' ', '')
+                .toLowerCase()}`}
             >
               {e}
             </Link>
