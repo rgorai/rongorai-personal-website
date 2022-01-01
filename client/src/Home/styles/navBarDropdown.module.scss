@@ -23,6 +23,7 @@
   ul {
     @include display-flex(column, flex-start);
 
+    margin: 0;
     padding: 0;
 
     li {

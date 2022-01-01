@@ -12,10 +12,14 @@ const createEntry = async (name, description, message) => {
 
   // add new entry to db
   const guestbook = await guestbookCollection()
+  const date = new Date()
   const retval = await guestbook.insertOne({
     name,
     description,
     message,
+    date: `${
+      date.getMonth() + 1
+    }/${date.getDate()}/${date.getFullYear()}`,
   })
   if (retval.insertedCount === 0)
     throw 'Error: failed to add guestbook entry'

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { isValidString } from '../../services/errors'
 import FormError from '../../Misc/components/FormError'
+import styles from '../styles/guestbookForm.module.scss'
 
 interface Props {}
 
@@ -34,13 +35,17 @@ const GuestbookForm = (props: Props) => {
   }
 
   return (
-    <form id="guestbook-form" onSubmit={onSubmit}>
-      <label className="form-label" htmlFor="name-input">
+    <form
+      id="guestbook-form"
+      className={styles.formContainer}
+      onSubmit={onSubmit}
+    >
+      <label className={styles.formLabel} htmlFor="name-input">
         Name
       </label>
       <input
         id="name-input"
-        className="form-input"
+        className={styles.formInput}
         placeholder="Your name"
         type="text"
         name="name"
@@ -48,12 +53,12 @@ const GuestbookForm = (props: Props) => {
         onChange={(e) => setName(e.target.value)}
       />
 
-      <label className="form-label" htmlFor="description-input">
+      <label className={styles.formLabel} htmlFor="description-input">
         Description
       </label>
       <input
         id="description-input"
-        className="form-input"
+        className={styles.formInput}
         placeholder="A little bit about yourself"
         type="text"
         name="description"
@@ -61,14 +66,14 @@ const GuestbookForm = (props: Props) => {
         onChange={(e) => setDescription(e.target.value)}
       />
 
-      <label className="form-label" htmlFor="message-input">
+      <label className={styles.formLabel} htmlFor="message-input">
         Message
       </label>
-      <input
+      <textarea
         id="message-input"
-        className="form-input"
+        className={styles.formInput}
         placeholder="Anything you'd like to say"
-        type="text"
+        // type="text"
         name="message"
         value={message}
         onChange={(e) => setMessage(e.target.value)}

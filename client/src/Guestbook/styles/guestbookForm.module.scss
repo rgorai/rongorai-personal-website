@@ -1,0 +1,19 @@
+@use '../../variables' as *;
+
+.formContainer {
+  @include display-flex(column);
+  @include card-background;
+
+  width: 40%;
+
+  // margin: 0 auto;
+  // background-color: ;
+
+  .formLabel {
+    width: 100%;
+  }
+
+  .formInput {
+    font-family: inherit;
+  }
+}

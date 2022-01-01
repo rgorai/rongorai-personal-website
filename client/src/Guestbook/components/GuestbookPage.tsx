@@ -2,12 +2,11 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Loading from '../../Misc/components/Loading'
 import ApiError from '../../Misc/components/ApiError'
+import styles from '../styles/guestbookPage.module.scss'
 import GuestbookForm from './GuestbookForm'
 import GuestbookList from './GuestbookList'
 
-interface Props {}
-
-const GuestbookPage = (props: Props) => {
+const GuestbookPage = () => {
   const [apiError, setApiError] = useState(null)
   const [guestbook, setGuestbook] = useState(null)
 
@@ -22,10 +21,10 @@ const GuestbookPage = (props: Props) => {
   return apiError ? (
     <ApiError {...apiError} />
   ) : guestbook ? (
-    <>
+    <div className={styles.guestbookPageContainer}>
       <GuestbookForm />
       <GuestbookList data={guestbook} />
-    </>
+    </div>
   ) : (
     <Loading />
   )

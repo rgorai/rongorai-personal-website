@@ -1,12 +1,11 @@
-// import './formError.css'
+import styles from '../styles/formError.module.scss'
 
 interface Props {
   message: String
 }
 
 const FormError = (props: Props) => {
-  const { message } = props
-  return <div className="form-error">{message}</div>
+  return <div className={styles.formError}>{props.message}</div>
 }
 
 export default FormError
