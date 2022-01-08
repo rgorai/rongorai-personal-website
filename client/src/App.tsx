@@ -4,18 +4,32 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom'
+import React, { ReactElement } from 'react'
 import ApiError from './Misc/components/ApiError'
 import GuestbookPage from './Guestbook/components/GuestbookPage'
-import MaintenanceNotice from './Home/components/MaintenanceNotice'
 import NavBar from './Home/components/NavBar'
 import HomePage from './Home/components/HomePage'
-import AboutPage from './About/components/AboutPage'
+import ContentPage from './Content/components/ContentPage'
 
 function App() {
+  const appContent = [
+    { name: 'About', navItems: ['Myself', 'This Website'] },
+    { name: 'Projects', navItems: ['Professional', 'Personal'] },
+    {
+      name: 'Hobbies',
+      navItems: ['Music', 'STEM', 'Bowling', 'Snowboarding'],
+    },
+    { name: 'Guestbook', element: <GuestbookPage /> },
+  ] as Array<{
+    name: string
+    navItems?: Array<string>
+    element?: ReactElement
+  }>
+
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar />
+        <NavBar navItems={appContent.map((e) => e.name)} />
 
         <main>
           <Routes>
@@ -24,10 +38,43 @@ function App() {
               element={<Navigate replace to="/" />}
             />
             <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/projects" element={<MaintenanceNotice />} />
-            <Route path="/hobbies" element={<MaintenanceNotice />} />
-            <Route path="/guestbook" element={<GuestbookPage />} />
+
+            {appContent.map((e, i) => (
+              <React.Fragment key={i}>
+                <Route
+                  path={e.name.toLowerCase()}
+                  element={
+                    e.element ? (
+                      e.element
+                    ) : e.navItems ? (
+                      <Navigate
+                        replace
+                        to={e.navItems[0].toLowerCase()}
+                      />
+                    ) : (
+                      <ContentPage title={e.name} />
+                    )
+                  }
+                />
+                {e.navItems &&
+                  e.navItems.map((f, j) => (
+                    <Route
+                      key={j}
+                      path={`${e.name.toLowerCase()}/${f
+                        .replace(' ', '')
+                        .toLowerCase()}`}
+                      element={
+                        <ContentPage
+                          title={e.name}
+                          subtitle={f}
+                          navItems={e.navItems}
+                        />
+                      }
+                    />
+                  ))}
+              </React.Fragment>
+            ))}
+
             <Route
               path="*"
               element={
