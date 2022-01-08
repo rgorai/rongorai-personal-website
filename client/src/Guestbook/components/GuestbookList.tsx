@@ -8,7 +8,7 @@ const GuestbookList = (props: Props) => {
   return (
     <div className={styles.guestbookListWrapper}>
       {props.data.length === 0 ? (
-        <div>There's nothing here yet</div>
+        <div>There&apos;s nothing here yet</div>
       ) : (
         <div className={styles.guestbookListContainer}>
           {props.data.map((e, i) => (

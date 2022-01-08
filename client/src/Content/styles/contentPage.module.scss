@@ -1,34 +1,16 @@
 @use '../../variables' as *;
 
 .contentWrapper {
-  @include display-flex(row, flex-start);
+  @include display-flex(row);
 
   height: 100%;
 
-  // background-color: red;
-}
-
-.sideNavContainer {
-  height: 100%;
-  width: 30%;
-  max-width: 13rem;
-  padding: 1rem;
-  box-sizing: border-box;
-
-  // background-color: white;
-  border-right: 1px solid black;
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  .contentContainer {
+    background-color: $site-background-color;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    z-index: 2;
   }
-}
-
-.contentContainer {
-  // background-color: blue;\
-  box-sizing: border-box;
-  height: 100%;
-  width: 100%;
-  padding: 1rem;
 }

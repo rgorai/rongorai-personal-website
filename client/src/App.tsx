@@ -34,15 +34,14 @@ function App() {
         <main>
           <Routes>
             <Route
-              path="/home"
               element={<Navigate replace to="/" />}
+              path="/home"
             />
-            <Route path="/" element={<HomePage />} />
+            <Route element={<HomePage />} path="/" />
 
             {appContent.map((e, i) => (
               <React.Fragment key={i}>
                 <Route
-                  path={e.name.toLowerCase()}
                   element={
                     e.element ? (
                       e.element
@@ -52,31 +51,31 @@ function App() {
                         to={e.navItems[0].toLowerCase()}
                       />
                     ) : (
-                      <ContentPage title={e.name} />
+                      <ContentPage contentTitle={e.name} />
                     )
                   }
+                  path={e.name.toLowerCase()}
                 />
                 {e.navItems &&
                   e.navItems.map((f, j) => (
                     <Route
+                      element={
+                        <ContentPage
+                          contentSubtitle={f}
+                          contentTitle={e.name}
+                          navItems={e.navItems}
+                        />
+                      }
                       key={j}
                       path={`${e.name.toLowerCase()}/${f
                         .replace(' ', '')
                         .toLowerCase()}`}
-                      element={
-                        <ContentPage
-                          title={e.name}
-                          subtitle={f}
-                          navItems={e.navItems}
-                        />
-                      }
                     />
                   ))}
               </React.Fragment>
             ))}
 
             <Route
-              path="*"
               element={
                 <ApiError
                   {...{
@@ -86,6 +85,7 @@ function App() {
                   }}
                 />
               }
+              path="*"
             />
           </Routes>
         </main>

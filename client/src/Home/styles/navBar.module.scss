@@ -44,7 +44,12 @@
 
   .activeNav {
     color: $active-nav-color;
-    font-weight: 700;
+
+    // font-weight: 700;
+    text-decoration: underline;
+
+    // text-underline-position: under;
+    text-underline-offset: 0.35em;
   }
 
   ul {

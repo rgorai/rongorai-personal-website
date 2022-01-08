@@ -24,8 +24,9 @@ const NavBar = (props: Props) => {
           <li key={i}>
             <Link
               className={cx(styles.navLink, styles.navItem, {
-                [styles.activeNav]:
-                  location.pathname.split('/')[1] === e.toLowerCase(),
+                [styles.activeNav]: location.pathname.includes(
+                  e.toLowerCase()
+                ),
               })}
               to={e.toLowerCase()}
             >

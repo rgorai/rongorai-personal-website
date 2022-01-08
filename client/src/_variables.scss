@@ -1,10 +1,12 @@
 @use 'sass:color';
 
 // colors
-$site-background-color: #707783;
+$site-background-color: #d8dbe0;
 $nav-background-color: #293652;
-$dropdown-background-color: rgb(117, 117, 117);
+$side-nav-background-color: #6f7581;
 $active-nav-color: red;
+$active-side-nav-color: red;
+$shadow-color: #00000052;
 
 // mixins
 @mixin card-background($pad: 2em) {
