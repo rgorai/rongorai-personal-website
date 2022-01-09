@@ -5,6 +5,7 @@ import styles from '../styles/contentSideNav.module.scss'
 interface Props {
   contentTitle: string
   navItems: Array<string>
+  routes: Array<Object>
 }
 
 const ContentSideNav = (props: Props) => {
