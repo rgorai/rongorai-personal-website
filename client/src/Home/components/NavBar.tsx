@@ -12,11 +12,11 @@ const NavBar = (props: Props) => {
   return (
     <nav className={styles.navbar}>
       <Link className={cx(styles.logo, styles.navItem)} to="/">
-        {/* <img
-          className={styles.logoImg}
-          src={`/api/files/${encodeURIComponent('home/logo.svg')}`}
+        <img
           alt="Logo"
-        /> */}
+          className={styles.logoImg}
+          src={process.env.PUBLIC_URL + '/logo.svg'}
+        />
         <span>Ron Gorai</span>
       </Link>
       <ul>

@@ -9,7 +9,7 @@ import ApiError from './Misc/components/ApiError'
 import GuestbookPage from './Guestbook/components/GuestbookPage'
 import NavBar from './Home/components/NavBar'
 import HomePage from './Home/components/HomePage'
-import ContentPage from './Content/components/ContentPage'
+import ContentPage from './ContentPage/components/ContentPage'
 import { getRoute } from './services/utils'
 
 function App() {
