@@ -3,7 +3,7 @@ import cx from 'classnames'
 import styles from '../styles/navBar.module.scss'
 
 interface Props {
-  navItems: Array<string>
+  navItems: Array<{ name: string; route: string }>
 }
 
 const NavBar = (props: Props) => {
@@ -25,12 +25,12 @@ const NavBar = (props: Props) => {
             <Link
               className={cx(styles.navLink, styles.navItem, {
                 [styles.activeNav]: location.pathname.includes(
-                  e.toLowerCase()
+                  e.route
                 ),
               })}
-              to={e.toLowerCase()}
+              to={e.route}
             >
-              {e.toUpperCase()}
+              {e.name.toUpperCase()}
             </Link>
           </li>
         ))}

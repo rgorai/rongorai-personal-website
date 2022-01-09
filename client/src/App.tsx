@@ -10,6 +10,7 @@ import GuestbookPage from './Guestbook/components/GuestbookPage'
 import NavBar from './Home/components/NavBar'
 import HomePage from './Home/components/HomePage'
 import ContentPage from './Content/components/ContentPage'
+import { getRoute } from './services/utils'
 
 function App() {
   const appContent = [
@@ -29,7 +30,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar navItems={appContent.map((e) => e.name)} />
+        <NavBar
+          navItems={appContent.map((e) => ({
+            name: e.name,
+            route: getRoute([e.name]),
+          }))}
+        />
 
         <main>
           <Routes>
@@ -54,7 +60,7 @@ function App() {
                       <ContentPage contentTitle={e.name} />
                     )
                   }
-                  path={e.name.toLowerCase()}
+                  path={getRoute([e.name])}
                 />
                 {e.navItems &&
                   e.navItems.map((f, j) => (
@@ -67,9 +73,7 @@ function App() {
                         />
                       }
                       key={j}
-                      path={`${e.name.toLowerCase()}/${f
-                        .replace(' ', '')
-                        .toLowerCase()}`}
+                      path={getRoute([e.name, f])}
                     />
                   ))}
               </React.Fragment>

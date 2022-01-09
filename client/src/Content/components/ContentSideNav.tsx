@@ -3,9 +3,7 @@ import cx from 'classnames'
 import styles from '../styles/contentSideNav.module.scss'
 
 interface Props {
-  contentTitle: string
-  navItems: Array<string>
-  routes: Array<Object>
+  navItems: Array<{ name: string; route: string }>
 }
 
 const ContentSideNav = (props: Props) => {
@@ -19,15 +17,11 @@ const ContentSideNav = (props: Props) => {
             <Link
               className={cx(styles.sideNavLink, {
                 [styles.activeSideNavLink]:
-                  location.pathname.includes(
-                    e.replace(' ', '').toLowerCase()
-                  ),
+                  location.pathname.includes(e.route),
               })}
-              to={`/${props.contentTitle.toLowerCase()}/${e
-                .replace(' ', '')
-                .toLowerCase()}`}
+              to={e.route}
             >
-              {e}
+              {e.name}
             </Link>
           </li>
         ))}
