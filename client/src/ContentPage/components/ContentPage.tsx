@@ -15,26 +15,26 @@ interface Props {
 }
 
 const ContentPage = (props: Props) => {
-  const [pageData, setPageData] = useState('')
+  // const [pageData, setPageData] = useState('')
 
-  useEffect(() => {
-    axios
-      .get(
-        `/api/files/${encodeURIComponent(
-          getRoute([props.contentTitle, props.contentSubtitle]).slice(
-            1
-          ) + '/data.html'
-        )}`
-      )
-      .then((res) => setPageData(res.data))
-      .catch((err) =>
-        console.error('fetch file error', err.response.data)
-      )
-  }, [props.contentSubtitle, props.contentTitle])
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `/api/files/${encodeURIComponent(
+  //         getRoute([props.contentTitle, props.contentSubtitle]).slice(
+  //           1
+  //         ) + '/data.html'
+  //       )}`
+  //     )
+  //     .then((res) => setPageData(res.data))
+  //     .catch((err) =>
+  //       console.error('fetch file error', err.response.data)
+  //     )
+  // }, [props.contentSubtitle, props.contentTitle])
 
-  useEffect(() => {
-    console.log('page-data', pageData)
-  }, [pageData])
+  // useEffect(() => {
+  //   console.log('page-data', pageData)
+  // }, [pageData])
 
   return (
     <div className={styles.contentWrapper}>
@@ -50,7 +50,8 @@ const ContentPage = (props: Props) => {
       <div
         className={cx(styles.contentContainer, 'content-container')}
       >
-        {pageData ? <div>{parse(pageData)}</div> : <Loading />}
+        content here
+        {/* {pageData ? <div>{parse(pageData)}</div> : <Loading />} */}
       </div>
     </div>
   )

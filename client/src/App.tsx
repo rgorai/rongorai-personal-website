@@ -15,7 +15,10 @@ import { getRoute } from './services/utils'
 function App() {
   const appContent = [
     { name: 'About', navItems: ['Myself', 'This Website'] },
-    { name: 'Projects', navItems: ['Professional', 'Personal'] },
+    {
+      name: 'Projects',
+      navItems: ['Professional', 'Personal', 'Miscellaneous'],
+    },
     {
       name: 'Hobbies',
       navItems: ['Music', 'STEM', 'Bowling', 'Snowboarding'],
