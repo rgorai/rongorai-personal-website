@@ -1,16 +1,17 @@
 @use '../../variables' as *;
 
-.contentWrapper {
+.contentPageWrapper {
   @include display-flex(row);
 
   height: 100%;
 
-  .contentContainer {
+  .contentWrapper {
     background-color: $content-page-background-color;
     box-sizing: border-box;
     height: 100%;
     width: 100%;
-    padding: 1rem;
+    padding: 2rem 0 5rem;
     z-index: 2;
+    overflow-y: auto;
   }
 }

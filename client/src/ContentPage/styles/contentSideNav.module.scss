@@ -3,7 +3,7 @@
 
 .sideNavContainer {
   height: 100%;
-  width: 30%;
+  width: 25%;
   max-width: 13rem;
   padding-top: 1rem;
   box-sizing: border-box;
@@ -35,8 +35,7 @@
     }
 
     .activeSideNavLink {
-      // color: $active-side-nav-color;
-      color: black;
+      color: $active-side-nav-color;
       background-color: $content-page-background-color;
       box-shadow: 0 2px 6px $shadow-color;
       font-weight: 600;

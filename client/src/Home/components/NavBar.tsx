@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import cx from 'classnames'
+import { getFile } from '../../services/utils'
 import styles from '../styles/navBar.module.scss'
 
 interface Props {
@@ -12,11 +13,11 @@ const NavBar = (props: Props) => {
   return (
     <nav className={styles.navbar}>
       <Link className={cx(styles.logo, styles.navItem)} to="/">
-        <img
+        {/* <img
           alt="Logo"
           className={styles.logoImg}
-          src={process.env.PUBLIC_URL + '/logo.svg'}
-        />
+          src={getFile('home/logo.svg')}
+        /> */}
         <span>Ron Gorai</span>
       </Link>
       <ul>

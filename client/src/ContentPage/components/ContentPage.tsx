@@ -1,57 +1,30 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import parse from 'html-react-parser'
-import styles from '../styles/contentPage.module.scss'
-import { getRoute } from '../../services/utils'
-import Loading from '../../Misc/components/Loading'
-import ContentSideNav from './ContentSideNav'
-import '../styles/content.scss'
+import { ReactElement } from 'react'
 import cx from 'classnames'
+import styles from '../styles/contentPage.module.scss'
+import { parseRoute } from '../../services/utils'
+import ContentSideNav from './ContentSideNav'
 
 interface Props {
   contentTitle: string
   contentSubtitle?: string
-  navItems?: Array<string>
+  navItems?: Array<{ name: string; element: ReactElement }>
+  element: ReactElement
 }
 
 const ContentPage = (props: Props) => {
-  // const [pageData, setPageData] = useState('')
-
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       `/api/files/${encodeURIComponent(
-  //         getRoute([props.contentTitle, props.contentSubtitle]).slice(
-  //           1
-  //         ) + '/data.html'
-  //       )}`
-  //     )
-  //     .then((res) => setPageData(res.data))
-  //     .catch((err) =>
-  //       console.error('fetch file error', err.response.data)
-  //     )
-  // }, [props.contentSubtitle, props.contentTitle])
-
-  // useEffect(() => {
-  //   console.log('page-data', pageData)
-  // }, [pageData])
-
   return (
-    <div className={styles.contentWrapper}>
+    <div className={styles.contentPageWrapper}>
       {props.navItems && (
         <ContentSideNav
           navItems={props.navItems.map((e) => ({
-            name: e,
-            route: getRoute([props.contentTitle, e]),
+            name: e.name,
+            route: parseRoute([props.contentTitle, e.name]),
           }))}
         />
       )}
 
-      <div
-        className={cx(styles.contentContainer, 'content-container')}
-      >
-        content here
-        {/* {pageData ? <div>{parse(pageData)}</div> : <Loading />} */}
+      <div className={cx(styles.contentWrapper, 'content-container')}>
+        {props.element}
       </div>
     </div>
   )

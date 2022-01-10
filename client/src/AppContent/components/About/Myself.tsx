@@ -1,7 +1,16 @@
 import styles from '../../styles/appContent.module.scss'
+import { getFile } from '../../../services/utils'
 
-const AboutMyself = () => (
-  <>
+const Myself = () => (
+  <div className={styles.contentContainer}>
+    <h1>About Myself</h1>
+
+    <img
+      alt="Profile Image"
+      className={styles.alignImageLeft}
+      src={getFile('about/myself/profile-image.jpg')}
+    />
+
     <p>
       My name is Rajarshi, but I go by Ron. I have been interested in
       STEM throughout my life, ever since my grandfather showed me
@@ -46,9 +55,9 @@ const AboutMyself = () => (
 
     <img
       alt="Stevens Aerial Shot"
-      src="/api/files/about/myself/stevens-aerial.jpg"
+      src={getFile('about/myself/stevens-aerial.jpg')}
     />
-  </>
+  </div>
 )
 
-export default AboutMyself
+export default Myself

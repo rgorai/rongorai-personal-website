@@ -4,10 +4,13 @@
 $site-background-color: #6f7581;
 $nav-background-color: #293652;
 $side-nav-background-color: $site-background-color;
-$content-page-background-color: #d8dbe0;
-$active-nav-color: red;
-$active-side-nav-color: red;
+$content-page-background-color: #e9ebf0;
 $shadow-color: #00000052;
+$active-nav-color: red;
+$active-side-nav-color: black;
+$link-color: #1062c0;
+$visited-link-color: rgb(140, 68, 158);
+$active-link-color: rgb(228, 67, 67);
 
 // mixins
 @mixin card-background($pad: 2em) {
