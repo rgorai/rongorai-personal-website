@@ -12,6 +12,7 @@
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
     "axios": "^0.24.0",
+    "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.1",
@@ -20,6 +21,13 @@
     "serve": "^13.0.2",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/eslint-parser": "^7.16.5",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint": "^8.6.0",
+    "eslint-plugin-react": "^7.28.0"
   },
   "scripts": {
     "start": "serve -s build",
@@ -30,22 +38,40 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ],
     "rules": {
+      "jsx-a11y/img-redundant-alt": 0,
+      "react/react-in-jsx-scope": 0,
+      "react/jsx-tag-spacing": [1, { "beforeSelfClosing": "always" }],
+      "react/jsx-sort-props": 1,
+      "react/jsx-props-no-multi-spaces": 1,
+      "react/no-unescaped-entities": 2,
       "import/order": 1,
+      "no-unused-vars": 1,
       "no-throw-literal": 0,
-      "object-curly-spacing": ["warn", "always"],
-      "space-in-parens": ["warn", "never"],
-      "space-unary-ops": [1, {
-        "words": true, 
-        "nonwords": false
-      }],
+      "object-curly-spacing": [
+        "warn",
+        "always"
+      ],
+      "space-in-parens": [
+        "warn",
+        "never"
+      ],
+      "space-unary-ops": [
+        1,
+        {
+          "words": true,
+          "nonwords": false
+        }
+      ],
       "spaced-comment": 1,
       "prefer-destructuring": 1,
       "no-multi-spaces": 1,
-      "semi": ["warn", "never"]
+      "semi": [
+        "warn",
+        "never"
+      ]
     }
   },
   "browserslist": {

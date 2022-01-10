@@ -10,7 +10,7 @@
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "requireConfigFile": true
+    "requireConfigFile": false
   },
   "rules": {
     "import/extensions": 0,
