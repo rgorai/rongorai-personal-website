@@ -1,5 +1,6 @@
 import styles from '../../styles/appContent.module.scss'
 import { getFile } from '../../../services/utils'
+import Image from '../../../Misc/components/Image'
 
 const Other = () => (
   <div className={styles.contentContainer}>
@@ -40,12 +41,12 @@ const Other = () => (
       CS 392 Course Syllabus
     </a>
 
-    <img
+    <Image
       alt="Stevens Logo"
       src={getFile('projects/other/stevens-logo.png')}
     />
 
-    <h2>International Ivy</h2>
+    <h2 id="intl-ivy">International Ivy</h2>
 
     <p>
       Following my high school graduation, I worked as an instructor
@@ -62,15 +63,15 @@ const Other = () => (
       rel="noreferrer"
       target="_blank"
     >
-      International Ivy’s Website{' '}
+      International Ivy’s Website
     </a>
 
-    <img
+    <Image
       alt="International Ivy Logo"
       src={getFile('projects/other/international-ivy-logo.jpg')}
     />
 
-    <h2>Mathnasium</h2>
+    <h2 id="mathnasium">Mathnasium</h2>
 
     <p>
       During my senior year of high school, I worked at my local
@@ -84,15 +85,15 @@ const Other = () => (
       rel="noreferrer"
       target="_blank"
     >
-      Mathnasium of Northeast Parsippany’s Website{' '}
+      Mathnasium of Northeast Parsippany’s Website
     </a>
 
-    <img
+    <Image
       alt="Mathnasium Parsippany Interior"
       src={getFile('projects/other/mathnasium-indoor.jpg')}
     />
 
-    <h2>Boy Scouts of America</h2>
+    <h2 id="bsa">Boy Scouts of America</h2>
 
     <p>
       My first job, at the age of 14, was a volunteer camp counselor
@@ -103,15 +104,16 @@ const Other = () => (
     </p>
 
     <a
-      href="https://www.mathnasium.com/neparsippany"
+      href="https://www.facebook.com/SummerSTEMInstitute/"
       rel="noreferrer"
       target="_blank"
     >
       SSI Facebook Page
     </a>
 
-    <img
+    <Image
       alt="BSA Kart Activity"
+      caption="Helping students build a kit kart"
       src={getFile('projects/other/bsa-kart-activity.jpg')}
     />
   </div>

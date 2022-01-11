@@ -13,12 +13,13 @@
 
   ul {
     list-style-type: none;
-    padding: 0;
+    padding-left: 1rem;
     margin: 0;
 
     .sideNavItem {
       width: 100%;
       cursor: pointer;
+      border-radius: 1rem 0 0 1rem;
 
       &:hover {
         background-color: color.adjust($side-nav-background-color, $lightness: 10%);
@@ -32,6 +33,7 @@
       text-decoration: none;
       padding: 0.6rem 1rem;
       box-sizing: border-box;
+      border-radius: 1rem 0 0 1rem;
     }
 
     .activeSideNavLink {

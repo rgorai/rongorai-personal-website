@@ -24,11 +24,6 @@
     font-weight: 600;
   }
 
-  img {
-    width: 100%;
-    margin-top: 2rem;
-  }
-
   a {
     display: block;
     text-align: center;
@@ -46,17 +41,17 @@
     }
   }
 
-  .alignImageLeft {
-    width: 40%;
-    float: left;
-    margin: 0 3% 3% 0;
-  }
+  // .alignImageLeft {
+  //   width: 40%;
+  //   float: left;
+  //   margin: 0 3% 3% 0;
+  // }
 
-  .pngImage {
-    padding: 1rem;
+  // .pngImage {
+  //   padding: 1rem;
 
-    // background-color: white;
-    background-color: color.adjust($content-page-background-color, $lightness: 6%);
-    box-sizing: border-box;
-  }
+  //   // background-color: white;
+  //   background-color: color.adjust($content-page-background-color, $lightness: 6%);
+  //   box-sizing: border-box;
+  // }
 }

@@ -1,13 +1,14 @@
 import styles from '../../styles/appContent.module.scss'
 import { getFile } from '../../../services/utils'
+import Image from '../../../Misc/components/Image'
 
 const Myself = () => (
   <div className={styles.contentContainer}>
     <h1>About Myself</h1>
 
-    <img
+    <Image
       alt="Profile Image"
-      className={styles.alignImageLeft}
+      className="alignImageLeft"
       src={getFile('about/myself/profile-image.jpg')}
     />
 
@@ -53,7 +54,7 @@ const Myself = () => (
       Hoboken, NJ pursuing a BS in Cybersecurity.
     </p>
 
-    <img
+    <Image
       alt="Stevens Aerial Shot"
       src={getFile('about/myself/stevens-aerial.jpg')}
     />

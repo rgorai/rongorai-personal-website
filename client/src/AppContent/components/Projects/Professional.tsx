@@ -1,5 +1,6 @@
 import styles from '../../styles/appContent.module.scss'
 import { getFile } from '../../../services/utils'
+import Image from '../../../Misc/components/Image'
 
 const Professional = () => (
   <div className={styles.contentContainer}>
@@ -12,9 +13,9 @@ const Professional = () => (
       processing, and artificial intelligence / machine learning.
     </p>
 
-    <img
+    <Image
       alt="NeuraFlash Logo"
-      className={styles.pngImage}
+      className="pngImage"
       src={getFile(
         'projects/professional/neuraflash/neuraflash-logo.png'
       )}
@@ -135,7 +136,7 @@ const Professional = () => (
       My research on testing platforms
     </a>
 
-    <img
+    <Image
       alt="IBM Office"
       src={getFile('projects/professional/ibm/ibm-office.png')}
     />
@@ -226,7 +227,7 @@ const Professional = () => (
       My Spring 2020 ZAIS Project Report
     </a>
 
-    <img
+    <Image
       alt="ZAIS Group Office"
       src={getFile('projects/professional/zais/zais-office.jpg')}
     />
@@ -251,7 +252,7 @@ const Professional = () => (
       rel="noreferrer"
       target="_blank"
     >
-      My Kovid Project Report{' '}
+      My Kovid Project Report
     </a>
 
     <a
@@ -261,17 +262,17 @@ const Professional = () => (
       rel="noreferrer"
       target="_blank"
     >
-      My Kovid Project Presentation{' '}
+      My Kovid Project Presentation
     </a>
 
-    <img
+    <Image
       alt="Login Times Chart"
       src={getFile(
         'projects/professional/kovid/login-rates-chart.jpg'
       )}
     />
 
-    <img
+    <Image
       alt="Login Rates Chart"
       src={getFile(
         'projects/professional/kovid/login-times-chart.jpg'
