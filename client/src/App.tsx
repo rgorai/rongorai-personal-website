@@ -15,6 +15,7 @@ import ContentPage from './ContentPage/components/ContentPage'
 import Myself from './AppContent/components/About/Myself'
 import ThisWebsite from './AppContent/components/About/ThisWebsite'
 import Professional from './AppContent/components/Projects/Professional'
+import Other from './AppContent/components/Projects/Other'
 
 function App() {
   const appContent = [
@@ -30,7 +31,7 @@ function App() {
       navItems: [
         { name: 'Professional', element: <Professional /> },
         { name: 'Personal', element: null },
-        { name: 'Miscellaneous', element: null },
+        { name: 'Other', element: <Other /> },
       ],
     },
     {
