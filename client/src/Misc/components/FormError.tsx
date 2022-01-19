@@ -1,6 +1,6 @@
 import styles from '../styles/formError.module.scss'
 
-interface Props {
+type Props = {
   message: String
 }
 

@@ -1,5 +1,6 @@
 import styles from '../../styles/appContent.module.scss'
 import { getFile } from '../../../services/utils'
+import Media from '../../../Misc/components/Media'
 
 const Professional = () => (
   <div className={styles.contentContainer}>
@@ -12,12 +13,13 @@ const Professional = () => (
       processing, and artificial intelligence / machine learning.
     </p>
 
-    <img
-      alt="NeuraFlash Logo"
-      className={styles.pngImage}
+    <Media
+      type="img"
+      className="pngImage"
       src={getFile(
         'projects/professional/neuraflash/neuraflash-logo.png'
       )}
+      mediaProps={{ alt: 'NeuraFlash Logo' }}
     />
 
     <h2 id="ibm">IBM</h2>
@@ -135,9 +137,10 @@ const Professional = () => (
       My research on testing platforms
     </a>
 
-    <img
-      alt="IBM Office"
+    <Media
+      type="img"
       src={getFile('projects/professional/ibm/ibm-office.png')}
+      mediaProps={{ alt: 'IBM Office' }}
     />
 
     <h2 id="zais-group">Zais Group</h2>
@@ -226,9 +229,10 @@ const Professional = () => (
       My Spring 2020 ZAIS Project Report
     </a>
 
-    <img
-      alt="ZAIS Group Office"
+    <Media
+      type="img"
       src={getFile('projects/professional/zais/zais-office.jpg')}
+      mediaProps={{ alt: 'ZAIS Group Office' }}
     />
 
     <h2 id="kovid-inc">KOVID Inc.</h2>
@@ -251,7 +255,7 @@ const Professional = () => (
       rel="noreferrer"
       target="_blank"
     >
-      My Kovid Project Report{' '}
+      My Kovid Project Report
     </a>
 
     <a
@@ -261,21 +265,23 @@ const Professional = () => (
       rel="noreferrer"
       target="_blank"
     >
-      My Kovid Project Presentation{' '}
+      My Kovid Project Presentation
     </a>
 
-    <img
-      alt="Login Times Chart"
+    <Media
+      type="img"
       src={getFile(
         'projects/professional/kovid/login-rates-chart.jpg'
       )}
+      mediaProps={{ alt: 'Login Times Chart' }}
     />
 
-    <img
-      alt="Login Rates Chart"
+    <Media
+      type="img"
       src={getFile(
         'projects/professional/kovid/login-times-chart.jpg'
       )}
+      mediaProps={{ alt: 'Login Rates Chart' }}
     />
   </div>
 )

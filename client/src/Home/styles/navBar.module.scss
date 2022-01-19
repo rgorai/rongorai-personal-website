@@ -11,6 +11,7 @@
   height: 4rem;
   box-sizing: border-box;
   border-bottom: 1px solid black;
+  box-shadow: 0 2px 6px $shadow-color;
 
   .logo {
     @include display-flex(row);

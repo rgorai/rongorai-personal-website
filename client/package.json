@@ -41,15 +41,15 @@
       "react-app"
     ],
     "rules": {
-      "jsx-a11y/img-redundant-alt": 0,
-      "react/react-in-jsx-scope": 0,
-      "react/jsx-tag-spacing": [1, { "beforeSelfClosing": "always" }],
-      "react/jsx-sort-props": 1,
-      "react/jsx-props-no-multi-spaces": 1,
-      "react/no-unescaped-entities": 2,
-      "import/order": 1,
-      "no-unused-vars": 1,
-      "no-throw-literal": 0,
+      "jsx-a11y/img-redundant-alt": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-tag-spacing": ["warn", { "beforeSelfClosing": "always" }],
+      "react/jsx-props-no-multi-spaces": "warn",
+      "react/no-unescaped-entities": "error",
+      "import/order": "warn",
+      "no-unused-vars": "warn",
+      "no-throw-literal": "off",
+      "arrow-spacing": ["warn", { "before": true, "after": true }],
       "object-curly-spacing": [
         "warn",
         "always"
@@ -59,15 +59,15 @@
         "never"
       ],
       "space-unary-ops": [
-        1,
+        "warn",
         {
           "words": true,
           "nonwords": false
         }
       ],
-      "spaced-comment": 1,
-      "prefer-destructuring": 1,
-      "no-multi-spaces": 1,
+      "spaced-comment": "warn",
+      "prefer-destructuring": "warn",
+      "no-multi-spaces": "warn",
       "semi": [
         "warn",
         "never"

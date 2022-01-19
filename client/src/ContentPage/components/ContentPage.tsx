@@ -4,7 +4,7 @@ import styles from '../styles/contentPage.module.scss'
 import { parseRoute } from '../../services/utils'
 import ContentSideNav from './ContentSideNav'
 
-interface Props {
+type Props = {
   contentTitle: string
   contentSubtitle?: string
   navItems?: Array<{ name: string; element: ReactElement }>

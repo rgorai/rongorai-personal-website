@@ -5,7 +5,7 @@
   height: 100%;
   width: 25%;
   max-width: 13rem;
-  padding-top: 1rem;
+  padding-top: 0.75rem;
   box-sizing: border-box;
   background-color: $side-nav-background-color;
   box-shadow: inset -2px 0 7px $shadow-color;
@@ -17,28 +17,33 @@
     margin: 0;
 
     .sideNavItem {
-      width: 100%;
-      cursor: pointer;
-
-      &:hover {
-        background-color: color.adjust($side-nav-background-color, $lightness: 10%);
-      }
+      // width: 100%;
+      // cursor: pointer;
+      // margin-bottom: 0.6rem;
     }
 
     .sideNavLink {
       display: block;
       width: 100%;
-      color: white;
+      color: black;
       text-decoration: none;
-      padding: 0.6rem 1rem;
+      padding: 0.75rem 1rem;
       box-sizing: border-box;
+
+      &:hover {
+        background-color: color.adjust($side-nav-background-color, $lightness: -10%);
+      }
     }
 
     .activeSideNavLink {
       color: $active-side-nav-color;
       background-color: $content-page-background-color;
       box-shadow: 0 2px 6px $shadow-color;
-      font-weight: 600;
+      font-weight: 700;
+
+      &:hover {
+        background-color: $content-page-background-color;
+      }
     }
   }
 }

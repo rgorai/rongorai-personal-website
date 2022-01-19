@@ -2,6 +2,7 @@
 @use 'sass:color';
 
 .contentContainer {
+  // @include display-flex(column, flex-start, flex-start);
   width: 50%;
   min-width: 30rem;
   margin: 0 auto;
@@ -22,18 +23,15 @@
 
   h3 {
     font-weight: 600;
-  }
-
-  img {
-    width: 100%;
-    margin-top: 2rem;
+    margin-bottom: 0.5rem;
   }
 
   a {
     display: block;
+    width: max-content;
     text-align: center;
     font-weight: 700;
-    margin: 1.5rem 0;
+    margin: 1.5rem auto;
     text-decoration: none;
     color: $link-color;
 
@@ -44,19 +42,5 @@
     &:active {
       color: $active-link-color;
     }
-  }
-
-  .alignImageLeft {
-    width: 40%;
-    float: left;
-    margin: 0 3% 3% 0;
-  }
-
-  .pngImage {
-    padding: 1rem;
-
-    // background-color: white;
-    background-color: color.adjust($content-page-background-color, $lightness: 6%);
-    box-sizing: border-box;
   }
 }

@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { getFile } from '../../services/utils'
 import styles from '../styles/navBar.module.scss'
 
-interface Props {
+type Props = {
   navItems: Array<{ name: string; route: string }>
 }
 

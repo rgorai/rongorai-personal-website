@@ -1,6 +1,6 @@
 import styles from '../styles/guestbookList.module.scss'
 
-interface Props {
+type Props = {
   data: Array<{ [key: string]: string }>
 }
 

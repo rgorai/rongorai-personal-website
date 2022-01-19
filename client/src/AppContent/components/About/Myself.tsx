@@ -1,14 +1,16 @@
 import styles from '../../styles/appContent.module.scss'
 import { getFile } from '../../../services/utils'
+import Media from '../../../Misc/components/Media'
 
 const Myself = () => (
   <div className={styles.contentContainer}>
     <h1>About Myself</h1>
 
-    <img
-      alt="Profile Image"
-      className={styles.alignImageLeft}
+    <Media
+      type="img"
+      alignLeft
       src={getFile('about/myself/profile-image.jpg')}
+      mediaProps={{ alt: 'Profile Media' }}
     />
 
     <p>
@@ -53,9 +55,10 @@ const Myself = () => (
       Hoboken, NJ pursuing a BS in Cybersecurity.
     </p>
 
-    <img
-      alt="Stevens Aerial Shot"
+    <Media
+      type="img"
       src={getFile('about/myself/stevens-aerial.jpg')}
+      mediaProps={{ alt: 'Stevens Aerial Shot' }}
     />
   </div>
 )
