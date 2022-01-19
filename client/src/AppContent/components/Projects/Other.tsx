@@ -1,6 +1,6 @@
 import styles from '../../styles/appContent.module.scss'
 import { getFile } from '../../../services/utils'
-import Image from '../../../Misc/components/Image'
+import Media from '../../../Misc/components/Media'
 
 const Other = () => (
   <div className={styles.contentContainer}>
@@ -41,9 +41,10 @@ const Other = () => (
       CS 392 Course Syllabus
     </a>
 
-    <Image
-      alt="Stevens Logo"
+    <Media
+      type="img"
       src={getFile('projects/other/stevens-logo.png')}
+      mediaProps={{ alt: 'Stevens Logo' }}
     />
 
     <h2 id="intl-ivy">International Ivy</h2>
@@ -66,9 +67,10 @@ const Other = () => (
       International Ivy’s Website
     </a>
 
-    <Image
-      alt="International Ivy Logo"
+    <Media
+      type="img"
       src={getFile('projects/other/international-ivy-logo.jpg')}
+      mediaProps={{ alt: 'International Ivy Logo' }}
     />
 
     <h2 id="mathnasium">Mathnasium</h2>
@@ -88,9 +90,10 @@ const Other = () => (
       Mathnasium of Northeast Parsippany’s Website
     </a>
 
-    <Image
-      alt="Mathnasium Parsippany Interior"
+    <Media
+      type="img"
       src={getFile('projects/other/mathnasium-indoor.jpg')}
+      mediaProps={{ alt: 'Mathnasium Parsippany Interior' }}
     />
 
     <h2 id="bsa">Boy Scouts of America</h2>
@@ -111,10 +114,11 @@ const Other = () => (
       SSI Facebook Page
     </a>
 
-    <Image
-      alt="BSA Kart Activity"
+    <Media
+      type="img"
       caption="Helping students build a kit kart"
       src={getFile('projects/other/bsa-kart-activity.jpg')}
+      mediaProps={{ alt: 'BSA Kart Activity' }}
     />
   </div>
 )

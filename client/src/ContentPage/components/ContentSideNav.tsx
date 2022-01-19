@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import cx from 'classnames'
 import styles from '../styles/contentSideNav.module.scss'
 
-interface Props {
+type Props = {
   navItems: Array<{ name: string; route: string }>
 }
 

@@ -1,6 +1,6 @@
 import styles from '../../styles/appContent.module.scss'
 import { getFile } from '../../../services/utils'
-import Image from '../../../Misc/components/Image'
+import Media from '../../../Misc/components/Media'
 
 const Personal = () => (
   <div className={styles.contentContainer}>
@@ -15,6 +15,14 @@ const Personal = () => (
     <h2 id="web-prog-final">Web Programming Final Project</h2>
 
     <p>description of my project</p>
+
+    <a
+      href="https://github.com/rgorai/cs546-final-project"
+      target="_blank"
+      rel="noreferrer"
+    >
+      Project repository
+    </a>
   </div>
 )
 

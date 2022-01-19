@@ -4,7 +4,7 @@ import { isValidString } from '../../services/errors'
 import FormError from '../../Misc/components/FormError'
 import styles from '../styles/guestbookForm.module.scss'
 
-interface Props {}
+type Props = {}
 
 const GuestbookForm = (props: Props) => {
   const [formError, setFormError] = useState('')

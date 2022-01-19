@@ -5,8 +5,10 @@
   margin: 0;
   margin-top: 2rem;
 
-  img {
+  img,
+  video {
     width: 100%;
+    margin-top: 1rem;
   }
 
   figcaption {
@@ -15,17 +17,15 @@
     margin-top: 0.75rem;
   }
 
-  .alignImageLeft {
-    width: 40%;
-    float: left;
-    margin: 0 3% 3% 0;
-  }
-
   .pngImage {
     padding: 1rem;
-
-    // background-color: white;
     background-color: color.adjust($content-page-background-color, $lightness: 6%);
     box-sizing: border-box;
   }
+}
+
+.alignLeft {
+  width: 40%;
+  float: left;
+  margin: 0 3% 3% 0;
 }

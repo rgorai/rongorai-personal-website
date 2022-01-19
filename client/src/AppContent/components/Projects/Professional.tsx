@@ -1,6 +1,6 @@
 import styles from '../../styles/appContent.module.scss'
 import { getFile } from '../../../services/utils'
-import Image from '../../../Misc/components/Image'
+import Media from '../../../Misc/components/Media'
 
 const Professional = () => (
   <div className={styles.contentContainer}>
@@ -13,12 +13,13 @@ const Professional = () => (
       processing, and artificial intelligence / machine learning.
     </p>
 
-    <Image
-      alt="NeuraFlash Logo"
+    <Media
+      type="img"
       className="pngImage"
       src={getFile(
         'projects/professional/neuraflash/neuraflash-logo.png'
       )}
+      mediaProps={{ alt: 'NeuraFlash Logo' }}
     />
 
     <h2 id="ibm">IBM</h2>
@@ -136,9 +137,10 @@ const Professional = () => (
       My research on testing platforms
     </a>
 
-    <Image
-      alt="IBM Office"
+    <Media
+      type="img"
       src={getFile('projects/professional/ibm/ibm-office.png')}
+      mediaProps={{ alt: 'IBM Office' }}
     />
 
     <h2 id="zais-group">Zais Group</h2>
@@ -227,9 +229,10 @@ const Professional = () => (
       My Spring 2020 ZAIS Project Report
     </a>
 
-    <Image
-      alt="ZAIS Group Office"
+    <Media
+      type="img"
       src={getFile('projects/professional/zais/zais-office.jpg')}
+      mediaProps={{ alt: 'ZAIS Group Office' }}
     />
 
     <h2 id="kovid-inc">KOVID Inc.</h2>
@@ -265,18 +268,20 @@ const Professional = () => (
       My Kovid Project Presentation
     </a>
 
-    <Image
-      alt="Login Times Chart"
+    <Media
+      type="img"
       src={getFile(
         'projects/professional/kovid/login-rates-chart.jpg'
       )}
+      mediaProps={{ alt: 'Login Times Chart' }}
     />
 
-    <Image
-      alt="Login Rates Chart"
+    <Media
+      type="img"
       src={getFile(
         'projects/professional/kovid/login-times-chart.jpg'
       )}
+      mediaProps={{ alt: 'Login Rates Chart' }}
     />
   </div>
 )

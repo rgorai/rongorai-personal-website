@@ -1,6 +1,6 @@
 // import './apiError.css'
 
-interface Props {
+type Props = {
   status: number
   statusText: String
   data: any

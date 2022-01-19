@@ -17,8 +17,12 @@ import ThisWebsite from './AppContent/components/About/ThisWebsite'
 import Professional from './AppContent/components/Projects/Professional'
 import Other from './AppContent/components/Projects/Other'
 import Personal from './AppContent/components/Projects/Personal'
+import Music from './AppContent/components/Hobbies/Music'
+import STEM from './AppContent/components/Hobbies/STEM'
+import Bowling from './AppContent/components/Hobbies/Bowling'
+import Snowboarding from './AppContent/components/Hobbies/Snowboarding'
 
-function App() {
+const App = () => {
   const appContent = [
     {
       name: 'About',
@@ -38,10 +42,10 @@ function App() {
     {
       name: 'Hobbies',
       navItems: [
-        { name: 'Music', element: null },
-        { name: 'STEM', element: null },
-        { name: 'Bowling', element: null },
-        { name: 'Snowboarding', element: null },
+        { name: 'Music', element: <Music /> },
+        { name: 'STEM', element: <STEM /> },
+        { name: 'Bowling', element: <Bowling /> },
+        { name: 'Snowboarding', element: <Snowboarding /> },
       ],
     },
     { name: 'Guestbook', element: <GuestbookPage /> },
@@ -64,14 +68,15 @@ function App() {
         <main>
           <Routes>
             <Route
-              element={<Navigate replace to="/" />}
               path="/home"
+              element={<Navigate replace to="/" />}
             />
-            <Route element={<HomePage />} path="/" />
+            <Route path="/" element={<HomePage />} />
 
             {appContent.map((e, i) => (
               <React.Fragment key={i}>
                 <Route
+                  path={parseRoute([e.name])}
                   element={
                     e.navItems ? (
                       <Navigate
@@ -87,11 +92,11 @@ function App() {
                       )
                     )
                   }
-                  path={parseRoute([e.name])}
                 />
                 {e.navItems &&
                   e.navItems.map((f, j) => (
                     <Route
+                      path={parseRoute([e.name, f.name])}
                       element={
                         <ContentPage
                           contentSubtitle={f.name}
@@ -101,13 +106,13 @@ function App() {
                         />
                       }
                       key={j}
-                      path={parseRoute([e.name, f.name])}
                     />
                   ))}
               </React.Fragment>
             ))}
 
             <Route
+              path="*"
               element={
                 <ApiError
                   {...{
@@ -117,7 +122,6 @@ function App() {
                   }}
                 />
               }
-              path="*"
             />
           </Routes>
         </main>
