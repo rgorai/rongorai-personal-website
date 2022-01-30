@@ -4,7 +4,6 @@ const parseRoute = (...pathItems: Array<string>) =>
     ''
   )
 
-const getFile = (path: string) =>
-  `/api/files/${encodeURIComponent(path)}`
+const getFile = (path: string) => `/api/files/${encodeURIComponent(path)}`
 
 export { parseRoute, getFile }

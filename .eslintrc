@@ -224,7 +224,7 @@
     "implicit-arrow-linebreak": "off",
     "indent": "off",
     "jsx-quotes": "off",
-    "key-spacing": "off",
+    "key-spacing": "warn",
     "keyword-spacing": "off",
     "line-comment-position": "off",
     "linebreak-style": "off",

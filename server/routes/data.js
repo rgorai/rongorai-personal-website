@@ -2,9 +2,9 @@ import express from 'express'
 import path from 'path'
 import { isValidString } from '../errors.js'
 
-const fileRouter = express.Router()
+const dataRouter = express.Router()
 
-fileRouter.get('/:encodedFilepath', async (req, res) => {
+dataRouter.get('/:encodedFilepath', async (req, res) => {
   const { encodedFilepath } = req.params
 
   try {
@@ -16,12 +16,13 @@ fileRouter.get('/:encodedFilepath', async (req, res) => {
   try {
     res
       .status(200)
-      .sendFile(
-        path.resolve('server', 'files', decodeURIComponent(encodedFilepath))
+      .json(
+        (await import(`../files/${decodeURIComponent(encodedFilepath)}`))
+          .default
       )
   } catch (e) {
     res.status(404).send(String(e))
   }
 })
 
-export default fileRouter
+export default dataRouter

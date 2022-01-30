@@ -1,9 +1,4 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import React, { ReactElement } from 'react'
 import { parseRoute } from './services/utils'
 import ApiError from './Misc/components/ApiError'
@@ -67,10 +62,7 @@ const App = () => {
 
         <main>
           <Routes>
-            <Route
-              path="/home"
-              element={<Navigate replace to="/" />}
-            />
+            <Route path="/home" element={<Navigate replace to="/" />} />
             <Route path="/" element={<HomePage />} />
 
             {appContent.map((e, i) => (

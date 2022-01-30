@@ -43,9 +43,7 @@ const Media = (props: ImageProps | VideoProps) => {
           src={props.src}
           {...props.mediaProps}
           onClick={
-            props.Type === 'img'
-              ? () => window.open(props.src)
-              : undefined
+            props.Type === 'img' ? () => window.open(props.src) : undefined
           }
         />
         {props.caption && <figcaption>{props.caption}</figcaption>}

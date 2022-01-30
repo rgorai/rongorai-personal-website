@@ -17,12 +17,9 @@ const createEntry = async (name, description, message) => {
     name,
     description,
     message,
-    date: `${
-      date.getMonth() + 1
-    }/${date.getDate()}/${date.getFullYear()}`,
+    date: `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`,
   })
-  if (retval.insertedCount === 0)
-    throw 'Error: failed to add guestbook entry'
+  if (retval.insertedCount === 0) throw 'Error: failed to add guestbook entry'
   return await getEntry(String(retval.insertedId))
 }
 

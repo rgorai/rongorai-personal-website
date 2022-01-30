@@ -41,12 +41,10 @@ const Media = (props: ImageProps | VideoProps) => {
         <props.Type
           className={cx({ [styles.zoomIn]: props.Type === 'img' })}
           src={props.src}
-          {...props.mediaProps}
           onClick={
-            props.Type === 'img'
-              ? () => window.open(props.src)
-              : undefined
+            props.Type === 'img' ? () => window.open(props.src) : undefined
           }
+          {...props.mediaProps}
         />
         {props.caption && <figcaption>{props.caption}</figcaption>}
       </figure>
@@ -66,18 +64,13 @@ const MediaGrid = (props: MediaGridProps) => {
   // const gridTemplate = `${100/props.columns}% `.repeat(props.columns)
   const gridTemplate = `1fr `.repeat(props.columns)
 
-  const calculateGridGap = () => {
-    return (
-      ((gridContainerRef.current?.offsetWidth ?? 0) * 2) /
-      props.columns /
-      15
-    )
-  }
+  const calculateGridGap = (containerWidth: number | undefined) =>
+    ((containerWidth ?? 0) * 2) / props.columns / 15
 
   useEffect(() => {
-    setGridGap(calculateGridGap())
+    setGridGap(calculateGridGap(gridContainerRef.current?.offsetWidth))
     window.addEventListener('resize', () => {
-      setGridGap(calculateGridGap())
+      setGridGap(calculateGridGap(gridContainerRef.current?.offsetWidth))
     })
   }, [])
 

@@ -79,11 +79,7 @@ const GuestbookForm = (props: Props) => {
         onChange={(e) => setMessage(e.target.value)}
       />
 
-      <button
-        className="form-submit"
-        type="submit"
-        form="guestbook-form"
-      >
+      <button className="form-submit" type="submit" form="guestbook-form">
         Submit
       </button>
 

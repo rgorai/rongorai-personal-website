@@ -10,7 +10,8 @@
     "dev": "concurrently \"npm run start-watch\" \"cd client && yarn dev\"",
     "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
     "precommit": "lint-staged",
-    "seed": "node server/tasks/seed.js"
+    "seed": "node server/tasks/seed.js",
+    "lint": "eslint --fix --ext .tsx,.ts,.js && prettier --write \"**/*.{tsx,ts,js}\""
   },
   "lint-staged": {
     "**/*.{tsx,ts,js}": [

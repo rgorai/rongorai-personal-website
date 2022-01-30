@@ -16,8 +16,7 @@ const ContentSideNav = (props: Props) => {
           <li className={styles.sideNavItem} key={i}>
             <Link
               className={cx(styles.sideNavLink, {
-                [styles.activeSideNavLink]:
-                  location.pathname.includes(e.route),
+                [styles.activeSideNavLink]: location.pathname.includes(e.route),
               })}
               to={e.route}
             >
