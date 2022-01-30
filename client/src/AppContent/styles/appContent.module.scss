@@ -2,9 +2,8 @@
 @use 'sass:color';
 
 .contentContainer {
-  // @include display-flex(column, flex-start, flex-start);
-  width: 50%;
-  min-width: 30rem;
+  width: 40rem;
+  min-width: 25rem;
   margin: 0 auto;
 
   h1 {

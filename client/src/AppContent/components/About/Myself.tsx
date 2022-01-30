@@ -7,7 +7,7 @@ const Myself = () => (
     <h1>About Myself</h1>
 
     <Media
-      type="img"
+      Type="img"
       alignLeft
       src={getFile('about/myself/profile-image.jpg')}
       mediaProps={{ alt: 'Profile Media' }}
@@ -56,7 +56,7 @@ const Myself = () => (
     </p>
 
     <Media
-      type="img"
+      Type="img"
       src={getFile('about/myself/stevens-aerial.jpg')}
       mediaProps={{ alt: 'Stevens Aerial Shot' }}
     />

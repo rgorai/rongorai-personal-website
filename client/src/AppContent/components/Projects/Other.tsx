@@ -42,7 +42,7 @@ const Other = () => (
     </a>
 
     <Media
-      type="img"
+      Type="img"
       src={getFile('projects/other/stevens-logo.png')}
       mediaProps={{ alt: 'Stevens Logo' }}
     />
@@ -68,7 +68,7 @@ const Other = () => (
     </a>
 
     <Media
-      type="img"
+      Type="img"
       src={getFile('projects/other/international-ivy-logo.jpg')}
       mediaProps={{ alt: 'International Ivy Logo' }}
     />
@@ -91,7 +91,7 @@ const Other = () => (
     </a>
 
     <Media
-      type="img"
+      Type="img"
       src={getFile('projects/other/mathnasium-indoor.jpg')}
       mediaProps={{ alt: 'Mathnasium Parsippany Interior' }}
     />
@@ -115,7 +115,7 @@ const Other = () => (
     </a>
 
     <Media
-      type="img"
+      Type="img"
       caption="Helping students build a kit kart"
       src={getFile('projects/other/bsa-kart-activity.jpg')}
       mediaProps={{ alt: 'BSA Kart Activity' }}

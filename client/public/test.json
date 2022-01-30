@@ -1,0 +1,16 @@
+[
+  {
+    "component": "Media",
+    "props": {
+      "Type": "img",
+      "src": "/api/files/hobbies%2Fmusic%2Fsummerfest%2Fsummerfest-2016-lineup.jpg",
+      "reduceWidth": true
+    }
+  },
+  {
+    "tag": "img",
+    "props": {
+      "src": "/api/files/hobbies%2Fmusic%2Fsummerfest%2Fsummerfest-2016-lineup.jpg"
+    }
+  }
+]

@@ -14,8 +14,8 @@ const Professional = () => (
     </p>
 
     <Media
-      type="img"
-      className="pngImage"
+      Type="img"
+      // className="pngImage"
       src={getFile(
         'projects/professional/neuraflash/neuraflash-logo.png'
       )}
@@ -138,7 +138,7 @@ const Professional = () => (
     </a>
 
     <Media
-      type="img"
+      Type="img"
       src={getFile('projects/professional/ibm/ibm-office.png')}
       mediaProps={{ alt: 'IBM Office' }}
     />
@@ -230,7 +230,7 @@ const Professional = () => (
     </a>
 
     <Media
-      type="img"
+      Type="img"
       src={getFile('projects/professional/zais/zais-office.jpg')}
       mediaProps={{ alt: 'ZAIS Group Office' }}
     />
@@ -269,7 +269,7 @@ const Professional = () => (
     </a>
 
     <Media
-      type="img"
+      Type="img"
       src={getFile(
         'projects/professional/kovid/login-rates-chart.jpg'
       )}
@@ -277,7 +277,7 @@ const Professional = () => (
     />
 
     <Media
-      type="img"
+      Type="img"
       src={getFile(
         'projects/professional/kovid/login-times-chart.jpg'
       )}

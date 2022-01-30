@@ -6,15 +6,17 @@ type MediaProps = {
   className?: string
   caption?: string
   alignLeft?: boolean
+  alignRight?: boolean
+  reduceWidth?: boolean
 }
 
 type ImageProps = {
-  type: 'img'
+  Type: 'img'
   mediaProps: { alt: string }
 } & MediaProps
 
 type VideoProps = {
-  type: 'video'
+  Type: 'video'
   mediaProps?: {
     autoplay?: boolean
     controls?: boolean
@@ -23,25 +25,32 @@ type VideoProps = {
 } & MediaProps
 
 const Media = (props: ImageProps | VideoProps) => {
-  const MediaType = props.type
-
   return (
-    <figure
-      className={cx(styles.imageContainer, {
-        [styles.alignLeft]: props.alignLeft,
-      })}
-    >
-      <MediaType
-        className={
-          props.className
-            ? cx(...props.className.split(' ').map((e) => styles[e]))
-            : ''
-        }
-        src={props.src}
-        {...props.mediaProps}
-      />
-      {props.caption && <figcaption>{props.caption}</figcaption>}
-    </figure>
+    <div className={cx({ [styles.reduceWidth]: props.reduceWidth })}>
+      <figure
+        className={cx(styles.mediaContainer, {
+          [styles.alignLeft]: props.alignLeft,
+          [styles.alignRight]: props.alignRight,
+        })}
+      >
+        <props.Type
+          className={
+            // props.className
+            //   ? cx(...props.className.split(' ').map((e) => styles[e]))
+            //   : '',
+            cx({ [styles.zoomIn]: props.Type === 'img' })
+          }
+          src={props.src}
+          {...props.mediaProps}
+          onClick={
+            props.Type === 'img'
+              ? () => window.open(props.src)
+              : undefined
+          }
+        />
+        {props.caption && <figcaption>{props.caption}</figcaption>}
+      </figure>
+    </div>
   )
 }
 

@@ -61,7 +61,7 @@ const App = () => {
         <NavBar
           navItems={appContent.map((e) => ({
             name: e.name,
-            route: parseRoute([e.name]),
+            route: parseRoute(e.name),
           }))}
         />
 
@@ -76,12 +76,12 @@ const App = () => {
             {appContent.map((e, i) => (
               <React.Fragment key={i}>
                 <Route
-                  path={parseRoute([e.name])}
+                  path={parseRoute(e.name)}
                   element={
                     e.navItems ? (
                       <Navigate
                         replace
-                        to={parseRoute([e.name, e.navItems[0].name])}
+                        to={parseRoute(e.name, e.navItems[0].name)}
                       />
                     ) : (
                       e.element && (
@@ -96,7 +96,7 @@ const App = () => {
                 {e.navItems &&
                   e.navItems.map((f, j) => (
                     <Route
-                      path={parseRoute([e.name, f.name])}
+                      path={parseRoute(e.name, f.name)}
                       element={
                         <ContentPage
                           contentSubtitle={f.name}

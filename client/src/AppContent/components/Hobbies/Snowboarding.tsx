@@ -16,7 +16,7 @@ const Snowboarding = () => (
       SSI Facebook Page
     </a>
 
-    {/* <Media type="img"
+    {/* <Media Type="img"
       alt="BSA Kart Activity"
       caption="Helping students build a kit kart"
       src={getFile('projects/other/bsa-kart-activity.jpg')}

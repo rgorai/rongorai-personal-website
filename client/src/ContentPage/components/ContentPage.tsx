@@ -18,7 +18,7 @@ const ContentPage = (props: Props) => {
         <ContentSideNav
           navItems={props.navItems.map((e) => ({
             name: e.name,
-            route: parseRoute([props.contentTitle, e.name]),
+            route: parseRoute(props.contentTitle, e.name),
           }))}
         />
       )}
