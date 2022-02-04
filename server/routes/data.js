@@ -1,6 +1,5 @@
 import express from 'express'
-import path from 'path'
-import { isValidString } from '../errors.js'
+import { isValidString } from '../misc/errors.js'
 
 const dataRouter = express.Router()
 
@@ -21,7 +20,7 @@ dataRouter.get('/:encodedFilepath', async (req, res) => {
           .default
       )
   } catch (e) {
-    res.status(404).send(String(e))
+    res.status(500).send(String(e))
   }
 })
 

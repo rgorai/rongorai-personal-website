@@ -206,7 +206,13 @@
     "brace-style": "off",
     "camelcase": "off",
     "capitalized-comments": "off",
-    "comma-dangle": "off",
+    "comma-dangle": ["warn", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "never"
+      }],
     "comma-spacing": "off",
     "comma-style": "off",
     "computed-property-spacing": "off",
@@ -259,7 +265,7 @@
     "no-restricted-syntax": "off",
     "no-tabs": "off",
     "no-ternary": "off",
-    "no-trailing-spaces": "off",
+    "no-trailing-spaces": "warn",
     "no-underscore-dangle": "off",
     "no-unneeded-ternary": "off",
     "no-whitespace-before-property": "off",

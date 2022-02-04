@@ -2,8 +2,11 @@
 @use 'sass:color';
 
 .contentContainer {
-  width: 40rem;
-  min-width: 25rem;
+  // @include display-flex(column, flex-start, flex-start);
+
+  width: 60%;
+  max-width: 40rem;
+  min-width: 20rem;
   margin: 0 auto;
 
   h1 {
@@ -13,7 +16,7 @@
   }
 
   h2 {
-    margin-top: 4rem;
+    margin-top: 3rem;
 
     &:first-of-type {
       margin-top: initial;
@@ -30,7 +33,7 @@
     width: max-content;
     text-align: center;
     font-weight: 700;
-    margin: 1.5rem auto;
+    margin: 1.5rem auto 2rem;
     text-decoration: none;
     color: $link-color;
 

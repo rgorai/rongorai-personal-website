@@ -1,20 +1,11 @@
 import cx from 'classnames'
 import { useEffect, useRef, useState } from 'react'
-import styles from '../styles/media.module.scss'
-
-type MediaProps = {
-  src: string
-  className?: string
-  caption?: string
-  alignLeft?: boolean
-  alignRight?: boolean
-  reduceWidth?: boolean
-}
+import styles from '../styles/customContent.module.scss'
 
 type ImageProps = {
   Type: 'img'
   mediaProps: { alt: string }
-} & MediaProps
+}
 
 type VideoProps = {
   Type: 'video'
@@ -23,9 +14,21 @@ type VideoProps = {
     controls?: boolean
     loop?: boolean
   }
-} & MediaProps
+}
 
-const Media = (props: ImageProps | VideoProps) => {
+type MediaProps = {
+  src: string
+  className?: string
+  caption?: string
+  alignLeft?: boolean
+  alignRight?: boolean
+  reduceWidth?: boolean
+} & (ImageProps | VideoProps)
+
+const Media = (props: MediaProps) => {
+  // if (Object.keys(props).some((k) => !props[k as keyof MediaProps]))
+  //   console.log('error')
+
   return (
     <div
       className={cx(styles.mediaContainer, {
@@ -54,7 +57,8 @@ const Media = (props: ImageProps | VideoProps) => {
 
 type MediaGridProps = {
   columns: number
-  media: Array<ImageProps | VideoProps>
+  media: Array<MediaProps>
+  caption?: string
 }
 
 const MediaGrid = (props: MediaGridProps) => {
@@ -64,28 +68,33 @@ const MediaGrid = (props: MediaGridProps) => {
   // const gridTemplate = `${100/props.columns}% `.repeat(props.columns)
   const gridTemplate = `1fr `.repeat(props.columns)
 
-  const calculateGridGap = (containerWidth: number | undefined) =>
-    ((containerWidth ?? 0) * 2) / props.columns / 15
-
   useEffect(() => {
-    setGridGap(calculateGridGap(gridContainerRef.current?.offsetWidth))
+    const calculateGridGap = () =>
+      ((gridContainerRef.current?.offsetWidth ?? 0) * 2) / props.columns / 25
+
+    setGridGap(calculateGridGap())
     window.addEventListener('resize', () => {
-      setGridGap(calculateGridGap(gridContainerRef.current?.offsetWidth))
+      setGridGap(calculateGridGap())
     })
-  }, [])
+  }, [props.columns])
 
   return (
-    <div
-      className={styles.mediaGridContainer}
-      ref={gridContainerRef}
-      style={{
-        gridTemplateColumns: gridTemplate,
-        gap: `${gridGap}px`,
-      }}
-    >
-      {props.media.map((e, i) => (
-        <Media {...e} key={i} />
-      ))}
+    <div className={styles.mediaGridContainer} ref={gridContainerRef}>
+      <figure>
+        <div
+          className={styles.mediaGridComponents}
+          style={{
+            gridTemplateColumns: gridTemplate,
+            gap: `${gridGap}px`,
+          }}
+        >
+          {props.media.map((e, i) => (
+            <Media {...e} key={i} />
+          ))}
+        </div>
+
+        {props.caption && <figcaption>{props.caption}</figcaption>}
+      </figure>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb'
 import { guestbookCollection } from '../config/mongoCollections.js'
-import { isValidString } from '../errors.js'
+import { isValidString } from '../misc/errors.js'
 
 const createEntry = async (name, description, message) => {
   // error check

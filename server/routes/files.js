@@ -1,6 +1,6 @@
 import express from 'express'
 import path from 'path'
-import { isValidString } from '../errors.js'
+import { isValidString } from '../misc/errors.js'
 
 const fileRouter = express.Router()
 
