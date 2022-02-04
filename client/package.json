@@ -50,7 +50,13 @@
       "import/order": "warn",
       "no-unused-vars": "warn",
       "no-throw-literal": "off",
-      "arrow-spacing": ["warn", { "before": true, "after": true }],
+      "arrow-spacing": [
+        "warn",
+        {
+          "before": true,
+          "after": true
+        }
+      ],
       "object-curly-spacing": [
         "warn",
         "always"
@@ -74,7 +80,13 @@
         "never"
       ],
       "space-infix-ops": "warn",
-      "comma-spacing": ["warn", { "before": false, "after": true }],
+      "comma-spacing": [
+        "warn",
+        {
+          "before": false,
+          "after": true
+        }
+      ],
       "no-trailing-spaces": "warn"
     }
   },
