@@ -1,0 +1,74 @@
+@use '../../variables' as *;
+@use 'sass:color';
+
+@mixin align($alignment) {
+  width: 40%;
+  float: $alignment;
+  margin: 0 3% 2% 0 !important;
+}
+
+.alignLeft {
+  @include align(left);
+}
+
+.alignRight {
+  @include align(right);
+}
+
+.zoomIn {
+  cursor: zoom-in;
+}
+
+.reduceWidth {
+  width: 100%;
+  text-align: center;
+
+  img {
+    width: 70%;
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 1.25rem;
+  padding: 0 0.5rem;
+}
+
+.mediaContainer {
+  margin-top: 2rem;
+
+  img,
+  video {
+    width: 100%;
+  }
+
+  .pngImage {
+    padding: 1rem;
+    background-color: color.adjust($content-page-background-color, $lightness: 6%);
+    box-sizing: border-box;
+  }
+}
+
+.mediaGridContainer {
+  margin-top: 1.5rem;
+}
+
+.mediaGridComponents {
+  width: 100%;
+  display: grid;
+
+  .mediaContainer {
+    margin: 0;
+  }
+
+  figcaption {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+  }
+}

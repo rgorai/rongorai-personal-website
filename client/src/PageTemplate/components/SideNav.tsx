@@ -1,12 +1,12 @@
 import { Link, useLocation } from 'react-router-dom'
 import cx from 'classnames'
-import styles from '../styles/contentSideNav.module.scss'
+import styles from '../styles/sideNav.module.scss'
 
 type Props = {
   navItems: Array<{ name: string; route: string }>
 }
 
-const ContentSideNav = (props: Props) => {
+const SideNav = (props: Props) => {
   const location = useLocation()
 
   return (
@@ -16,8 +16,7 @@ const ContentSideNav = (props: Props) => {
           <li className={styles.sideNavItem} key={i}>
             <Link
               className={cx(styles.sideNavLink, {
-                [styles.activeSideNavLink]:
-                  location.pathname.includes(e.route),
+                [styles.activeSideNavLink]: location.pathname.includes(e.route),
               })}
               to={e.route}
             >
@@ -30,4 +29,4 @@ const ContentSideNav = (props: Props) => {
   )
 }
 
-export default ContentSideNav
+export default SideNav

@@ -25,9 +25,7 @@ const NavBar = (props: Props) => {
           <li key={i}>
             <Link
               className={cx(styles.navLink, styles.navItem, {
-                [styles.activeNav]: location.pathname.includes(
-                  e.route
-                ),
+                [styles.activeNav]: location.pathname.includes(e.route),
               })}
               to={e.route}
             >

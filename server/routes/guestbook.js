@@ -1,6 +1,6 @@
 import express from 'express'
 import { createEntry, getAllEntries } from '../data/guestbook.js'
-import { isValidString } from '../errors.js'
+import { isValidString } from '../misc/errors.js'
 
 const guestbookRouter = express.Router()
 
@@ -24,9 +24,7 @@ guestbookRouter.post('/', async (req, res) => {
   }
 
   try {
-    res
-      .status(201)
-      .json(await createEntry(name, description, message))
+    res.status(201).json(await createEntry(name, description, message))
   } catch (e) {
     res.status(500).send(String(e))
   }

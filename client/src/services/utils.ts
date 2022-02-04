@@ -1,10 +1,6 @@
-const parseRoute = (arr: Array<string | undefined>) =>
-  arr.reduce(
-    (p, c) => p + (c ? '/' + c.replace(' ', '-')?.toLowerCase() : ''),
-    ''
-  ) as string
+const parseRoute = (...pathItems: Array<string>) =>
+  pathItems.reduce((p, c) => p + '/' + c.replace(' ', '-')?.toLowerCase(), '')
 
-const getFile = (path: string) =>
-  `/api/files/${encodeURIComponent(path)}`
+const getFile = (path: string) => `/api/files/${encodeURIComponent(path)}`
 
 export { parseRoute, getFile }
