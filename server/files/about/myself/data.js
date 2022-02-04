@@ -27,7 +27,7 @@ export default [
 
   Tag(
     'p',
-    `While looking through college programs, I was fascinated to find that a couple of the schools I was applying had a new, specialized degree: cybersecurity. Even though I had not had any real experience with software security, I felt that it would best to pursue this field because of the ever-growing need for security professionals in today’s software-driven world.`
+    `While looking through college programs, I was fascinated to find that a couple of the schools I was applying had a new, specialized degree: cybersecurity. Even though I had not had any real experience with software security, I felt that it would best to pursue this field because of the ever-growing need for security professionals in today's software-driven world.`
   ),
 
   Tag(

@@ -72,7 +72,7 @@ export default [
 
   Tag(
     'p',
-    `During my junior year of high school, I was accepted into the Engineering Design and Advanced Manufacturing (EDAM) program at the Morris County School of Technology. In this program, I took various engineering classes at the County College of Morris alongside other juniors from schools across Morris County. In addition to these classes, we were also a part of NASA’s High school students United to Create Hardware (HUNCH). We modeled bolts and lug nuts in CAD and then fabricated them using CIMs; these were to made to be used in a locker that NASA sends up to the ISS.`
+    `During my junior year of high school, I was accepted into the Engineering Design and Advanced Manufacturing (EDAM) program at the Morris County School of Technology. In this program, I took various engineering classes at the County College of Morris alongside other juniors from schools across Morris County. In addition to these classes, we were also a part of NASA's High school students United to Create Hardware (HUNCH). We modeled bolts and lug nuts in CAD and then fabricated them using CIMs; these were to made to be used in a locker that NASA sends up to the ISS.`
   ),
 
   Component('MediaGrid', {

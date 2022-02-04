@@ -34,6 +34,8 @@ export default [
     },
   }),
 
+  Tag('br'),
+
   Component('MediaGrid', {
     columns: 2,
     caption: 'Shots from Killington, VT',

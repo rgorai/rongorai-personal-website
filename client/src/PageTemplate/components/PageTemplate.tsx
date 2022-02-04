@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import { ReactNode } from 'react'
 import styles from '../styles/pageTemplate.module.scss'
 import { parseRoute } from '../../services/utils'
 import SideNav from './SideNav'
@@ -13,7 +13,7 @@ type AppContent = {
 
 type Other = {
   contentTitle: string
-  element: ReactElement
+  element: ReactNode
 }
 
 const isAppContent = (x: any): x is AppContent => x.src

@@ -17,8 +17,4 @@ export default [
   Tag('h2', 'Release Notes'),
   Tag('h3', '1.0'),
   Tag('p', 'N/A'),
-
-  // Component('Media', {
-  //   none: null
-  // })
 ]

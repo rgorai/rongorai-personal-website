@@ -25,14 +25,10 @@ type PageData = Array<Tag | Component>
 
 const isTag = (x: any): x is Tag => x.tag !== undefined
 const isComponent = (x: any): x is Component => x.component !== undefined
-const isPageData = (x: any): x is PageData =>
-  Array.isArray(x) && x.every((e) => isTag(e) || isComponent(e))
 
 const ContentGenerator = (props: Props) => {
   const [pageData, setPageData] = useState(null as null | PageData)
   const [apiError, setApiError] = useState(null as null | AxiosResponse)
-
-  // console.log('data', ErrorBoundary)
 
   useEffect(() => {
     axios

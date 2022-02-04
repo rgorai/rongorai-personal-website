@@ -15,7 +15,7 @@ export default [
 
   Tag(
     'p',
-    `In fall 2019, I joined the Stevens Bowling team. However, the team’s activities halted for the season in spring 2020 due to the COVID pandemic.`
+    `In fall 2019, I joined the Stevens Bowling team. However, the team's activities halted for the season in spring 2020 due to the COVID pandemic.`
   ),
 
   Tag('a', 'Montville Bowling Twitter Page', {

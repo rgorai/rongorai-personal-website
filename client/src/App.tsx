@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { parseRoute } from './services/utils'
 import ApiError from './Misc/components/ApiError'
 import GuestbookPage from './Guestbook/components/GuestbookPage'
