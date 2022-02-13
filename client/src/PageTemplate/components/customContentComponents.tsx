@@ -1,34 +1,20 @@
 import cx from 'classnames'
 import { useEffect, useRef, useState } from 'react'
-import styles from '../styles/customContent.module.scss'
+import styles from '../styles/customComponents.module.scss'
 
-type ImageProps = {
-  Type: 'img'
-  mediaProps: { alt: string }
-}
-
-type VideoProps = {
-  Type: 'video'
-  mediaProps?: {
-    autoplay?: boolean
-    controls?: boolean
-    loop?: boolean
-  }
-}
+type AnyObject = { [key: string]: any }
 
 type MediaProps = {
+  Type: 'img' | 'video'
   src: string
-  className?: string
+  mediaProps: AnyObject
   caption?: string
-  alignLeft?: boolean
-  alignRight?: boolean
+  floatLeft?: boolean
+  floatRight?: boolean
   reduceWidth?: boolean
-} & (ImageProps | VideoProps)
+}
 
 const Media = (props: MediaProps) => {
-  // if (Object.keys(props).some((k) => !props[k as keyof MediaProps]))
-  //   console.log('error')
-
   return (
     <div
       className={cx(styles.mediaContainer, {
@@ -37,8 +23,8 @@ const Media = (props: MediaProps) => {
     >
       <figure
         className={cx({
-          [styles.alignLeft]: props.alignLeft,
-          [styles.alignRight]: props.alignRight,
+          [styles.floatLeft]: props.floatLeft,
+          [styles.floatRight]: props.floatRight,
         })}
       >
         <props.Type
@@ -67,6 +53,18 @@ const MediaGrid = (props: MediaGridProps) => {
 
   // const gridTemplate = `${100/props.columns}% `.repeat(props.columns)
   const gridTemplate = `1fr `.repeat(props.columns)
+
+  for (let i = 0; i < props.media.length / props.columns; i++) {
+    const firstIdx = i * props.columns
+    // for (let j = firstIdx; j < firstIdx + props.columns; j++) {
+    //   continue
+    // }
+    const row = props.media.slice(firstIdx, firstIdx + props.columns)
+
+    console.log('row', i, row)
+  }
+
+  // props.media[3].mediaProps.style = {width: '400px'}
 
   useEffect(() => {
     const calculateGridGap = () =>

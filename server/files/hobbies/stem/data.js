@@ -17,12 +17,12 @@ export default [
 
   Tag(
     'p',
-    `We would get into several team-huddles every week to discuss what kind of mechanism to use for each function – e.g. scissor lift, telescopic arm, suction, pneumatic shooter, spring-loaded release, scooper, etc. We used design sketches and decision matrices to determine the best options. Then, we used CAD models to better visualize and to fine-tune the accuracy of our designs. In the building phase, we incorporated prototypes made from paper, plastic and wood into the Tetrix building blocks. Next, we would finally get to building. However, if we needed to build a custom part, we had to do same stated earlier, in addition to completing a cost analysis`
+    `We would get into several team-huddles every week to discuss what kind of mechanism to use for each function - e.g. scissor lift, telescopic arm, suction, pneumatic shooter, spring-loaded release, scooper, etc. We used design sketches and decision matrices to determine the best options. Then, we used CAD models to better visualize and to fine-tune the accuracy of our designs. In the building phase, we incorporated prototypes made from paper, plastic and wood into the Tetrix building blocks. Next, we would finally get to building. However, if we needed to build a custom part, we had to do same stated earlier, in addition to completing a cost analysis`
   ),
 
   Tag(
     'p',
-    `One of my proudest personal accomplishments was at the 2015 New Jersey State Qualifier – this was a stage before the regional competition. Here, I participated in an individual PTC Parametrics CAD Design Challenge. This competition tested my ability to design and virtually fabricate an entire robot based on one of three scenarios. A full report on the project can be found below.`
+    `One of my proudest personal accomplishments was at the 2015 New Jersey State Qualifier - this was a stage before the regional competition. Here, I participated in an individual PTC Parametrics CAD Design Challenge. This competition tested my ability to design and virtually fabricate an entire robot based on one of three scenarios. A full report on the project can be found below.`
   ),
 
   Tag('a', 'My PTC Design Challenge Report', {

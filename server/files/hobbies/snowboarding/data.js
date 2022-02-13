@@ -5,7 +5,7 @@ export default [
 
   Tag(
     'p',
-    `I began snowboarding at the age of 10. My dad started skiing the previous season and once he was more comfortable the following year, he invited me to join him on the slopes. But, I didn't want to ski – I wanted to snowboard; I felt that it was simply more exciting and challenging.`
+    `I began snowboarding at the age of 10. My dad started skiing the previous season and once he was more comfortable the following year, he invited me to join him on the slopes. But, I didn't want to ski - I wanted to snowboard; I felt that it was simply more exciting and challenging.`
   ),
 
   Tag(
@@ -26,7 +26,7 @@ export default [
 
   Component('Media', {
     Type: 'video',
-    caption: 'A Twilight Run at Mountain Creek, NJ ~ 2017',
+    caption: 'A Night Run at Mountain Creek ~ 2017',
     src: getFile('hobbies/snowboarding/mountain-creek-run.mp4'),
     mediaProps: {
       controls: true,
@@ -38,27 +38,27 @@ export default [
 
   Component('MediaGrid', {
     columns: 2,
-    caption: 'Shots from Killington, VT',
+    caption: 'Shots from Killington',
     media: [
       {
         Type: 'img',
         src: getFile('hobbies/snowboarding/killington/mountain-shot4.jpg'),
-        mediaProps: { alt: 'Mountain Shot 4' },
+        mediaProps: { alt: 'Killington Shot 4' },
       },
       {
         Type: 'img',
         src: getFile('hobbies/snowboarding/killington/mountain-shot2.jpg'),
-        mediaProps: { alt: 'Mountain Shot 2' },
+        mediaProps: { alt: 'Killington Shot 2' },
       },
       {
         Type: 'img',
         src: getFile('hobbies/snowboarding/killington/mountain-shot1.jpg'),
-        mediaProps: { alt: 'Mountain Shot 1' },
+        mediaProps: { alt: 'Killington Shot 1' },
       },
       {
         Type: 'img',
         src: getFile('hobbies/snowboarding/killington/mountain-shot3.jpg'),
-        mediaProps: { alt: 'Mountain Shot 3' },
+        mediaProps: { alt: 'Killington Shot 3' },
       },
     ],
   }),

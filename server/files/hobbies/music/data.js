@@ -15,7 +15,7 @@ export default [
 
   Tag(
     'p',
-    `Towards the end of 2015, I joined the SoR Montclair's Houseband, which is equivalent to a “varsity team for music." Being a part of the House-band was a completely different experience. It gave me the opportunity to perform at large venues like the Javits Center in NYC for Progressive's International Motorcycle Show.`
+    `Towards the end of 2015, I joined the SoR Montclair's Houseband, which is equivalent to a "varsity team for music." Being a part of the House-band was a completely different experience. It gave me the opportunity to perform at large venues like the Javits Center in NYC for Progressive's International Motorcycle Show.`
   ),
 
   Tag(

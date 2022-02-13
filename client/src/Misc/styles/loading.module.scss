@@ -1,0 +1,20 @@
+@keyframes loading {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loadContainer {
+  width: max-content;
+  margin: 20% auto 0;
+
+  span {
+    background: transparent !important;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100%;
+    border: 3px solid rgba(156, 156, 156, 61.6%);
+    border-bottom-color: transparent;
+    display: inline-block;
+    animation: loading 0.6s 0s infinite linear;
+  }
+}

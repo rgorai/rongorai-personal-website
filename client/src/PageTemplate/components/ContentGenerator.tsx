@@ -6,25 +6,27 @@ import Loading from '../../Misc/components/Loading'
 import ErrorBoundary from '../../Misc/components/ErrorBoundary'
 import * as CustomComponents from './customContentComponents'
 
-type Props = {
-  src: string
-}
+type AnyObject = { [key: string]: any }
 
 type Tag = {
   tag: string
   text: string
-  props?: { [key: string]: string }
+  props?: AnyObject
 }
 
 type Component = {
   component: string
-  props: { [key: string]: any }
+  props: AnyObject
 }
 
 type PageData = Array<Tag | Component>
 
 const isTag = (x: any): x is Tag => x.tag !== undefined
 const isComponent = (x: any): x is Component => x.component !== undefined
+
+type Props = {
+  src: string
+}
 
 const ContentGenerator = (props: Props) => {
   const [pageData, setPageData] = useState(null as null | PageData)
@@ -36,6 +38,11 @@ const ContentGenerator = (props: Props) => {
       .then((res) => setPageData(res.data))
       .catch((err) => setApiError(err.response))
   }, [props.src])
+
+  useEffect(() => {
+    // document.title = `${pageData} | Ron Gorai`
+    console.log(pageData)
+  }, [pageData])
 
   const getComponent = (e: Component) => {
     const Temp = { ...CustomComponents }[e.component] as Function

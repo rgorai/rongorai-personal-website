@@ -1,5 +1,11 @@
+import styles from '../styles/loading.module.scss'
+
 const Loading = () => {
-  return <div>Loading</div>
+  return (
+    <div className={styles.loadContainer}>
+      <span />
+    </div>
+  )
 }
 
 export default Loading
