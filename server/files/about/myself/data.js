@@ -7,7 +7,7 @@ export default [
     Type: 'img',
     src: getFile('about/myself/profile-image.jpg'),
     mediaProps: { alt: 'Profile Image' },
-    alignLeft: true,
+    floatLeft: true,
   }),
 
   Tag(

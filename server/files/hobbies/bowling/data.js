@@ -25,7 +25,7 @@ export default [
   }),
 
   Component('MediaGrid', {
-    columns: 2,
+    columns: 3,
     media: [
       {
         Type: 'img',
@@ -50,8 +50,14 @@ export default [
       {
         Type: 'img',
         src: getFile('hobbies/bowling/township-proclamation.jpg'),
-        mediaProps: { alt: 'Montville TOwnship Proclamation' },
+        mediaProps: { alt: 'Montville Township Proclamation' },
       },
+      {
+        Type: 'video',
+        src: getFile('hobbies/bowling/a-strike.mp4'),
+        mediaProps: { controls: true, loop: true },
+      },
+
       {
         Type: 'video',
         src: getFile('hobbies/bowling/a-strike.mp4'),

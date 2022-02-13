@@ -1,6 +1,3 @@
-const test = '/home/profile-image.jpg'
+const t = [1, 2, 3, 4, 5]
 
-const a = 'a'
-const b = 'b'
-
-console.log({ a, b })
+console.log(t.slice(2, 10))
