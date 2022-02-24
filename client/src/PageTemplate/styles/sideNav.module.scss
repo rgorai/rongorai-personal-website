@@ -3,13 +3,17 @@
 
 .sideNavContainer {
   height: 100%;
-  width: 25%;
-  max-width: 13rem;
-  padding-top: 0.75rem;
+  width: 30%;
+  max-width: 15rem;
+  min-width: min-content;
+  padding: 0.75rem;
   box-sizing: border-box;
   background-color: $side-nav-background-color;
-  box-shadow: inset -2px 0 7px $shadow-color;
+
+  // box-shadow: inset -2px 0 7px $shadow-color;
   z-index: 1;
+  font-size: 1.1rem;
+  border-right: 1px solid color.adjust($content-page-background-color, $lightness: -20%);
 
   ul {
     list-style-type: none;
@@ -17,9 +21,10 @@
     margin: 0;
 
     .sideNavItem {
-      // width: 100%;
+      // width: max-content;
       // cursor: pointer;
-      // margin-bottom: 0.6rem;
+      margin: 0.5rem 0;
+      font-weight: 600;
     }
 
     .sideNavLink {
@@ -27,22 +32,24 @@
       width: 100%;
       color: black;
       text-decoration: none;
-      padding: 0.75rem 1rem;
+      padding: 0.5rem 1rem;
       box-sizing: border-box;
+      border-radius: 0.4rem;
 
       &:hover {
-        background-color: color.adjust($side-nav-background-color, $lightness: -10%);
+        // background-color: color.adjust($side-nav-background-color, $lightness: -10%);
       }
     }
 
     .activeSideNavLink {
-      color: $active-side-nav-color;
-      background-color: $content-page-background-color;
-      box-shadow: 0 2px 6px $shadow-color;
-      font-weight: 700;
+      color: $accent-color;
+      background-color: color.adjust($side-nav-background-color, $lightness: -6%);
+
+      // box-shadow: 0 2px 6px $shadow-color;
+      // font-weight: 700;
 
       &:hover {
-        background-color: $content-page-background-color;
+        // background-color: $content-page-background-color;
       }
     }
   }

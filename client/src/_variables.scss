@@ -1,13 +1,15 @@
 @use 'sass:color';
 
 // colors
+$accent-color: #458fd4;
 $site-background-color: #6f7581;
-$nav-background-color: #37435e;
-$content-page-background-color: #e9ebf0;
-$side-nav-background-color: color.adjust($content-page-background-color, $lightness: -15%);//$site-background-color;
+$nav-background-color: #28292b;
+$content-page-background-color: white;//#e9ebf0;
+$side-nav-background-color: color.adjust($content-page-background-color, $lightness: -4%);//$site-background-color;
 $shadow-color: #00000052;
-$active-nav-color: white;
-$active-side-nav-color: black;
+
+// $active-nav-color: white;
+// $active-side-nav-color: black;
 $link-color: #1062c0;
 $visited-link-color: rgb(140, 68, 158);
 $active-link-color: rgb(228, 67, 67);
