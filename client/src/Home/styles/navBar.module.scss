@@ -1,6 +1,7 @@
 @use '../../variables' as *;
+@use 'sass:color';
 
-.navbar {
+.navbarContainer {
   @include display-flex(row);
 
   background-color: $nav-background-color;
@@ -10,8 +11,17 @@
   width: 100%;
   height: 4rem;
   box-sizing: border-box;
-  border-bottom: 1px solid black;
-  box-shadow: 0 2px 6px $shadow-color;
+  border-bottom: 1px solid color.adjust($nav-background-color, $lightness: 20%);
+
+  // box-shadow: 0 2px 6px $shadow-color;
+
+  .navItem {
+    color: white;
+    text-decoration: none;
+
+    // font-size: 1rem;
+    // font-weight: 600;
+  }
 
   .logo {
     @include display-flex(row);
@@ -20,18 +30,13 @@
     font-size: 1.7rem;
     font-weight: 600;
     height: 55%;
+    flex-shrink: 0;
   }
 
   .logoImg {
     height: 100%;
     border-radius: 8px;
-
-    // margin-right: 0.75rem;
-  }
-
-  .navItem {
-    color: white;
-    text-decoration: none;
+    margin-right: 0.75rem;
   }
 
   .navLink {
@@ -45,13 +50,21 @@
   }
 
   .activeNav {
-    color: $active-nav-color;
+    color: $accent-color;
 
-    // font-weight: 700;
+    // font-weight: 600;
     text-decoration: underline;
 
     // text-underline-position: under;
-    text-underline-offset: 0.35em;
+    text-underline-offset: 0.5em;
+  }
+
+  .navListContainer {
+    // @include display-flex(row, center, center);
+
+    // width: 100%;
+    // background-color: red;
+    box-sizing: border-box;
   }
 
   ul {
