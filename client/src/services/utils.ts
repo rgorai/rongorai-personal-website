@@ -1,6 +1,8 @@
 const parseRoute = (...pathItems: Array<string>) =>
-  pathItems.reduce((p, c) => p + '/' + c.replace(' ', '-')?.toLowerCase(), '')
+  pathItems.reduce((p, c) => p + '/' + c.replace(' ', '-').toLowerCase(), '')
 
 const getFile = (path: string) => `/api/files/${encodeURIComponent(path)}`
 
-export { parseRoute, getFile }
+const parseId = (text: string) => text.replace(' ', '-').toLowerCase()
+
+export { parseRoute, getFile, parseId }

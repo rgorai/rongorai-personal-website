@@ -1,6 +1,6 @@
 @use 'sass:color';
 
-// colors
+// colors / vars
 $accent-color: #458fd4;
 $site-background-color: #6f7581;
 $nav-background-color: #28292b;
@@ -10,9 +10,11 @@ $shadow-color: #00000052;
 
 // $active-nav-color: white;
 // $active-side-nav-color: black;
+$nav-link-color: #464646;
 $link-color: #1062c0;
 $visited-link-color: rgb(140, 68, 158);
 $active-link-color: rgb(228, 67, 67);
+$content-border: 1px solid color.adjust($content-page-background-color, $lightness: -20%);
 
 // mixins
 @mixin card-background($pad: 2em) {

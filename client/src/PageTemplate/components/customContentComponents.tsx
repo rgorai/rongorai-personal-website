@@ -61,7 +61,7 @@ const MediaGrid = (props: MediaGridProps) => {
     // }
     const row = props.media.slice(firstIdx, firstIdx + props.columns)
 
-    console.log('row', i, row)
+    // console.log('row', i, row)
   }
 
   // props.media[3].mediaProps.style = {width: '400px'}

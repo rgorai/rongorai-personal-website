@@ -22,6 +22,9 @@ const App = () => {
       name: 'Hobbies',
       navItems: ['Music', 'STEM', 'Bowling', 'Snowboarding'],
     },
+    {
+      name: 'Pets',
+    },
     { name: 'Guestbook', element: <GuestbookPage /> },
   ]
 

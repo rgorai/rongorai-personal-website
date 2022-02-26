@@ -4,11 +4,13 @@ import styles from '../styles/appContent.module.scss'
 import ApiError from '../../Misc/components/ApiError'
 import Loading from '../../Misc/components/Loading'
 import ErrorBoundary from '../../Misc/components/ErrorBoundary'
+import { parseId } from '../../services/utils'
 import * as CustomComponents from './customContentComponents'
+import TableOfContents from './TableOfContents'
 
 type AnyObject = { [key: string]: any }
 
-type Tag = {
+export type Tag = {
   tag: string
   text: string
   props?: AnyObject
@@ -22,6 +24,7 @@ type Component = {
 type PageData = Array<Tag | Component>
 
 const isTag = (x: any): x is Tag => x.tag !== undefined
+const isHeading = (x: any): x is Tag => x.tag === 'h2'
 const isComponent = (x: any): x is Component => x.component !== undefined
 
 type Props = {
@@ -35,14 +38,18 @@ const ContentGenerator = (props: Props) => {
   useEffect(() => {
     axios
       .get(`/api/data/${encodeURIComponent(`${props.src}/data.js`)}`)
-      .then((res) => setPageData(res.data))
+      .then((res) => {
+        // give all headings a generated id
+        setPageData(
+          (res.data as PageData).map((e) =>
+            isHeading(e)
+              ? { ...e, props: { ...e.props, id: parseId(e.text) } }
+              : e
+          )
+        )
+      })
       .catch((err) => setApiError(err.response))
   }, [props.src])
-
-  useEffect(() => {
-    // document.title = `${pageData} | Ron Gorai`
-    console.log(pageData)
-  }, [pageData])
 
   const getComponent = (e: Component) => {
     const Temp = { ...CustomComponents }[e.component] as Function
@@ -61,6 +68,9 @@ const ContentGenerator = (props: Props) => {
           </React.Fragment>
         ))}
       </div>
+      <TableOfContents
+        data={pageData.filter((e) => isHeading(e)) as Array<Tag>}
+      />
     </ErrorBoundary>
   ) : (
     <Loading />
