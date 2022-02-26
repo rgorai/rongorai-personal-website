@@ -6,10 +6,14 @@
   height: 100%;
 
   .contentWrapper {
+    @include display-flex(row, center, flex-start);
+
     background-color: $content-page-background-color;
     box-sizing: border-box;
     height: 100%;
     width: 100%;
+
+    // padding: 2rem 2rem 5rem 2rem;
     padding: 2rem 0 5rem;
     z-index: 2;
     overflow-y: auto;

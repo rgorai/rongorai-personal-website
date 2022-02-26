@@ -4,15 +4,18 @@
 @mixin align($alignment) {
   width: 40%;
   float: $alignment;
-  margin-right: 1em;
 }
 
 .floatLeft {
   @include align(left);
+
+  margin-right: 1.1rem;
 }
 
 .floatRight {
   @include align(right);
+
+  margin-left: 1.1rem;
 }
 
 .zoomIn {

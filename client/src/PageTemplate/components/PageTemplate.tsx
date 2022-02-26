@@ -7,8 +7,8 @@ import ContentGenerator from './ContentGenerator'
 type AppContent = {
   contentTitle: string
   contentSubtitle: string
-  navItems: Array<string>
   src: string
+  navItems?: Array<string>
 }
 
 type Other = {
@@ -23,12 +23,14 @@ const PageTemplate = (props: AppContent | Other) => {
     <div className={styles.contentPageWrapper}>
       {isAppContent(props) ? (
         <>
-          <SideNav
-            navItems={props.navItems.map((e) => ({
-              name: e,
-              route: parseRoute(props.contentTitle, e),
-            }))}
-          />
+          {props.navItems && (
+            <SideNav
+              navItems={props.navItems.map((e) => ({
+                name: e,
+                route: parseRoute(props.contentTitle, e),
+              }))}
+            />
+          )}
 
           <div className={styles.contentWrapper}>
             <ContentGenerator src={props.src.slice(1)} />
