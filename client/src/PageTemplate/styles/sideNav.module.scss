@@ -11,8 +11,6 @@ $nav-background-accent: color.adjust($side-nav-background-color, $lightness: -6%
   padding: 0.75rem;
   box-sizing: border-box;
   background-color: $side-nav-background-color;
-
-  // box-shadow: inset -2px 0 7px $shadow-color;
   z-index: 1;
   font-size: 1.1rem;
   border-right: $content-border;
@@ -23,8 +21,6 @@ $nav-background-accent: color.adjust($side-nav-background-color, $lightness: -6%
     margin: 0;
 
     .sideNavItem {
-      // width: max-content;
-      // cursor: pointer;
       margin: 0.5rem 0;
       font-weight: 600;
     }
@@ -46,13 +42,6 @@ $nav-background-accent: color.adjust($side-nav-background-color, $lightness: -6%
     .activeSideNavLink {
       color: $accent-color;
       background-color: $nav-background-accent;
-
-      // box-shadow: 0 2px 6px $shadow-color;
-      // font-weight: 700;
-
-      &:hover {
-        // background-color: $content-page-background-color;
-      }
     }
   }
 }

@@ -13,14 +13,9 @@
   box-sizing: border-box;
   border-bottom: 1px solid color.adjust($nav-background-color, $lightness: 20%);
 
-  // box-shadow: 0 2px 6px $shadow-color;
-
   .navItem {
     color: white;
     text-decoration: none;
-
-    // font-size: 1rem;
-    // font-weight: 600;
   }
 
   .logo {
@@ -45,26 +40,12 @@
 
   .navArrow {
     margin-left: 0.25rem;
-
-    // font-size: 1.2rem;
   }
 
   .activeNav {
     color: $accent-color;
-
-    // font-weight: 600;
     text-decoration: underline;
-
-    // text-underline-position: under;
     text-underline-offset: 0.5em;
-  }
-
-  .navListContainer {
-    // @include display-flex(row, center, center);
-
-    // width: 100%;
-    // background-color: red;
-    // box-sizing: border-box;
   }
 
   ul {

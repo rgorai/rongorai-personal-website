@@ -1,3 +1,3 @@
-const t = [1, 2, 3, 4, 5]
+const parseId = (text) => text.replaceAll(' ', '-').toLowerCase()
 
-console.log(t.slice(2, 10))
+console.log(parseId('Boy Scouts of America'))
