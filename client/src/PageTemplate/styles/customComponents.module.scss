@@ -52,7 +52,7 @@ figcaption {
 
   .pngImage {
     padding: 1rem;
-    background-color: color.adjust($content-page-background-color, $lightness: 6%);
+    background-color: color.adjust($site-background-color, $lightness: 6%);
     box-sizing: border-box;
   }
 }

@@ -40,8 +40,8 @@ const App = () => {
 
         <main>
           <Routes>
-            <Route path="/home" element={<Navigate replace to="/" />} />
             <Route path="/" element={<HomePage />} />
+            <Route path="/home" element={<Navigate replace to="/" />} />
 
             {appContent.map((e, i) => (
               <React.Fragment key={i}>
@@ -53,10 +53,16 @@ const App = () => {
                         replace
                         to={parseRoute(e.name, e.navItems[0])}
                       />
-                    ) : (
+                    ) : e.element ? (
                       <PageTemplate contentTitle={e.name} element={e.element} />
+                    ) : (
+                      <PageTemplate
+                        contentTitle={e.name}
+                        src={parseRoute(e.name)}
+                      />
                     )
                   }
+                  key={parseRoute(e.name)}
                 />
                 {e.navItems &&
                   e.navItems.map((f, j) => (
@@ -70,7 +76,7 @@ const App = () => {
                           src={parseRoute(e.name, f)}
                         />
                       }
-                      key={j}
+                      key={parseRoute(e.name, f)}
                     />
                   ))}
               </React.Fragment>

@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import cx from 'classnames'
 import styles from '../styles/sideNav.module.scss'
 
@@ -8,6 +8,7 @@ type Props = {
 
 const SideNav = (props: Props) => {
   const location = useLocation()
+  const navigate = useNavigate()
 
   return (
     <nav className={styles.sideNavContainer}>
@@ -19,6 +20,8 @@ const SideNav = (props: Props) => {
                 [styles.activeSideNavLink]: location.pathname.includes(e.route),
               })}
               to={e.route}
+              // onClick={() => window.location.reload()}
+              state={{ from: e.route }}
             >
               {e.name}
             </Link>

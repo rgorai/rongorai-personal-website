@@ -1,16 +1,22 @@
 @use '../../variables' as *;
 @use 'sass:color';
 
+.contentWrapper {
+  @include display-flex(row, center, flex-start);
+
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: 2rem 0 5rem;
+  z-index: 2;
+  overflow-y: auto;
+}
+
 .contentContainer {
-  // @include display-flex(column, flex-start, flex-start);
-
-  width: 45rem;
+  width: 50rem;
   max-width: 90%;
-
-  // min-width: 20rem;
-  // margin: 0 auto;
   font-size: 1.1rem;
-  padding: 0 2.5rem;
+  padding: 0 max(5%, 3rem);
 
   h1 {
     text-align: center;
@@ -34,8 +40,6 @@
 
   p {
     line-height: 1.45em;
-
-    // letter-spacing: 0.04em;
   }
 
   a {

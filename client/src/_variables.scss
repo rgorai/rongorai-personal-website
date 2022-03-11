@@ -2,22 +2,20 @@
 
 // colors / vars
 $accent-color: #458fd4;
-$site-background-color: #6f7581;
+$site-background-color: white;//#6f7581;
 $nav-background-color: #28292b;
-$content-page-background-color: white;//#e9ebf0;
-$side-nav-background-color: color.adjust($content-page-background-color, $lightness: -4%);//$site-background-color;
-$shadow-color: #00000052;
 
-// $active-nav-color: white;
-// $active-side-nav-color: black;
+// $content-page-background-color: white;//#e9ebf0;
+$side-nav-background-color: color.adjust($site-background-color, $lightness: -4%);
+$shadow-color: #00000052;
 $nav-link-color: #464646;
 $link-color: #1062c0;
 $visited-link-color: rgb(140, 68, 158);
 $active-link-color: rgb(228, 67, 67);
-$content-border: 1px solid color.adjust($content-page-background-color, $lightness: -20%);
+$content-border: 1px solid color.adjust($site-background-color, $lightness: -20%);
 
 // mixins
-@mixin card-background($pad: 2em) {
+@mixin card-background($pad: 2em) { // remove this one
   background-color: color.adjust($site-background-color, $lightness: 30%);
   padding: $pad;
   border-radius: 15px;

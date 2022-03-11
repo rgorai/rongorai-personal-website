@@ -10,7 +10,9 @@ const TableOfContents = (props: Props) => {
     <div className={styles.tableWrapper}>
       <div className={styles.tableContainer}>
         {props.data.map((e, i) => (
-          <a href={`#${e.props?.id}`}>{e.text}</a>
+          <a href={`#${e.props?.id}`} key={i}>
+            {e.text}
+          </a>
         ))}
       </div>
     </div>
