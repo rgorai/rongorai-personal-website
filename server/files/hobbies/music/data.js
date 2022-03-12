@@ -51,14 +51,13 @@ export default [
         src: getFile('hobbies/music/summerfest/summerfest-2016-lineup.jpg'),
         mediaProps: { alt: 'Summerfest 2016 Official Lineup' },
       },
+      {
+        Type: 'video',
+        src: getFile('hobbies/music/summerfest/summerfest-prince.mp4'),
+        caption: `A portion of the song "Let's Go Crazy" by Prince`,
+        mediaProps: { controls: true, loop: true },
+      },
     ],
-  }),
-
-  Component('Media', {
-    Type: 'video',
-    src: getFile('hobbies/music/summerfest/summerfest-prince.mp4'),
-    caption: `A portion of the song "Let's Go Crazy" by Prince`,
-    mediaProps: { controls: true, loop: true },
   }),
 
   Tag('h2', 'Performances Scrapbook'),

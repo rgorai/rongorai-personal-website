@@ -1,6 +1,5 @@
-// import './apiError.css'
-
 import { useEffect } from 'react'
+import styles from '../styles/apiError.module.scss'
 
 type Props = {
   status: number
@@ -16,9 +15,9 @@ const ApiError = (props: Props) => {
   }, [data])
 
   return (
-    <div className="api-error-container">
-      <div className="api-error-status">{status}</div>
-      <div className="api-error-text">{statusText}</div>
+    <div className={styles.errorContainer}>
+      <div className={styles.errorStatus}>{status}</div>
+      <div className={styles.errorText}>{statusText}</div>
     </div>
   )
 }

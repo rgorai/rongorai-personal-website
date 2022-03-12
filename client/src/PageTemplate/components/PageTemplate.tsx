@@ -43,7 +43,7 @@ const PageTemplate = (props: AppContent | Other) => {
   const [apiError, setApiError] = useState(null as null | AxiosResponse)
 
   useEffect(() => {
-    console.log('refetched')
+    // console.log('refetched')
     if (isAppContent(props))
       axios
         .get(`/api/data/${encodeURIComponent(`${props.src.slice(1)}/data.js`)}`)
