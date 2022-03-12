@@ -1,5 +1,5 @@
 import cx from 'classnames'
-import { useEffect, useRef, useState } from 'react'
+import { MutableRefObject, ReactNode, useEffect, useRef, useState } from 'react'
 import styles from '../styles/customComponents.module.scss'
 
 type AnyObject = { [key: string]: any }
@@ -15,11 +15,21 @@ type MediaProps = {
 }
 
 const Media = (props: MediaProps) => {
+  const tagRef = useRef({ offsetWidth: 0, offsetHeight: 0 } as
+    | HTMLImageElement
+    | HTMLVideoElement)
+  const [flex, setFlex] = useState(1)
+
+  const onLoad = () => {
+    setFlex(tagRef.current.offsetWidth / tagRef.current.offsetHeight)
+  }
+
   return (
     <div
       className={cx(styles.mediaContainer, {
         [styles.reduceWidth]: props.reduceWidth,
       })}
+      style={{ flex }}
     >
       <figure
         className={cx({
@@ -27,14 +37,26 @@ const Media = (props: MediaProps) => {
           [styles.floatRight]: props.floatRight,
         })}
       >
-        <props.Type
-          className={cx({ [styles.zoomIn]: props.Type === 'img' })}
-          src={props.src}
-          onClick={
-            props.Type === 'img' ? () => window.open(props.src) : undefined
-          }
-          {...props.mediaProps}
-        />
+        {props.Type === 'img' && (
+          <img
+            className={styles.zoomIn}
+            src={props.src}
+            ref={tagRef as MutableRefObject<HTMLImageElement>}
+            onLoad={onLoad}
+            onClick={() => window.open(props.src)}
+            alt={props.mediaProps.alt}
+            {...props.mediaProps}
+          />
+        )}
+
+        {props.Type === 'video' && (
+          <video
+            src={props.src}
+            ref={tagRef as MutableRefObject<HTMLVideoElement>}
+            onLoadedMetadata={onLoad}
+            {...props.mediaProps}
+          />
+        )}
         {props.caption && <figcaption>{props.caption}</figcaption>}
       </figure>
     </div>
@@ -48,47 +70,55 @@ type MediaGridProps = {
 }
 
 const MediaGrid = (props: MediaGridProps) => {
-  const gridContainerRef = useRef(null as null | HTMLDivElement)
+  const gridContainerRef = useRef({} as HTMLDivElement)
   const [gridGap, setGridGap] = useState(0)
 
-  // const gridTemplate = `${100/props.columns}% `.repeat(props.columns)
-  const gridTemplate = `1fr `.repeat(props.columns)
-
-  for (let i = 0; i < props.media.length / props.columns; i++) {
-    const firstIdx = i * props.columns
-    // for (let j = firstIdx; j < firstIdx + props.columns; j++) {
-    //   continue
-    // }
-    const row = props.media.slice(firstIdx, firstIdx + props.columns)
-
-    // console.log('row', i, row)
-  }
-
-  // props.media[3].mediaProps.style = {width: '400px'}
-
   useEffect(() => {
-    const calculateGridGap = () =>
-      ((gridContainerRef.current?.offsetWidth ?? 0) * 2) / props.columns / 25
+    const containerWidth = gridContainerRef.current.offsetWidth
+    const calculateGridGap = () => (containerWidth * 2) / props.columns / 25
+
+    const handleResize = () => {
+      setGridGap(calculateGridGap())
+    }
 
     setGridGap(calculateGridGap())
-    window.addEventListener('resize', () => {
-      setGridGap(calculateGridGap())
-    })
-  }, [props.columns])
+
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [props.columns, props.media])
 
   return (
     <div className={styles.mediaGridContainer} ref={gridContainerRef}>
       <figure>
         <div
           className={styles.mediaGridComponents}
-          style={{
-            gridTemplateColumns: gridTemplate,
-            gap: `${gridGap}px`,
-          }}
+          style={{ gap: `${gridGap}px` }}
         >
-          {props.media.map((e, i) => (
-            <Media {...e} key={i} />
-          ))}
+          {/* thought this in-place function invocation is fun */}
+          {(() => {
+            const rows = [] as Array<ReactNode>
+            for (let i = 0; i < props.media.length / props.columns; i++) {
+              const firstIdx = i * props.columns
+              const currRow = props.media.slice(
+                firstIdx,
+                firstIdx + props.columns
+              )
+              rows.push(
+                <div
+                  className={styles.mediaGridRow}
+                  style={{ gap: `${gridGap}px` }}
+                  key={i}
+                >
+                  {currRow.map((e, j) => (
+                    <Media {...e} key={j} />
+                  ))}
+                </div>
+              )
+            }
+            return rows
+          })()}
         </div>
 
         {props.caption && <figcaption>{props.caption}</figcaption>}

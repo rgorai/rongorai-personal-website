@@ -20,7 +20,7 @@ const App = () => {
     },
     {
       name: 'Hobbies',
-      navItems: ['Music', 'STEM', 'Bowling', 'Snowboarding'],
+      navItems: ['Music', 'STEM', 'Snowboarding', 'Bowling'],
     },
     {
       name: 'Pets',

@@ -32,7 +32,7 @@ export default [
 
   Tag(
     'p',
-    `I am currently a 4/5 at the Stevens Institute of Technology in Hoboken, NJ pursuing a BS in Cybersecurity.`
+    `I am currently a 4/5 at the Stevens Institute of Technology in Hoboken, NJ pursuing a BS in Computer Science.`
   ),
 
   Component('Media', {
