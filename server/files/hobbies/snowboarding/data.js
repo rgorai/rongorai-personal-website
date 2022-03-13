@@ -24,9 +24,13 @@ export default [
     rel: 'noreferrer',
   }),
 
+  Tag('h2', 'Camelback'),
+
+  Tag('h2', 'Mountain Creek'),
+
   Component('Media', {
     Type: 'video',
-    caption: 'A Night Run at Mountain Creek ~ 2017',
+    caption: 'Night Run ~ 2017',
     src: getFile('hobbies/snowboarding/mountain-creek-run.mp4'),
     mediaProps: {
       controls: true,
@@ -34,11 +38,10 @@ export default [
     },
   }),
 
-  Tag('br'),
+  Tag('h2', 'Killington'),
 
   Component('MediaGrid', {
     columns: 2,
-    caption: 'Shots from Killington',
     media: [
       {
         Type: 'img',
