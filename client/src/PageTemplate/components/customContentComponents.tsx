@@ -121,7 +121,11 @@ const MediaGrid = (props: MediaGridProps) => {
           })()}
         </div>
 
-        {props.caption && <figcaption>{props.caption}</figcaption>}
+        {props.caption && (
+          <figcaption className={styles.gridCaption}>
+            {props.caption}
+          </figcaption>
+        )}
       </figure>
     </div>
   )

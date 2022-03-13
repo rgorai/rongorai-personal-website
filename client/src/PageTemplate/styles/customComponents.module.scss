@@ -35,15 +35,25 @@ figure {
   margin: 0;
 }
 
+// figcaption {
+//   text-align: center;
+//   font-size: 1.2rem;
+//   margin-top: 1.25rem;
+//   padding: 0 0.5rem;
+//   font-weight: 600;
+//   color: rgb(63, 63, 63);
+// }
+
 figcaption {
-  text-align: center;
-  font-size: 1.2rem;
-  margin-top: 1.25rem;
-  padding: 0 0.5rem;
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0 0.1rem;
+  font-style: italic;
+
+  // text-align: center;
 }
 
 .mediaContainer {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 
   img,
   video {
@@ -61,16 +71,20 @@ figcaption {
 
 .mediaGridContainer {
   margin-top: 1.5rem;
+
+  .gridCaption {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-style: normal;
+    text-align: center;
+    font-weight: 600;
+  }
 }
 
 .mediaGridComponents {
   @include display-flex(column);
 
-  // display: grid;
   width: 100%;
-
-  // flex-wrap: wrap;
-  // flex-shrink: 0;
 
   .mediaGridRow {
     @include display-flex(row, flex-start, flex-start);
@@ -84,11 +98,5 @@ figcaption {
     width: 100%;
     height: auto;
     vertical-align: middle;
-  }
-
-  figcaption {
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-    font-size: 1.1rem;
   }
 }

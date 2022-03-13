@@ -1,15 +1,9 @@
-import axios, { AxiosResponse } from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
 import styles from '../styles/appContent.module.scss'
-import ApiError from '../../Misc/components/ApiError'
-import Loading from '../../Misc/components/Loading'
 import ErrorBoundary from '../../Misc/components/ErrorBoundary'
 import { parseId } from '../../services/utils'
 import * as CustomComponents from './customContentComponents'
 import TableOfContents from './TableOfContents'
-
-// import ScrollToTop from './ScrollToTop'
 
 type AnyObject = { [key: string]: any }
 
@@ -44,7 +38,6 @@ const ContentGenerator = (props: Props) => {
 
   // give all headings a generated id
   useEffect(() => {
-    // console.log('test', typeof props.data)
     setPageData(
       props.data.map((e) =>
         isHeading(e) ? { ...e, props: { ...e.props, id: parseId(e.text) } } : e

@@ -25,7 +25,7 @@ export default [
   }),
 
   Component('MediaGrid', {
-    columns: 2,
+    columns: 3,
     media: [
       {
         Type: 'img',
