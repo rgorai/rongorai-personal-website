@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import axios, { AxiosResponse } from 'axios'
 import styles from '../styles/appContent.module.scss'
 import ErrorBoundary from '../../Misc/components/ErrorBoundary'
 import { parseId } from '../../services/utils'
+import Loading from '../../Misc/components/Loading'
+import ApiError from '../../Misc/components/ApiError'
 import * as CustomComponents from './customContentComponents'
 import TableOfContents from './TableOfContents'
 
@@ -25,7 +28,7 @@ const isHeading = (x: any): x is Tag => x.tag === 'h2'
 const isComponent = (x: any): x is Component => x.component !== undefined
 
 type Props = {
-  data: PageData
+  src: string
 }
 
 const getComponent = (e: Component) => {
@@ -34,18 +37,33 @@ const getComponent = (e: Component) => {
 }
 
 const ContentGenerator = (props: Props) => {
-  const [pageData, setPageData] = useState([] as PageData)
+  const [pageData, setPageData] = useState(null as null | PageData)
+  const [apiError, setApiError] = useState(null as null | AxiosResponse)
 
-  // give all headings a generated id
   useEffect(() => {
-    setPageData(
-      props.data.map((e) =>
-        isHeading(e) ? { ...e, props: { ...e.props, id: parseId(e.text) } } : e
-      )
-    )
-  }, [props.data])
+    console.log('refetched')
+    axios
+      .get(`/api/data/${encodeURIComponent(`${props.src.slice(1)}/data.js`)}`)
+      .then((res) => {
+        setPageData(
+          // give all headings a generated id
+          (res.data as PageData).map((e) =>
+            isHeading(e)
+              ? { ...e, props: { ...e.props, id: parseId(e.text) } }
+              : e
+          )
+        )
+        setApiError(null)
+      })
+      .catch((err) => {
+        setApiError(err.response)
+        setPageData(null)
+      })
+  }, [props])
 
-  return (
+  return apiError ? (
+    <ApiError {...apiError} />
+  ) : pageData ? (
     <ErrorBoundary message="invalid json format">
       <div className={styles.contentWrapper}>
         <div className={styles.contentContainer}>
@@ -61,6 +79,8 @@ const ContentGenerator = (props: Props) => {
         />
       </div>
     </ErrorBoundary>
+  ) : (
+    <Loading />
   )
 }
 
