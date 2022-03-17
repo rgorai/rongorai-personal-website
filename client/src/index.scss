@@ -1,13 +1,17 @@
 @use 'variables' as *;
+@use 'sass:color';
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 
-html,
-body,
-#root,
-.App,
+* {
+  box-sizing: border-box;
+}
+
 main {
-  height: 100%;
-  overflow: hidden;
+  width: 100%;
+}
+
+html {
+  overflow-y: auto;
 }
 
 body {
@@ -30,7 +34,73 @@ code {
     monospace;
 }
 
-main {
-  padding-top: 4rem;
+$border-type-color: solid rgb(224, 224, 224);
+
+input,
+textarea {
+  // border: $content-border;
+  // border: 0.125em $border-type-color;
+  // outline: $content-border;
+  // border: 1px solid transparent;
+  border: 0;
+  border-bottom: 2px $border-type-color;
+  border-radius: 0.3em;
+  padding: 0.4em 0.6em;
+  font-size: 1rem;
+  resize: vertical;
+  width: 100%;
   box-sizing: border-box;
+  // background-color: transparent !important;
+  // border-bottom: 2px solid color.adjust(color.adjust($accent-color, $lightness: 0, $alpha: -0.5%),
+  // $blue: 10%
+  // );
+  // border-bottom: 2px solid #219bff85;
+  transition: border 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    border-bottom:
+      2px solid
+      color.adjust(
+        color.adjust($accent-color, $lightness: 0, $alpha: -0.4%),
+        $blue: 10%,
+        $green: 10%
+      );
+    // border-bottom: 2px solid #86b7f6;
+    // outline: 0.1em $border-type-color;
+    // border: 2px $border-type-color;
+    outline: 0;
+  }
+
+  &:focus {
+    outline: 1px $border-type-color;
+    // outline: 1px solid color.adjust(
+    //   color.adjust($accent-color, $lightness: 0, $alpha: -0.4%),
+    //   $blue: 10%,
+    //   $green: 10%
+    // );;
+  }
+
+  &::placeholder {
+    // color: red;
+    opacity: 0.6;
+    // font-weight: 300;
+  }
+}
+
+textarea {
+  height: 6em;
+}
+
+button {
+  padding: 0.75em 1.5em;
+  border: 0;
+  // border: $content-border;
+  border-radius: 0.3em;
+  cursor: pointer;
+  background-color: $primary-button-color;
+
+  &:hover {
+    background-color: color.adjust($primary-button-color, $lightness: 5%);
+  }
 }

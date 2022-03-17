@@ -1,32 +1,33 @@
 @use 'sass:color';
 
-// colors / vars
+// colors
 $accent-color: #458fd4;
-$site-background-color: white;//#6f7581;
-$nav-background-color: #28292b;
-
-// $content-page-background-color: white;//#e9ebf0;
-$side-nav-background-color: color.adjust($site-background-color, $lightness: -4%);
+$site-background-color: white; //rgb(245, 248, 250);//#6f7581;
+$nav-background-color: hsl(220deg, 4%, 16%);
+$side-nav-background-color: color.adjust(
+  color.adjust($site-background-color, $lightness: -3%),
+  $blue: 1%
+);
 $shadow-color: #00000052;
 $nav-link-color: #464646;
 $link-color: #1062c0;
 $visited-link-color: rgb(140, 68, 158);
 $active-link-color: rgb(228, 67, 67);
-$content-border: 1px solid color.adjust($site-background-color, $lightness: -20%);
+$content-border: 1px solid
+  color.adjust($site-background-color, $lightness: -20%);
+$primary-button-color: $accent-color;
+$label-color: #535353;
+$placeholder-color: white;
+
+// vars
+$nav-height: 4rem;
 
 // mixins
-@mixin card-background($pad: 2em) { // remove this one
-  background-color: color.adjust($site-background-color, $lightness: 30%);
-  padding: $pad;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 3px 8px rgba(75, 75, 75, 91.1%);
-  box-sizing: border-box;
-}
-
-@mixin display-flex($direction, $justification: flex-start, $alignment: center) {
+@mixin display-flex(
+  $direction,
+  $justification: flex-start,
+  $alignment: center
+) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justification;

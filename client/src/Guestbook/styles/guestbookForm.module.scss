@@ -1,19 +1,43 @@
 @use '../../variables' as *;
+@use 'sass:color';
 
 .formContainer {
-  @include display-flex(column);
-  @include card-background;
+  @include display-flex(column, flex-start, flex-start);
+  // @include card-background;
 
-  width: 40%;
+  // width: 500px;
 
   // margin: 0 auto;
   // background-color: ;
 
   .formLabel {
-    width: 100%;
+    // width: 100%;
+    // margin-left: 0.1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: $label-color;
+    word-spacing: 0;
   }
 
   .formInput {
     font-family: inherit;
+    margin-bottom: 1.5rem;
+    background-color: white;
+    // color.adjust(white,
+    // $alpha: -0.1%
+    // );
+  }
+
+  .buttonContainer {
+    @include display-flex(row-reverse, space-between);
+
+    width: 100%;
+
+    .formSubmit {
+      // align-self: flex-end;
+      justify-self: flex-end;
+      color: white;
+      font-size: 0.95rem;
+    }
   }
 }

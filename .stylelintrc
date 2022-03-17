@@ -4,6 +4,8 @@
     "string-quotes": "single",
     "selector-class-pattern": "",
     "color-function-notation": "legacy",
-    "scss/double-slash-comment-whitespace-inside": null
+    "scss/double-slash-comment-whitespace-inside": null,
+    "scss/double-slash-comment-empty-line-before": null,
+    "no-descending-specificity": null
   }
 }

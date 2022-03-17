@@ -1,10 +1,15 @@
 @use '../../variables' as *;
 @use 'sass:color';
 
-$nav-background-accent: color.adjust($side-nav-background-color, $lightness: -6%);
+$nav-background-accent: color.adjust(
+  $side-nav-background-color,
+  $lightness: -6%
+);
 
 .sideNavContainer {
-  height: 100%;
+  position: sticky;
+  top: $nav-height;
+  height: calc(100vh - $nav-height);
   width: 30%;
   max-width: 14rem;
   min-width: min-content;
@@ -14,6 +19,7 @@ $nav-background-accent: color.adjust($side-nav-background-color, $lightness: -6%
   z-index: 1;
   font-size: 1.1rem;
   border-right: $content-border;
+  overflow-y: auto;
 
   ul {
     list-style-type: none;

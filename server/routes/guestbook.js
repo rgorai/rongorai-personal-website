@@ -15,7 +15,7 @@ guestbookRouter.get('/', async (req, res) => {
 
 // create guestbook entry
 guestbookRouter.post('/', async (req, res) => {
-  const { name, description, message } = req.body
+  const { name, background, message } = req.body
 
   try {
     isValidString({ name })
@@ -24,7 +24,7 @@ guestbookRouter.post('/', async (req, res) => {
   }
 
   try {
-    res.status(201).json(await createEntry(name, description, message))
+    res.status(201).json(await createEntry(name, background, message))
   } catch (e) {
     res.status(500).send(String(e))
   }

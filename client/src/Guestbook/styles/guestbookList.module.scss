@@ -1,11 +1,7 @@
 @use '../../variables' as *;
 
-.guestbookListWrapper {
-  width: 50%;
+.guestbookListContainer {
+  @include display-flex(column, flex-start, flex-start);
 
-  .guestbookListContainer {
-    @include card-background;
-
-    margin: 4em;
-  }
+  width: 100%;
 }

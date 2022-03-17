@@ -5,7 +5,7 @@ import ApiError from './Misc/components/ApiError'
 import GuestbookPage from './Guestbook/components/GuestbookPage'
 import NavBar from './Home/components/NavBar'
 import HomePage from './Home/components/HomePage'
-
+import Footer from './Home/components/Footer'
 import PageTemplate from './PageTemplate/components/PageTemplate'
 
 const App = () => {
@@ -20,7 +20,7 @@ const App = () => {
     },
     {
       name: 'Hobbies',
-      navItems: ['Music', 'STEM', 'Snowboarding', 'Bowling'],
+      navItems: ['Music', 'Snowboarding', 'STEM', 'Bowling'],
     },
     {
       name: 'Pets',
@@ -95,6 +95,8 @@ const App = () => {
           </Routes>
         </main>
       </BrowserRouter>
+
+      <Footer />
     </div>
   )
 }

@@ -1,4 +1,5 @@
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { parseRoute } from '../../services/utils'
 import styles from '../styles/pageTemplate.module.scss'
 import ContentGenerator from './ContentGenerator'
@@ -19,6 +20,11 @@ type Other = {
 const isAppContent = (x: any): x is AppContent => x.src !== undefined
 
 const PageTemplate = (props: AppContent | Other) => {
+  const location = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location])
+
   return (
     <div className={styles.contentPageWrapper}>
       {isAppContent(props) ? (
@@ -35,7 +41,7 @@ const PageTemplate = (props: AppContent | Other) => {
           <ContentGenerator src={props.src} />
         </>
       ) : (
-        <div className={styles.contentWrapper}>{props.element}</div>
+        props.element
       )}
     </div>
   )
