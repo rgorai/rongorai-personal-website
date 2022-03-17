@@ -41,10 +41,11 @@ const ContentGenerator = (props: Props) => {
   const [apiError, setApiError] = useState(null as null | AxiosResponse)
 
   useEffect(() => {
-    console.log('refetched')
+    setPageData(null)
+    setApiError(null)
     axios
       .get(`/api/data/${encodeURIComponent(`${props.src.slice(1)}/data.js`)}`)
-      .then((res) => {
+      .then((res) =>
         setPageData(
           // give all headings a generated id
           (res.data as PageData).map((e) =>
@@ -53,12 +54,8 @@ const ContentGenerator = (props: Props) => {
               : e
           )
         )
-        setApiError(null)
-      })
-      .catch((err) => {
-        setApiError(err.response)
-        setPageData(null)
-      })
+      )
+      .catch((err) => setApiError(err.response))
   }, [props])
 
   return apiError ? (
@@ -66,14 +63,14 @@ const ContentGenerator = (props: Props) => {
   ) : pageData ? (
     <ErrorBoundary message="invalid json format">
       <div className={styles.contentWrapper}>
-        <div className={styles.contentContainer}>
+        <article className={styles.contentContainer}>
           {pageData.map((e, i) => (
             <React.Fragment key={i}>
               {(isTag(e) && React.createElement(e.tag, e.props, e.text)) ||
                 (isComponent(e) && getComponent(e))}
             </React.Fragment>
           ))}
-        </div>
+        </article>
         <TableOfContents
           data={pageData.filter((e) => isHeading(e)) as Array<Tag>}
         />

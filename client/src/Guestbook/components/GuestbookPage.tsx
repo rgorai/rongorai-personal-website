@@ -22,8 +22,12 @@ const GuestbookPage = () => {
     <ApiError {...apiError} />
   ) : guestbook ? (
     <div className={styles.guestbookPageContainer}>
-      <GuestbookForm />
-      <GuestbookList data={guestbook} />
+      <div className={styles.formContainer}>
+        <GuestbookForm />
+      </div>
+      <div className={styles.listContainer}>
+        <GuestbookList data={guestbook} />
+      </div>
     </div>
   ) : (
     <Loading />

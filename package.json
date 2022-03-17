@@ -11,7 +11,7 @@
     "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
     "precommit": "lint-staged",
     "seed": "node server/tasks/seed.js",
-    "lint": "eslint --fix --ext .tsx,.ts,.js && prettier --write \"**/*.{tsx,ts,js}\""
+    "lint": "eslint --fix --ext .tsx,.ts,.js && prettier --write \"**/*.{tsx,ts,js,scss}\" && stylelint --fix **/*.scss"
   },
   "lint-staged": {
     "**/*.{tsx,ts,js}": [
@@ -19,6 +19,7 @@
       "prettier --write"
     ],
     "**/*.scss": [
+      "prettier --write",
       "stylelint --fix"
     ]
   },

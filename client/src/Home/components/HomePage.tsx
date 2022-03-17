@@ -4,7 +4,7 @@ import { getFile } from '../../services/utils'
 
 const HomePage = () => {
   useEffect(() => {
-    document.title = 'Home | Ron Gorai'
+    document.title = `Welcome | Ron Gorai's Personal Website`
   }, [])
 
   return (

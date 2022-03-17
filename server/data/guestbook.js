@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb'
 import { guestbookCollection } from '../config/mongoCollections.js'
 import { isValidString } from '../misc/errors.js'
 
-const createEntry = async (name, description, message) => {
+const createEntry = async (name, background, message) => {
   // error check
   try {
     isValidString({ name })
@@ -15,7 +15,7 @@ const createEntry = async (name, description, message) => {
   const date = new Date()
   const retval = await guestbook.insertOne({
     name,
-    description,
+    background,
     message,
     date: `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`,
   })

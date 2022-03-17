@@ -1,11 +1,9 @@
 @use '../../variables' as *;
+@use 'sass:color';
 
 .tableWrapper {
   position: sticky;
-  top: 1rem;
-
-  // min-width: max-content;
-  // margin-left: 3%;
+  top: calc($nav-height + 2rem);
   width: 30%;
   max-width: 11rem;
 
@@ -13,10 +11,10 @@
     @include display-flex(column, flex-start, flex-start);
 
     border-left: $content-border;
-    padding: 0.5em 1em;
+    padding: 0.5em 1.25em;
 
     a {
-      color: $nav-link-color;
+      color: color.adjust($nav-link-color, $lightness: 10%);
       margin-bottom: 0.75em;
       text-decoration: none;
       line-height: 1.5em;

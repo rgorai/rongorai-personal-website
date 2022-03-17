@@ -8,8 +8,7 @@
   height: 100%;
   width: 100%;
   padding: 2rem 0 5rem 1rem;
-  z-index: 2;
-  overflow-y: auto;
+  z-index: 0;
 }
 
 .contentContainer {
@@ -27,6 +26,7 @@
 
   h2 {
     margin-top: 3rem;
+    scroll-margin-top: 3em;
 
     &:first-of-type {
       margin-top: initial;

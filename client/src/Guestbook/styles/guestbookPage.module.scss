@@ -1,13 +1,40 @@
 @use '../../variables' as *;
 
-.guestbookPageContainer {
-  @include display-flex(row);
+@mixin container {
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
 
-  // display: inline-grid;
-  // grid-template-columns: 50%;
-  // align-items: center;
+.guestbookPageContainer {
+  @include display-flex(row, flex-start, flex-start);
 
   width: 100%;
-  margin: 1rem auto;
-  justify-content: space-between;
+  height: 100%;
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+
+  $space-between: 6%;
+
+  .formContainer {
+    @include container;
+
+    position: sticky;
+    top: $nav-height;
+    height: calc(100vh - $nav-height);
+    width: 40%;
+    min-width: 25rem;
+    padding: 2rem 4rem;
+    border-right: $content-border;
+    background-color: $side-nav-background-color;
+  }
+
+  .listContainer {
+    @include container;
+
+    width: 60%;
+    padding: 2rem 6% 5rem;
+  }
 }

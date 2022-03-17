@@ -1,29 +1,33 @@
 @use '../../variables' as *;
 
 .homePageContainer {
-  @include display-flex(row);
+  @include display-flex(row, center);
 
-  width: min-content;
-  margin: 3em auto;
+  width: 100%;
+  height: calc(100vh - $nav-height);
+  // padding: 3em auto;
+  // background-color: $nav-background-color;
 
   .messageContainer {
-    margin-right: 4em;
+    width: 40%;
+    max-width: 25rem;
+    margin-right: 1em;
+    color: black;
 
     .title {
-      min-width: max-content;
       font-size: 5em;
       font-weight: 600;
-      color: white;
+      // color: white;
     }
 
     .welcome {
       font-size: 3em;
       font-weight: 300;
-      color: white;
+      // color: white;
     }
   }
 
   .profileImg {
-    height: 40em;
+    height: 70vh;
   }
 }

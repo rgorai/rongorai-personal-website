@@ -1,7 +1,8 @@
 @use '../../variables' as *;
 
 .contentPageWrapper {
-  @include display-flex(row);
+  @include display-flex(row, center, flex-start);
 
+  width: 100%;
   height: 100%;
 }
