@@ -5,7 +5,11 @@ import { getFile } from '../../services/utils'
 const HomePage = () => {
   return (
     <footer className={styles.footerContainer}>
-      <p>temp footer</p>
+      <h2>Info</h2>
+      <p>
+        {'Email: '}
+        <a href="mailto:ron.gorai2020@gmail.com">ron.gorai2020@gmail.com</a>
+      </p>
     </footer>
   )
 }

@@ -2,7 +2,11 @@
 
 .footerContainer {
   width: 100%;
-  padding: 3rem;
+  padding: 1rem 4rem 3rem;
   background-color: $nav-background-color;
   color: white;
+
+  a {
+    color: white;
+  }
 }
