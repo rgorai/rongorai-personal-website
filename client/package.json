@@ -32,9 +32,9 @@
   },
   "scripts": {
     "load-env": "cp ../.env .env",
-    "start": "npm run load-env && serve -s build",
+    "start": "serve -s build",
     "dev": "npm run load-env && set PORT=5001 && react-scripts start",
-    "build": "npm run load-env && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
