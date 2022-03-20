@@ -8,6 +8,7 @@
 
 main {
   width: 100%;
+  min-height: calc(100vh - $nav-height);
 }
 
 html {
@@ -39,7 +40,7 @@ $border-type-color: solid $content-border-color;
 input,
 textarea {
   border: 0;
-  border-bottom: 2px $border-type-color;
+  border-bottom: 3px $border-type-color;
   border-radius: 0.3em;
   padding: 0.4em 0.6em;
   font-size: 1rem;
@@ -51,17 +52,13 @@ textarea {
   &:hover,
   &:focus {
     border-bottom:
-      2px solid
-      color.adjust(
-        color.adjust($accent-color, $lightness: 0, $alpha: -0.3%),
-        $blue: 10%,
-        $green: 10%
-      );
+      3px solid
+      color.adjust($accent-color, $lightness: 0, $alpha: -0.2%);
     outline: 0;
   }
 
   &:focus {
-    outline: 1px solid color.adjust($content-border-color, $lightness: 10%);
+    outline: 1px $border-type-color;
   }
 
   &::placeholder {
@@ -82,5 +79,14 @@ button {
 
   &:hover {
     background-color: color.adjust($primary-button-color, $lightness: 5%);
+  }
+
+  &:active {
+    background-color: color.adjust($primary-button-color, $lightness: -5%);
+  }
+
+  &:disabled {
+    background-color: color.adjust($primary-button-color, $lightness: 15%);
+    cursor: not-allowed;
   }
 }
