@@ -17,15 +17,29 @@
     background-color: white;
   }
 
-  .buttonContainer {
-    @include display-flex(row-reverse, space-between);
+  .captchaContainer {
+    // @include display-flex(column, center);
 
-    width: 100%;
+    // width: 100%;
+    margin-bottom: 1.5rem;
+
+    // :global(#rc-anchor-container) {
+    //   background-color: red;
+    //   width: 3rem !important;
+    // }
+  }
+
+  .buttonContainer {
+    // @include display-flex(column, row);
+
+    // width: min-content;
+    // align-self: center;
 
     .formSubmit {
       justify-self: flex-end;
       color: white;
       font-size: 0.95rem;
+      // width: 50%;//calc(100% - 3rem);
     }
   }
 }

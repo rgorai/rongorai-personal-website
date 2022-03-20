@@ -96,7 +96,8 @@ const MediaGrid = (props: MediaGridProps) => {
           className={styles.mediaGridComponents}
           style={{ gap: `${gridGap}px` }}
         >
-          {/* thought this in-place function invocation is fun */}
+          {/* thought this in-place function invocation was a
+              fun way to split props.media into rows on render */}
           {(() => {
             const rows = [] as Array<ReactNode>
             for (let i = 0; i < props.media.length / props.columns; i++) {
@@ -112,7 +113,7 @@ const MediaGrid = (props: MediaGridProps) => {
                   key={i}
                 >
                   {currRow.map((e, j) => (
-                    <Media {...e} key={j} />
+                    <Media {...e} key={`${i}${j}`} />
                   ))}
                 </div>
               )
