@@ -17,7 +17,7 @@ const GuestbookForm = (props: Props) => {
       ? process.env.REACT_APP_CAPTCHA_KEY_PRODUCTION
       : process.env.REACT_APP_CAPTCHA_KEY_DEVELOPMENT
 
-  console.log('ENV', process.env)
+  console.log('ENV', process.env, process.env.REACT_APP_CAPTCHA_KEY_PRODUCTION)
   console.log('siteKey', siteKey, process.env.NODE_ENV === 'production')
 
   const onSubmit = (e: any) => {
