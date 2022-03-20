@@ -18,6 +18,7 @@ const GuestbookForm = (props: Props) => {
       : process.env.REACT_APP_CAPTCHA_KEY_DEVELOPMENT
 
   console.log('ENV', process.env)
+  console.log('siteKey', siteKey)
 
   const onSubmit = (e: any) => {
     e.preventDefault()
