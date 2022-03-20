@@ -87,7 +87,7 @@ const App = () => {
               element={
                 <ApiError
                   status={404}
-                  statusText="Not Found"
+                  statusText="Page Not Found"
                   data="invalid react route"
                 />
               }

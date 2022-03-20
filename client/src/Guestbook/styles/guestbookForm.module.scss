@@ -3,16 +3,8 @@
 
 .formContainer {
   @include display-flex(column, flex-start, flex-start);
-  // @include card-background;
-
-  // width: 500px;
-
-  // margin: 0 auto;
-  // background-color: ;
 
   .formLabel {
-    // width: 100%;
-    // margin-left: 0.1rem;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
     color: $label-color;
@@ -23,21 +15,31 @@
     font-family: inherit;
     margin-bottom: 1.5rem;
     background-color: white;
-    // color.adjust(white,
-    // $alpha: -0.1%
-    // );
+  }
+
+  .captchaContainer {
+    // @include display-flex(column, center);
+
+    // width: 100%;
+    margin-bottom: 1.5rem;
+
+    // :global(#rc-anchor-container) {
+    //   background-color: red;
+    //   width: 3rem !important;
+    // }
   }
 
   .buttonContainer {
-    @include display-flex(row-reverse, space-between);
+    // @include display-flex(column, row);
 
-    width: 100%;
+    // width: min-content;
+    // align-self: center;
 
     .formSubmit {
-      // align-self: flex-end;
       justify-self: flex-end;
       color: white;
       font-size: 0.95rem;
+      // width: 50%;//calc(100% - 3rem);
     }
   }
 }

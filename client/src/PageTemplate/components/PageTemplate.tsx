@@ -21,8 +21,9 @@ const isAppContent = (x: any): x is AppContent => x.src !== undefined
 
 const PageTemplate = (props: AppContent | Other) => {
   const location = useLocation()
+
   useEffect(() => {
-    window.scrollTo(0, 0)
+    if (location.hash.length === 0) window.scrollTo(0, 0)
   }, [location])
 
   return (

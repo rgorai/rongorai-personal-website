@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
+import ReCAPTCHA from 'react-google-recaptcha'
 import { isValidString } from '../../services/errors'
-import FormError from '../../Misc/components/FormError'
 import styles from '../styles/guestbookForm.module.scss'
 
 type Props = {}
@@ -11,6 +11,11 @@ const GuestbookForm = (props: Props) => {
   const [name, setName] = useState('')
   const [background, setDescription] = useState('')
   const [message, setMessage] = useState('')
+  const [captchaPassed, setCaptchaPassed] = useState(false)
+  const siteKey =
+    process.env.NODE_ENV === 'production'
+      ? process.env.REACT_APP_CAPTCHA_KEY_PRODUCTION
+      : process.env.REACT_APP_CAPTCHA_KEY_DEVELOPMENT
 
   const onSubmit = (e: any) => {
     e.preventDefault()
@@ -82,15 +87,25 @@ const GuestbookForm = (props: Props) => {
           onChange={(e) => setMessage(e.target.value)}
         />
 
+        <div className={styles.captchaContainer}>
+          <ReCAPTCHA
+            sitekey={siteKey}
+            onChange={async (tok: any) => setCaptchaPassed(tok !== null)}
+          />
+          {formError.length > 0 && (
+            <div className={styles.formError}>{formError}</div>
+          )}
+        </div>
+
         <div className={styles.buttonContainer}>
           <button
             className={styles.formSubmit}
             type="submit"
             form="guestbook-form"
+            disabled={!captchaPassed}
           >
             Submit
           </button>
-          {formError.length > 0 && <FormError message={formError} />}
         </div>
       </form>
     </>
