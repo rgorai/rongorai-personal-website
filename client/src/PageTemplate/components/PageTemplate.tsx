@@ -23,7 +23,6 @@ const PageTemplate = (props: AppContent | Other) => {
   const location = useLocation()
 
   useEffect(() => {
-    console.log(location)
     if (location.hash.length === 0) window.scrollTo(0, 0)
   }, [location])
 

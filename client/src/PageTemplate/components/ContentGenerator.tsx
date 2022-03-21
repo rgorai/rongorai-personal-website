@@ -41,6 +41,7 @@ const ContentGenerator = (props: Props) => {
   const [apiError, setApiError] = useState(null as null | AxiosResponse)
 
   useEffect(() => {
+    setApiError(null)
     axios
       .get(`/api/data/${encodeURIComponent(`${props.src.slice(1)}/data.js`)}`)
       .then((res) =>
