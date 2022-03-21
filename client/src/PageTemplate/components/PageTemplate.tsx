@@ -9,7 +9,7 @@ type AppContent = {
   contentTitle: string
   src: string
   contentSubtitle?: string
-  navItems?: Array<string>
+  subItems?: Array<string>
 }
 
 type Other = {
@@ -30,9 +30,9 @@ const PageTemplate = (props: AppContent | Other) => {
     <div className={styles.contentPageWrapper}>
       {isAppContent(props) ? (
         <>
-          {props.navItems && (
+          {props.subItems && (
             <SideNav
-              navItems={props.navItems.map((e) => ({
+              navItems={props.subItems.map((e) => ({
                 name: e,
                 route: parseRoute(props.contentTitle, e),
               }))}
