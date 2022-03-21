@@ -3,6 +3,7 @@ import cx from 'classnames'
 import { useEffect } from 'react'
 import { getFile } from '../../services/utils'
 import styles from '../styles/navBar.module.scss'
+import Logo from './Logo'
 
 type Props = {
   navItems: Array<{ name: string; route: string }>
@@ -20,14 +21,9 @@ const NavBar = (props: Props) => {
   return (
     <nav>
       <div className={styles.navbarContainer}>
-        <Link className={cx(styles.logo, styles.navItem)} to="/">
-          <img
-            alt="Logo"
-            className={styles.logoImg}
-            src={getFile('home/logo.svg')}
-          />
-          <span>Ron Gorai</span>
-        </Link>
+        <div className={styles.logoContainer}>
+          <Logo />
+        </div>
         <ul>
           {props.navItems.map((e, i) => (
             <li key={i}>
