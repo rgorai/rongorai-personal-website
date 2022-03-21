@@ -23,14 +23,8 @@ nav {
     text-decoration: none;
   }
 
-  .logo {
-    @include display-flex(row);
-
-    margin-left: 2rem;
-    font-size: 1.7rem;
-    font-weight: 600;
-    height: 55%;
-    flex-shrink: 0;
+  .logoContainer {
+    margin-left: 1.5rem;
   }
 
   .logoImg {
@@ -41,6 +35,10 @@ nav {
 
   .navLink {
     margin-right: 1.25rem;
+
+    &:hover {
+      color: $accent-color;
+    }
   }
 
   .navArrow {
@@ -58,7 +56,7 @@ nav {
 
     list-style-type: none;
     margin: 0;
-    margin-left: 2.5rem;
+    margin-left: 2rem;
     padding: 0;
     height: 100%;
   }

@@ -1,12 +1,58 @@
 @use '../../variables' as *;
 
 .footerContainer {
+  @include display-flex(row, flex-start, flex-start);
+
   width: 100%;
-  padding: 1rem 4rem 3rem;
+  flex-wrap: wrap;
+  padding: 2rem 5rem 5rem;
   background-color: $nav-background-color;
   color: white;
+  row-gap: 2rem;
+  column-gap: 10%;
 
-  a {
+  .footerLink {
+    color: rgba(255, 255, 255, 82.9%);
+    text-decoration: none;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .horizontal {
+      float: left;
+    }
+  }
+
+  .contentContainer {
+    // margin-right: 8rem;
+    flex-shrink: 0;
+    max-width: 20rem;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  .message {
+    color: rgba(255, 255, 255, 61.6%);
+    font-weight: 300;
+  }
+
+  .socialIcon {
+    width: 2.25rem;
+    margin-right: 0.75rem;
     color: white;
+    filter: invert(1);
+  }
+
+  .logoImg {
+    width: 3rem;
   }
 }

@@ -9,6 +9,7 @@
 main {
   width: 100%;
   min-height: calc(100vh - $nav-height);
+  background-color: $site-background-color;
 }
 
 html {
@@ -16,12 +17,12 @@ html {
 }
 
 body {
-  background-color: $site-background-color;
+  background-color: $nav-background-color;
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   word-spacing: 0.1em;
 }
 

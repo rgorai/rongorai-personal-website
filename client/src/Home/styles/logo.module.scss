@@ -1,0 +1,37 @@
+@use '../../variables' as *;
+@use 'sass:color';
+
+@mixin name {
+  padding: 0.05rem 0.4rem 0.2rem;
+  border-radius: 0.4rem;
+  font-weight: 700;
+}
+
+$base-color: rgb(55, 67, 88);
+
+.logoContainer {
+  font-size: 1.5rem;
+  font-weight: 600;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .firstName {
+    @include name;
+
+    background-color: $base-color;
+    padding-right: 0;
+    word-spacing: 0;
+    outline: 0.2rem solid $base-color;
+  }
+
+  .lastName {
+    @include name;
+
+    background-color: color.adjust($accent-color, $lightness: -10%);
+    margin-left: 0.4rem;
+    padding-left: 0.4rem;
+  }
+}
