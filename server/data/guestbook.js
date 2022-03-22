@@ -5,7 +5,7 @@ import { isValidString } from '../misc/errors.js'
 const createEntry = async (name, background, message) => {
   // error check
   try {
-    isValidString({ name })
+    isValidString({ name, background })
   } catch (e) {
     throw String(e)
   }
@@ -14,9 +14,9 @@ const createEntry = async (name, background, message) => {
   const guestbook = await guestbookCollection()
   const date = new Date()
   const retval = await guestbook.insertOne({
-    name,
-    background,
-    message,
+    name: name.trim(),
+    background: background.trim(),
+    message: message.trim(),
     date: `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`,
   })
   if (retval.insertedCount === 0) throw 'Error: failed to add guestbook entry'

@@ -1,13 +1,15 @@
 @use '../../variables' as *;
 @use 'sass:color';
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 @mixin name {
-  padding: 0.05rem 0.4rem 0.2rem;
-  border-radius: 0.4rem;
-  font-weight: 700;
+  padding: 0.1rem 0.5rem 0.2rem;
+  border-radius: 10rem;
+  font-weight: 500;
+  font-family: Ubuntu, sans-serif;
 }
 
-$base-color: rgb(55, 67, 88);
+$base-color: rgb(63, 66, 73);
 
 .logoContainer {
   font-size: 1.5rem;
@@ -18,20 +20,30 @@ $base-color: rgb(55, 67, 88);
     text-decoration: none;
   }
 
+  .initial {
+    color: $accent-color;
+  }
+
   .firstName {
     @include name;
 
     background-color: $base-color;
     padding-right: 0;
     word-spacing: 0;
-    outline: 0.2rem solid $base-color;
+    outline: 0.3rem solid $base-color;
   }
 
   .lastName {
     @include name;
 
-    background-color: color.adjust($accent-color, $lightness: -10%);
-    margin-left: 0.4rem;
-    padding-left: 0.4rem;
+    background-color:
+      color.adjust(
+        $accent-color,
+        $lightness: -10%,
+        $saturation: -15%
+      );
+    margin-left: 0.3rem;
+    padding-left: 0.5rem;
+    padding-right: 0.6rem;
   }
 }

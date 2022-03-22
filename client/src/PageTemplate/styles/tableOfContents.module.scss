@@ -13,18 +13,27 @@
     border-left: $content-border;
     padding: 0.5em 1.25em;
 
-    a {
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 0.75em;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .tocLink {
       color: color.adjust($nav-link-color, $lightness: 10%);
-      margin-bottom: 0.75em;
       text-decoration: none;
       line-height: 1.5em;
 
       &:hover {
-        color: $accent-color;
-      }
-
-      &:last-child {
-        margin-bottom: 0;
+        color: color.adjust($accent-color, $lightness: -10%);
       }
     }
   }

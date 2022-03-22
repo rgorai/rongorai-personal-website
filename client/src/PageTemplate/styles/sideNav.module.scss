@@ -39,6 +39,7 @@ $nav-background-accent: color.adjust(
       padding: 0.5rem 1rem;
       box-sizing: border-box;
       border-radius: 0.4rem;
+      transition: background-color 0.1s ease-in-out;
 
       &:hover {
         background-color: $nav-background-accent;

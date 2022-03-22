@@ -44,7 +44,7 @@ const GuestbookForm = (props: Props) => {
 
   return (
     <>
-      <h2>Sign my guestbook</h2>
+      <h1>Sign my guestbook</h1>
       <form
         id="guestbook-form"
         className={styles.formContainer}
@@ -90,7 +90,7 @@ const GuestbookForm = (props: Props) => {
         <div className={styles.captchaContainer}>
           <ReCAPTCHA
             sitekey={siteKey}
-            onChange={async (tok: any) => setCaptchaPassed(tok !== null)}
+            onChange={(tok: any) => setCaptchaPassed(tok !== null)}
           />
           {formError.length > 0 && (
             <div className={styles.formError}>{formError}</div>

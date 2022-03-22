@@ -9,11 +9,15 @@ const TableOfContents = (props: Props) => {
   return props.data.length > 0 ? (
     <div className={styles.tableWrapper}>
       <div className={styles.tableContainer}>
-        {props.data.map((e, i) => (
-          <a href={`#${e.props?.id}`} key={i}>
-            {e.text}
-          </a>
-        ))}
+        <ul>
+          {props.data.map((e, i) => (
+            <li>
+              <a className={styles.tocLink} href={`#${e.props?.id}`} key={i}>
+                {e.text}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   ) : (

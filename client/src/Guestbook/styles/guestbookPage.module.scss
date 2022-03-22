@@ -12,7 +12,8 @@
   width: 100%;
   height: 100%;
 
-  h2 {
+  h1 {
+    font-size: 1.5rem;
     margin-bottom: 2rem;
   }
 
@@ -24,9 +25,9 @@
     position: sticky;
     top: $nav-height;
     height: calc(100vh - $nav-height);
-    width: 40%;
+    width: 35%;
     min-width: 25rem;
-    padding: 2rem 4rem;
+    padding: 3vh 4rem;
     border-right: $content-border;
     background-color: $side-nav-background-color;
   }
@@ -34,7 +35,7 @@
   .listContainer {
     @include container;
 
-    width: 60%;
-    padding: 2rem 6% 5rem;
+    width: 65%;
+    padding: 3vh 6% 5rem;
   }
 }

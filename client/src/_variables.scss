@@ -3,19 +3,23 @@
 // colors
 $accent-color: #4197e7;
 $site-background-color: white;
-$nav-background-color: #262729;
+$nav-background-color: #272829;
 $side-nav-background-color: color.adjust(
   color.adjust($site-background-color, $lightness: -3%),
   $blue: 1%
 );
-$shadow-color: #00000052;
 $nav-link-color: #464646;
+$nav-hover-color: $accent-color;
 $link-color: #1062c0;
 $visited-link-color: rgb(140, 68, 158);
 $active-link-color: rgb(228, 67, 67);
 $content-border-color: color.adjust($site-background-color, $lightness: -20%);
 $content-border: 1px solid $content-border-color;
-$primary-button-color: $accent-color;
+$primary-button-color: color.adjust(
+  $accent-color,
+  $lightness: -5%,
+  $saturation: -5%
+);
 $label-color: #535353;
 $placeholder-color: white;
 
