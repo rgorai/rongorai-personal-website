@@ -18,6 +18,7 @@ const connectToDb = async () => {
   }
   return _db
 }
+
 const closeConnection = () => {
   _connection.close()
 }

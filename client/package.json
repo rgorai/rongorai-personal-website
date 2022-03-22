@@ -31,9 +31,8 @@
     "eslint-plugin-react": "^7.28.0"
   },
   "scripts": {
-    "load-env": "cp ../.env .env",
+    "dev": "cp ../.env .env && set PORT=5001 && react-scripts start",
     "start": "serve -s build",
-    "dev": "npm run load-env && set PORT=5001 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

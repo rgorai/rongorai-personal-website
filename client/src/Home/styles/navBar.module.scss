@@ -24,20 +24,18 @@ nav {
   }
 
   .logoContainer {
-    margin-left: 1.5rem;
-  }
+    @include display-flex(row, center);
 
-  .logoImg {
-    height: 100%;
-    border-radius: 8px;
-    margin-right: 0.75rem;
+    width: 30%;
+    max-width: 14rem;
   }
 
   .navLink {
-    margin-right: 1.25rem;
+    padding: 0.5em;
+    margin-right: 0.75rem;
 
     &:hover {
-      color: $accent-color;
+      color: $nav-hover-color;
     }
   }
 
@@ -49,15 +47,18 @@ nav {
     color: $accent-color;
     text-decoration: underline;
     text-underline-offset: 0.5em;
+
+    &:hover {
+      color: $accent-color;
+    }
   }
 
   ul {
     @include display-flex(row);
 
     list-style-type: none;
-    margin: 0;
-    margin-left: 2rem;
     padding: 0;
+    margin: 0;
     height: 100%;
   }
 }

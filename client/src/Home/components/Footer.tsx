@@ -55,7 +55,7 @@ const Footer = (props: Props) => {
           created from scratch. Be sure to sign the guestbook before you go!
         </p>,
         FooterLink(EMAIL, `mailto:${EMAIL}`, true, 1),
-        FooterLink('My Resume', getFile('misc/Ron_Gorai_Resume.pdf'), true, 2),
+        FooterLink('My Resume', getFile('Ron_Gorai_Resume.pdf'), true, 2),
       ],
     },
     {

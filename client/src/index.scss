@@ -4,6 +4,12 @@
 
 * {
   box-sizing: border-box;
+  transition: color 0.1s ease-out;
+
+  ::selection {
+    background: color.adjust($accent-color, $saturation: -10%, $lightness: 25%);
+    border-radius: 1em;
+  }
 }
 
 main {
@@ -17,7 +23,7 @@ html {
 }
 
 body {
-  background-color: $nav-background-color;
+  // background-color: $nav-background-color;
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -42,7 +48,7 @@ input,
 textarea {
   border: 0;
   border-bottom: 3px $border-type-color;
-  border-radius: 0.3em;
+  border-radius: 0.25em;
   padding: 0.4em 0.6em;
   font-size: 1rem;
   resize: vertical;

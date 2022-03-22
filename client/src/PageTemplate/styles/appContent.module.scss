@@ -7,12 +7,12 @@
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  padding: 2rem 0 5rem 1rem;
+  padding: 2rem 0 10rem 1rem;
   z-index: 0;
 }
 
 .contentContainer {
-  width: 45rem;
+  width: 55rem;
   max-width: 80%;
   font-size: 1.1rem;
   padding: 0 4%;
@@ -40,7 +40,8 @@
   }
 
   p {
-    line-height: 1.45em;
+    line-height: 1.5em;
+    text-align: justify;
   }
 
   a {
@@ -58,6 +59,10 @@
 
     &:active {
       color: $active-link-color;
+    }
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
