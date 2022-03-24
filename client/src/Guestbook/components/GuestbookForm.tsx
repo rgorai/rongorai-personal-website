@@ -35,7 +35,10 @@ const GuestbookForm = (props: Props) => {
         background: background.trim(),
         message: message.trim(),
       })
-      .then((_) => window.location.reload())
+      .then((_) => {
+        window.location.reload()
+        // window.scrollTo(0, 0)
+      })
       .catch((err) => {
         setFormError('Something went wrong.')
         console.error(err.response)

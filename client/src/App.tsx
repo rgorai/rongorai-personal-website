@@ -61,7 +61,7 @@ const App = () => (
                 key={parseRoute(e.name)}
               />
               {e.subItems &&
-                e.subItems.map((f, j) => (
+                e.subItems.map((f) => (
                   <Route
                     path={parseRoute(e.name, f)}
                     element={
@@ -90,9 +90,9 @@ const App = () => (
           />
         </Routes>
       </main>
-    </BrowserRouter>
 
-    <Footer navItems={navItems} />
+      <Footer navItems={navItems} />
+    </BrowserRouter>
   </div>
 )
 
