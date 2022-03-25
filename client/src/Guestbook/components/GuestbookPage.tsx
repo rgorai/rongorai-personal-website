@@ -19,9 +19,7 @@ const GuestbookPage = () => {
   )
   const [apiError, setApiError] = useState(null)
 
-  // request guestbook data
-  useEffect(() => {
-    setGuestbookEntries(null)
+  const getEntries = () =>
     axios
       .get('/api/guestbook')
       .then((res) =>
@@ -35,6 +33,10 @@ const GuestbookPage = () => {
         )
       )
       .catch((err) => setApiError(err.response))
+
+  // request guestbook data
+  useEffect(() => {
+    getEntries()
   }, [])
 
   return apiError ? (
@@ -43,11 +45,7 @@ const GuestbookPage = () => {
     <div className={styles.guestbookPageContainer}>
       <div className={styles.formContainer}>
         <GuestbookForm
-          reloadPage={() => {
-            // setGuestbookEntries(null)
-            window.location.reload()
-            console.log('reloaded')
-          }}
+          updateData={() => getEntries().then(() => window.scrollTo(0, 0))}
         />
       </div>
       <div className={styles.listContainer}>
