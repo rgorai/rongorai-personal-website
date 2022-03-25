@@ -13,15 +13,29 @@ const GuestbookList = (props: Props) => {
       ) : (
         <div className={styles.entryListContainer}>
           {props.data.map((e, i) => (
-            <div>
-              <div className={styles.entryContainer} key={i}>
+            <div className={styles.entryContainer} key={i}>
+              {i > 0 && <hr />}
+
+              <div className={styles.nameContainer}>
                 <div className={styles.name}>{e.name}</div>
                 <div className={styles.date}>{e.date}</div>
-
-                <div className={styles.background}>{e.background}</div>
-                {e.message && <div className={styles.message}>{e.message}</div>}
               </div>
-              <hr />
+
+              <div className={styles.infoContainer}>
+                <div className={styles.backgroundContainer}>
+                  <div className={styles.label}>Background</div>
+                  <div className={styles.background}>{e.background}</div>
+                </div>
+
+                {e.message && (
+                  <div className={styles.messageContainer}>
+                    <div className={styles.label}>Message</div>
+                    <div className={styles.message}>{e.message}</div>
+                  </div>
+                )}
+              </div>
+
+              {/* <hr /> */}
             </div>
           ))}
         </div>

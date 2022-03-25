@@ -4,7 +4,9 @@ import ReCAPTCHA from 'react-google-recaptcha'
 import { isValidString } from '../../services/errors'
 import styles from '../styles/guestbookForm.module.scss'
 
-type Props = {}
+type Props = {
+  reloadPage: Function
+}
 
 const GuestbookForm = (props: Props) => {
   const [formError, setFormError] = useState('')
@@ -36,8 +38,9 @@ const GuestbookForm = (props: Props) => {
         message: message.trim(),
       })
       .then((_) => {
-        window.location.reload()
+        // window.location.reload()
         // window.scrollTo(0, 0)
+        props.reloadPage()
       })
       .catch((err) => {
         setFormError('Something went wrong.')

@@ -21,13 +21,16 @@ const GuestbookPage = () => {
 
   // request guestbook data
   useEffect(() => {
+    setGuestbookEntries(null)
     axios
       .get('/api/guestbook')
       .then((res) =>
         // sort by date descending
         setGuestbookEntries(
-          (res.data as GuestbookEntries).sort(
-            (a, b) => Date.parse(b.date) - Date.parse(a.date)
+          (res.data as GuestbookEntries).sort((a, b) =>
+            Date.parse(a.date) === Date.parse(b.date)
+              ? -1
+              : Date.parse(b.date) - Date.parse(a.date)
           )
         )
       )
@@ -39,7 +42,13 @@ const GuestbookPage = () => {
   ) : guestbookEntries ? (
     <div className={styles.guestbookPageContainer}>
       <div className={styles.formContainer}>
-        <GuestbookForm />
+        <GuestbookForm
+          reloadPage={() => {
+            // setGuestbookEntries(null)
+            window.location.reload()
+            console.log('reloaded')
+          }}
+        />
       </div>
       <div className={styles.listContainer}>
         <GuestbookList data={guestbookEntries} />
