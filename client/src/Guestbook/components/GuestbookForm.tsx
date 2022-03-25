@@ -1,17 +1,20 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { isValidString } from '../../services/errors'
 import styles from '../styles/guestbookForm.module.scss'
 
-type Props = {}
+type Props = {
+  updateData: Function
+}
 
 const GuestbookForm = (props: Props) => {
   const [formError, setFormError] = useState('')
   const [name, setName] = useState('')
-  const [background, setDescription] = useState('')
+  const [background, setBackground] = useState('')
   const [message, setMessage] = useState('')
   const [captchaPassed, setCaptchaPassed] = useState(false)
+  const recaptchaRef = useRef(null as null | typeof ReCAPTCHA)
   const siteKey =
     process.env.NODE_ENV === 'production'
       ? process.env.REACT_APP_CAPTCHA_KEY_PRODUCTION
@@ -35,7 +38,14 @@ const GuestbookForm = (props: Props) => {
         background: background.trim(),
         message: message.trim(),
       })
-      .then((_) => window.location.reload())
+      .then((_) => {
+        props.updateData()
+        setName('')
+        setBackground('')
+        setMessage('')
+        setCaptchaPassed(false)
+        recaptchaRef.current?.reset()
+      })
       .catch((err) => {
         setFormError('Something went wrong.')
         console.error(err.response)
@@ -72,7 +82,7 @@ const GuestbookForm = (props: Props) => {
           placeholder="A little bit about yourself"
           name="background"
           value={background}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={(e) => setBackground(e.target.value)}
         />
 
         <label className={styles.formLabel} htmlFor="message-input">
@@ -91,6 +101,7 @@ const GuestbookForm = (props: Props) => {
           <ReCAPTCHA
             sitekey={siteKey}
             onChange={(tok: any) => setCaptchaPassed(tok !== null)}
+            ref={recaptchaRef}
           />
           {formError.length > 0 && (
             <div className={styles.formError}>{formError}</div>

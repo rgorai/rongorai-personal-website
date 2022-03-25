@@ -11,8 +11,8 @@ const TableOfContents = (props: Props) => {
       <div className={styles.tableContainer}>
         <ul>
           {props.data.map((e, i) => (
-            <li>
-              <a className={styles.tocLink} href={`#${e.props?.id}`} key={i}>
+            <li key={i}>
+              <a className={styles.tocLink} href={`#${e.props?.id}`}>
                 {e.text}
               </a>
             </li>

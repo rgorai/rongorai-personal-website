@@ -1,5 +1,6 @@
 import { useEffect, ReactNode } from 'react'
 import cx from 'classnames'
+import { Link } from 'react-router-dom'
 import styles from '../styles/footer.module.scss'
 import { getFile } from '../../services/utils'
 import Logo from './Logo'
@@ -24,23 +25,6 @@ const SOCIAL_LINKS = [
   },
 ]
 
-const FooterLink = (
-  text: string,
-  link: string,
-  newTab: boolean,
-  key: number
-) => (
-  <p key={key}>
-    <a
-      className={styles.footerLink}
-      href={link}
-      {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}
-    >
-      {text}
-    </a>
-  </p>
-)
-
 type Props = {
   navItems: Array<{ name: string; route: string }>
 }
@@ -54,15 +38,37 @@ const Footer = (props: Props) => {
           Learn about my professional experience and hobbies on my website
           created from scratch. Be sure to sign the guestbook before you go!
         </p>,
-        FooterLink(EMAIL, `mailto:${EMAIL}`, true, 1),
-        FooterLink('My Resume', getFile('Ron_Gorai_Resume.pdf'), true, 2),
+        <p key={1}>
+          <a
+            className={styles.footerLink}
+            href={`mailto:${EMAIL}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {EMAIL}
+          </a>
+        </p>,
+        <p key={2}>
+          <a
+            className={styles.footerLink}
+            href={getFile('Ron_Gorai_Resume.pdf')}
+            target="_blank"
+            rel="noreferrer"
+          >
+            My Resume
+          </a>
+        </p>,
       ],
     },
     {
       heading: 'MENU',
-      items: props.navItems.map((e, i) =>
-        FooterLink(e.name, e.route, false, i)
-      ),
+      items: props.navItems.map((e, i) => (
+        <p key={i}>
+          <Link className={styles.footerLink} to={e.route}>
+            {e.name}
+          </Link>
+        </p>
+      )),
     },
     {
       heading: 'SOCIAL LINKS',
