@@ -108,16 +108,14 @@ const GuestbookForm = (props: Props) => {
           )}
         </div>
 
-        <div className={styles.buttonContainer}>
-          <button
-            className={styles.formSubmit}
-            type="submit"
-            form="guestbook-form"
-            disabled={!captchaPassed}
-          >
-            Submit
-          </button>
-        </div>
+        <button
+          className={styles.formSubmit}
+          type="submit"
+          form="guestbook-form"
+          disabled={!captchaPassed}
+        >
+          Submit
+        </button>
       </form>
     </>
   )

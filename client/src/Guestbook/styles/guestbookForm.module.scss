@@ -21,16 +21,9 @@
     margin-bottom: 1.5rem;
   }
 
-  .buttonContainer {
-    // @include display-flex(column, row);
-
-    // width: min-content;
-    // align-self: center;
-
-    .formSubmit {
-      justify-self: flex-end;
-      color: white;
-      font-size: 0.95rem;
-    }
+  .formSubmit {
+    justify-self: flex-end;
+    color: white;
+    font-size: 0.95rem;
   }
 }
