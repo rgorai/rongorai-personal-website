@@ -212,7 +212,7 @@
       "imports": "always-multiline",
       "exports": "always-multiline",
       "functions": "never"
-      }],
+    }],
     "comma-spacing": "off",
     "comma-style": "off",
     "computed-property-spacing": "off",

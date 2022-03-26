@@ -51,6 +51,16 @@
       "import/order": "warn",
       "no-unused-vars": "warn",
       "no-throw-literal": "off",
+      "comma-dangle": [
+        "warn", 
+        {
+          "arrays": "always-multiline",
+          "objects": "always-multiline",
+          "imports": "always-multiline",
+          "exports": "always-multiline",
+          "functions": "never"
+        }
+      ],
       "arrow-spacing": [
         "warn",
         {

@@ -89,3 +89,33 @@ figcaption {
     vertical-align: middle;
   }
 }
+
+.statGridContainer {
+  @include display-flex(column, flex-start, flex-start);
+
+  flex-wrap: wrap;
+  padding: 1.5rem 1.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: color.adjust($site-background-color, $lightness: -4%);
+
+  .statContainer {
+    @include display-flex(row, flex-start, flex-start);
+
+    width: 100%;
+    height: max-content;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
+
+    .label {
+      width: 9rem;
+      font-size: 0.9rem;
+      color: $accent-color;
+      line-height: 1.4rem;
+    }
+
+    .stat {
+      width: 100%;
+      color: $label-color;
+    }
+  }
+}

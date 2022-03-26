@@ -21,21 +21,19 @@ const GuestbookList = (props: Props) => {
                 <div className={styles.date}>{e.date}</div>
               </div>
 
-              <div className={styles.infoContainer}>
-                <div className={styles.backgroundContainer}>
+              <div className={styles.infoWrapper}>
+                <div className={styles.infoContainer}>
                   <div className={styles.label}>Background</div>
                   <div className={styles.background}>{e.background}</div>
                 </div>
 
                 {e.message && (
-                  <div className={styles.messageContainer}>
+                  <div className={styles.infoContainer}>
                     <div className={styles.label}>Message</div>
                     <div className={styles.message}>{e.message}</div>
                   </div>
                 )}
               </div>
-
-              {/* <hr /> */}
             </div>
           ))}
         </div>
