@@ -2,6 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import { getFile, Tag, Component } from '../../misc/utils.js'
 
+const PLAY_AS_GIF = ['Snapchat-1111623687.mp4', 'Snapchat-780642135.mp4']
+
 const getAge = (birthday) => {
   const diff = String(
     (new Date() - new Date(birthday)) / (1000 * 3600 * 24 * 365.25)
@@ -9,11 +11,43 @@ const getAge = (birthday) => {
   return `${diff.slice(0, diff.indexOf('.') + 2)} years`
 }
 
-const getMediaNames = (name) =>
-  fs.readdirSync(path.resolve('server', 'files', 'pets', name))
+const getMedia = (name) =>
+  fs
+    .readdirSync(path.resolve('server', 'files', 'pets', name))
+    .sort((a, b) => a.localeCompare(b))
+    .map((e, i) =>
+      e.includes('.mp4')
+        ? {
+            Type: 'video',
+            src: getFile(`pets/${name}/${e}`),
+            mediaProps: PLAY_AS_GIF.includes(e)
+              ? { autoPlay: 'autoplay', muted: true, loop: true }
+              : { controls: true, loop: true },
+          }
+        : {
+            Type: 'img',
+            src: getFile(`pets/${name}/${e}`),
+            mediaProps: { alt: `${name}-${i}` },
+          }
+    )
 
 export default [
   Tag('h1', 'Pets'),
+
+  Tag('h2', 'Lux'),
+
+  Component('StatGrid', {
+    Gender: 'Male',
+    Adopted: 'February 18, 2022',
+    Birthday: 'February 8, 2020',
+    Age: getAge('02/08/2020 12:00:00'),
+    Description: `Lux was our second cat. He's a shy boy who likes to lay around and sleep all day.`,
+  }),
+
+  Component('MediaGrid', {
+    columns: 4,
+    media: getMedia('lux'),
+  }),
 
   Tag('h2', 'Raja'),
 
@@ -27,45 +61,6 @@ export default [
 
   Component('MediaGrid', {
     columns: 4,
-    media: getMediaNames('raja').map((e, i) =>
-      e.includes('.mp4')
-        ? {
-            Type: 'video',
-            src: getFile(`pets/raja/${e}`),
-            mediaProps: { controls: true, loop: true },
-          }
-        : {
-            Type: 'img',
-            src: getFile(`pets/raja/${e}`),
-            mediaProps: { alt: `raja-${i}` },
-          }
-    ),
-  }),
-
-  Tag('h2', 'Lux'),
-
-  Component('StatGrid', {
-    Gender: 'Male',
-    Adopted: 'February 18, 2022',
-    Birthday: 'February 8, 2020',
-    Age: getAge('02/08/2020 12:00:00'),
-    Description: `Lux was our second cat. He's a shy boy who loves to lay around and sleep all day.`,
-  }),
-
-  Component('MediaGrid', {
-    columns: 4,
-    media: getMediaNames('lux').map((e, i) =>
-      e.includes('.mp4')
-        ? {
-            Type: 'video',
-            src: getFile(`pets/lux/${e}`),
-            mediaProps: { controls: true, loop: true },
-          }
-        : {
-            Type: 'img',
-            src: getFile(`pets/lux/${e}`),
-            mediaProps: { alt: `lux-${i}` },
-          }
-    ),
+    media: getMedia('raja'),
   }),
 ]
