@@ -1,6 +1,11 @@
 @use '../../variables' as *;
 @use 'sass:color';
 
+.hidden {
+  visibility: hidden;
+  display: none;
+}
+
 .tableWrapper {
   position: sticky;
   top: calc($nav-height + 3rem);
@@ -27,7 +32,7 @@
       }
     }
 
-    .tocLink {
+    .TOCLink {
       color: color.adjust($nav-link-color, $lightness: 10%);
       text-decoration: none;
       line-height: 1.5em;
@@ -36,5 +41,11 @@
         color: color.adjust($accent-color, $lightness: -10%);
       }
     }
+  }
+}
+
+@media (max-width: 900px) {
+  .tableWrapper {
+    display: none;
   }
 }

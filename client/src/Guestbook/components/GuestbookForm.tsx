@@ -14,7 +14,7 @@ const GuestbookForm = (props: Props) => {
   const [background, setBackground] = useState('')
   const [message, setMessage] = useState('')
   const [captchaPassed, setCaptchaPassed] = useState(false)
-  const recaptchaRef = useRef(null as null | typeof ReCAPTCHA)
+  const recaptchaRef = useRef<typeof ReCAPTCHA>(null)
   const siteKey =
     process.env.NODE_ENV === 'production'
       ? process.env.REACT_APP_CAPTCHA_KEY_PRODUCTION

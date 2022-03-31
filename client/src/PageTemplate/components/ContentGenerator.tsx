@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios, { AxiosResponse } from 'axios'
+import { useLocation } from 'react-router-dom'
 import styles from '../styles/appContent.module.scss'
 import ErrorBoundary from '../../Misc/components/ErrorBoundary'
 import { parseId } from '../../services/utils'

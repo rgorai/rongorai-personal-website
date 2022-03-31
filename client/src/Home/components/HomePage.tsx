@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import styles from '../styles/homePage.module.scss'
 import { getFile } from '../../services/utils'
+import { Media } from '../../PageTemplate/components/customContentComponents'
 
 const HomePage = () => {
   useEffect(() => {

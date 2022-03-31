@@ -5,14 +5,15 @@
 
   width: 100%;
   flex-wrap: wrap;
-  padding: 2rem 5rem 5rem;
+  padding: 2rem 5vw 6rem;
   background-color: $nav-background-color;
   color: white;
-  row-gap: 2rem;
+  row-gap: 1.5rem;
   column-gap: 10%;
 
   .footerLink {
-    color: rgba(255, 255, 255, 82.9%);
+    width: 100%;
+    color: rgba(255, 255, 255, 85%);
     text-decoration: none;
 
     &:hover {
@@ -37,6 +38,16 @@
     &:last-of-type {
       margin-right: 0;
     }
+
+    h3,
+    p,
+    a {
+      width: 100%;
+    }
+
+    ul li:last-of-type p {
+      margin-bottom: 0.25em;
+    }
   }
 
   .message {
@@ -44,10 +55,28 @@
     font-weight: 300;
   }
 
-  .socialIcon {
-    width: 2.25rem;
+  .socialIconLink {
+    // width: min-content;
+    height: 100%;
     margin-right: 0.75rem;
-    color: white;
-    filter: invert(1);
+    -webkit-tap-highlight-color: initial;
+
+    .socialIcon {
+      width: 2.25rem;
+      color: white;
+      filter: invert(1);
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .footerContainer {
+    padding: 0.5rem 5vw 5rem;
+    font-size: 1.1rem;
+
+    .contentContainer {
+      width: 100%;
+      max-width: 30rem;
+    }
   }
 }

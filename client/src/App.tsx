@@ -27,15 +27,19 @@ const appContent = [
   { name: 'Guestbook', element: <GuestbookPage /> },
 ]
 
-const navItems = appContent.map((e) => ({
-  name: e.name,
-  route: parseRoute(e.name),
-}))
-
 const App = () => (
   <div className="App">
     <BrowserRouter>
-      <NavBar navItems={navItems} />
+      <NavBar
+        navItems={appContent.map((e) => ({
+          name: e.name,
+          route: parseRoute(e.name),
+          subItems: e.subItems?.map((f) => ({
+            name: f,
+            route: parseRoute(e.name, f),
+          })),
+        }))}
+      />
 
       <main>
         <Routes>
@@ -91,7 +95,12 @@ const App = () => (
         </Routes>
       </main>
 
-      <Footer navItems={navItems} />
+      <Footer
+        navItems={appContent.map((e) => ({
+          name: e.name,
+          route: parseRoute(e.name),
+        }))}
+      />
     </BrowserRouter>
   </div>
 )

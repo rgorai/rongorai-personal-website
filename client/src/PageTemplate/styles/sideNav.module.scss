@@ -12,7 +12,6 @@ $nav-background-accent: color.adjust(
   height: calc(100vh - $nav-height);
   width: 30%;
   max-width: 14rem;
-  min-width: min-content;
   padding: 0.75rem;
   box-sizing: border-box;
   background-color: $side-nav-background-color;
@@ -20,6 +19,7 @@ $nav-background-accent: color.adjust(
   font-size: 1.1rem;
   border-right: $content-border;
   overflow-y: auto;
+  flex-shrink: 2;
 
   ul {
     list-style-type: none;
@@ -50,5 +50,11 @@ $nav-background-accent: color.adjust(
       color: $accent-color;
       background-color: $nav-background-accent;
     }
+  }
+}
+
+@media (max-width: 900px) {
+  .sideNavContainer {
+    display: none;
   }
 }

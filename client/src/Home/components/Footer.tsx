@@ -73,7 +73,12 @@ const Footer = (props: Props) => {
     {
       heading: 'SOCIAL LINKS',
       items: SOCIAL_LINKS.map((e, i) => (
-        <a href={e.link} target="_blank" rel="noreferrer">
+        <a
+          className={styles.socialIconLink}
+          href={e.link}
+          target="_blank"
+          rel="noreferrer"
+        >
           <img
             className={styles.socialIcon}
             src={`${process.env.PUBLIC_URL}/social_icons/${e.name}.svg`}
