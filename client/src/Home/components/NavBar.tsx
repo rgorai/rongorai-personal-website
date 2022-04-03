@@ -1,27 +1,27 @@
 import { Link, useLocation } from 'react-router-dom'
 import cx from 'classnames'
-import { SyntheticEvent, useEffect, useRef, useState } from 'react'
-import { getFile } from '../../services/utils'
+import { useEffect, useRef, useState } from 'react'
+import { Squash as Hamburger } from 'hamburger-react'
 import styles from '../styles/navBar.module.scss'
+import type { NavInfo } from '../../App'
 import Logo from './Logo'
 
-type BooleanObject = { [key: string]: boolean }
+const SUBITEM_HEIGHT = 2.5
+const SUBNAV_PADDING_TOP = 0.5
+const SUBNAV_PADDING_BOTTOM = 0.5
 
-type NavInfo = {
-  name: string
-  route: string
-}
+type BooleanObject = { [key: string]: boolean }
 
 type Props = {
   navItems: Array<NavInfo & { subItems: undefined | Array<NavInfo> }>
 }
 
 const NavBar = (props: Props) => {
-  const location = useLocation()
-  const [displayMobileNav, setDisplayMobileNav] = useState(true)
+  const [displayMobileNav, setDisplayMobileNav] = useState(false)
   const [displaySubMenu, setDisplaySubMenu] = useState({} as BooleanObject)
   const navRef = useRef<HTMLDivElement>(null)
-  const buttonRef = useRef<HTMLButtonElement>(null)
+  const buttonRef = useRef<HTMLDivElement>(null)
+  const location = useLocation()
 
   // change page title respective to current location
   useEffect(() => {
@@ -30,14 +30,18 @@ const NavBar = (props: Props) => {
     } | Ron Gorai's Personal Website`
   }, [location.pathname, props.navItems])
 
-  // reset mobile nav on route change
+  // close mobile nav when needed
   useEffect(() => {
-    // if (!(location.state && !(location.state as { subMenuPress: boolean }).subMenuPress))
-    //   setDisplayMobileNav(false)
+    if (
+      (location.state &&
+        !(location.state as { subMenuPress: boolean }).subMenuPress) ||
+      !location.state
+    )
+      setDisplayMobileNav(false)
   }, [location])
 
   useEffect(() => {
-    // hide submenus
+    // reset submenus
     setDisplaySubMenu(
       props.navItems.reduce(
         (p, c) => ({ ...p, [c.name]: location.pathname.includes(c.route) }),
@@ -61,9 +65,9 @@ const NavBar = (props: Props) => {
     }
     document.addEventListener('mousedown', handleClickOnOutside)
 
-    // close mobile nav on desktop site
+    // ensure mobile nav is closed on desktop site
     const handleResize = () => {
-      if (window.innerWidth > 1000) setDisplayMobileNav(false)
+      if (window.innerWidth > 900) setDisplayMobileNav(false)
     }
     window.addEventListener('resize', handleResize)
 
@@ -93,17 +97,17 @@ const NavBar = (props: Props) => {
             </li>
           ))}
         </ul>
-        <button
-          className={styles.mobileNavMenuButton}
-          onClick={() => setDisplayMobileNav(!displayMobileNav)}
-          ref={buttonRef}
-        >
-          <img
-            className={styles.menuIcon}
-            src={`${process.env.PUBLIC_URL}/menu_icons/menu-icon.svg`}
-            alt="Menu Icon"
+        <div className={styles.mobileNavButtonContainer} ref={buttonRef}>
+          <Hamburger
+            toggled={displayMobileNav}
+            toggle={setDisplayMobileNav}
+            color="white"
+            size={28}
+            distance="lg"
+            label="Navigation Menu"
+            rounded
           />
-        </button>
+        </div>
       </div>
 
       <div
@@ -129,7 +133,7 @@ const NavBar = (props: Props) => {
               {e.subItems ? (
                 <>
                   <Link
-                    className={cx(styles.navLink, styles.navLink_subMenu, {
+                    className={cx(styles.navLink, {
                       [styles.activeNavItem]: location.pathname.includes(
                         e.route
                       ),
@@ -162,17 +166,23 @@ const NavBar = (props: Props) => {
                     </span>
                   </Link>
                   <ul
-                    className={cx(styles.subItemDropdown, {
-                      [styles.showSubDropdown]: displaySubMenu[e.name],
-                    })}
+                    className={styles.subItemDropdown}
                     style={
                       displaySubMenu[e.name]
-                        ? { height: `${e.subItems.length * 2.25}em` }
+                        ? {
+                            height: `${
+                              e.subItems.length * SUBITEM_HEIGHT +
+                              SUBNAV_PADDING_TOP +
+                              SUBNAV_PADDING_BOTTOM
+                            }em`,
+                            paddingTop: `${SUBNAV_PADDING_TOP}em`,
+                            paddingBottom: `${SUBNAV_PADDING_BOTTOM}em`,
+                          }
                         : {}
                     }
                   >
                     {e.subItems.map((f, j) => (
-                      <li key={j}>
+                      <li style={{ height: `${SUBITEM_HEIGHT}em` }} key={j}>
                         <Link
                           className={cx(styles.navLink, styles.subItemLink, {
                             [styles.activeSubItem]: location.pathname.includes(
@@ -189,7 +199,7 @@ const NavBar = (props: Props) => {
                 </>
               ) : (
                 <Link
-                  className={cx(styles.navLink, styles.navLink_noSubMenu, {
+                  className={cx(styles.navLink, {
                     [styles.activeNavItem]: location.pathname.includes(e.route),
                   })}
                   to={e.route}

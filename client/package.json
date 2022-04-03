@@ -13,6 +13,7 @@
     "@types/react-dom": "^17.0.9",
     "axios": "^0.24.0",
     "classnames": "^2.3.1",
+    "hamburger-react": "^2.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-google-recaptcha": "^2.1.0",
@@ -52,7 +53,7 @@
       "no-unused-vars": "warn",
       "no-throw-literal": "off",
       "comma-dangle": [
-        "warn", 
+        "warn",
         {
           "arrays": "always-multiline",
           "objects": "always-multiline",

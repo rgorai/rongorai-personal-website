@@ -3,6 +3,7 @@ import cx from 'classnames'
 import { Link } from 'react-router-dom'
 import styles from '../styles/footer.module.scss'
 import { getFile } from '../../services/utils'
+import type { NavInfo } from '../../App'
 import Logo from './Logo'
 
 const EMAIL = 'ron.gorai2020@gmail.com'
@@ -26,7 +27,7 @@ const SOCIAL_LINKS = [
 ]
 
 type Props = {
-  navItems: Array<{ name: string; route: string }>
+  navItems: Array<NavInfo>
 }
 
 const Footer = (props: Props) => {

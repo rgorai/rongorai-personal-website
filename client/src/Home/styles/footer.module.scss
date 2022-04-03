@@ -74,6 +74,10 @@
     padding: 0.5rem 5vw 5rem;
     font-size: 1.1rem;
 
+    .footerLink:hover {
+      text-decoration: underline;
+    }
+
     .contentContainer {
       width: 100%;
       max-width: 30rem;

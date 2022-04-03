@@ -8,7 +8,12 @@ import HomePage from './Home/components/HomePage'
 import Footer from './Home/components/Footer'
 import PageTemplate from './PageTemplate/components/PageTemplate'
 
-const appContent = [
+export type NavInfo = {
+  name: string
+  route: string
+}
+
+const APP_CONTENT = [
   {
     name: 'About',
     subItems: ['Myself', 'This Website'],
@@ -31,7 +36,7 @@ const App = () => (
   <div className="App">
     <BrowserRouter>
       <NavBar
-        navItems={appContent.map((e) => ({
+        navItems={APP_CONTENT.map((e) => ({
           name: e.name,
           route: parseRoute(e.name),
           subItems: e.subItems?.map((f) => ({
@@ -46,7 +51,7 @@ const App = () => (
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate replace to="/" />} />
 
-          {appContent.map((e, i) => (
+          {APP_CONTENT.map((e, i) => (
             <React.Fragment key={i}>
               <Route
                 path={parseRoute(e.name)}
@@ -96,7 +101,7 @@ const App = () => (
       </main>
 
       <Footer
-        navItems={appContent.map((e) => ({
+        navItems={APP_CONTENT.map((e) => ({
           name: e.name,
           route: parseRoute(e.name),
         }))}

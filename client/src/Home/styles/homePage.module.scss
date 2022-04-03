@@ -1,4 +1,5 @@
 @use '../../variables' as *;
+@use 'sass:color';
 
 .homePageContainer {
   @include display-flex(row, center);
@@ -8,6 +9,7 @@
   padding: 2rem 5vw;
   column-gap: 7vw;
   row-gap: 4vh;
+  // background-color: color.adjust($nav-background-color, $lightness: 10%);
 
   .messageContainer {
     width: min-content;

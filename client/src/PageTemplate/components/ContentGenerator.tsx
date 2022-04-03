@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import axios, { AxiosResponse } from 'axios'
-import { useLocation } from 'react-router-dom'
 import styles from '../styles/appContent.module.scss'
 import ErrorBoundary from '../../Misc/components/ErrorBoundary'
 import { parseId } from '../../services/utils'
@@ -61,7 +60,7 @@ const ContentGenerator = (props: Props) => {
   return apiError ? (
     <ApiError {...apiError} />
   ) : pageData ? (
-    <ErrorBoundary message="invalid json format">
+    <ErrorBoundary message="Content page error">
       <div className={styles.contentWrapper}>
         <article className={styles.contentContainer}>
           {pageData.map((e, i) => (
@@ -71,6 +70,7 @@ const ContentGenerator = (props: Props) => {
             </React.Fragment>
           ))}
         </article>
+
         <TableOfContents
           data={pageData.filter((e) => isHeading(e)) as Array<Tag>}
         />
