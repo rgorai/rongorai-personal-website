@@ -6,4 +6,5 @@
 This website is built on the MERN full-stack. The purpose of this site is to share my history and accomplishments, both professional and recreational.
 
 ## How to run locally
-run `npm run dev` at project root
+- clone/fork repo
+- run `npm run dev` at project root
