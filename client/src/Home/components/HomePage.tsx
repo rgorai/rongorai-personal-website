@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import styles from '../styles/homePage.module.scss'
 import { getFile } from '../../services/utils'
-import { Media } from '../../PageTemplate/components/customContentComponents'
 
 const HomePage = () => {
   useEffect(() => {
@@ -15,9 +14,9 @@ const HomePage = () => {
         <div className={styles.welcome}>Welcome to my website</div>
       </div>
       <img
-        alt="Profile"
         className={styles.profileImg}
         src={getFile('home/profile-image-white.jpg')}
+        alt="Profile Portrait"
       />
     </div>
   )

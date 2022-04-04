@@ -4,11 +4,21 @@
 .formContainer {
   @include display-flex(column, flex-start, flex-start);
 
+  .formError {
+    border-bottom-color: $error-color;
+    appearance: none;
+    box-shadow: 0 0 0 0.1em $error-color;
+  }
+
   .formLabel {
     margin-bottom: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.9em;
     color: $label-color;
     word-spacing: 0;
+
+    span {
+      color: $error-color;
+    }
   }
 
   .formInput {
@@ -24,6 +34,16 @@
   .formSubmit {
     justify-self: flex-end;
     color: white;
-    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .formContainer {
+    font-size: 1.3rem;
+
+    .formSubmit {
+      width: 100%;
+      border-radius: 10em;
+    }
   }
 }

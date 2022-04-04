@@ -12,7 +12,7 @@ nav {
     color: white;
     text-decoration: none;
     width: 100%;
-    padding: 1em;
+    padding: 0.9em 6vw;
   }
 
   .activeNavItem {
@@ -26,6 +26,7 @@ nav {
   position: relative;
   background-color: $nav-background-color;
   margin: 0;
+  padding: 0 2vw 0 3vw;
   width: 100%;
   height: $nav-height;
   box-sizing: border-box;
@@ -33,7 +34,7 @@ nav {
   z-index: 99;
 
   .logoContainer {
-    margin: 0 3vw;
+    margin-right: 3vw;
   }
 
   .desktopNav {
@@ -79,14 +80,14 @@ nav {
   width: 100%;
   height: calc(100vh - $nav-height);
   background-color: rgba(0, 0, 0, 80%);
-  transform: translateY(0);
+  transform: translateX(0);
   opacity: 1;
   transition: opacity 0.15s linear;
   z-index: 2;
 }
 
 .hideBackdrop {
-  transform: translateY(100%);
+  transform: translateX(101%);
   opacity: 0;
 }
 
@@ -97,7 +98,8 @@ nav {
   top: $nav-height;
   right: 0;
   width: 60%;
-  min-width: 17em;
+  max-width: 100vw;
+  min-width: 15em;
   height: calc(100vh - $nav-height);
   background-color: $nav-background-color;
   padding: 0;
@@ -135,7 +137,7 @@ nav {
       font-weight: 600;
     }
 
-    .subMenuOpen > a {
+    .subMenuOpen {
       background-color: color.adjust($nav-background-color, $lightness: 8%);
     }
 
@@ -161,6 +163,10 @@ nav {
       border-top: 0 solid transparent;
       transition: all 0.2s ease-in-out;
       overflow: hidden;
+
+      li {
+        @include display-flex(column, center);
+      }
     }
 
     .subItemLink {
@@ -168,7 +174,7 @@ nav {
       width: 100%;
       color: rgba(255, 255, 255, 60%);
       text-decoration: none;
-      padding: 0.5em 2em;
+      padding: 0.5em 10vw;
 
       &:hover {
         color: $nav-hover-color;
@@ -184,7 +190,7 @@ nav {
 }
 
 .hideContainer {
-  transform: translateX(100%);
+  transform: translateX(101%);
 }
 
 @media (max-width: 900px) {
@@ -194,7 +200,6 @@ nav {
 
   .desktopNavContainer {
     justify-content: space-between;
-    padding: 0 2vw 0 4vw;
 
     .logoContainer {
       margin: 0;

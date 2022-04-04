@@ -44,10 +44,10 @@ $border-type-color: solid $content-border-color;
 input,
 textarea {
   border: 0;
-  border-bottom: 3px $border-type-color;
+  border-bottom: 0.17em $border-type-color;
   border-radius: 0.25em;
   padding: 0.4em 0.6em;
-  font-size: 1rem;
+  font-size: 1em;
   resize: vertical;
   width: 100%;
   box-sizing: border-box;
@@ -55,14 +55,14 @@ textarea {
 
   &:hover,
   &:focus {
-    border-bottom:
-      3px solid
-      color.adjust($accent-color, $lightness: 0, $alpha: -0.2%);
+    border-bottom: 3px solid color.adjust($accent-color, $alpha: -0.2%);
     outline: 0;
   }
 
   &:focus {
-    outline: 1px $border-type-color;
+    appearance: none;
+    // outline: 1px $border-type-color;
+    box-shadow: 0 0 0 1px $content-border-color;
   }
 
   &::placeholder {
@@ -80,17 +80,20 @@ button {
   border-radius: 0.3em;
   cursor: pointer;
   background-color: $primary-button-color;
+  opacity: 1;
+  transition: all 0.15s ease-in-out;
+  font-size: 1em;
 
   &:hover {
-    background-color: color.adjust($primary-button-color, $lightness: 5%);
+    background-color: color.adjust($primary-button-color, $lightness: 6%);
   }
 
   &:active {
-    background-color: color.adjust($primary-button-color, $lightness: -5%);
+    background-color: color.adjust($primary-button-color, $lightness: -6%);
   }
 
   &:disabled {
-    background-color: color.adjust($primary-button-color, $lightness: 15%);
+    opacity: 0.4;
     cursor: not-allowed;
   }
 }

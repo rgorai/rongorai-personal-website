@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import cx from 'classnames'
 import { useEffect, useRef, useState } from 'react'
-import { Squash as Hamburger } from 'hamburger-react'
+import { Spin as Hamburger } from 'hamburger-react'
 import styles from '../styles/navBar.module.scss'
 import type { NavInfo } from '../../App'
 import Logo from './Logo'
@@ -104,7 +104,9 @@ const NavBar = (props: Props) => {
             color="white"
             size={28}
             distance="lg"
+            duration={0.3}
             label="Navigation Menu"
+            direction="right"
             rounded
           />
         </div>
@@ -124,12 +126,7 @@ const NavBar = (props: Props) => {
       >
         <ul className={styles.mobileNav}>
           {props.navItems.map((e, i) => (
-            <li
-              className={cx(styles.mobileNavItem, {
-                [styles.subMenuOpen]: displaySubMenu[e.name],
-              })}
-              key={i}
-            >
+            <li className={styles.mobileNavItem} key={i}>
               {e.subItems ? (
                 <>
                   <Link
@@ -137,6 +134,7 @@ const NavBar = (props: Props) => {
                       [styles.activeNavItem]: location.pathname.includes(
                         e.route
                       ),
+                      [styles.subMenuOpen]: displaySubMenu[e.name],
                     })}
                     to={{}}
                     state={{ subMenuPress: true }}

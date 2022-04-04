@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { parseRoute } from './services/utils'
 import ApiError from './Misc/components/ApiError'
 import GuestbookPage from './Guestbook/components/GuestbookPage'
@@ -30,7 +30,11 @@ const APP_CONTENT = [
     name: 'Pets',
   },
   { name: 'Guestbook', element: <GuestbookPage /> },
-]
+] as Array<{
+  name: string
+  subItems?: Array<string>
+  element?: ReactNode
+}>
 
 const App = () => (
   <div className="App">

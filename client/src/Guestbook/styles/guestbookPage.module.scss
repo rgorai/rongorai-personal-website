@@ -13,11 +13,14 @@
   height: 100%;
 
   h1 {
-    font-size: 1.5rem;
+    // font-size: 1.5rem;
+    margin-top: 0;
     margin-bottom: 2rem;
+    scroll-margin-top: 4rem;
   }
 
   $space-between: 6%;
+  $padding-top: 2rem;
 
   .formContainer {
     @include container;
@@ -26,8 +29,8 @@
     top: $nav-height;
     height: calc(100vh - $nav-height);
     width: 35%;
-    min-width: 25rem;
-    padding: 3vh 4rem;
+    min-width: 23em;
+    padding: $padding-top 5vw;
     border-right: $content-border;
     background-color: $side-nav-background-color;
   }
@@ -36,6 +39,33 @@
     @include container;
 
     width: 65%;
-    padding: 3vh 7% 5rem;
+    padding: $padding-top 7% 5rem;
+
+    h1 {
+      font-size: 2.5em;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .guestbookPageContainer {
+    flex-direction: column;
+
+    .formContainer {
+      position: relative;
+      top: 0;
+      width: 100%;
+      min-width: 100%;
+      height: fit-content;
+      border-right: 0;
+      border-bottom: $content-border;
+      padding: 2em 7vw 3em;
+      margin-bottom: 2rem;
+      overflow-x: hidden;
+    }
+
+    .listContainer {
+      width: 100%;
+    }
   }
 }

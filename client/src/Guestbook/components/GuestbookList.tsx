@@ -7,7 +7,6 @@ type Props = {
 const GuestbookList = (props: Props) => {
   return (
     <div className={styles.guestbookListContainer}>
-      <h1>Entries</h1>
       {props.data.length === 0 ? (
         <div className={styles.emptyMessage}>{`There's nothing here yet.`}</div>
       ) : (
