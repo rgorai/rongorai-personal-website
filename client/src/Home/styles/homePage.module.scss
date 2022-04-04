@@ -1,20 +1,25 @@
 @use '../../variables' as *;
+@use 'sass:color';
 
 .homePageContainer {
   @include display-flex(row, center);
 
   width: 100%;
   height: calc(100vh - $nav-height);
+  padding: 2rem 5vw;
+  column-gap: 7vw;
+  row-gap: 4vh;
+  // background-color: color.adjust($nav-background-color, $lightness: 10%);
 
   .messageContainer {
-    width: 40%;
-    max-width: 25rem;
-    margin-right: 1em;
+    width: min-content;
     color: black;
+    flex-shrink: 0;
 
     .title {
       font-size: 5em;
-      font-weight: 600;
+      font-weight: 700;
+      width: max-content;
     }
 
     .welcome {
@@ -24,6 +29,31 @@
   }
 
   .profileImg {
-    height: 70vh;
+    width: 50%;
+    max-width: 35rem;
+    flex-shrink: 2;
+  }
+}
+
+@media (max-width: 900px) {
+  .homePageContainer {
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2rem 5vw 5rem;
+
+    .messageContainer {
+      width: 100%;
+      max-width: inherit;
+      text-align: center;
+
+      .title {
+        width: auto;
+        font-size: max(4rem, calc(10vw));
+      }
+    }
+
+    .profileImg {
+      width: 60vmin;
+    }
   }
 }

@@ -5,15 +5,14 @@
 @mixin name {
   padding: 0.1rem 0.5rem 0.2rem;
   border-radius: 10rem;
-  font-weight: 500;
+  font-weight: 300;
   font-family: Ubuntu, sans-serif;
 }
 
-$base-color: rgb(63, 66, 73);
+$base-color: rgb(52, 62, 77);
 
 .logoContainer {
   font-size: 1.5rem;
-  font-weight: 600;
 
   a {
     color: white;
@@ -30,7 +29,7 @@ $base-color: rgb(63, 66, 73);
     background-color: $base-color;
     padding-right: 0;
     word-spacing: 0;
-    outline: 0.3rem solid $base-color;
+    border: 0.25em solid $base-color;
   }
 
   .lastName {

@@ -70,34 +70,14 @@ type MediaGridProps = {
 }
 
 const MediaGrid = (props: MediaGridProps) => {
-  const gridContainerRef = useRef({} as HTMLDivElement)
-  const [gridGap, setGridGap] = useState(0)
-
-  useEffect(() => {
-    const containerWidth = gridContainerRef.current.offsetWidth
-    const calculateGridGap = () => (containerWidth * 2) / props.columns / 25
-
-    const handleResize = () => {
-      setGridGap(calculateGridGap())
-    }
-
-    setGridGap(calculateGridGap())
-
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [props.columns, props.media])
+  const gridGap = `calc(100vw / ${props.columns} / 20)`
 
   return (
-    <div className={styles.mediaGridContainer} ref={gridContainerRef}>
+    <div className={styles.mediaGridContainer}>
       <figure>
-        <div
-          className={styles.mediaGridComponents}
-          style={{ gap: `${gridGap}px` }}
-        >
-          {/* thought this in-place function invocation was a
-              fun way to split props.media into rows on render */}
+        <div className={styles.mediaGridComponents} style={{ gap: gridGap }}>
+          {/* thought this in-place function invocation was a fun
+              way to easily split props.media into rows on render */}
           {(() => {
             const rows = [] as Array<ReactNode>
             for (let i = 0; i < props.media.length / props.columns; i++) {
@@ -109,7 +89,7 @@ const MediaGrid = (props: MediaGridProps) => {
               rows.push(
                 <div
                   className={styles.mediaGridRow}
-                  style={{ gap: `${gridGap}px` }}
+                  style={{ gap: gridGap }}
                   key={i}
                 >
                   {currRow.map((e, j) => (
@@ -131,10 +111,6 @@ const MediaGrid = (props: MediaGridProps) => {
     </div>
   )
 }
-
-// type StatGridProps = {
-
-// }
 
 const StatGrid = (props: AnyObject) => (
   <div className={styles.statGridContainer}>

@@ -2,8 +2,6 @@ import fs from 'fs'
 import path from 'path'
 import { getFile, Tag, Component } from '../../misc/utils.js'
 
-const PLAY_AS_GIF = ['Snapchat-1111623687.mp4', 'Snapchat-780642135.mp4']
-
 const getAge = (birthday) => {
   const diff = String(
     (new Date() - new Date(birthday)) / (1000 * 3600 * 24 * 365.25)
@@ -20,9 +18,7 @@ const getMedia = (name) =>
         ? {
             Type: 'video',
             src: getFile(`pets/${name}/${e}`),
-            mediaProps: PLAY_AS_GIF.includes(e)
-              ? { autoPlay: 'autoplay', muted: true, loop: true }
-              : { controls: true, loop: true },
+            mediaProps: { controls: true, loop: true },
           }
         : {
             Type: 'img',

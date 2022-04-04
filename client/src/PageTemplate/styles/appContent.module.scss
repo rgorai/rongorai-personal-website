@@ -7,13 +7,14 @@
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  padding: 2rem 0 10rem 1rem;
+  padding: 2rem 1rem 7rem;
   z-index: 0;
+  left: 0;
 }
 
 .contentContainer {
   width: 55rem;
-  max-width: 80%;
+  max-width: 60vw;
   font-size: 1.1rem;
   padding: 0 4%;
 
@@ -26,7 +27,10 @@
 
   h2 {
     margin-top: 3rem;
-    scroll-margin-top: 3em;
+    scroll-margin-top: 5rem;
+    background-color: rgb(241, 241, 241);
+    padding: 0.25em;
+    border-radius: 0.25em;
 
     &:first-of-type {
       margin-top: initial;
@@ -40,13 +44,15 @@
   }
 
   p {
-    line-height: 1.5em;
+    letter-spacing: 0.05em;
+    word-spacing: 0.075em;
+    line-height: 1.7em;
     text-align: justify;
   }
 
   a {
     display: block;
-    width: max-content;
+    width: 100%;
     text-align: center;
     font-weight: 700;
     margin: 2rem auto 2.5rem;
@@ -63,6 +69,24 @@
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .contentWrapper {
+    padding: 0 5vw 5rem;
+  }
+
+  .contentContainer {
+    width: 100%;
+    max-width: inherit;
+    font-size: 1.3rem;
+    padding: 0;
+
+    p {
+      line-height: 1.5em;
+      text-align: left;
     }
   }
 }

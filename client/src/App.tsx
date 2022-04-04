@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { parseRoute } from './services/utils'
 import ApiError from './Misc/components/ApiError'
 import GuestbookPage from './Guestbook/components/GuestbookPage'
@@ -8,7 +8,12 @@ import HomePage from './Home/components/HomePage'
 import Footer from './Home/components/Footer'
 import PageTemplate from './PageTemplate/components/PageTemplate'
 
-const appContent = [
+export type NavInfo = {
+  name: string
+  route: string
+}
+
+const APP_CONTENT = [
   {
     name: 'About',
     subItems: ['Myself', 'This Website'],
@@ -25,24 +30,32 @@ const appContent = [
     name: 'Pets',
   },
   { name: 'Guestbook', element: <GuestbookPage /> },
-]
-
-const navItems = appContent.map((e) => ({
-  name: e.name,
-  route: parseRoute(e.name),
-}))
+] as Array<{
+  name: string
+  subItems?: Array<string>
+  element?: ReactNode
+}>
 
 const App = () => (
   <div className="App">
     <BrowserRouter>
-      <NavBar navItems={navItems} />
+      <NavBar
+        navItems={APP_CONTENT.map((e) => ({
+          name: e.name,
+          route: parseRoute(e.name),
+          subItems: e.subItems?.map((f) => ({
+            name: f,
+            route: parseRoute(e.name, f),
+          })),
+        }))}
+      />
 
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate replace to="/" />} />
 
-          {appContent.map((e, i) => (
+          {APP_CONTENT.map((e, i) => (
             <React.Fragment key={i}>
               <Route
                 path={parseRoute(e.name)}
@@ -91,7 +104,12 @@ const App = () => (
         </Routes>
       </main>
 
-      <Footer navItems={navItems} />
+      <Footer
+        navItems={APP_CONTENT.map((e) => ({
+          name: e.name,
+          route: parseRoute(e.name),
+        }))}
+      />
     </BrowserRouter>
   </div>
 )

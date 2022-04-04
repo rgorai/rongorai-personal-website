@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useEffect, useRef, useState } from 'react'
+import axios, { AxiosResponse } from 'axios'
 import Loading from '../../Misc/components/Loading'
 import ApiError from '../../Misc/components/ApiError'
 import styles from '../styles/guestbookPage.module.scss'
@@ -15,14 +15,15 @@ type GuestbookEntries = Array<{
 
 const GuestbookPage = () => {
   const [guestbookEntries, setGuestbookEntries] = useState(
-    null as null | GuestbookEntries
+    [] as GuestbookEntries
   )
-  const [apiError, setApiError] = useState(null)
+  const [apiError, setApiError] = useState({} as AxiosResponse)
+  const entryHeaderRef = useRef<HTMLHeadingElement>(null)
 
   const getEntries = () =>
     axios
       .get('/api/guestbook')
-      .then((res) =>
+      .then((res) => {
         // sort by date descending
         setGuestbookEntries(
           (res.data as GuestbookEntries).sort((a, b) =>
@@ -31,24 +32,39 @@ const GuestbookPage = () => {
               : Date.parse(b.date) - Date.parse(a.date)
           )
         )
-      )
+        window.scrollTo(0, 0)
+      })
       .catch((err) => setApiError(err.response))
 
   // request guestbook data
   useEffect(() => {
+    setApiError({} as AxiosResponse)
     getEntries()
   }, [])
 
-  return apiError ? (
+  return Object.keys(apiError).length ? (
     <ApiError {...apiError} />
-  ) : guestbookEntries ? (
+  ) : guestbookEntries.length > 0 ? (
     <div className={styles.guestbookPageContainer}>
       <div className={styles.formContainer}>
+        <h1>Sign my guestbook</h1>
         <GuestbookForm
-          updateData={() => getEntries().then(() => window.scrollTo(0, 0))}
+          updateData={() =>
+            getEntries().then(() =>
+              window.scrollTo(
+                0,
+                window.innerWidth > 900
+                  ? 0
+                  : (entryHeaderRef.current?.offsetTop ?? 0) - 75
+              )
+            )
+          }
         />
       </div>
       <div className={styles.listContainer}>
+        <h1 id="entries" ref={entryHeaderRef}>
+          Entries
+        </h1>
         <GuestbookList data={guestbookEntries} />
       </div>
     </div>

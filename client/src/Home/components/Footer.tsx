@@ -3,6 +3,7 @@ import cx from 'classnames'
 import { Link } from 'react-router-dom'
 import styles from '../styles/footer.module.scss'
 import { getFile } from '../../services/utils'
+import type { NavInfo } from '../../App'
 import Logo from './Logo'
 
 const EMAIL = 'ron.gorai2020@gmail.com'
@@ -26,7 +27,7 @@ const SOCIAL_LINKS = [
 ]
 
 type Props = {
-  navItems: Array<{ name: string; route: string }>
+  navItems: Array<NavInfo>
 }
 
 const Footer = (props: Props) => {
@@ -73,7 +74,12 @@ const Footer = (props: Props) => {
     {
       heading: 'SOCIAL LINKS',
       items: SOCIAL_LINKS.map((e, i) => (
-        <a href={e.link} target="_blank" rel="noreferrer">
+        <a
+          className={styles.socialIconLink}
+          href={e.link}
+          target="_blank"
+          rel="noreferrer"
+        >
           <img
             className={styles.socialIcon}
             src={`${process.env.PUBLIC_URL}/social_icons/${e.name}.svg`}

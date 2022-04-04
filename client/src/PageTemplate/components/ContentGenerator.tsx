@@ -37,14 +37,14 @@ const getComponent = (e: Component) => {
 }
 
 const ContentGenerator = (props: Props) => {
-  const [pageData, setPageData] = useState(null as null | PageData)
-  const [apiError, setApiError] = useState(null as null | AxiosResponse)
+  const [pageData, setPageData] = useState([] as PageData)
+  const [apiError, setApiError] = useState({} as AxiosResponse)
 
   useEffect(() => {
-    setApiError(null)
+    setApiError({} as AxiosResponse)
     axios
       .get(`/api/data/${encodeURIComponent(`${props.src.slice(1)}/data.js`)}`)
-      .then((res) =>
+      .then((res) => {
         setPageData(
           // give all headings a generated id
           (res.data as PageData).map((e) =>
@@ -53,14 +53,15 @@ const ContentGenerator = (props: Props) => {
               : e
           )
         )
-      )
+        window.scrollTo(0, 0)
+      })
       .catch((err) => setApiError(err.response))
-  }, [props])
+  }, [props.src])
 
-  return apiError ? (
+  return Object.keys(apiError).length ? (
     <ApiError {...apiError} />
-  ) : pageData ? (
-    <ErrorBoundary message="invalid json format">
+  ) : pageData.length > 0 ? (
+    <ErrorBoundary message="Content page error">
       <div className={styles.contentWrapper}>
         <article className={styles.contentContainer}>
           {pageData.map((e, i) => (
@@ -70,6 +71,7 @@ const ContentGenerator = (props: Props) => {
             </React.Fragment>
           ))}
         </article>
+
         <TableOfContents
           data={pageData.filter((e) => isHeading(e)) as Array<Tag>}
         />

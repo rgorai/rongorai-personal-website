@@ -4,12 +4,13 @@
 @mixin align($alignment) {
   width: 40%;
   float: $alignment;
+  margin-bottom: 0.25em;
 }
 
 .floatLeft {
   @include align(left);
 
-  margin-right: 1.1rem;
+  margin-right: 1.5rem;
 }
 
 .floatRight {
@@ -116,6 +117,45 @@ figcaption {
     .stat {
       width: 100%;
       color: $label-color;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .floatLeft {
+    @include display-flex(row, center);
+
+    width: 100%;
+    margin: 0;
+    margin-bottom: 1rem;
+    float: none;
+
+    img {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  // .floatLeft {
+  //   width: 10px;
+  //   img {
+  //     width: 100%;
+  //   }
+  // }
+
+  figcaption {
+    font-size: 1.2rem;
+  }
+
+  .mediaGridContainer {
+    figcaption {
+      margin-bottom: 0.5em;
+    }
+
+    .gridCaption {
+      font-size: 1.4rem;
     }
   }
 }
