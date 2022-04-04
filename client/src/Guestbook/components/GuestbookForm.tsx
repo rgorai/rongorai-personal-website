@@ -5,10 +5,6 @@ import cx from 'classnames'
 import { isValidString } from '../../services/errors'
 import styles from '../styles/guestbookForm.module.scss'
 
-type Props = {
-  updateData: Function
-}
-
 const FORM_CONTENT = [
   {
     label: 'Name',
@@ -44,6 +40,10 @@ const DEFAULT_ERROR = FORM_CONTENT.reduce(
   (p, c) => ({ ...p, [c.label]: false }),
   {}
 ) as { [key: string]: boolean }
+
+type Props = {
+  updateData: Function
+}
 
 const GuestbookForm = (props: Props) => {
   const [formError, setFormError] = useState(DEFAULT_ERROR)
