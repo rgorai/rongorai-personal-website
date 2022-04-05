@@ -5,7 +5,7 @@ const isValidString = (data) => {
       data[k].length === 0 ||
       data[k].trim().length === 0
     )
-      throw `Error: ${k} must be a non-empty string.`
+      throw `Error: ${k} must be a non-empty string. Received: ${data[k]}`
 }
 
 export { isValidString }

@@ -7,9 +7,8 @@
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  padding: 2rem 1rem 7rem;
+  padding: 2vh 1rem 7rem;
   z-index: 0;
-  left: 0;
 }
 
 .contentContainer {
@@ -28,9 +27,10 @@
   h2 {
     margin-top: 3rem;
     scroll-margin-top: 5rem;
-    background-color: rgb(241, 241, 241);
-    padding: 0.25em;
+    // background-color: rgb(241, 241, 241);
+    // padding: 0.25em;
     border-radius: 0.25em;
+    // font-weight: 300;
 
     &:first-of-type {
       margin-top: initial;

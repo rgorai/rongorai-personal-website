@@ -7,6 +7,7 @@ import NavBar from './Home/components/NavBar'
 import HomePage from './Home/components/HomePage'
 import Footer from './Home/components/Footer'
 import PageTemplate from './PageTemplate/components/PageTemplate'
+import { getFile } from './services/utils'
 
 export type NavInfo = {
   name: string
@@ -54,6 +55,11 @@ const App = () => (
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate replace to="/" />} />
+
+          <Route
+            path="/resume"
+            element={<Navigate replace to={getFile('Ron_Gorai_Resume.pdf')} />}
+          />
 
           {APP_CONTENT.map((e, i) => (
             <React.Fragment key={i}>
