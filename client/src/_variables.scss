@@ -1,7 +1,7 @@
 @use 'sass:color';
 
 // colors
-$accent-color: cornflowerblue; //#4197e7;
+$accent-color: #4197e7;
 $site-background-color: white;
 $nav-background-color: #212529;
 $side-nav-background-color: color.adjust(
@@ -22,7 +22,7 @@ $primary-button-color: color.adjust(
 );
 $label-color: #535353;
 $placeholder-color: white;
-$error-color: rgba(248, 63, 63, 85%);
+$error-color: rgba(228, 46, 46, 80%);
 
 // vars
 $nav-height: 4rem;

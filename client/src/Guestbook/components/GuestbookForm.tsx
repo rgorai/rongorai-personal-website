@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react'
 import axios from 'axios'
 import ReCAPTCHA from 'react-google-recaptcha'
 import cx from 'classnames'
-import { isValidString } from '../../services/errors'
 import styles from '../styles/guestbookForm.module.scss'
 
 const FORM_CONTENT = [
@@ -31,15 +30,18 @@ const FORM_CONTENT = [
   required: boolean
 }>
 
-const DEFAULT_DATA = FORM_CONTENT.reduce(
-  (p, c) => ({ ...p, [c.label]: '' }),
-  {}
-) as { [key: string]: string }
+const reduceFormContent = (mutation: (c: any) => [string, any] | undefined) =>
+  FORM_CONTENT.reduce((p, c) => {
+    const mutVal = mutation(c)
+    return {
+      ...p,
+      ...(mutVal ? { [mutVal[0]]: mutVal[1] } : {}),
+    }
+  }, {}) as { [key: string]: any }
 
-const DEFAULT_ERROR = FORM_CONTENT.reduce(
-  (p, c) => ({ ...p, [c.label]: false }),
-  {}
-) as { [key: string]: boolean }
+const DEFAULT_DATA = reduceFormContent((c) => [c.label, ''])
+
+const DEFAULT_ERROR = reduceFormContent((c) => [c.label, false])
 
 type Props = {
   updateData: Function
@@ -61,26 +63,28 @@ const GuestbookForm = (props: Props) => {
 
     // error check
     try {
-      isValidString(
-        FORM_CONTENT.reduce(
-          (p, c) => ({
-            ...p,
-            ...(c.required ? { [c.label]: formData[c.label] } : {}),
-          }),
-          {}
-        )
+      const requiredItems = reduceFormContent((c) =>
+        c.required ? [c.label, formData[c.label]] : undefined
       )
-    } catch (e) {
-      return setFormError((prev) => ({ ...prev, [String(e)]: true }))
+      const errorItems = []
+      for (const k in requiredItems)
+        if (requiredItems[k].trim().length === 0) errorItems.push(k)
+      if (errorItems.length > 0) throw { formError: errorItems }
+    } catch (e: any) {
+      if (e.formError)
+        (e.formError as []).map((e) =>
+          setFormError((prev) => ({ ...prev, [e]: true }))
+        )
+      else console.error(e)
+      return
     }
 
     // post data to server
     axios
-      .post('/api/guestbook', {
-        name: formData.name.trim(),
-        background: formData.background.trim(),
-        message: formData.message.trim(),
-      })
+      .post(
+        '/api/guestbook',
+        reduceFormContent((c) => [c.label.toLowerCase(), formData[c.label]])
+      )
       .then((_) => {
         props.updateData()
         setFormData(DEFAULT_DATA)
