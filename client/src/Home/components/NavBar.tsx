@@ -26,7 +26,8 @@ const NavBar = (props: Props) => {
   // change page title respective to current location
   useEffect(() => {
     document.title = `${
-      props.navItems.find((e) => location.pathname.includes(e.route))?.name
+      props.navItems.find((e) => location.pathname.includes(e.route))?.name ??
+      'Error'
     } | Ron Gorai's Personal Website`
   }, [location.pathname, props.navItems])
 
@@ -43,10 +44,12 @@ const NavBar = (props: Props) => {
   useEffect(() => {
     // reset submenus
     setDisplaySubMenu(
-      props.navItems.reduce(
-        (p, c) => ({ ...p, [c.name]: location.pathname.includes(c.route) }),
-        {}
-      )
+      props.navItems
+        .filter((e) => e.subItems)
+        .reduce(
+          (p, c) => ({ ...p, [c.name]: location.pathname.includes(c.route) }),
+          {}
+        )
     )
 
     // hide site overflow when mobile nav is open
@@ -114,19 +117,24 @@ const NavBar = (props: Props) => {
 
       <div
         className={cx(styles.mobileNavBackdrop, {
-          [styles.hideBackdrop]: !displayMobileNav,
+          [styles.showBackdrop]: displayMobileNav,
         })}
       />
 
       <div
         className={cx(styles.mobileNavContainer, {
-          [styles.hideContainer]: !displayMobileNav,
+          [styles.showMobileContainer]: displayMobileNav,
         })}
         ref={navRef}
       >
         <ul className={styles.mobileNav}>
           {props.navItems.map((e, i) => (
-            <li className={styles.mobileNavItem} key={i}>
+            <li
+              className={cx(styles.mobileNavItem, {
+                [styles.subMenuOpen]: displaySubMenu[e.name],
+              })}
+              key={i}
+            >
               {e.subItems ? (
                 <>
                   <Link
@@ -134,20 +142,22 @@ const NavBar = (props: Props) => {
                       [styles.activeNavItem]: location.pathname.includes(
                         e.route
                       ),
-                      [styles.subMenuOpen]: displaySubMenu[e.name],
+                      // [styles.subMenuOpen]: displaySubMenu[e.name],
                     })}
                     to={{}}
                     state={{ subMenuPress: true }}
                     onClick={() =>
                       // open chosen sub menu and close all others
                       setDisplaySubMenu((prev) =>
-                        props.navItems.reduce(
-                          (p, c) =>
-                            e.name === c.name
-                              ? { ...p, [c.name]: !prev[c.name] }
-                              : { ...p, [c.name]: false },
-                          {}
-                        )
+                        props.navItems
+                          .filter((e) => e.subItems)
+                          .reduce(
+                            (p, c) =>
+                              e.name === c.name
+                                ? { ...p, [c.name]: !prev[c.name] }
+                                : { ...p, [c.name]: false },
+                            {}
+                          )
                       )
                     }
                   >

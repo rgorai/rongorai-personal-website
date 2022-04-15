@@ -30,11 +30,11 @@ nav {
   width: 100%;
   height: $nav-height;
   box-sizing: border-box;
-  border-bottom: 1.5px solid color.adjust($nav-background-color, $lightness: 4%);
+  border-bottom: 1px solid color.adjust($nav-background-color, $lightness: 4%);
   z-index: 99;
 
   .logoContainer {
-    margin-right: 3vw;
+    margin-right: 2.5vw;
   }
 
   .desktopNav {
@@ -52,7 +52,7 @@ nav {
 
     .activeNavItem {
       text-decoration: underline;
-      text-underline-offset: 0.5rem;
+      text-underline-offset: 0.4rem;
       color: $accent-color;
     }
   }
@@ -80,15 +80,15 @@ nav {
   width: 100%;
   height: calc(100vh - $nav-height);
   background-color: rgba(0, 0, 0, 80%);
-  transform: translateX(0);
-  opacity: 1;
-  transition: opacity 0.15s linear;
+  opacity: 0;
+  transition: opacity 0.125s ease-in-out;
   z-index: 2;
+  pointer-events: none;
 }
 
-.hideBackdrop {
-  transform: translateX(101%);
-  opacity: 0;
+.showBackdrop {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .mobileNavContainer {
@@ -103,8 +103,8 @@ nav {
   height: calc(100vh - $nav-height);
   background-color: $nav-background-color;
   padding: 0;
-  transform: translateX(0);
-  transition: transform 0.2s ease-in-out;
+  transform: translateX(101%);
+  transition: transform 0.15s ease-in-out;
   z-index: 3;
   overflow-y: auto;
   border-left: 1px solid color.adjust($nav-background-color, $lightness: 5%);
@@ -128,17 +128,26 @@ nav {
 
       transition: all 0.2s ease-in-out;
       overflow: hidden;
-      border-bottom:
-        1px solid
-        color.adjust($nav-background-color, $lightness: 5%);
+      border-bottom: 0 solid transparent;
     }
 
     .activeNavItem {
       font-weight: 600;
+      background-color: color.adjust($nav-background-color, $lightness: 6%);
+      border-bottom:
+        1px solid
+        color.adjust($nav-background-color, $lightness: 10%);
+      border-top: 1px solid color.adjust($nav-background-color, $lightness: 10%);
     }
 
     .subMenuOpen {
-      background-color: color.adjust($nav-background-color, $lightness: 8%);
+      background-color: color.adjust($nav-background-color, $lightness: 6%);
+
+      > a {
+        border-bottom:
+          1px solid
+          color.adjust($nav-background-color, $lightness: 15%);
+      }
     }
 
     .navLinkTextContainer {
@@ -189,8 +198,8 @@ nav {
   }
 }
 
-.hideContainer {
-  transform: translateX(101%);
+.showMobileContainer {
+  transform: translateX(0);
 }
 
 @media (max-width: 900px) {

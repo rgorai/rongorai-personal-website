@@ -1,13 +1,14 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import React, { ReactNode } from 'react'
-import { parseRoute } from './services/utils'
+import { StaticRouter } from 'react-router-dom/server'
+import React, { ReactNode, useEffect } from 'react'
+import { getFile, parseRoute } from './services/utils'
 import ApiError from './Misc/components/ApiError'
 import GuestbookPage from './Guestbook/components/GuestbookPage'
 import NavBar from './Home/components/NavBar'
 import HomePage from './Home/components/HomePage'
 import Footer from './Home/components/Footer'
 import PageTemplate from './PageTemplate/components/PageTemplate'
-import { getFile } from './services/utils'
+import ResumePage from './Home/components/ResumePage'
 
 export type NavInfo = {
   name: string
@@ -56,10 +57,7 @@ const App = () => (
           <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Navigate replace to="/" />} />
 
-          <Route
-            path="/resume"
-            element={<Navigate replace to={getFile('Ron_Gorai_Resume.pdf')} />}
-          />
+          <Route path="/resume" element={<ResumePage />} />
 
           {APP_CONTENT.map((e, i) => (
             <React.Fragment key={i}>

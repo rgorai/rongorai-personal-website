@@ -1,5 +1,5 @@
 import cx from 'classnames'
-import { MutableRefObject, ReactNode, useEffect, useRef, useState } from 'react'
+import { MutableRefObject, ReactNode, useRef, useState } from 'react'
 import styles from '../styles/customComponents.module.scss'
 
 type AnyObject = { [key: string]: any }
@@ -15,13 +15,11 @@ type MediaProps = {
 }
 
 const Media = (props: MediaProps) => {
-  const tagRef = useRef({ offsetWidth: 0, offsetHeight: 0 } as
-    | HTMLImageElement
-    | HTMLVideoElement)
   const [flex, setFlex] = useState(1)
+  const mediaRef = useRef({ offsetWidth: 0, offsetHeight: 0 })
 
   const onLoad = () => {
-    setFlex(tagRef.current.offsetWidth / tagRef.current.offsetHeight)
+    setFlex(mediaRef.current.offsetWidth / mediaRef.current.offsetHeight)
   }
 
   return (
@@ -41,7 +39,7 @@ const Media = (props: MediaProps) => {
           <img
             className={styles.zoomIn}
             src={props.src}
-            ref={tagRef as MutableRefObject<HTMLImageElement>}
+            ref={mediaRef as MutableRefObject<HTMLImageElement>}
             onLoad={onLoad}
             onClick={() => window.open(props.src)}
             alt={props.mediaProps.alt}
@@ -52,7 +50,7 @@ const Media = (props: MediaProps) => {
         {props.Type === 'video' && (
           <video
             src={props.src}
-            ref={tagRef as MutableRefObject<HTMLVideoElement>}
+            ref={mediaRef as MutableRefObject<HTMLVideoElement>}
             onLoadedMetadata={onLoad}
             {...props.mediaProps}
           />
@@ -76,10 +74,10 @@ const MediaGrid = (props: MediaGridProps) => {
     <div className={styles.mediaGridContainer}>
       <figure>
         <div className={styles.mediaGridComponents} style={{ gap: gridGap }}>
-          {/* thought this in-place function invocation was a fun
-              way to easily split props.media into rows on render */}
+          {/* thought this in-place function declaration/invocation was
+              a fun way to easily split props.media into rows on render */}
           {(() => {
-            const rows = [] as Array<ReactNode>
+            const rows = []
             for (let i = 0; i < props.media.length / props.columns; i++) {
               const firstIdx = i * props.columns
               const currRow = props.media.slice(

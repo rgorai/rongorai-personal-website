@@ -8,8 +8,7 @@
   -webkit-tap-highlight-color: transparent;
 
   ::selection {
-    background: color.adjust($accent-color, $saturation: -10%, $lightness: 25%);
-    border-radius: 1em;
+    background: color.adjust($accent-color, $lightness: 10%, $alpha: -0.6%);
   }
 }
 
@@ -61,7 +60,6 @@ textarea {
 
   &:focus {
     appearance: none;
-    // outline: 1px $border-type-color;
     box-shadow: 0 0 0 1px $content-border-color;
   }
 
@@ -83,6 +81,7 @@ button {
   opacity: 1;
   transition: all 0.15s ease-in-out;
   font-size: 1em;
+  color: white;
 
   &:hover {
     background-color: color.adjust($primary-button-color, $lightness: 6%);

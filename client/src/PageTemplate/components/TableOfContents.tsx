@@ -10,7 +10,7 @@ const TableOfContents = (props: Props) => {
   return (
     <div
       className={cx(styles.tableWrapper, {
-        [styles.hidden]: props.data.length === 0,
+        [styles.hideTOC]: props.data.length === 0,
       })}
     >
       <div className={styles.tableContainer}>
