@@ -121,4 +121,18 @@ const StatGrid = (props: AnyObject) => (
   </div>
 )
 
-export { Media, MediaGrid, StatGrid }
+type BulletedListProps = {
+  items: Array<string>
+}
+
+const BulletedList = (props: BulletedListProps) => (
+  <div className={styles.bulletedListContainer}>
+    <ul>
+      {props.items.map((e, i) => (
+        <li key={i}>{e}</li>
+      ))}
+    </ul>
+  </div>
+)
+
+export { Media, MediaGrid, StatGrid, BulletedList }

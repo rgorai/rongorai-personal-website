@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import axios, { AxiosResponse } from 'axios'
+import DOMPurify from 'dompurify'
 import styles from '../styles/appContent.module.scss'
 import ErrorBoundary from '../../Misc/components/ErrorBoundary'
 import { parseId } from '../../services/utils'
 import Loading from '../../Misc/components/Loading'
 import ApiError from '../../Misc/components/ApiError'
 import * as CustomComponents from './customContentComponents'
-import TableOfContents from './TableOfContents'
 
 type AnyObject = { [key: string]: any }
 
@@ -61,7 +61,8 @@ const ContentGenerator = (props: Props) => {
 
   useEffect(() => {
     props.setHeadingData(pageData.filter((e) => isHeading(e)))
-  }, [pageData, props])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageData, props.setHeadingData])
 
   return Object.keys(apiError).length ? (
     <ApiError {...apiError} />
@@ -70,7 +71,11 @@ const ContentGenerator = (props: Props) => {
       <article className={styles.contentContainer}>
         {pageData.map((e, i) => (
           <React.Fragment key={i}>
-            {(isTag(e) && React.createElement(e.tag, e.props, e.text)) ||
+            {(isTag(e) &&
+              React.createElement(e.tag, {
+                ...e.props,
+                dangerouslySetInnerHTML: { __html: DOMPurify.sanitize(e.text) },
+              })) ||
               (isComponent(e) && getComponent(e))}
           </React.Fragment>
         ))}

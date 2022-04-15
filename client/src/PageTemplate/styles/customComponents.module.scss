@@ -2,7 +2,7 @@
 @use 'sass:color';
 
 @mixin align($alignment) {
-  width: 35%;
+  width: 36%;
   float: $alignment;
   margin-bottom: 0.25em;
 }
@@ -121,17 +121,33 @@ figcaption {
   }
 }
 
-@media (max-width: 500px) {
-  .floatLeft {
+.bulletedListContainer ul {
+  padding-left: 3.5rem;
+  margin-bottom: 2rem;
+
+  li {
+    margin-bottom: 0.15em;
+    padding-left: 0.6em;
+    vertical-align: middle;
+
+    &::marker {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .floatLeft,
+  .floatRight {
     @include display-flex(row, center);
 
-    width: 100%;
+    width: 100% !important;
     margin: 0;
     margin-bottom: 1rem;
     float: none;
 
     img {
-      width: 80%;
+      width: 70vw;
       margin: 0 auto;
     }
   }
@@ -140,6 +156,11 @@ figcaption {
 @media (max-width: 900px) {
   figcaption {
     font-size: 1.2rem;
+  }
+
+  .floatLeft,
+  .floatRight {
+    width: 34%;
   }
 
   .mediaGridContainer {

@@ -3,31 +3,22 @@
 
 .contentContainer {
   width: 100%;
-  min-width: 10rem;
   min-height: calc(100vh - $nav-height);
   font-size: 1.1rem;
-  padding: 2vh 8vw 7rem;
+  padding: 2vh 7vw 7rem;
 
   h1 {
     text-align: center;
     margin-bottom: 2.5rem;
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 3.5rem;
+    word-wrap: break-word;
   }
 
   h2 {
     margin-top: 4rem;
     scroll-margin-top: 5rem;
-
-    // border-bottom: 1px solid rgb(185, 185, 185);
-    // width: fit-content;
-    // padding-bottom: 0.25em;
-    // padding-right: 1em;
-
-    // background-color: rgb(241, 241, 241);
-    // padding: 0.25em;
-    // border-radius: 0.25em;
-    // font-weight: 300;
+    font-size: 2rem;
 
     &:first-of-type {
       margin-top: 2rem;
@@ -74,10 +65,16 @@
     width: 100%;
     max-width: inherit;
     font-size: 1.3rem;
-    padding: 0;
+    padding: 0 6vw 10vw;
+
+    h1 {
+      font-size: 3rem;
+    }
 
     p {
-      line-height: 1.5em;
+      letter-spacing: 0.075em;
+      line-height: 1.6em;
+      text-align: left;
     }
   }
 }
