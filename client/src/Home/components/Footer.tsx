@@ -37,7 +37,7 @@ const Footer = (props: Props) => {
       items: [
         <p className={styles.message} key={0}>
           Learn about my professional experience and hobbies on my website
-          created from scratch. Be sure to sign the guestbook before you go!
+          created from scratch. Be sure to sign my guestbook before you go!
         </p>,
         <p key={1}>
           <a
@@ -50,12 +50,7 @@ const Footer = (props: Props) => {
           </a>
         </p>,
         <p key={2}>
-          <a
-            className={styles.footerLink}
-            href={getFile('Ron_Gorai_Resume.pdf')}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a id="resume" className={styles.footerLink} href="/resume">
             My Resume
           </a>
         </p>,

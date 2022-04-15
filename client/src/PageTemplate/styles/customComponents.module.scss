@@ -2,7 +2,7 @@
 @use 'sass:color';
 
 @mixin align($alignment) {
-  width: 40%;
+  width: 35%;
   float: $alignment;
   margin-bottom: 0.25em;
 }
@@ -138,13 +138,6 @@ figcaption {
 }
 
 @media (max-width: 900px) {
-  // .floatLeft {
-  //   width: 10px;
-  //   img {
-  //     width: 100%;
-  //   }
-  // }
-
   figcaption {
     font-size: 1.2rem;
   }

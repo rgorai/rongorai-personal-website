@@ -29,6 +29,7 @@ const isComponent = (x: any): x is Component => x.component !== undefined
 
 type Props = {
   src: string
+  setHeadingData: Function
 }
 
 const getComponent = (e: Component) => {
@@ -58,24 +59,22 @@ const ContentGenerator = (props: Props) => {
       .catch((err) => setApiError(err.response))
   }, [props.src])
 
+  useEffect(() => {
+    props.setHeadingData(pageData.filter((e) => isHeading(e)))
+  }, [pageData, props])
+
   return Object.keys(apiError).length ? (
     <ApiError {...apiError} />
   ) : pageData.length > 0 ? (
     <ErrorBoundary message="Content page error">
-      <div className={styles.contentWrapper}>
-        <article className={styles.contentContainer}>
-          {pageData.map((e, i) => (
-            <React.Fragment key={i}>
-              {(isTag(e) && React.createElement(e.tag, e.props, e.text)) ||
-                (isComponent(e) && getComponent(e))}
-            </React.Fragment>
-          ))}
-        </article>
-
-        <TableOfContents
-          data={pageData.filter((e) => isHeading(e)) as Array<Tag>}
-        />
-      </div>
+      <article className={styles.contentContainer}>
+        {pageData.map((e, i) => (
+          <React.Fragment key={i}>
+            {(isTag(e) && React.createElement(e.tag, e.props, e.text)) ||
+              (isComponent(e) && getComponent(e))}
+          </React.Fragment>
+        ))}
+      </article>
     </ErrorBoundary>
   ) : (
     <Loading />

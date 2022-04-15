@@ -1,16 +1,22 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import cx from 'classnames'
 import styles from '../styles/sideNav.module.scss'
+import { parseRoute } from '../../services/utils'
 
 type Props = {
   navItems: Array<{ name: string; route: string }>
+  // navItems: Array<string>
 }
 
 const SideNav = (props: Props) => {
   const location = useLocation()
 
   return (
-    <nav className={styles.sideNavContainer}>
+    <nav
+      className={cx(styles.sideNavContainer, {
+        [styles.hideSideNav]: props.navItems.length === 0,
+      })}
+    >
       <ul>
         {props.navItems.map((e, i) => (
           <li className={styles.sideNavItem} key={i}>

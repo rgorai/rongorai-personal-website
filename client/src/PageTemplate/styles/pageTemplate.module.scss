@@ -1,8 +1,44 @@
 @use '../../variables' as *;
 
 .contentPageWrapper {
-  @include display-flex(row, flex-start, flex-start);
+  @include display-flex(row, inherit, flex-start);
 
   width: 100%;
   height: 100%;
+
+  $side-menu-width: 15%;
+
+  @mixin side-menu {
+    position: sticky;
+    top: $nav-height;
+    width: $side-menu-width;
+    height: calc(100vh - $nav-height);
+  }
+
+  .sideNavWrapper {
+    @include side-menu;
+  }
+
+  .contentGeneratorWrapper {
+    width: calc(100% - $side-menu-width * 2);
+  }
+
+  .tocWrapper {
+    @include side-menu;
+
+    right: 3vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .contentPageWrapper {
+    .sideNavWrapper,
+    .tocWrapper {
+      display: none;
+    }
+
+    .contentGeneratorWrapper {
+      width: 100%;
+    }
+  }
 }

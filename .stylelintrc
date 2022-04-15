@@ -6,6 +6,7 @@
     "color-function-notation": "legacy",
     "scss/double-slash-comment-whitespace-inside": null,
     "scss/double-slash-comment-empty-line-before": null,
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "selector-pseudo-class-no-unknown": null
   }
 }
