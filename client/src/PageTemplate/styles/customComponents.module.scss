@@ -23,7 +23,7 @@
   cursor: zoom-in;
 }
 
-.reduceWidth {
+.adjustWidth {
   width: 100%;
   text-align: center;
 
@@ -33,7 +33,7 @@
 }
 
 figure {
-  margin: 0;
+  margin: 0 auto;
 }
 
 figcaption {

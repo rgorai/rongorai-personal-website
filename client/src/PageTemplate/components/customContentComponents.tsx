@@ -1,5 +1,5 @@
 import cx from 'classnames'
-import { MutableRefObject, ReactNode, useRef, useState } from 'react'
+import { MutableRefObject, useRef, useState } from 'react'
 import styles from '../styles/customComponents.module.scss'
 
 type AnyObject = { [key: string]: any }
@@ -11,7 +11,7 @@ type MediaProps = {
   caption?: string
   floatLeft?: boolean
   floatRight?: boolean
-  reduceWidth?: boolean
+  adjustWidth?: number
 }
 
 const Media = (props: MediaProps) => {
@@ -23,17 +23,13 @@ const Media = (props: MediaProps) => {
   }
 
   return (
-    <div
-      className={cx(styles.mediaContainer, {
-        [styles.reduceWidth]: props.reduceWidth,
-      })}
-      style={{ flex }}
-    >
+    <div className={styles.mediaContainer} style={{ flex }}>
       <figure
         className={cx({
           [styles.floatLeft]: props.floatLeft,
           [styles.floatRight]: props.floatRight,
         })}
+        style={{ width: `${props.adjustWidth}%` ?? '' }}
       >
         {props.Type === 'img' && (
           <img
