@@ -1,4 +1,9 @@
-import { getFile, Tag, Component } from '../../../misc/utils.js'
+import {
+  getFile,
+  Tag,
+  openLinkInNewTab,
+  Component,
+} from '../../../misc/utils.js'
 
 export default [
   Tag('h1', 'Snowboarding'),

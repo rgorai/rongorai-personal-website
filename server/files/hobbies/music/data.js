@@ -1,16 +1,21 @@
-import { getFile, Tag, Component } from '../../../misc/utils.js'
+import {
+  getFile,
+  Tag,
+  openLinkInNewTab,
+  Component,
+} from '../../../misc/utils.js'
 
 export default [
   Tag('h1', 'Music'),
 
   Tag(
     'p',
-    `I first took an interest in music when my dad gave me his iPod with all his old music on it. It was 2009. The first song I played was The Trooper by Iron Maiden, and I instantly fell in love with the sound. That night, I listened to hundreds of songs by them and other bands like Megadeth, AC/DC and Guns N' Roses. A passion for crazy solos and intricate rhythms instantly grew within me.`
+    `I first took an interest in music when my dad gave me his iPod with all his old music on it in 2009. The first song I played was The Trooper by Iron Maiden, and I instantly fell in love with the sound. That night, I listened to hundreds of songs by them and bands like Megadeth, AC/DC, and Guns N' Roses. A passion for crazy solos and intricate rhythms instantly grew within me.`
   ),
 
   Tag(
     'p',
-    `I started taking guitar lessons at the Music Shop in Boonton, NJ. After just a couple of years, I felt the need for learning more, so I moved to the School of Rock in Montclair, NJ. Soon, I started gaining the confidence to play on stage and I joined their performance program. Every year since then, I have played songs with other student musicians by artists ranging from Jimi Hendrix to Ozzy Osbourne at local venues.`
+    `Soon after, I started taking guitar lessons at the Music Shop in Boonton, NJ. After just a couple of years, I felt the need for a more enriching experience, so I moved to the School of Rock in Montclair, NJ. Soon, I started gaining the confidence to play on stage and I joined their performance program. Every year since then, I have played songs with other student musicians by artists ranging from Jimi Hendrix to Ozzy Osbourne at local venues.`
   ),
 
   Tag(
@@ -30,8 +35,7 @@ export default [
 
   Tag('a', 'SoR Montclair Facebook Page', {
     href: 'https://www.facebook.com/pg/SchoolofRockMontclair/photos/?ref=page_internal',
-    rel: 'noreferrer',
-    target: '_blank',
+    ...openLinkInNewTab,
   }),
 
   Tag('h2', 'Summerfest'),

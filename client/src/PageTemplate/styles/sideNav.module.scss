@@ -9,6 +9,7 @@ $nav-background-accent: color.adjust(
 .sideNavContainer {
   height: 100%;
   width: 100%;
+  min-width: 11.5rem;
   padding: 0.75rem;
   box-sizing: border-box;
   background-color: $side-nav-background-color;

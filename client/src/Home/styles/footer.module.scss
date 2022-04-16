@@ -13,7 +13,7 @@
 
   .footerLink {
     width: 100%;
-    color: rgba(255, 255, 255, 85%);
+    color: rgba(255, 255, 255, 90%);
     text-decoration: none;
 
     &:hover {
@@ -51,19 +51,17 @@
   }
 
   .message {
-    color: rgba(255, 255, 255, 61.6%);
+    color: rgba(255, 255, 255, 65%);
     font-weight: 300;
   }
 
   .socialIconLink {
-    // width: min-content;
     height: 100%;
     margin-right: 0.75rem;
     -webkit-tap-highlight-color: initial;
 
     .socialIcon {
       width: 2.25rem;
-      color: white;
       filter: invert(1);
     }
   }

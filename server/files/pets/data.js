@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { getFile, Tag, Component } from '../../misc/utils.js'
+import { getFile, Tag, openLinkInNewTab, Component } from '../../misc/utils.js'
 
 const getAge = (birthday) => {
   const diff = String(

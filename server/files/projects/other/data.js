@@ -1,4 +1,9 @@
-import { getFile, Tag, Component } from '../../../misc/utils.js'
+import {
+  getFile,
+  Tag,
+  openLinkInNewTab,
+  Component,
+} from '../../../misc/utils.js'
 
 export default [
   Tag('h1', 'Other Work Experience'),
@@ -12,8 +17,7 @@ export default [
   ),
   Tag('a', 'CS 115 Course Syllabus', {
     href: 'https://web.stevens.edu/academic_files/courses/syllabus/CS115syl.pdf',
-    rel: 'noreferrer',
-    target: '_blank',
+    ...openLinkInNewTab,
   }),
 
   Tag('h3', 'Spring 2021'),
@@ -23,8 +27,7 @@ export default [
   ),
   Tag('a', 'CS 392 Course Syllabus', {
     href: 'https://web.stevens.edu/academic_files/courses/syllabus/CS392syl.pdf',
-    rel: 'noreferrer',
-    target: '_blank',
+    ...openLinkInNewTab,
   }),
 
   Component('Media', {
@@ -40,8 +43,7 @@ export default [
   ),
   Tag('a', "International Ivy's Website", {
     href: 'http://www.iisummer.com/',
-    rel: 'noreferrer',
-    target: '_blank',
+    ...openLinkInNewTab,
   }),
   Component('Media', {
     Type: 'img',
@@ -56,8 +58,7 @@ export default [
   ),
   Tag('a', "Mathnasium of Northeast Parsippany's Website", {
     href: 'https://www.mathnasium.com/neparsippany',
-    rel: 'noreferrer',
-    target: '_blank',
+    ...openLinkInNewTab,
   }),
   Component('Media', {
     Type: 'img',
@@ -72,8 +73,7 @@ export default [
   ),
   Tag('a', 'SSI Facebook Page', {
     href: 'https://www.facebook.com/SummerSTEMInstitute/',
-    rel: 'noreferrer',
-    target: '_blank',
+    ...openLinkInNewTab,
   }),
   Component('Media', {
     Type: 'img',

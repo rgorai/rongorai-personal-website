@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
+import { Link } from 'react-router-dom'
 import { getFile } from '../../services/utils'
 import styles from '../styles/resumePage.module.scss'
 import Loading from '../../Misc/components/Loading'
@@ -15,35 +16,28 @@ const ResumePage = () => {
     <div className={styles.resumeContainer}>
       {numPages === 0 && <Loading />}
 
-      <Document
-        file={getFile('Ron_Gorai_Resume.pdf')}
-        onLoadSuccess={({ numPages }: { numPages: number }) =>
-          setNumPages(numPages)
-        }
-        loading={null}
+      <Link
+        className={styles.resumeLink}
+        to={getFile('Ron_Gorai_Resume.pdf')}
+        target="_blank"
+        rel="noreferrer"
+        title="Open in browser PDF viewer"
       >
-        {Array.from(Array(numPages)).map((_, i) => (
-          <React.Fragment key={i}>
-            <Page pageNumber={i + 1} key={i} />
-            {i !== numPages - 1 && <hr />}
-          </React.Fragment>
-        ))}
-      </Document>
-
-      {numPages > 0 && (
-        <button
-          className={styles.openInBrowser}
-          onClick={() => {
-            window.open(getFile('Ron_Gorai_Resume.pdf'), '_blank')
-          }}
-          title="Open in browser PDF viewer"
+        <Document
+          file={getFile('Ron_Gorai_Resume.pdf')}
+          onLoadSuccess={({ numPages }: { numPages: number }) =>
+            setNumPages(numPages)
+          }
+          loading={null}
         >
-          <img
-            src={`${process.env.PUBLIC_URL}/menu_icons/new-tab-icon.png`}
-            alt="Open in browser PDF viewer"
-          />
-        </button>
-      )}
+          {Array.from(Array(numPages)).map((_, i) => (
+            <React.Fragment key={i}>
+              <Page pageNumber={i + 1} key={i} loading={null} />
+              {i !== numPages - 1 && <hr />}
+            </React.Fragment>
+          ))}
+        </Document>
+      </Link>
     </div>
   )
 }
