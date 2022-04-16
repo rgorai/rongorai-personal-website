@@ -1,4 +1,9 @@
-import { getFile, Tag, Component } from '../../../misc/utils.js'
+import {
+  getFile,
+  Tag,
+  openLinkInNewTab,
+  Component,
+} from '../../../misc/utils.js'
 
 export default [
   Tag('h1', 'Professional Projects'),
@@ -41,13 +46,11 @@ export default [
   ),
   Tag('a', 'More on IBM Db2 Migration Service', {
     href: 'https://www.ibm.com/docs/en/db2/11.5?topic=db2-migration-service',
-    rel: 'noreferrer',
-    target: '_blank',
+    ...openLinkInNewTab,
   }),
   Tag('a', 'My research on testing platforms', {
     href: getFile('projects/professional/ibm/testing-pros-cons.pdf'),
-    rel: 'noreferrer',
-    target: '_blank',
+    ...openLinkInNewTab,
   }),
   Component('Media', {
     Type: 'img',
@@ -58,12 +61,11 @@ export default [
   Tag('h2', 'ZAIS Group'),
   Tag(
     'p',
-    `During the spring of 2020, I participated in my first co-op. I was working as a Technology and Analytics Co-op for ZAIS Group, a financial services company specialized in credit investment and management. I worked alongside my Stevens classmates Lucas and Mohammad. I returned for another co-op term in the fall of 2020, and am currently working there part-time in the spring of 2021.`
+    `During the spring of 2020, I participated in my first co-op. I was working as a Technology and Analytics Co-op for ZAIS Group, a financial services company specialized in credit investment and management. I worked alongside my Stevens classmates Lucas Berard and Mohammad Khan. I returned for another co-op term in the fall of 2020, and am currently working there part-time in the spring of 2021.`
   ),
   Tag('a', "ZAIS Group's Website", {
     href: 'https://www.zaisgroup.com',
-    rel: 'noreferrer',
-    target: '_blank',
+    ...openLinkInNewTab,
   }),
 
   Tag('h3', 'Spring 2021'),
@@ -75,7 +77,7 @@ export default [
   Tag('h3', 'Fall 2020'),
   Tag(
     'p',
-    `This time around, I worked on a different project than the other co-ops. The technology team was working on a web application that would aid the company's president (and in the future, clients) in viewing and managing the company's loan and asset data. The back-end of the application was developed with JavaScript and Node, and the front-end was developed with React; I was assigned to the front-end. Being of an artistic background, I really enjoyed combining my software skills with my creative traits such as attention to detail and design sense. As the semester went on, I grew very familiar with the perks of React and how it meshes together with other languages like HTML and CSS to make up a web application.`
+    `This time around, I worked on a different project than the other co-ops. The technology team was working on a web application that would aid the company's president (and in the future, clients) in viewing and managing the company's loan and asset data. The back-end of the application was developed with JavaScript and Node, and the frontend was developed with React; I was assigned to the frontend. Being of an artistic background, I really enjoyed combining my software skills with my creative traits such as attention to detail and design sense. As the semester went on, I grew very familiar with the perks of React and how it meshes together with other languages like HTML and CSS to make up a web application.`
   ),
 
   Tag('h3', 'Spring 2020'),
@@ -93,8 +95,7 @@ export default [
   ),
   Tag('a', 'My Spring 2020 ZAIS Project Report', {
     href: getFile('projects/professional/zais/spring-2020-report.pdf'),
-    rel: 'noreferrer',
-    target: '_blank',
+    ...openLinkInNewTab,
   }),
   Component('Media', {
     Type: 'img',
@@ -113,8 +114,7 @@ export default [
   ),
   Tag('a', 'My KOVID Project Report', {
     href: getFile('projects/professional/kovid/project-report.pdf'),
-    rel: 'noreferrer',
-    target: '_blank',
+    ...openLinkInNewTab,
   }),
   Component('MediaGrid', {
     columns: 2,

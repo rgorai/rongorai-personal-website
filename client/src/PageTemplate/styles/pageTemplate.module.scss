@@ -11,12 +11,14 @@
   @mixin side-menu {
     position: sticky;
     top: $nav-height;
-    width: $side-menu-width;
+    // width: $side-menu-width;
     height: calc(100vh - $nav-height);
   }
 
   .sideNavWrapper {
     @include side-menu;
+
+    width: calc($side-menu-width + 1%);
   }
 
   .contentGeneratorWrapper {
@@ -26,6 +28,7 @@
   .tocWrapper {
     @include side-menu;
 
+    width: calc($side-menu-width - 1%);
     right: 3vw;
   }
 }

@@ -1,4 +1,9 @@
-import { getFile, Tag, Component } from '../../../misc/utils.js'
+import {
+  getFile,
+  Tag,
+  openLinkInNewTab,
+  Component,
+} from '../../../misc/utils.js'
 
 export default [
   Tag('h1', 'Music'),
@@ -30,8 +35,7 @@ export default [
 
   Tag('a', 'SoR Montclair Facebook Page', {
     href: 'https://www.facebook.com/pg/SchoolofRockMontclair/photos/?ref=page_internal',
-    rel: 'noreferrer',
-    target: '_blank',
+    ...openLinkInNewTab,
   }),
 
   Tag('h2', 'Summerfest'),

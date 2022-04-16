@@ -1,4 +1,9 @@
-import { getFile, Tag, Component } from '../../../misc/utils.js'
+import {
+  getFile,
+  Tag,
+  openLinkInNewTab,
+  Component,
+} from '../../../misc/utils.js'
 
 export default [
   Tag('h1', 'STEM'),
@@ -20,7 +25,7 @@ export default [
     `We would get into several team-huddles every week to discuss what kind of mechanism to use for each function - e.g. scissor lift, telescopic arm, suction, pneumatic shooter, spring-loaded release, scooper, etc. We used design sketches and decision matrices to determine the best options. Then, we used CAD models to better visualize and to fine-tune the accuracy of our designs. In the building phase, we incorporated prototypes made from paper, plastic and wood into the Tetrix building blocks. Next, we would finally get to building. However, if we needed to build a custom part, we had to do same stated earlier, in addition to completing a cost analysis`
   ),
 
-  Tag('h3', 'PTD Design Challenge'),
+  Tag('h3', 'PTC Design Challenge'),
 
   Tag(
     'p',

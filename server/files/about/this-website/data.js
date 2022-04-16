@@ -1,4 +1,9 @@
-import { getFile, Tag, Component } from '../../../misc/utils.js'
+import {
+  getFile,
+  Tag,
+  openLinkInNewTab,
+  Component,
+} from '../../../misc/utils.js'
 
 export default [
   Tag('h1', 'About This Website'),
@@ -7,10 +12,15 @@ export default [
 
   Tag(
     'p',
-    `The purpose of this website is to share my hobby and work experiences, as well as showcase my professional skills as a software developer. I created this website from nothing but an empty folder and the knowledge I've gained from my classes and co-ops. It is a web application built on the MERN (MongoDB, Express, React, Node) Stack, utilizing modern programming technologies like TypeScript and Sass. Read below for a deeper dive on how I built the website. Please feel free to take a look through the repository and let me know what you think of my code, and even leave me an endorsement on LinkedIn if you think it's done well!`
+    `The purpose of this website is to share my hobby and work experiences, as well as showcase my professional skills as a software developer. I created this website from nothing but an empty folder and the knowledge I've gained from my classes and co-ops. It is a web application built on the MERN (MongoDB, Express, React, Node) Stack, utilizing modern programming technologies like TypeScript and Sass.`
   ),
 
-  Tag('a', 'Project Repository', {
+  Tag(
+    'p',
+    `Read below for a deeper dive on how I built the website. Please feel free to take a look through the repository and let me know what you think of my code, and perhaps even leave me an endorsement on LinkedIn if you think it's well done!`
+  ),
+
+  Tag('a', 'Personal Website Repository', {
     href: 'https://github.com/rgorai/rongorai-personal-website',
     target: '_blank',
     rel: 'noreferrer',
@@ -29,7 +39,7 @@ export default [
 
   Tag(
     'p',
-    `After learning how to make a relatively basic full-stack app with React, Express, and MongoDB on my Web Programming final project, the first thing I had to learn was how to deploy a web application. I wanted to figure this out before beginning work on my new website to ensure it was possible for me to do, both cost-wise and skill-wise. I found that Heroku was the community go-to cloud service to easily host a web application on the internet. Thankfully, they have a free tier which I am currently using, making the domain name the only monetary cost of my whole website. Once Heroku was set up, I just had to set up a DNS for my domain name and after a test depolyment of a sample react app, I was ready to start developing my website.`
+    `After learning how to make a relatively basic full-stack app with React, Express, and MongoDB on my Web Programming final project, the first thing I had to learn was how to deploy a web application. I wanted to figure this out before beginning work on my new website to ensure it was possible for me to do, both cost-wise and skill-wise. I found that Heroku was the community go-to cloud service to easily host a web application on the internet. Thankfully, they have a free tier that I'm currently using (which is why I don't have an SSL certificate), making the domain name the only monetary cost of my whole website. Once Heroku was set up, I just had to set up a DNS for my domain name and after a test depolyment of a sample react app, I was ready to start developing my website.`
   ),
 
   Tag(
@@ -44,10 +54,10 @@ export default [
 
   Component('BulletedList', {
     items: [
-      'TypeScript type guards',
+      'TypeScript type guards and nullish operators',
       'React error boundaries with class components',
       'Google ReCAPTCHA API',
-      'DOM Purify',
+      'DOM Purify XSS security',
       'CSS keyframes',
     ],
   }),
@@ -63,10 +73,10 @@ export default [
 
   Component('BulletedList', {
     items: [
-      'Redux to manage app data loading / storage',
-      'Dark mode switch',
+      'Redux to better manage app data loading / storage',
       'Pagination for guestbook list',
-      'Running Web Programming final project on a route',
+      'Dark / light mode switch',
+      'Running MovieHub project one a site route',
       'Admin portal with JWT security to update website data from the website itself',
     ],
   }),
@@ -76,10 +86,10 @@ export default [
   Component('BulletedList', {
     items: [
       'Full mobile site for smaller devices',
-      'Side navigation for desired content pages',
       'Automatically generated table of contents for content pages',
       'Auto-self-aligning media grid components',
       'Top and footer app navigation',
+      'Side navigation for desired content pages',
     ],
   }),
 ]
