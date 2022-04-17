@@ -64,7 +64,9 @@ type MediaGridProps = {
 }
 
 const MediaGrid = (props: MediaGridProps) => {
-  const gridGap = `calc(100vw / ${props.columns} / 20)`
+  const gridGap = `calc(100vw / ${props.columns} / ${
+    window.innerWidth > 900 ? 25 : 15
+  })`
 
   return (
     <div className={styles.mediaGridContainer}>

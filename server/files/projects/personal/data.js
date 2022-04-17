@@ -47,7 +47,7 @@ export default [
   Component('Media', {
     Type: 'video',
     caption: 'MovieHub demo',
-    src: getFile('projects/personal/moviehub-demo.mp4'),
+    src: 'https://d3qxkq1kpu8paz.cloudfront.net/projects/personal/moviehub-demo.mp4',
     mediaProps: { controls: true },
   }),
 ]
