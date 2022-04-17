@@ -1,5 +1,4 @@
 import express from 'express'
-import path from 'path'
 import { isValidString } from '../misc/errors.js'
 
 const fileRouter = express.Router()
@@ -17,7 +16,7 @@ fileRouter.get('/:encodedFilepath', async (req, res) => {
     res
       .status(200)
       .sendFile(
-        path.resolve('server', 'files', decodeURIComponent(encodedFilepath))
+        process.env.AWS_DISTRIBUTION_URL + decodeURIComponent(encodedFilepath)
       )
   } catch (e) {
     res.status(404).send(String(e))

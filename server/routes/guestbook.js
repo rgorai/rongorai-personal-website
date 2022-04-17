@@ -1,5 +1,5 @@
 import express from 'express'
-import { createEntry, getAllEntries } from '../data/guestbook.js'
+import { createEntry, getAllEntries } from '../mongo/guestbook.js'
 import { isValidString } from '../misc/errors.js'
 
 const guestbookRouter = express.Router()

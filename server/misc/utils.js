@@ -1,4 +1,4 @@
-const getFile = (path) => `/api/files/${encodeURIComponent(path)}`
+const getFile = (path) => `${process.env.AWS_DISTRIBUTION_URL}/${path}`
 
 const Tag = (tag, text, props) => ({ tag, text, props })
 

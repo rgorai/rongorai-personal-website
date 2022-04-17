@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom'
 import { getFile } from '../../services/utils'
 import styles from '../styles/resumePage.module.scss'
 import Loading from '../../Misc/components/Loading'
+import ApiError from '../../Misc/components/ApiError'
 
 const ResumePage = () => {
   const [numPages, setNumPages] = useState(0)
+  const [documentError, setDocumentError] = useState(null as any)
 
   useEffect(() => {
     document.title = `Resume | Ron Gorai's Personal Website`
@@ -14,7 +16,8 @@ const ResumePage = () => {
 
   return (
     <div className={styles.resumeContainer}>
-      {numPages === 0 && <Loading />}
+      {numPages === 0 && !documentError && <Loading />}
+      {documentError && <ApiError {...documentError} />}
 
       <Link
         className={styles.resumeLink}
@@ -28,7 +31,14 @@ const ResumePage = () => {
           onLoadSuccess={({ numPages }: { numPages: number }) =>
             setNumPages(numPages)
           }
+          onLoadError={() =>
+            setDocumentError({
+              status: 500,
+              statusText: 'Internal Server Error',
+            })
+          }
           loading={null}
+          error={null}
         >
           {Array.from(Array(numPages)).map((_, i) => (
             <React.Fragment key={i}>

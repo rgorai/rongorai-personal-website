@@ -44,7 +44,7 @@ const ContentGenerator = (props: Props) => {
   useEffect(() => {
     setApiError({} as AxiosResponse)
     axios
-      .get(`/api/data/${encodeURIComponent(`${props.src.slice(1)}/data.js`)}`)
+      .get(`/api/data/${encodeURIComponent(`${props.src}`)}`)
       .then((res) => {
         setPageData(
           // give all headings a generated id

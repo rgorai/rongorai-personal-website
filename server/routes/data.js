@@ -3,22 +3,17 @@ import { isValidString } from '../misc/errors.js'
 
 const dataRouter = express.Router()
 
-dataRouter.get('/:encodedFilepath', async (req, res) => {
-  const { encodedFilepath } = req.params
+dataRouter.get('/:filename', async (req, res) => {
+  const { filename } = req.params
 
   try {
-    isValidString({ encodedFilepath })
+    isValidString({ filename })
   } catch (e) {
     return res.status(400).send(String(e))
   }
 
   try {
-    res
-      .status(200)
-      .json(
-        (await import(`../files/${decodeURIComponent(encodedFilepath)}`))
-          .default
-      )
+    res.status(200).json((await import(`../data/${filename}.js`)).default)
   } catch (e) {
     res.status(500).send(String(e))
   }

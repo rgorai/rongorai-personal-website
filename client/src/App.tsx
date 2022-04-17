@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import React, { ReactNode } from 'react'
-import { parseRoute } from './services/utils'
+import { parseRoute, parseFilename } from './services/utils'
 import ApiError from './Misc/components/ApiError'
 import GuestbookPage from './Guestbook/components/GuestbookPage'
 import NavBar from './Home/components/NavBar'
@@ -70,7 +70,7 @@ const App = () => (
                   ) : (
                     <PageTemplate
                       contentTitle={e.name}
-                      src={parseRoute(e.name)}
+                      src={parseFilename(e.name)}
                     />
                   )
                 }
@@ -85,7 +85,7 @@ const App = () => (
                         contentSubtitle={f}
                         contentTitle={e.name}
                         subItems={e.subItems}
-                        src={parseRoute(e.name, f)}
+                        src={parseFilename(e.name, f)}
                       />
                     }
                     key={parseRoute(e.name, f)}
