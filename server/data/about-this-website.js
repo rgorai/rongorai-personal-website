@@ -10,7 +10,7 @@ export default [
   ),
   Tag(
     'p',
-    `Read below for a deeper dive on how I built the website. Please feel free to take a look through the repository and let me know what you think of my code, and perhaps even leave me an endorsement on LinkedIn if you think it's well done!`
+    `Read below for a deeper dive on how I built the website. Please feel free to take a look through the repository and let me know what you think of my code, and perhaps even leave me an endorsement on LinkedIn if you think it's done well!`
   ),
   Tag('a', 'Personal Website Repository', {
     href: 'https://github.com/rgorai/rongorai-personal-website',

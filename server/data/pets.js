@@ -1,5 +1,4 @@
-import fs from 'fs'
-import path from 'path'
+import S3 from 'aws-sdk/clients/s3.js'
 import { getFile, Tag, Component } from '../misc/utils.js'
 
 const getAge = (birthday) => {
@@ -9,9 +8,23 @@ const getAge = (birthday) => {
   return `${diff.slice(0, diff.indexOf('.') + 2)} years`
 }
 
-const getMedia = (name) =>
-  fs
-    .readdirSync(path.resolve('server', 'files', 'pets', name))
+const getMedia = async (name) => {
+  const s3 = new S3({
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    signatureVersion: 'v4',
+    region: 'us-east-1',
+  })
+  const files = await s3
+    .listObjectsV2({
+      Bucket: 'rongorai-personal-website-bucket',
+      Prefix: `pets/${name}`,
+    })
+    .promise()
+  return files.Contents.map((e) => {
+    const pathItems = e.Key.split('/')
+    return pathItems[pathItems.length - 1]
+  })
     .sort((a, b) => a.localeCompare(b))
     .map((e, i) =>
       e.includes('.mp4')
@@ -26,6 +39,7 @@ const getMedia = (name) =>
             mediaProps: { alt: `${name}-${i}` },
           }
     )
+}
 
 export default [
   Tag('h1', 'Pets'),
@@ -42,7 +56,7 @@ export default [
 
   Component('MediaGrid', {
     columns: 4,
-    media: getMedia('lux'),
+    media: await getMedia('lux'),
   }),
 
   Tag('h2', 'Raja'),
@@ -57,6 +71,6 @@ export default [
 
   Component('MediaGrid', {
     columns: 4,
-    media: getMedia('raja'),
+    media: await getMedia('raja'),
   }),
 ]
