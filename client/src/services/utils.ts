@@ -4,7 +4,8 @@ const parseRoute = (...pathItems: Array<string>) =>
 const parseFilename = (...pathItems: Array<string>) =>
   pathItems.map((e) => e.replaceAll(' ', '-').toLowerCase()).join('-')
 
-const getFile = (path: string) => `/api/files/${encodeURIComponent(path)}`
+const getFile = (path: string) =>
+  `${process.env.REACT_APP_AWS_DISTRIBUTION_URL}/${path}`
 
 const parseId = (text: string) => text.replaceAll(' ', '-').toLowerCase()
 

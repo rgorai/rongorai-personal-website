@@ -17,11 +17,11 @@ export default [
   ),
   Tag(
     'p',
-    `The highlight, of course, has been performing at the Summerfest in Milwaukee, a music festival in which people from all around the world come to see celebrity artists as well as emerging artists. Over the course of about 11 days, nearly 900,000 people attend each year. Other Schools of Rock from around the world also come to play at this exclusive event.. Even though it was quite overwhelming, I hit the D's and the C-minor's spot-on as we rocked the Harley Davidson Arena with tracks by artists ranging from Soundgarden to Prince, captivating an audience that had really come to watch celebrities like Paul McCartney and Sting.`
+    `The highlight of my Houseband career has been performing at Summerfest in Milwaukee, WI. Summerfest a music festival where people from all around the world come to see both distinguished and emerging artists. Over the course of about 11 days, nearly 900,000 people attend each year. Housebands from other Schools of Rock around the world also come to play at this exclusive event. Even though it was overall quite overwhelming, my band and I hit our notes spot-on as we rocked the Harley Davidson Arena with tracks by artists like Soundgarden and Prince, captivating an audience that had really come to watch celebrities like Paul McCartney and Sting.`
   ),
   Tag(
     'p',
-    `In May 2018, I was featured on the cover of the NJ Kids Magazine in promotion of School of Rock, Montclair. This picture was taken at the Harley Davidson Arena at Summerfest.`
+    `In May 2018, I found out that I was featured on the cover of the NJ Kids Magazine in promotion of School of Rock, Montclair. This picture was taken at the Harley Davidson Arena at Summerfest.`
   ),
   Tag('a', 'SoR Montclair Facebook Page', {
     href: 'https://www.facebook.com/pg/SchoolofRockMontclair/photos/?ref=page_internal',
@@ -31,7 +31,7 @@ export default [
   Tag('h2', 'Summerfest'),
   Component('MediaGrid', {
     columns: 2,
-    caption: `Milwaukee, WI`,
+    caption: `Milwaukee, WI - 2016`,
     media: [
       {
         Type: 'img',
@@ -57,7 +57,7 @@ export default [
   Tag('h2', `Progressive International Motorcycle Show`),
   Component('MediaGrid', {
     columns: 3,
-    caption: `Javit's Center, Manhattan, NYC`,
+    caption: `Javit's Center, Manhattan, NYC - 2016`,
     media: [
       {
         Type: 'img',

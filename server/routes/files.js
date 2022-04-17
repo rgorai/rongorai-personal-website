@@ -16,7 +16,8 @@ fileRouter.get('/:encodedFilepath', async (req, res) => {
     res
       .status(200)
       .sendFile(
-        process.env.AWS_DISTRIBUTION_URL + decodeURIComponent(encodedFilepath)
+        process.env.REACT_APP_AWS_DISTRIBUTION_URL +
+          decodeURIComponent(encodedFilepath)
       )
   } catch (e) {
     res.status(404).send(String(e))

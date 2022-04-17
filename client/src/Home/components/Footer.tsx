@@ -1,8 +1,7 @@
-import { useEffect, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import cx from 'classnames'
 import { Link } from 'react-router-dom'
 import styles from '../styles/footer.module.scss'
-import { getFile } from '../../services/utils'
 import type { NavInfo } from '../../App'
 import Logo from './Logo'
 

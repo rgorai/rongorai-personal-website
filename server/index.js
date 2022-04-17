@@ -17,7 +17,7 @@ configRoutes(app)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.resolve('client', 'build')))
-  app.get('*', (req, res) => {
+  app.get('*', (_, res) => {
     res.sendFile(path.resolve('client', 'build', 'index.html'))
   })
 }

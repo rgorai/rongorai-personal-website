@@ -39,6 +39,7 @@ export default [
   ),
   Component('BulletedList', {
     items: [
+      'Amazon S3 and CloudFront to store and serve static assets',
       'TypeScript type guards and nullish operators',
       'React error boundaries with class components',
       'Google ReCAPTCHA API',

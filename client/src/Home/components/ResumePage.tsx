@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
-import { Link } from 'react-router-dom'
 import { getFile } from '../../services/utils'
 import styles from '../styles/resumePage.module.scss'
 import Loading from '../../Misc/components/Loading'
@@ -19,9 +18,9 @@ const ResumePage = () => {
       {numPages === 0 && !documentError && <Loading />}
       {documentError && <ApiError {...documentError} />}
 
-      <Link
+      <a
         className={styles.resumeLink}
-        to={getFile('Ron_Gorai_Resume.pdf')}
+        href={getFile('Ron_Gorai_Resume.pdf')}
         target="_blank"
         rel="noreferrer"
         title="Open in browser PDF viewer"
@@ -47,7 +46,7 @@ const ResumePage = () => {
             </React.Fragment>
           ))}
         </Document>
-      </Link>
+      </a>
     </div>
   )
 }

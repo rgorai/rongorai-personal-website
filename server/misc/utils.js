@@ -1,4 +1,5 @@
-const getFile = (path) => `${process.env.AWS_DISTRIBUTION_URL}/${path}`
+const getFile = (path) =>
+  `${process.env.REACT_APP_AWS_DISTRIBUTION_URL}/${path}`
 
 const Tag = (tag, text, props) => ({ tag, text, props })
 
