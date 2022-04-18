@@ -4,7 +4,6 @@
 .tableWrapper {
   width: 110%;
   height: 100%;
-  margin-top: 3rem;
 
   .tableContainer {
     @include display-flex(column, flex-start, flex-start);
@@ -26,7 +25,7 @@
       }
     }
 
-    .TOCLink {
+    .tocLink {
       color: color.adjust($nav-link-color, $lightness: 10%);
       text-decoration: none;
       line-height: 1.5em;

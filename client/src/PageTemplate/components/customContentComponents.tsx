@@ -17,24 +17,26 @@ type MediaProps = {
 const Media = (props: MediaProps) => {
   const [flex, setFlex] = useState(1)
   const mediaRef = useRef({ offsetWidth: 0, offsetHeight: 0 })
+  const mediaTitle = ((split) => split[split.length - 1])(props.src.split('/'))
 
   const onLoad = () => {
     setFlex(mediaRef.current.offsetWidth / mediaRef.current.offsetHeight)
   }
 
   return (
-    <div className={styles.mediaContainer} style={{ flex }}>
-      <figure
-        className={cx({
-          [styles.floatLeft]: props.floatLeft,
-          [styles.floatRight]: props.floatRight,
-        })}
-        style={{ width: `${props.adjustWidth}%` ?? '' }}
-      >
+    <div
+      className={cx(styles.mediaContainer, {
+        [styles.floatLeft]: props.floatLeft,
+        [styles.floatRight]: props.floatRight,
+      })}
+      style={{ flex }}
+    >
+      <figure style={{ width: `${props.adjustWidth}%` ?? '' }}>
         {props.Type === 'img' && (
           <img
             className={styles.zoomIn}
             src={props.src}
+            title={mediaTitle}
             ref={mediaRef as MutableRefObject<HTMLImageElement>}
             onLoad={onLoad}
             onClick={() => window.open(props.src)}
@@ -46,8 +48,11 @@ const Media = (props: MediaProps) => {
         {props.Type === 'video' && (
           <video
             src={props.src}
+            title={mediaTitle}
             ref={mediaRef as MutableRefObject<HTMLVideoElement>}
             onLoadedMetadata={onLoad}
+            // onClick={window.innerWidth > 900 ? undefined : () => window.open(props.src)}
+            // onClick={() => window.open(props.src)}
             {...props.mediaProps}
           />
         )}
@@ -65,7 +70,7 @@ type MediaGridProps = {
 
 const MediaGrid = (props: MediaGridProps) => {
   const gridGap = `calc(100vw / ${props.columns} / ${
-    window.innerWidth > 900 ? 30 : 15
+    window.innerWidth > 900 ? 25 : 15
   })`
 
   return (

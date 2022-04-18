@@ -27,11 +27,11 @@ export default [
   }),
   Tag(
     'p',
-    `After learning how to make a relatively basic full-stack app with React, Express, and MongoDB on my Web Programming final project, the first thing I had to learn was how to deploy a web application. I wanted to figure this out before beginning work on my new website to ensure it was possible for me to do, both cost-wise and skill-wise. I found that Heroku was the community go-to cloud service to easily host a web application on the internet. Thankfully, they have a free tier that I'm currently using (which is why I don't have an SSL certificate), making the domain name the only monetary cost of my whole website. Once Heroku was set up, I just had to set up a DNS for my domain name and after a test depolyment of a sample react app, I was ready to start developing my website.`
+    `After learning how to make a relatively basic full-stack app with React, Express, and MongoDB on my Web Programming final project, the first thing I had to learn was how to deploy a web application. I wanted to figure this out before beginning work on my new website to ensure it was possible for me to do, both cost-wise and skill-wise. I found that Heroku was the community go-to for easily hosting a web application on the internet. Thankfully, they have a free tier that I'm currently using, making the domain name the only real monetary cost of my whole website. Once Heroku was set up, I just had to set up a DNS for my domain name and after a test depolyment of a sample react app, I was ready to start developing my website.`
   ),
   Tag(
     'p',
-    `Creating the project was quite straight-forward; it was simply running create-react-app with a TypeScript template. From here, it was just deciding how I wanted the website to be built and what features I wanted. When designing the code structure of the application, I tried my best to keep it up to par with industry standards by both writing it in an efficient manner, and keeping teamwork in mind. Some examples of how I decided to do this are employing a modular coding strategy (i.e. using objects to store data that is then used to generate different aspects/components of the app) and commenting parts of my code. <b>These actions keep the code easy to follow and understand, and therefore easy to develop for in the future - things that I feel are often lacking / underappreciated / overlooked upon in the software industry today.</b>`
+    `Creating the project was quite straight-forward; it was simply running create-react-app with a TypeScript template. From here, it was just deciding how I wanted the website to be built and what features I wanted. When designing the code structure of the application, I tried my best to keep it up to par with industry standards by both writing it in an efficient manner, and keeping teamwork in mind. Some examples of how I decided to do this are employing a modular coding strategy (i.e. using typed objects to store data that's then used to generate different aspects/components of the app) and commenting parts of my code. <b>These actions keep the code easy to follow and understand, and therefore easy to develop for in the future - things that I feel are often lacking / underappreciated / overlooked upon in the software industry today.</b>`
   ),
   Tag(
     'p',
@@ -39,11 +39,12 @@ export default [
   ),
   Component('BulletedList', {
     items: [
-      'Amazon S3 and CloudFront to store and serve static assets',
+      'Amazon S3, CloudFront, and Route 53 to store and serve static assets',
+      'CloudFlare SSL certification with custom domain names',
       'TypeScript type guards and nullish operators',
       'React error boundaries with class components',
       'Google ReCAPTCHA API',
-      'DOM Purify XSS security',
+      'DOM Purify package',
       'CSS keyframes',
     ],
   }),
@@ -62,6 +63,7 @@ export default [
       'Dark / light mode switch',
       'Running MovieHub project one a site route',
       'Admin portal with JWT security to update website data from the website itself',
+      'INSERT IMRPOVEMENTS',
     ],
   }),
 

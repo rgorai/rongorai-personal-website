@@ -44,23 +44,7 @@ const getMedia = async (name) => {
 export default [
   Tag('h1', 'Pets'),
 
-  Tag('h2', 'Lux'),
-
-  Component('StatGrid', {
-    Gender: 'Male',
-    Adopted: 'February 18, 2022',
-    Birthday: 'February 8, 2020',
-    Age: getAge('02/08/2020 12:00:00'),
-    Description: `Lux was our second cat. He's a shy boy who likes to lay around and sleep all day.`,
-  }),
-
-  Component('MediaGrid', {
-    columns: 4,
-    media: await getMedia('lux'),
-  }),
-
   Tag('h2', 'Raja'),
-
   Component('StatGrid', {
     Gender: 'Female',
     Adopted: 'September 6, 2019',
@@ -68,9 +52,21 @@ export default [
     Age: getAge('03/30/2019 12:00:00'),
     Description: `Raja was our first cat, and my first own pet. She's a sassy girl who loves to run around and play.`,
   }),
-
   Component('MediaGrid', {
     columns: 4,
     media: await getMedia('raja'),
+  }),
+
+  Tag('h2', 'Lux'),
+  Component('StatGrid', {
+    Gender: 'Male',
+    Adopted: 'February 18, 2022',
+    Birthday: 'February 8, 2020',
+    Age: getAge('02/08/2020 12:00:00'),
+    Description: `Lux was our second cat. He's a shy boy who likes to lay around and sleep all day.`,
+  }),
+  Component('MediaGrid', {
+    columns: 4,
+    media: await getMedia('lux'),
   }),
 ]
