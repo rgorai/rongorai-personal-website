@@ -31,7 +31,7 @@ export default [
   ),
   Tag(
     'p',
-    `Creating the project was quite straight-forward; it was simply running create-react-app with a TypeScript template. From here, it was just deciding how I wanted the website to be built and what features I wanted. When designing the code structure of the application, I tried my best to keep it up to par with industry standards by both writing it in an efficient manner, and keeping teamwork in mind. Some examples of how I decided to do this are employing a modular coding strategy (i.e. using objects to store data that is then used to generate different aspects/components of the app) and commenting parts of my code. <b>These actions keep the code easy to follow and understand, and therefore easy to develop for in the future - things that I feel are often lacking / underappreciated / overlooked upon in the software industry today.</b>`
+    `Creating the project was quite straight-forward; it was simply running create-react-app with a TypeScript template. From here, it was just deciding how I wanted the website to be built and what features I wanted. When designing the code structure of the application, I tried my best to keep it up to par with industry standards by both writing it in an efficient manner, and keeping teamwork in mind. Some examples of how I decided to do this are employing a modular coding strategy (i.e. using typed objects to store data that's then used to generate different aspects/components of the app) and commenting parts of my code. <b>These actions keep the code easy to follow and understand, and therefore easy to develop for in the future - things that I feel are often lacking / underappreciated / overlooked upon in the software industry today.</b>`
   ),
   Tag(
     'p',
@@ -63,6 +63,7 @@ export default [
       'Dark / light mode switch',
       'Running MovieHub project one a site route',
       'Admin portal with JWT security to update website data from the website itself',
+      'INSERT IMRPOVEMENTS',
     ],
   }),
 

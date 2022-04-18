@@ -8,7 +8,7 @@ export default [
     'p',
     `I am currently working at NeuraFlash as a Software Developer Co-op on projects involving React, Apex, and Lightning Web Components.`
   ),
-  Tag('a', `Neuraflash's website`, {
+  Tag('a', `Neuraflash homepage`, {
     href: 'https://www.neuraflash.com/',
     ...openLinkInNewTab,
   }),
@@ -63,7 +63,7 @@ export default [
     'p',
     `During the spring of 2020, I participated in my first co-op. I was working as a Technology and Analytics Co-op for ZAIS Group, a financial services company specialized in credit investment and asset management. I worked alongside some of my Stevens classmates, Lucas Berard and Mohammad Khan. I returned for another co-op in Fall 2020, and a part-time position in Spring 2021.`
   ),
-  Tag('a', "ZAIS Group's Website", {
+  Tag('a', 'ZAIS Group homepage', {
     href: 'https://www.zaisgroup.com',
     ...openLinkInNewTab,
   }),

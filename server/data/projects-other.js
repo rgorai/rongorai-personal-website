@@ -36,7 +36,7 @@ export default [
     'p',
     `Following my high school graduation, I worked as an instructor at International Ivy's educational summer camp. There, I taught a basic cryptography course to elementary and middle school students. The course, taught using Python, introduced students to fundamental ciphers such as the Caesar, Affine, and Vigenère Ciphers. I further contributed by customizing lesson plans to help students learn more effectively.`
   ),
-  Tag('a', "International Ivy's Website", {
+  Tag('a', 'International Ivy homepage', {
     href: 'http://www.iisummer.com/',
     ...openLinkInNewTab,
   }),
@@ -51,7 +51,7 @@ export default [
     'p',
     `During my senior year of high school, I worked at my local Mathnasium franchise, a company that helps students in grades K-12 understand and learn math. I teach everything from basic arithmetic to introductory calculus.`
   ),
-  Tag('a', "Mathnasium of Northeast Parsippany's Website", {
+  Tag('a', 'Mathnasium of Northeast Parsippany homepage', {
     href: 'https://www.mathnasium.com/neparsippany',
     ...openLinkInNewTab,
   }),
