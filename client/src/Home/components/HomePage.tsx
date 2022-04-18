@@ -15,7 +15,7 @@ const HomePage = () => {
       </div>
       <img
         className={styles.profileImg}
-        src={getFile('home/profile-image-white.jpg')}
+        src={getFile('home/profile-image.jpg')}
         alt="Profile Portrait"
       />
     </div>

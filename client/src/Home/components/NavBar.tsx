@@ -142,7 +142,6 @@ const NavBar = (props: Props) => {
                       [styles.activeNavItem]: location.pathname.includes(
                         e.route
                       ),
-                      // [styles.subMenuOpen]: displaySubMenu[e.name],
                     })}
                     to={{}}
                     state={{ subMenuPress: true }}

@@ -8,13 +8,10 @@
   height: calc(100vh - $nav-height);
   padding: 2rem 5vw;
   column-gap: 7vw;
-  row-gap: 4vh;
-  // background-color: color.adjust($nav-background-color, $lightness: 10%);
 
   .messageContainer {
     width: min-content;
     color: black;
-    flex-shrink: 0;
 
     .title {
       font-size: 5em;
@@ -31,15 +28,15 @@
   .profileImg {
     width: 50%;
     max-width: 35rem;
-    flex-shrink: 2;
   }
 }
 
 @media (max-width: 900px) {
   .homePageContainer {
     flex-direction: column;
-    justify-content: space-around;
-    padding: 2rem 5vw 5rem;
+    justify-content: center;
+    padding: 2vh 5vw 5vh;
+    row-gap: 6vh;
 
     .messageContainer {
       width: 100%;
@@ -53,7 +50,8 @@
     }
 
     .profileImg {
-      width: 60vmin;
+      width: 30rem;
+      max-width: 95%;
     }
   }
 }

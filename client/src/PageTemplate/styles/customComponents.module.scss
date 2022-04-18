@@ -2,21 +2,23 @@
 @use 'sass:color';
 
 @mixin align($alignment) {
-  width: 36%;
+  width: 20vw;
   float: $alignment;
   margin-bottom: 0.25em;
 }
 
+$float-spacing: 1.75rem;
+
 .floatLeft {
   @include align(left);
 
-  margin-right: 1.5rem;
+  margin-right: $float-spacing;
 }
 
 .floatRight {
   @include align(right);
 
-  margin-left: 1.1rem;
+  margin-left: $float-spacing;
 }
 
 .zoomIn {
