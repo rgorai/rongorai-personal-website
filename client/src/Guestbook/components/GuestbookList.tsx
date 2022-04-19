@@ -17,7 +17,14 @@ const GuestbookList = (props: Props) => {
 
               <div className={styles.nameContainer}>
                 <div className={styles.name}>{e.name}</div>
-                <div className={styles.date}>{e.date}</div>
+                <div className={styles.date}>
+                  {((date: Date): string =>
+                    `${
+                      date.getMonth() + 1
+                    }/${date.getDate()}/${date.getFullYear()}`)(
+                    new Date(e.date)
+                  )}
+                </div>
               </div>
 
               <div className={styles.infoWrapper}>

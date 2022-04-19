@@ -26,10 +26,8 @@ const GuestbookPage = () => {
       .then((res) => {
         // sort by date descending
         setGuestbookEntries(
-          (res.data as GuestbookEntries).sort((a, b) =>
-            Date.parse(a.date) === Date.parse(b.date)
-              ? -1
-              : Date.parse(b.date) - Date.parse(a.date)
+          (res.data as GuestbookEntries).sort(
+            (a, b) => Date.parse(b.date) - Date.parse(a.date)
           )
         )
         window.scrollTo(0, 0)
