@@ -5,6 +5,7 @@
   @include display-flex(column, flex-start, flex-end);
 
   width: 100%;
+  min-height: calc(100vh - $nav-height);
   padding-bottom: 5vw;
 
   $resume-width: 55rem;

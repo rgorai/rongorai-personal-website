@@ -26,7 +26,7 @@ const ResumePage = () => {
         title="Open in browser PDF viewer"
       >
         <Document
-          file={getFile('Ron_Gorai_Resume.pdf')}
+          file={`${process.env.PUBLIC_URL}/Ron_Gorai_Resume.pdf`}
           onLoadSuccess={({ numPages }: { numPages: number }) =>
             setNumPages(numPages)
           }
