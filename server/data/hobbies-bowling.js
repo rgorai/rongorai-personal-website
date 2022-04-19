@@ -47,7 +47,7 @@ export default [
       {
         Type: 'video',
         src: getFile('hobbies/bowling/a-strike.mp4'),
-        mediaProps: { controls: true, loop: true },
+        mediaProps: { loop: true },
       },
     ],
   }),

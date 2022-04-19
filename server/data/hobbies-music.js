@@ -49,7 +49,7 @@ export default [
         Type: 'video',
         src: getFile('hobbies/music/summerfest/summerfest-prince.mp4'),
         caption: `A portion of the song "Let's Go Crazy" by Prince`,
-        mediaProps: { controls: true, loop: true },
+        mediaProps: { loop: true },
       },
     ],
   }),

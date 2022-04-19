@@ -2,8 +2,12 @@
 @use 'sass:color';
 
 .tableWrapper {
-  width: 110%;
+  width: calc(100% + 3vw);
   height: 100%;
+  position: relative;
+  right: 3vw;
+  overflow-y: auto;
+  padding-top: 3rem;
 
   .tableContainer {
     @include display-flex(column, flex-start, flex-start);

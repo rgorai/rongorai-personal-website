@@ -1,5 +1,6 @@
 import cx from 'classnames'
 import { MutableRefObject, useRef, useState } from 'react'
+import { useEffect, useCallback } from 'react'
 import styles from '../styles/customComponents.module.scss'
 
 type AnyObject = { [key: string]: any }
@@ -51,8 +52,7 @@ const Media = (props: MediaProps) => {
             title={mediaTitle}
             ref={mediaRef as MutableRefObject<HTMLVideoElement>}
             onLoadedMetadata={onLoad}
-            // onClick={window.innerWidth > 900 ? undefined : () => window.open(props.src)}
-            // onClick={() => window.open(props.src)}
+            controls
             {...props.mediaProps}
           />
         )}
@@ -69,7 +69,27 @@ type MediaGridProps = {
 }
 
 const MediaGrid = (props: MediaGridProps) => {
-  const gridGap = `calc(100vw / ${props.columns} / ${
+  const calcColumns = useCallback(
+    () =>
+      props.columns -
+      (window.innerWidth <= 400 && props.columns > 3
+        ? 2
+        : window.innerWidth <= 1100 && props.columns > 2
+        ? 1
+        : 0),
+    [props.columns]
+  )
+
+  const [columns, setColumns] = useState(calcColumns())
+
+  // decrease column size when window width does
+  useEffect(() => {
+    const handleResize = () => setColumns(calcColumns())
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [calcColumns])
+
+  const gridGap = `calc(100vw / ${columns} / ${
     window.innerWidth > 900 ? 25 : 15
   })`
 
@@ -81,12 +101,9 @@ const MediaGrid = (props: MediaGridProps) => {
               a fun way to easily split props.media into rows on render */}
           {(() => {
             const rows = []
-            for (let i = 0; i < props.media.length / props.columns; i++) {
-              const firstIdx = i * props.columns
-              const currRow = props.media.slice(
-                firstIdx,
-                firstIdx + props.columns
-              )
+            for (let i = 0; i < props.media.length / columns; i++) {
+              const firstIdx = i * columns
+              const currRow = props.media.slice(firstIdx, firstIdx + columns)
               rows.push(
                 <div
                   className={styles.mediaGridRow}

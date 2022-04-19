@@ -13,11 +13,9 @@ const HomePage = () => {
         <div className={styles.title}>Ron Gorai</div>
         <div className={styles.welcome}>Welcome to my website</div>
       </div>
-      <img
-        className={styles.profileImg}
-        src={getFile('home/profile-image.jpg')}
-        alt="Profile Portrait"
-      />
+      <div className={styles.profileImg}>
+        <img src={getFile('home/profile-image.jpg')} alt="Profile Portrait" />
+      </div>
     </div>
   )
 }

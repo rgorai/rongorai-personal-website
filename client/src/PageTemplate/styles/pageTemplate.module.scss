@@ -12,13 +12,14 @@
     position: sticky;
     top: $nav-height;
     height: calc(100vh - $nav-height);
-    overflow-y: auto;
+    overflow-x: visible;
   }
 
   .sideNavWrapper {
     @include side-menu;
 
-    width: calc($side-menu-width + 1%);
+    width: calc($side-menu-width + 0%);
+    margin-right: 2%;
     left: 0;
   }
 
@@ -30,10 +31,7 @@
   .tocWrapper {
     @include side-menu;
 
-    width: $side-menu-width;
-    right: 3vw;
-    padding-top: 3rem;
-    overflow-x: hidden;
+    width: calc($side-menu-width - 1%);
   }
 }
 

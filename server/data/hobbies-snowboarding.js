@@ -33,7 +33,7 @@ export default [
       {
         Type: 'video',
         src: getFile('hobbies/snowboarding/jay-peak/jay-peak-glading.mp4'),
-        mediaProps: { controls: true, loop: true },
+        mediaProps: { loop: true },
       },
     ],
   }),
@@ -46,12 +46,12 @@ export default [
       {
         Type: 'video',
         src: getFile('hobbies/snowboarding/camelback/smooth-jump.mp4'),
-        mediaProps: { controls: true, loop: true },
+        mediaProps: { loop: true },
       },
       {
         Type: 'video',
         src: getFile('hobbies/snowboarding/camelback/toe-grab.mp4'),
-        mediaProps: { controls: true, loop: true },
+        mediaProps: { loop: true },
       },
       {
         Type: 'img',

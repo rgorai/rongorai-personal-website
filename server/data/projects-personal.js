@@ -43,6 +43,5 @@ export default [
     Type: 'video',
     caption: 'MovieHub demo',
     src: getFile('projects/personal/moviehub-demo.mp4'),
-    mediaProps: { controls: true },
   }),
 ]

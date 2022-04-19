@@ -21,17 +21,16 @@ const getMedia = async (name) => {
       Prefix: `pets/${name}`,
     })
     .promise()
-  return files.Contents.map((e) => {
-    const pathItems = e.Key.split('/')
-    return pathItems[pathItems.length - 1]
-  })
+  return files.Contents.map((e) =>
+    ((split) => split[split.length - 1])(e.Key.split('/'))
+  )
     .sort((a, b) => a.localeCompare(b))
     .map((e, i) =>
       e.includes('.mp4')
         ? {
             Type: 'video',
             src: getFile(`pets/${name}/${e}`),
-            mediaProps: { controls: true, loop: true },
+            mediaProps: { loop: true },
           }
         : {
             Type: 'img',

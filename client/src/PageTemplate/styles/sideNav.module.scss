@@ -16,6 +16,7 @@ $nav-background-accent: color.adjust(
   z-index: 2;
   font-size: 1.1rem;
   border-right: $content-border;
+  overflow-y: auto;
 
   ul {
     list-style-type: none;
@@ -52,4 +53,5 @@ $nav-background-accent: color.adjust(
 
 .hideSideNav {
   visibility: hidden;
+  min-width: inherit;
 }

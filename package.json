@@ -53,7 +53,6 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "eslint-config-airbnb": "^19.0.2",
-    "eslint-plugin-import": "^2.26.0",
     "express": "^4.17.2",
     "mongodb": "^4.2.2",
     "path": "^0.12.7"

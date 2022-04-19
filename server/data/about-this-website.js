@@ -6,7 +6,7 @@ export default [
   Tag('h2', 'Summary'),
   Tag(
     'p',
-    `The purpose of this website is to share my hobby and work experiences, as well as showcase my professional skills as a software developer. I created this website from nothing but an empty folder and the knowledge I've gained from my classes and co-ops. It is a web application built on the MERN (MongoDB, Express, React, Node) Stack, utilizing modern programming technologies like TypeScript and Sass.`
+    `The purpose of this website is to share my hobby and work experiences, but primarily to practice my skills as a professional software developer. I created this website from nothing but an empty folder and the knowledge I've gained from my classes and co-ops. It is a web application built on the MERN (MongoDB, Express, React, Node) Stack, utilizing modern programming languages like TypeScript and Sass.`
   ),
   Tag(
     'p',
@@ -20,7 +20,7 @@ export default [
   Tag('h2', 'Description'),
   Tag(
     'p',
-    `Since it's inception, my personal website has been built with the WordPress website builder. However, after taking Web Programming in Fall 2021 and acing the final project, I was inspired to rebuild my personal website from the ground up in the same fashion. I decided this for 2 reasons: 1) to test the valuable skills I learned from my classes and co-ops; 2) to build my website exactly to my taste.`
+    `Since its inception, my personal website has been built with the WordPress website builder. However, after taking Web Programming in Fall 2021 and acing the final project, I was inspired to rebuild my personal website from the ground up in the same fashion. I decided this for 2 reasons: 1) to test the valuable skills I learned from my classes and co-ops; 2) to build my website exactly to my taste.`
   ),
   Tag('a', 'More on my Web Programming Final', {
     href: '/projects/personal#web-programming-final-project',
