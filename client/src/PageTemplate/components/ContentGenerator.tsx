@@ -59,6 +59,7 @@ const ContentGenerator = (props: Props) => {
       .catch((err) => setApiError(err.response))
   }, [props.src])
 
+  // update headings when pageData loads
   useEffect(() => {
     props.setHeadingData(pageData.filter((e) => isHeading(e)))
     // eslint-disable-next-line react-hooks/exhaustive-deps

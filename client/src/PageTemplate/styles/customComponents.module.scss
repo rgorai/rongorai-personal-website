@@ -42,11 +42,11 @@ figcaption {
 }
 
 @mixin align($alignment) {
-  width: 20vw;
+  width: 34%;
   max-width: 20rem;
   float: $alignment;
   margin: 0;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.5rem;
 }
 
 $float-spacing: 1.75rem;

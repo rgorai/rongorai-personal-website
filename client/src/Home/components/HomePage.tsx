@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styles from '../styles/homePage.module.scss'
 import { getFile } from '../../services/utils'
-import { Media } from '../../PageTemplate/components/customContentComponents'
 
 type Props = {
   startLocation: string
@@ -27,10 +26,10 @@ const HomePage = (props: Props) => {
         </Link>
       </div>
       <div className={styles.profileImg}>
-        <Media
-          Type={'img'}
+        <img
+          className={styles.profileImg}
           src={getFile('home/profile-image.jpg')}
-          mediaProps={{ alt: 'Profile Portrait' }}
+          alt="Profile Portrait"
         />
       </div>
     </div>
