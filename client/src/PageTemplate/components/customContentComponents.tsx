@@ -141,16 +141,22 @@ const StatGrid = (props: AnyObject) => (
   </div>
 )
 
+type List = Array<string>
+
 type BulletedListProps = {
-  items: Array<string>
+  items: Array<string | List>
 }
 
 const BulletedList = (props: BulletedListProps) => (
   <div className={styles.bulletedListContainer}>
     <ul>
-      {props.items.map((e, i) => (
-        <li key={i}>{e}</li>
-      ))}
+      {props.items.map((e, i) =>
+        typeof e === 'string' ? (
+          <li key={i}>{e}</li>
+        ) : (
+          BulletedList({ items: e })
+        )
+      )}
     </ul>
   </div>
 )

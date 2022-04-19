@@ -63,7 +63,12 @@ export default [
       'Dark / light mode switch',
       'Running MovieHub project one a site route',
       'Admin portal with JWT security to update website data from the website itself',
-      'INSERT IMRPOVEMENTS',
+      'Bug fixes / improvements',
+      [
+        'better image compression/loading',
+        'better page loading/caching',
+        'anything else I figure out',
+      ],
     ],
   }),
 

@@ -18,7 +18,7 @@ const HomePage = (props: Props) => {
         <div className={styles.title}>Ron Gorai</div>
         <div className={styles.welcome}>Welcome to my website</div>
         <Link className={styles.getStarted} to={props.startLocation}>
-          Get started
+          Learn more
           <img
             src={`${process.env.PUBLIC_URL}/menu_icons/right-arrow.png`}
             alt="about this website"
