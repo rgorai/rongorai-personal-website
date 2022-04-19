@@ -147,6 +147,7 @@ type BulletedListProps = {
   items: Array<string | List>
 }
 
+// recursion, yay!
 const BulletedList = (props: BulletedListProps) => (
   <div className={styles.bulletedListContainer}>
     <ul>
