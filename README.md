@@ -1,6 +1,6 @@
 # Ron Gorai's Personal Website
 
-## ** Currently still in development**
-
 ## About this website:
-This website is built on the MERN full-stack. The purpose of this site is to share my history and accomplishments, both professional and recreational.
+This website is a MERN stack application built using modern languages like TypeScript and Sass, with my main site hosted on Heroku, static assets hosted on AWS, and SSL provided by CloudFlare and ACM. The purpose of this website is to share my hobby and work experiences and practice my skills as a professional software developer.
+
+Read more at https://rongorai.com/about/this-website.
