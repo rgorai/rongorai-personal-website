@@ -53,7 +53,17 @@ const App = () => (
 
       <main>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/"
+            element={
+              <HomePage
+                startLocation={parseRoute(
+                  APP_CONTENT[0].name,
+                  APP_CONTENT[0].subItems ? APP_CONTENT[0].subItems[0] : ''
+                )}
+              />
+            }
+          />
           <Route path="/home" element={<Navigate replace to="/" />} />
 
           <Route path="/resume" element={<ResumePage />} />
