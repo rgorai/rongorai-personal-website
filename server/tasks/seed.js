@@ -1,5 +1,5 @@
 import { connectToDb, closeConnection } from '../config/mongoConnection.js'
-import { createEntry } from '../data/guestbook.js'
+import { createEntry } from '../mongo/guestbook.js'
 
 const main = async () => {
   const db = await connectToDb()

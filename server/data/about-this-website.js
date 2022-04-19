@@ -6,7 +6,7 @@ export default [
   Tag('h2', 'Summary'),
   Tag(
     'p',
-    `The purpose of this website is to share my hobby and work experiences, but primarily to practice my skills as a professional software developer. I created this website from nothing but an empty folder and the knowledge I've gained from my classes and co-ops. It is a web application built on the MERN (MongoDB, Express, React, Node) Stack, utilizing modern programming languages like TypeScript and Sass.`
+    `The purpose of this website is to share my hobby and work experiences and practice my skills as a professional software developer. I created this website from nothing but an empty folder and the knowledge I've gained from my classes and co-ops. It is a web application built on the MERN (MongoDB, Express, React, Node) Stack, utilizing modern programming languages like TypeScript and Sass.`
   ),
   Tag(
     'p',

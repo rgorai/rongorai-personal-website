@@ -15,7 +15,7 @@ type GuestbookEntries = Array<{
 
 const GuestbookPage = () => {
   const [guestbookEntries, setGuestbookEntries] = useState(
-    [] as GuestbookEntries
+    null as null | GuestbookEntries
   )
   const [apiError, setApiError] = useState({} as AxiosResponse)
   const entryHeaderRef = useRef<HTMLHeadingElement>(null)
@@ -44,7 +44,7 @@ const GuestbookPage = () => {
 
   return Object.keys(apiError).length ? (
     <ApiError {...apiError} />
-  ) : guestbookEntries.length > 0 ? (
+  ) : guestbookEntries ? (
     <div className={styles.guestbookPageContainer}>
       <div className={styles.formContainer}>
         <h1>Sign my guestbook</h1>

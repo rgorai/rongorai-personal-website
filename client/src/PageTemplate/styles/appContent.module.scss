@@ -33,9 +33,8 @@
   }
 
   p {
-    letter-spacing: 0.05em;
-    word-spacing: 0.075em;
-    line-height: 1.7em;
+    @include content-spacing;
+
     text-align: justify;
   }
 

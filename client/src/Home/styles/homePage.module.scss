@@ -10,10 +10,6 @@
 
   .messageContainer {
     width: min-content;
-    // max-width: 25rem;
-    // position: relative;
-    // left: 0;
-    // max-width: 17rem;
     color: black;
     margin-right: 5vw;
     overflow: visible;
@@ -25,11 +21,9 @@
       font-weight: 700;
       line-height: 0.95em;
       margin-bottom: 2vh;
-      // white-space: nowrap;
     }
 
     .welcome {
-      // width: min-content;
       font-size: 3em;
       font-weight: 300;
     }
@@ -38,8 +32,6 @@
   .profileImg {
     position: relative;
     right: 0;
-    // width: 50%;
-    // width: 36rem;
     max-width: 36rem;
     flex-shrink: 1;
     z-index: 1;
@@ -47,8 +39,11 @@
 
     img {
       width: 100%;
-      // width: 36rem;
       height: 100%;
+    }
+
+    & > div {
+      margin: 0;
     }
   }
 }

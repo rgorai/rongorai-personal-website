@@ -4,11 +4,8 @@
 .guestbookListContainer {
   @include display-flex(column, flex-start, flex-start);
 
+  font-size: 1.1rem;
   width: 100%;
-
-  .emptyMessage {
-    font-style: italic;
-  }
 
   .entryListContainer {
     @include display-flex(column, center, flex-start);
@@ -68,9 +65,12 @@
     }
 
     .infoContainer {
+      @include content-spacing;
+
       width: max-content;
       max-width: 100%;
       word-wrap: break-word;
+      line-height: 1.6em;
     }
   }
 }

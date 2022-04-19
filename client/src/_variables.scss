@@ -38,3 +38,9 @@ $nav-height: 4rem;
   justify-content: $justification;
   align-items: $alignment;
 }
+
+@mixin content-spacing {
+  letter-spacing: 0.05em;
+  word-spacing: 0.075em;
+  line-height: 1.7em;
+}
