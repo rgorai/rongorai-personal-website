@@ -20,7 +20,7 @@ const HomePage = (props: Props) => {
         <Link className={styles.getStarted} to={props.startLocation}>
           Get started
           <img
-            src={`${process.env.PUBLIC_URL}/menu_icons/right-arrow2.png`}
+            src={`${process.env.PUBLIC_URL}/menu_icons/right-arrow.png`}
             alt="about this website"
           />
         </Link>
