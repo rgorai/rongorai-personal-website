@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios, { AxiosResponse } from 'axios'
 import DOMPurify from 'dompurify'
+import { useNavigate } from 'react-router-dom'
 import styles from '../styles/appContent.module.scss'
 import ErrorBoundary from '../../Misc/components/ErrorBoundary'
 import { parseId } from '../../services/utils'
@@ -40,28 +41,40 @@ const getComponent = (e: Component) => {
 const ContentGenerator = (props: Props) => {
   const [pageData, setPageData] = useState([] as PageData)
   const [apiError, setApiError] = useState({} as AxiosResponse)
+  const navigate = useNavigate()
 
   useEffect(() => {
     setApiError({} as AxiosResponse)
     axios
       .get(`/api/data/${encodeURIComponent(`${props.src}`)}`)
       .then((res) => {
+        // apply page data, giving all headings a generated id
         setPageData(
-          // give all headings a generated id
           (res.data as PageData).map((e) =>
             isHeading(e)
               ? { ...e, props: { ...e.props, id: parseId(e.text) } }
               : e
           )
         )
-        window.scrollTo(0, 0)
       })
       .catch((err) => setApiError(err.response))
   }, [props.src])
 
   // update headings when pageData loads
   useEffect(() => {
-    props.setHeadingData(pageData.filter((e) => isHeading(e)))
+    if (pageData.length > 0) {
+      props.setHeadingData(pageData.filter((e) => isHeading(e)))
+
+      // scroll window to desired position
+      if (window.location.hash.length > 0) {
+        window.scrollTo(
+          0,
+          (document.getElementById(window.location.hash.slice(1))?.offsetTop ??
+            75) - 75
+        )
+      } else window.scrollTo(0, 0)
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageData, props.setHeadingData])
 

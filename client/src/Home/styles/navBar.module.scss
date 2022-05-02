@@ -144,7 +144,7 @@ nav {
     .subMenuOpen {
       background-color: color.adjust($nav-background-color, $lightness: 6%);
 
-      > a {
+      > .navLink {
         border-bottom:
           1px solid
           color.adjust($nav-background-color, $lightness: 15%);

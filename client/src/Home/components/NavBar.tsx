@@ -31,14 +31,9 @@ const NavBar = (props: Props) => {
     } | Ron Gorai's Personal Website`
   }, [location.pathname, props.navItems])
 
-  // close mobile nav when needed
+  // close mobile nav on location change
   useEffect(() => {
-    if (
-      (location.state &&
-        !(location.state as { subMenuPress: boolean }).subMenuPress) ||
-      !location.state
-    )
-      setDisplayMobileNav(false)
+    setDisplayMobileNav(false)
   }, [location])
 
   useEffect(() => {
@@ -137,14 +132,12 @@ const NavBar = (props: Props) => {
             >
               {e.subItems ? (
                 <>
-                  <Link
+                  <div
                     className={cx(styles.navLink, {
                       [styles.activeNavItem]: location.pathname.includes(
                         e.route
                       ),
                     })}
-                    to={{}}
-                    state={{ subMenuPress: true }}
                     onClick={() =>
                       // open chosen sub menu and close all others
                       setDisplaySubMenu((prev) =>
@@ -171,7 +164,7 @@ const NavBar = (props: Props) => {
                         alt="Expand Menu"
                       />
                     </span>
-                  </Link>
+                  </div>
                   <ul
                     className={styles.subItemDropdown}
                     style={

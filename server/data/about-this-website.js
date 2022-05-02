@@ -35,17 +35,17 @@ export default [
   ),
   Tag(
     'p',
-    `In addition to acting as my own project manager, I also learned a handful of smaller skills such as:`
+    `In addition to managing every aspect of a project, I also learned a handful of smaller skills such as:`
   ),
   Component('BulletedList', {
     items: [
       'Amazon S3, CloudFront, and Route 53 to store and serve static assets',
-      'CloudFlare SSL certification with custom domain names',
+      'Cloudflare SSL certification with custom domain names',
+      'Google Analytics to view and study user activity / demographics / etc.',
       'TypeScript type guards and nullish operators',
       'React error boundaries with class components',
       'Google ReCAPTCHA API',
       'DOM Purify package',
-      'CSS keyframes',
     ],
   }),
   Tag(

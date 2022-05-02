@@ -18,7 +18,7 @@ const GuestbookPage = () => {
     null as null | GuestbookEntries
   )
   const [apiError, setApiError] = useState({} as AxiosResponse)
-  const entryHeaderRef = useRef<HTMLHeadingElement>(null)
+  const entriesHeaderRef = useRef<HTMLHeadingElement>(null)
 
   const getEntries = () =>
     axios
@@ -53,14 +53,14 @@ const GuestbookPage = () => {
                 0,
                 window.innerWidth > 900
                   ? 0
-                  : (entryHeaderRef.current?.offsetTop ?? 0) - 75
+                  : (entriesHeaderRef.current?.offsetTop ?? 0) - 75
               )
             )
           }
         />
       </div>
       <div className={styles.listContainer}>
-        <h1 id="entries" ref={entryHeaderRef}>
+        <h1 id="entries" ref={entriesHeaderRef}>
           Entries
         </h1>
         <GuestbookList data={guestbookEntries} />
