@@ -7,12 +7,7 @@ $a4-ratio: 1.294;
   @include display-flex(column, flex-start, flex-end);
 
   width: 100%;
-
-  .resumeLink {
-    width: 100%;
-    text-decoration: none;
-    padding-bottom: 5rem;
-  }
+  padding-bottom: 5rem;
 
   :global(.react-pdf__Document) {
     width: fit-content;
@@ -47,13 +42,14 @@ $a4-ratio: 1.294;
     border: 0;
   }
 
-  .clickNotice {
+  .resumeLink {
     width: 100%;
     margin-top: 2rem;
     text-align: center;
     color: $accent-color;
     font-size: min(5vw, 3vh);
     font-weight: 600;
+    text-decoration: none;
 
     &:hover {
       text-decoration: underline;
@@ -63,9 +59,7 @@ $a4-ratio: 1.294;
 
 @media (max-width: 900px) {
   .resumeContainer {
-    .resumeLink {
-      padding-bottom: 10vw;
-    }
+    padding-bottom: 10vw;
 
     $resume-width: 100vw;
 
