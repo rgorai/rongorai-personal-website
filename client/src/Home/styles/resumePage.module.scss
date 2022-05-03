@@ -23,7 +23,7 @@ $a4-ratio: 1.294;
 
   :global(.react-pdf__Page) {
     width: $resume-width;
-    height: calc($resume - width * $a4-ratio);
+    height: calc(($resume-width) * $a4-ratio);
   }
 
   :global(.react-pdf__Page__svg) {
@@ -71,7 +71,7 @@ $a4-ratio: 1.294;
 
     :global(.react-pdf__Page) {
       width: $resume-width;
-      height: calc($resume - width * $a4-ratio);
+      height: calc(($resume-width) * $a4-ratio);
     }
 
     .clickNotice {
