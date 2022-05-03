@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
-import { getFile } from '../../services/utils'
 import styles from '../styles/resumePage.module.scss'
 import Loading from '../../Misc/components/Loading'
 import ApiError from '../../Misc/components/ApiError'
+
+const OPEN_IN_BROWSER_MESSAGE = 'Open in browser PDF viewer'
 
 const ResumePage = () => {
   const [numPages, setNumPages] = useState(0)
@@ -20,12 +21,13 @@ const ResumePage = () => {
 
       <a
         className={styles.resumeLink}
-        href={getFile('Ron_Gorai_Resume.pdf')}
+        href={`${process.env.PUBLIC_URL}/Ron_Gorai_Resume.pdf`}
         target="_blank"
         rel="noreferrer"
-        title="Open in browser PDF viewer"
+        title={OPEN_IN_BROWSER_MESSAGE}
       >
         <Document
+          scale={2}
           file={`${process.env.PUBLIC_URL}/Ron_Gorai_Resume.pdf`}
           onLoadSuccess={({ numPages }: { numPages: number }) =>
             setNumPages(numPages)
@@ -38,6 +40,7 @@ const ResumePage = () => {
           }
           loading={null}
           error={null}
+          renderMode="svg"
         >
           {Array.from(Array(numPages)).map((_, i) => (
             <React.Fragment key={i}>
@@ -46,6 +49,9 @@ const ResumePage = () => {
             </React.Fragment>
           ))}
         </Document>
+        {numPages !== 0 && (
+          <div className={styles.clickNotice}>{OPEN_IN_BROWSER_MESSAGE}</div>
+        )}{' '}
       </a>
     </div>
   )

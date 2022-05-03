@@ -6,6 +6,7 @@
 
   width: 100%;
   height: calc(100vh - $nav-height);
+  min-height: calc(100vh - $nav-height);
   padding: 2rem 5vw;
 
   .messageContainer {
