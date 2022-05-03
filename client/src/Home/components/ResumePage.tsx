@@ -41,14 +41,14 @@ const ResumePage = () => {
         ))}
       </Document>
       {numPages !== 0 && (
-        <a
+        <button
           className={styles.resumeLink}
-          href={`${process.env.PUBLIC_URL}/Ron_Gorai_Resume.pdf`}
-          target="_blank"
-          rel="noreferrer"
+          onClick={() =>
+            window.open(`${process.env.PUBLIC_URL}/Ron_Gorai_Resume.pdf`)
+          }
         >
           Open in browser PDF viewer
-        </a>
+        </button>
       )}
     </div>
   )

@@ -80,6 +80,7 @@ button {
   opacity: 1;
   transition: all 0.15s ease-in-out;
   font-size: 1em;
+  font-weight: 600;
   color: white;
 
   &:hover {
@@ -93,5 +94,12 @@ button {
   &:disabled {
     opacity: 0.4;
     cursor: not-allowed;
+  }
+}
+
+@media (max-width: 900px) {
+  button {
+    width: 100%;
+    border-radius: 10em;
   }
 }

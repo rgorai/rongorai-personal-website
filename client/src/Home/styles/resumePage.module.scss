@@ -43,17 +43,8 @@ $a4-ratio: 1.294;
   }
 
   .resumeLink {
-    width: 100%;
-    margin-top: 2rem;
-    text-align: center;
-    color: $accent-color;
-    font-size: min(5vw, 3vh);
-    font-weight: 600;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
+    width: 80%;
+    margin: 2rem auto 0;
   }
 }
 
