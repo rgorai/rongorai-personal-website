@@ -63,7 +63,7 @@
   .contentContainer {
     width: 100%;
     max-width: inherit;
-    font-size: 1.3rem;
+    font-size: 1.2em;
 
     h1 {
       font-size: 3rem;
@@ -73,6 +73,10 @@
       letter-spacing: 0.075em;
       line-height: 1.6em;
       text-align: left;
+    }
+
+    a {
+      font-size: 1.3rem;
     }
   }
 }

@@ -44,7 +44,12 @@ nav {
     padding: 0;
     margin: 0;
     height: 100%;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
+
+    .navLink {
+      font-weight: 600;
+      color: rgba(255, 255, 255, 95%);
+    }
 
     .navLink:hover {
       color: $nav-hover-color;
@@ -187,7 +192,7 @@ nav {
     .subItemLink {
       display: inline-block;
       width: 100%;
-      color: rgba(255, 255, 255, 60%);
+      color: rgba(255, 255, 255, 65%);
       text-decoration: none;
       padding: 0.5em 10vw;
 

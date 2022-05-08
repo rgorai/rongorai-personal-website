@@ -43,7 +43,6 @@ $a4-ratio: 1.294;
   }
 
   .resumeLink {
-    width: 80%;
     margin: 2rem auto 0;
   }
 }
@@ -59,8 +58,8 @@ $a4-ratio: 1.294;
       height: calc(($resume-width) * $a4-ratio);
     }
 
-    .clickNotice {
-      margin-top: 5vw;
+    .resumeLink {
+      width: 75%;
     }
   }
 }
