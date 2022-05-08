@@ -5,7 +5,7 @@ export default [
 
   Tag(
     'p',
-    `I began snowboarding at the age of 10. My dad had started skiing the previous season and once he was more comfortable the following year, he wanted me to join him on the slopes. But, I didn't want to ski - I wanted to snowboard; I felt that it was simply more exciting.`
+    `I began snowboarding at the age of 10. My dad had started skiing the previous season and once he was more comfortable the following year, he wanted me to join him on the slopes. But, I didn't want to ski - I wanted to snowboard; I simply felt that it was more exciting.`
   ),
   Tag(
     'p',

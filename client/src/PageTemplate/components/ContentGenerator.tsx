@@ -41,7 +41,6 @@ const getComponent = (e: Component) => {
 const ContentGenerator = (props: Props) => {
   const [pageData, setPageData] = useState([] as PageData)
   const [apiError, setApiError] = useState({} as AxiosResponse)
-  const navigate = useNavigate()
 
   useEffect(() => {
     setApiError({} as AxiosResponse)

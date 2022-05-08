@@ -145,17 +145,18 @@ type List = Array<string>
 
 type BulletedListProps = {
   items: Array<string | List>
+  key?: any
 }
 
 // recursion, yay!
 const BulletedList = (props: BulletedListProps) => (
-  <div className={styles.bulletedListContainer}>
+  <div className={styles.bulletedListContainer} key={props.key}>
     <ul>
       {props.items.map((e, i) =>
         typeof e === 'string' ? (
           <li key={i}>{e}</li>
         ) : (
-          BulletedList({ items: e })
+          BulletedList({ items: e, key: i })
         )
       )}
     </ul>
