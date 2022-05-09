@@ -39,6 +39,7 @@ const PageTemplate = (props: AppContent | Other) => {
 
           <div className={styles.contentGeneratorWrapper}>
             <ContentGenerator src={props.src} setHeadingData={setHeadingData} />
+            {/* <Routes></Routes> */}
           </div>
 
           <div className={styles.tocWrapper}>
