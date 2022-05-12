@@ -1,4 +1,4 @@
-import { getFile, Tag, openLinkInNewTab, Component } from '../misc/utils.js'
+import { Tag, openLinkInNewTab, Component } from '../misc/utils.js'
 
 export default [
   Tag('h1', 'Snowboarding'),
@@ -27,12 +27,12 @@ export default [
     media: [
       {
         Type: 'img',
-        src: getFile('hobbies/snowboarding/jay-peak/danny-glading.jpg'),
+        src: '/hobbies/snowboarding/jay-peak/danny-glading.jpg',
         mediaProps: { alt: 'Danny glading' },
       },
       {
         Type: 'video',
-        src: getFile('hobbies/snowboarding/jay-peak/jay-peak-glading.mp4'),
+        src: '/hobbies/snowboarding/jay-peak/jay-peak-glading.mp4',
         mediaProps: { loop: true },
       },
     ],
@@ -45,17 +45,17 @@ export default [
     media: [
       {
         Type: 'video',
-        src: getFile('hobbies/snowboarding/camelback/smooth-jump.mp4'),
+        src: '/hobbies/snowboarding/camelback/smooth-jump.mp4',
         mediaProps: { loop: true },
       },
       {
         Type: 'video',
-        src: getFile('hobbies/snowboarding/camelback/toe-grab.mp4'),
+        src: '/hobbies/snowboarding/camelback/toe-grab.mp4',
         mediaProps: { loop: true },
       },
       {
         Type: 'img',
-        src: getFile('hobbies/snowboarding/camelback/heel-grab.jpg'),
+        src: '/hobbies/snowboarding/camelback/heel-grab.jpg',
         mediaProps: { alt: 'Heel Grab' },
       },
     ],
@@ -67,22 +67,22 @@ export default [
     media: [
       {
         Type: 'img',
-        src: getFile('hobbies/snowboarding/killington/mountain-shot4.jpg'),
+        src: '/hobbies/snowboarding/killington/mountain-shot4.jpg',
         mediaProps: { alt: 'Killington Shot 4' },
       },
       {
         Type: 'img',
-        src: getFile('hobbies/snowboarding/killington/mountain-shot2.jpg'),
+        src: '/hobbies/snowboarding/killington/mountain-shot2.jpg',
         mediaProps: { alt: 'Killington Shot 2' },
       },
       {
         Type: 'img',
-        src: getFile('hobbies/snowboarding/killington/mountain-shot1.jpg'),
+        src: '/hobbies/snowboarding/killington/mountain-shot1.jpg',
         mediaProps: { alt: 'Killington Shot 1' },
       },
       {
         Type: 'img',
-        src: getFile('hobbies/snowboarding/killington/mountain-shot3.jpg'),
+        src: '/hobbies/snowboarding/killington/mountain-shot3.jpg',
         mediaProps: { alt: 'Killington Shot 3' },
       },
     ],

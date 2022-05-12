@@ -1,4 +1,4 @@
-import { getFile, Tag, openLinkInNewTab, Component } from '../misc/utils.js'
+import { Tag, openLinkInNewTab, Component } from '../misc/utils.js'
 
 export default [
   Tag('h1', 'Music'),
@@ -36,18 +36,18 @@ export default [
       {
         Type: 'img',
         caption: 'May 2018 NJ Kids Magazine Cover',
-        src: getFile('hobbies/music/summerfest/njkids-cover-feature.jpg'),
+        src: '/hobbies/music/summerfest/njkids-cover-feature.jpg',
         mediaProps: { alt: 'May 2018 NJ Kids Magazine Cover' },
       },
       {
         Type: 'img',
         caption: 'Summerfest 2016 Official Lineup',
-        src: getFile('hobbies/music/summerfest/summerfest-2016-lineup.jpg'),
+        src: '/hobbies/music/summerfest/summerfest-2016-lineup.jpg',
         mediaProps: { alt: 'Summerfest 2016 Official Lineup' },
       },
       {
         Type: 'video',
-        src: getFile('hobbies/music/summerfest/summerfest-prince.mp4'),
+        src: '/hobbies/music/summerfest/summerfest-prince.mp4',
         caption: `A portion of the song "Let's Go Crazy" by Prince`,
         mediaProps: { loop: true },
       },
@@ -61,17 +61,17 @@ export default [
     media: [
       {
         Type: 'img',
-        src: getFile('hobbies/music/javits-center/stage-shot1.jpg'),
+        src: '/hobbies/music/javits-center/stage-shot1.jpg',
         mediaProps: { alt: 'Stage Shot 1' },
       },
       {
         Type: 'img',
-        src: getFile('hobbies/music/javits-center/stage-shot2.jpg'),
+        src: '/hobbies/music/javits-center/stage-shot2.jpg',
         mediaProps: { alt: 'Stage Shot 2' },
       },
       {
         Type: 'img',
-        src: getFile('hobbies/music/javits-center/stage-shot3.jpg'),
+        src: '/hobbies/music/javits-center/stage-shot3.jpg',
         mediaProps: { alt: 'Stage Shot 3' },
       },
     ],
@@ -84,37 +84,37 @@ export default [
       {
         Type: 'img',
         caption: 'Jimi Hendrix - 2013',
-        src: getFile('hobbies/music/scrapbook/hendrix.jpg'),
+        src: '/hobbies/music/scrapbook/hendrix.jpg',
         mediaProps: { alt: 'Jimi Hendrix Scrapbook Page' },
       },
       {
         Type: 'img',
         caption: 'Sound City - 2014',
-        src: getFile('hobbies/music/scrapbook/sound-city.jpg'),
+        src: '/hobbies/music/scrapbook/sound-city.jpg',
         mediaProps: { alt: 'Sound City Scrapbook Page' },
       },
       {
         Type: 'img',
         caption: 'Sub-Pop - 2014',
-        src: getFile('hobbies/music/scrapbook/sub-pop.jpg'),
+        src: '/hobbies/music/scrapbook/sub-pop.jpg',
         mediaProps: { alt: 'Sub-Pop Scrapbook Page' },
       },
       {
         Type: 'img',
         caption: 'Bring Your Own Song - 2015',
-        src: getFile('hobbies/music/scrapbook/byos.jpg'),
+        src: '/hobbies/music/scrapbook/byos.jpg',
         mediaProps: { alt: 'Bring Your Own Song Scrapbook Page' },
       },
       {
         Type: 'img',
         caption: 'Soundgarden - 2016',
-        src: getFile('hobbies/music/scrapbook/soundgarden.jpg'),
+        src: '/hobbies/music/scrapbook/soundgarden.jpg',
         mediaProps: { alt: 'Soundgarden Scrapbook Page' },
       },
       {
         Type: 'img',
         caption: 'Butch Vig - 2017',
-        src: getFile('hobbies/music/scrapbook/butch-vig.jpg'),
+        src: '/hobbies/music/scrapbook/butch-vig.jpg',
         mediaProps: { alt: 'Butch Vig Scrapbook Page' },
       },
     ],

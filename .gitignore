@@ -1,5 +1,5 @@
-#local testing
-.localTesting.js
+# My additions
+.local/
 
 # Logs
 logs

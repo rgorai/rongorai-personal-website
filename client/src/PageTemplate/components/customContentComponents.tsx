@@ -2,6 +2,7 @@ import cx from 'classnames'
 import { MutableRefObject, useRef, useState } from 'react'
 import { useEffect, useCallback } from 'react'
 import styles from '../styles/customComponents.module.scss'
+import { getMedia } from '../../services/utils'
 
 type AnyObject = { [key: string]: any }
 
@@ -13,15 +14,16 @@ type MediaProps = {
   floatLeft?: boolean
   floatRight?: boolean
   adjustWidth?: number
+  flex: number
 }
 
 const Media = (props: MediaProps) => {
-  const [flex, setFlex] = useState(1)
+  const [mediaError, setMediaError] = useState(false)
   const mediaRef = useRef({ offsetWidth: 0, offsetHeight: 0 })
   const mediaTitle = ((split) => split[split.length - 1])(props.src.split('/'))
 
-  const onLoad = () => {
-    setFlex(mediaRef.current.offsetWidth / mediaRef.current.offsetHeight)
+  const onError = () => {
+    setMediaError(true)
   }
 
   return (
@@ -30,28 +32,34 @@ const Media = (props: MediaProps) => {
         [styles.floatLeft]: props.floatLeft,
         [styles.floatRight]: props.floatRight,
       })}
-      style={{ flex }}
+      style={{ flex: props.flex }}
     >
-      <figure style={{ width: `${props.adjustWidth}%` ?? '' }}>
-        {props.Type === 'img' && (
+      <figure style={{ width: `${props.adjustWidth}%` }}>
+        {mediaError ? (
           <img
-            className={styles.zoomIn}
-            src={props.src}
-            title={mediaTitle}
-            ref={mediaRef as MutableRefObject<HTMLImageElement>}
-            onLoad={onLoad}
-            onClick={() => window.open(props.src)}
-            alt={props.mediaProps.alt}
-            {...props.mediaProps}
+            src={getMedia('/not-found-image.webp', true)}
+            alt="Media not found"
           />
-        )}
-
-        {props.Type === 'video' && (
+        ) : props.Type === 'img' ? (
+          <picture>
+            <source srcSet={getMedia(props.src, true)} type="image/webp" />
+            <img
+              className={styles.zoomIn}
+              src={getMedia(props.src)}
+              title={mediaTitle}
+              ref={mediaRef as MutableRefObject<HTMLImageElement>}
+              onClick={() => window.open(getMedia(props.src))}
+              onError={onError}
+              alt={props.mediaProps.alt}
+              {...props.mediaProps}
+            />
+          </picture>
+        ) : (
           <video
-            src={props.src}
+            src={getMedia(props.src)}
             title={mediaTitle}
             ref={mediaRef as MutableRefObject<HTMLVideoElement>}
-            onLoadedMetadata={onLoad}
+            onError={onError}
             controls
             {...props.mediaProps}
           />
@@ -79,7 +87,6 @@ const MediaGrid = (props: MediaGridProps) => {
         : 0),
     [props.columns]
   )
-
   const [columns, setColumns] = useState(calcColumns())
 
   // decrease column size when window width does

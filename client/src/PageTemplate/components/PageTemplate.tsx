@@ -1,5 +1,6 @@
 import { ReactNode, useState } from 'react'
-import { parseRoute } from '../../services/utils'
+import { Route, Routes } from 'react-router-dom'
+import { parseFilename, parseRoute } from '../../services/utils'
 import styles from '../styles/pageTemplate.module.scss'
 import TableOfContents from '../../PageTemplate/components/TableOfContents'
 import ContentGenerator from './ContentGenerator'
@@ -8,8 +9,7 @@ import SideNav from './SideNav'
 type AppContent = {
   contentTitle: string
   src: string
-  contentSubtitle?: string
-  subItems?: Array<string>
+  subItems: Array<string> | undefined
 }
 
 type Other = {
@@ -38,8 +38,27 @@ const PageTemplate = (props: AppContent | Other) => {
           </div>
 
           <div className={styles.contentGeneratorWrapper}>
-            <ContentGenerator src={props.src} setHeadingData={setHeadingData} />
-            {/* <Routes></Routes> */}
+            {props.subItems ? (
+              <Routes>
+                {props.subItems.map((e, i) => (
+                  <Route
+                    path={parseRoute(e)}
+                    element={
+                      <ContentGenerator
+                        src={parseFilename(props.contentTitle, e)}
+                        setHeadingData={setHeadingData}
+                      />
+                    }
+                    key={i}
+                  />
+                ))}
+              </Routes>
+            ) : (
+              <ContentGenerator
+                src={props.src}
+                setHeadingData={setHeadingData}
+              />
+            )}
           </div>
 
           <div className={styles.tocWrapper}>

@@ -1,11 +1,9 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import cx from 'classnames'
 import styles from '../styles/sideNav.module.scss'
-import { parseRoute } from '../../services/utils'
 
 type Props = {
   navItems: Array<{ name: string; route: string }>
-  // navItems: Array<string>
 }
 
 const SideNav = (props: Props) => {

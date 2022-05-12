@@ -1,11 +1,11 @@
-import { getFile, Tag, Component } from '../misc/utils.js'
+import { Tag, Component } from '../misc/utils.js'
 
 export default [
   Tag('h1', 'About Myself'),
 
   Component('Media', {
     Type: 'img',
-    src: getFile('about/myself/profile-image.jpg'),
+    src: '/about/myself/profile-image.jpg',
     mediaProps: { alt: 'Profile Image' },
     floatLeft: true,
   }),
@@ -32,7 +32,7 @@ export default [
 
   Component('Media', {
     Type: 'img',
-    src: getFile('about/myself/stevens-aerial.jpg'),
+    src: '/about/myself/stevens-aerial.jpg',
     mediaProps: { alt: 'Stevens Aerial Shot' },
   }),
 ]

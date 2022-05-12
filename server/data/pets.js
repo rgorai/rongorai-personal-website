@@ -1,5 +1,7 @@
 import S3 from 'aws-sdk/clients/s3.js'
-import { getFile, Tag, Component } from '../misc/utils.js'
+import fs from 'fs'
+import path from 'path'
+import { Tag, Component } from '../misc/utils.js'
 
 const getAge = (birthday) => {
   const diff = String(
@@ -9,32 +11,43 @@ const getAge = (birthday) => {
 }
 
 const getMedia = async (name) => {
-  const s3 = new S3({
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    signatureVersion: 'v4',
-    region: 'us-east-1',
-  })
-  const files = await s3
-    .listObjectsV2({
-      Bucket: 'rongorai-personal-website-bucket',
-      Prefix: `pets/${name}`,
+  let files = []
+
+  if (process.env.NODE_ENV === 'development') {
+    files = fs.readdirSync(
+      path.resolve('server', '.local', 's3-bucket', 'pets', name)
+    )
+  } else {
+    const s3 = new S3({
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      signatureVersion: 'v4',
+      region: 'us-east-1',
     })
-    .promise()
-  return files.Contents.map((e) =>
-    ((split) => split[split.length - 1])(e.Key.split('/'))
-  )
+    files = (
+      await s3
+        .listObjectsV2({
+          Bucket: 'rongorai-personal-website-bucket',
+          Prefix: `pets/${name}`,
+        })
+        .promise()
+    ).Contents.map((e) =>
+      ((split) => split[split.length - 1])(e.Key.split('/'))
+    )
+  }
+
+  return files
     .sort((a, b) => a.localeCompare(b))
     .map((e, i) =>
       e.includes('.mp4')
         ? {
             Type: 'video',
-            src: getFile(`pets/${name}/${e}`),
+            src: `/pets/${name}/${e}`,
             mediaProps: { loop: true },
           }
         : {
             Type: 'img',
-            src: getFile(`pets/${name}/${e}`),
+            src: `/pets/${name}/${e}`,
             mediaProps: { alt: `${name}-${i}` },
           }
     )

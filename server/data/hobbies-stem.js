@@ -1,4 +1,4 @@
-import { getFile, Tag, openLinkInNewTab, Component } from '../misc/utils.js'
+import { Tag, openLinkInNewTab, Component, getDocument } from '../misc/utils.js'
 
 export default [
   Tag('h1', 'STEM'),
@@ -19,7 +19,7 @@ export default [
     `One of my proudest accomplishments as a part of FTC was at the 2015 New Jersey State Qualifier (just a stage before the regional competition). Here, I participated in an individual PTC Parametrics CAD Design Challenge. This competition tested my ability to design and virtually fabricate an entire robot based on one of three scenarios.`
   ),
   Tag('a', 'My PTC Design Challenge Report', {
-    href: getFile('hobbies/stem/ftc/ptc-design-challenge.pdf'),
+    href: getDocument('/hobbies/stem/ftc/ptc-design-challenge.pdf'),
     ...openLinkInNewTab,
   }),
   Component('MediaGrid', {
@@ -27,12 +27,12 @@ export default [
     media: [
       {
         Type: 'img',
-        src: getFile('hobbies/stem/ftc/ptc-challenge-award.jpg'),
+        src: '/hobbies/stem/ftc/ptc-challenge-award.jpg',
         mediaProps: { alt: 'PTC Challenge Award' },
       },
       {
         Type: 'img',
-        src: getFile('hobbies/stem/ftc/ptc-design-award-ceremony.jpg'),
+        src: '/hobbies/stem/ftc/ptc-design-award-ceremony.jpg',
         mediaProps: { alt: 'PTC Design Challenge Award Ceremony' },
       },
     ],
@@ -48,12 +48,12 @@ export default [
     media: [
       {
         Type: 'img',
-        src: getFile('hobbies/stem/ftc/montville-outreach.jpg'),
+        src: '/hobbies/stem/ftc/montville-outreach.jpg',
         mediaProps: { alt: 'Montville Outreach' },
       },
       {
         Type: 'img',
-        src: getFile('hobbies/stem/ftc/game-demonstration.jpg'),
+        src: '/hobbies/stem/ftc/game-demonstration.jpg',
         mediaProps: { alt: 'Game Demonstration' },
       },
     ],
@@ -73,12 +73,12 @@ export default [
     media: [
       {
         Type: 'img',
-        src: getFile('hobbies/stem/edam/astronaut-selfie.jpg'),
+        src: '/hobbies/stem/edam/astronaut-selfie.jpg',
         mediaProps: { alt: 'Astronaut Selfie' },
       },
       {
         Type: 'img',
-        src: getFile('hobbies/stem/edam/hunch-memorabilia.jpg'),
+        src: '/hobbies/stem/edam/hunch-memorabilia.jpg',
         mediaProps: { alt: 'Hunch Memorabilia' },
       },
     ],

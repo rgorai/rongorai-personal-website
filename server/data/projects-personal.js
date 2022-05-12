@@ -1,4 +1,4 @@
-import { getFile, Tag, Component, openLinkInNewTab } from '../misc/utils.js'
+import { Tag, Component, openLinkInNewTab, getDocument } from '../misc/utils.js'
 
 export default [
   Tag('h1', 'Personal Projects'),
@@ -32,16 +32,16 @@ export default [
     `During the process of developing our project, I gained a lot of experience with project management. Since I had professional experience with React and SDLC from my co-ops, my groupmates looked to me for overall guidance. After a couple meetings, we were able to determine each of our interests and strengths; accordingly, I divided the tasks between us. In the end, everyone was able to complete their work remarkably and the project was an overall success.`
   ),
   Tag('a', 'MovieHub Proposal', {
-    href: getFile('projects/personal/moviehub-proposal.pdf'),
+    href: getDocument('/projects/personal/moviehub-proposal.pdf'),
     ...openLinkInNewTab,
   }),
   Tag('a', 'MovieHub Pitch Slides', {
-    href: getFile('projects/personal/moviehub-pitch-slides.pdf'),
+    href: getDocument('/projects/personal/moviehub-pitch-slides.pdf'),
     ...openLinkInNewTab,
   }),
   Component('Media', {
     Type: 'video',
     caption: 'MovieHub demo',
-    src: getFile('projects/personal/moviehub-demo.mp4'),
+    src: '/projects/personal/moviehub-demo.mp4',
   }),
 ]

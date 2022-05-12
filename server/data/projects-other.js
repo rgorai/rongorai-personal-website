@@ -1,4 +1,4 @@
-import { getFile, Tag, openLinkInNewTab, Component } from '../misc/utils.js'
+import { Tag, openLinkInNewTab, Component } from '../misc/utils.js'
 
 export default [
   Tag('h1', 'Other Work Experience'),
@@ -27,7 +27,7 @@ export default [
 
   Component('Media', {
     Type: 'img',
-    src: getFile('projects/other/stevens-logo.png'),
+    src: '/projects/other/stevens-logo.png',
     mediaProps: { alt: 'Stevens Logo' },
   }),
 
@@ -42,7 +42,7 @@ export default [
   }),
   Component('Media', {
     Type: 'img',
-    src: getFile('projects/other/international-ivy-logo.jpg'),
+    src: '/projects/other/international-ivy-logo.jpg',
     mediaProps: { alt: 'International Ivy Logo' },
   }),
 
@@ -57,7 +57,7 @@ export default [
   }),
   Component('Media', {
     Type: 'img',
-    src: getFile('projects/other/mathnasium-indoor.jpg'),
+    src: '/projects/other/mathnasium-indoor.jpg',
     mediaProps: { alt: 'Mathnasium Parsippany Interior' },
   }),
 
@@ -73,7 +73,7 @@ export default [
   Component('Media', {
     Type: 'img',
     caption: 'Helping students build a kit kart',
-    src: getFile('projects/other/bsa-kart-activity.jpg'),
+    src: '/projects/other/bsa-kart-activity.jpg',
     mediaProps: { alt: 'BSA Kart Activity' },
   }),
 ]

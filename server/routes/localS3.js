@@ -1,9 +1,10 @@
 import express from 'express'
+import path from 'path'
 import { isValidString } from '../misc/errors.js'
 
-const fileRouter = express.Router()
+const s3Router = express.Router()
 
-fileRouter.get('/:encodedFilepath', async (req, res) => {
+s3Router.get('/:encodedFilepath', async (req, res) => {
   const { encodedFilepath } = req.params
 
   try {
@@ -16,12 +17,16 @@ fileRouter.get('/:encodedFilepath', async (req, res) => {
     res
       .status(200)
       .sendFile(
-        process.env.REACT_APP_AWS_DISTRIBUTION_URL +
-          decodeURIComponent(encodedFilepath)
+        path.resolve(
+          'server',
+          '.local',
+          's3-bucket',
+          decodeURIComponent(encodedFilepath).slice(1)
+        )
       )
   } catch (e) {
     res.status(404).send(String(e))
   }
 })
 
-export default fileRouter
+export default s3Router
