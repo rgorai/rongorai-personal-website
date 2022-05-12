@@ -77,7 +77,7 @@ const ContentGenerator = (props: Props) => {
               setNumUnloadedMedia((prev) => prev - 1)
             }
           } else if (Type === 'video') {
-            media.onloadeddata = () => {
+            media.onloadedmetadata = () => {
               mediaProps.flex = media.videoWidth / media.videoHeight
               setNumUnloadedMedia((prev) => prev - 1)
             }
