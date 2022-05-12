@@ -15,12 +15,10 @@ app.use(express.urlencoded({ extended: true }))
 
 configRoutes(app)
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.resolve('client', 'build')))
-  app.get('*', (_, res) => {
-    res.sendFile(path.resolve('client', 'build', 'index.html'))
-  })
-}
+app.use(express.static(path.resolve('client', 'build')))
+app.get('*', (_, res) => {
+  res.sendFile(path.resolve('client', 'build', 'index.html'))
+})
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`)

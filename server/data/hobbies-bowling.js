@@ -1,4 +1,4 @@
-import { getFile, Tag, openLinkInNewTab, Component } from '../misc/utils.js'
+import { Tag, openLinkInNewTab, Component } from '../misc/utils.js'
 
 export default [
   Tag('h1', 'Bowling'),
@@ -21,32 +21,32 @@ export default [
     media: [
       {
         Type: 'img',
-        src: getFile('hobbies/bowling/team-picture.jpg'),
+        src: '/hobbies/bowling/team-picture.jpg',
         mediaProps: { alt: 'Team Picture' },
       },
       {
         Type: 'img',
-        src: getFile('hobbies/bowling/sectional-championship-cert.jpg'),
+        src: '/hobbies/bowling/sectional-championship-cert.jpg',
         mediaProps: { alt: 'Sectional Championship Certificate' },
       },
       {
         Type: 'img',
-        src: getFile('hobbies/bowling/township-proclamation.jpg'),
+        src: '/hobbies/bowling/township-proclamation.jpg',
         mediaProps: { alt: 'Montville Township Proclamation' },
       },
       {
         Type: 'img',
-        src: getFile('hobbies/bowling/varsity-plaque.jpg'),
+        src: '/hobbies/bowling/varsity-plaque.jpg',
         mediaProps: { alt: 'Varsity Plaque' },
       },
       {
         Type: 'img',
-        src: getFile('hobbies/bowling/sectional-championship-team.jpg'),
+        src: '/hobbies/bowling/sectional-championship-team.jpg',
         mediaProps: { alt: 'Sectional Championship' },
       },
       {
         Type: 'video',
-        src: getFile('hobbies/bowling/a-strike.mp4'),
+        src: '/hobbies/bowling/a-strike.mp4',
         mediaProps: { loop: true },
       },
     ],

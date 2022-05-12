@@ -1,37 +1,51 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from '../styles/homePage.module.scss'
-import { getFile } from '../../services/utils'
+import { getMedia } from '../../services/utils'
 
 type Props = {
   startLocation: string
 }
 
+const PROFILE_IMG = '/home/profile-image.jpg'
+
 const HomePage = (props: Props) => {
+  const [loading, setLoading] = useState(true)
+
   useEffect(() => {
     document.title = `Welcome | Ron Gorai's Personal Website`
+    const profileImg = document.createElement('img')
+    profileImg.onload = () => setLoading(false)
+    profileImg.src = getMedia(PROFILE_IMG, true)
   }, [])
 
   return (
     <div className={styles.homePageContainer}>
-      <div className={styles.messageContainer}>
-        <div className={styles.title}>Ron Gorai</div>
-        <div className={styles.welcome}>Welcome to my website</div>
-        <Link className={styles.getStarted} to={props.startLocation}>
-          Learn more
-          <img
-            src={`${process.env.PUBLIC_URL}/menu_icons/right-arrow.png`}
-            alt="about this website"
-          />
-        </Link>
-      </div>
-      <div className={styles.profileImg}>
-        <img
-          className={styles.profileImg}
-          src={getFile('home/profile-image.jpg')}
-          alt="Profile Portrait"
-        />
-      </div>
+      {!loading && (
+        <>
+          <div className={styles.messageContainer}>
+            <div className={styles.title}>Ron Gorai</div>
+            <div className={styles.welcome}>Welcome to my website</div>
+            <Link className={styles.getStarted} to={props.startLocation}>
+              Learn more
+              <img
+                src={`${process.env.PUBLIC_URL}/menu_icons/right-arrow.png`}
+                alt="about this website"
+              />
+            </Link>
+          </div>
+          <div className={styles.profileImg}>
+            <picture>
+              <source srcSet={getMedia(PROFILE_IMG, true)} type="image/webp" />
+              <img
+                className={styles.profileImg}
+                src={getMedia(PROFILE_IMG)}
+                alt="Profile Portrait"
+              />
+            </picture>
+          </div>
+        </>
+      )}
     </div>
   )
 }

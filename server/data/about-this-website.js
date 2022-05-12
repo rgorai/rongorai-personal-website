@@ -58,21 +58,33 @@ export default [
   Tag('h3', '2.0 (Upcoming)'),
   Component('BulletedList', {
     items: [
-      'Redux to better manage app data loading / storage',
-      'Pagination for guestbook list',
+      'Redux to better manage data loading / storage',
+      'Pagination for guestbook entries list',
       'Dark / light mode switch',
-      'Running MovieHub project one a site route',
-      'Admin portal with JWT security to update website data from the website itself',
-      'Bug fixes / improvements',
+      'MovieHub project running on a route',
+      'Admin portal with JWT to update website data from the website itself',
+      'Bug fixes / improvements:',
       [
-        'better image compression/loading',
-        'better page loading/caching',
+        'better image compression / loading',
+        'better page loading / caching',
         'anything else I figure out',
       ],
     ],
   }),
 
-  Tag('h3', '1.0'),
+  Tag('h3', '1.1 (5/12/22)'),
+  Component('BulletedList', {
+    items: [
+      'Improved page loading experience by pre-loading images/videos',
+      'Decreased page load times by utilizing Google cwebp and Bash (during development)',
+      'Updated route structure to improve page component rendering',
+      'Added media error handling',
+      'Fixed resume page render issues',
+      'Created separate code for development to reduce S3 API calls / invalidations',
+    ],
+  }),
+
+  Tag('h3', '1.0 (4/19/22)'),
   Component('BulletedList', {
     items: [
       'Full mobile site for smaller devices',

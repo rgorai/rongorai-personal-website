@@ -71,36 +71,20 @@ const App = () => (
           {APP_CONTENT.map((e, i) => (
             <React.Fragment key={i}>
               <Route
-                path={parseRoute(e.name)}
+                path={parseRoute(e.name, e.subItems ? '*' : '')}
                 element={
-                  e.subItems ? (
-                    <Navigate replace to={parseRoute(e.name, e.subItems[0])} />
-                  ) : e.element ? (
+                  e.element ? (
                     <PageTemplate contentTitle={e.name} element={e.element} />
                   ) : (
                     <PageTemplate
                       contentTitle={e.name}
                       src={parseFilename(e.name)}
+                      subItems={e.subItems}
                     />
                   )
                 }
                 key={parseRoute(e.name)}
               />
-              {e.subItems &&
-                e.subItems.map((f) => (
-                  <Route
-                    path={parseRoute(e.name, f)}
-                    element={
-                      <PageTemplate
-                        contentSubtitle={f}
-                        contentTitle={e.name}
-                        subItems={e.subItems}
-                        src={parseFilename(e.name, f)}
-                      />
-                    }
-                    key={parseRoute(e.name, f)}
-                  />
-                ))}
             </React.Fragment>
           ))}
 

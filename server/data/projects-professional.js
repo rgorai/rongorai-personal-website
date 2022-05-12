@@ -1,4 +1,4 @@
-import { getFile, Tag, openLinkInNewTab, Component } from '../misc/utils.js'
+import { Tag, openLinkInNewTab, Component, getDocument } from '../misc/utils.js'
 
 export default [
   Tag('h1', 'Professional Projects'),
@@ -14,7 +14,7 @@ export default [
   }),
   Component('Media', {
     Type: 'img',
-    src: getFile('projects/professional/neuraflash/neuraflash-logo.png'),
+    src: '/projects/professional/neuraflash/neuraflash-logo.png',
     mediaProps: { alt: 'NeuraFlash Logo' },
     adjustWidth: 95,
   }),
@@ -49,12 +49,12 @@ export default [
     `As the beta release grew closer, there were more and more bugs to fix, but also more and more pieces of the application coming together that were a little rough around the edges. Once some of the fully functional features were merged, I set up the Cypress environment for our frontend and started writing some integration and e2e tests for them. Once I completed a handful of tests that encompassed the main features, the team gave me one last task before the summer ended - to create a Travis CI build for the repo that will automatically certain Cypress tests when pushing code to GitHub. Even though I hadn't had experience with Travis or even YAML before this, it was relatively easy to pick up and find out how to integrate Cypress into the pipeline.`
   ),
   Tag('a', 'My research on testing platforms', {
-    href: getFile('projects/professional/ibm/testing-pros-cons.pdf'),
+    href: getDocument('/projects/professional/ibm/testing-pros-cons.pdf'),
     ...openLinkInNewTab,
   }),
   Component('Media', {
     Type: 'img',
-    src: getFile('projects/professional/ibm/ibm-office.png'),
+    src: '/projects/professional/ibm/ibm-office.png',
     mediaProps: { alt: 'IBM Office' },
   }),
 
@@ -94,12 +94,12 @@ export default [
     `Once we were nearing the end of the list, we needed to develop a way automate the running of the scripts and uploading of the scraped data so the financial team has access to updated data in the future. To accomplish this, we used Docker to automate the scripts and Microsoft Azure functions to upload the data to the data lake.`
   ),
   Tag('a', 'My Spring 2020 ZAIS Project Report', {
-    href: getFile('projects/professional/zais/spring-2020-report.pdf'),
+    href: '/projects/professional/zais/spring-2020-report.pdf',
     ...openLinkInNewTab,
   }),
   Component('Media', {
     Type: 'img',
-    src: getFile('projects/professional/zais/zais-office.jpg'),
+    src: '/projects/professional/zais/zais-office.jpg',
     mediaProps: { alt: 'ZAIS Group Office' },
   }),
 
@@ -109,7 +109,7 @@ export default [
     `During the summer of 2017, I worked as a cyber-analytics intern at Kovid, Inc. The goal of my project was to detect suspicious online activity on NEICE (National Electronic Interstate Compact Enterprise) servers. NEICE is a cloud-based system managed by the Interstate Compact on the Placement of Children (ICPC) to place children across state borders. The project involved building modules for automatic (machine) detection and manual (human) detection of suspicious activity.`
   ),
   Tag('a', 'My KOVID Project Report', {
-    href: getFile('projects/professional/kovid/project-report.pdf'),
+    href: '/projects/professional/kovid/project-report.pdf',
     ...openLinkInNewTab,
   }),
   Component('MediaGrid', {
@@ -118,13 +118,13 @@ export default [
       {
         Type: 'img',
         caption: 'Login Times Chart',
-        src: getFile('projects/professional/kovid/login-times-chart.jpg'),
+        src: '/projects/professional/kovid/login-times-chart.jpg',
         mediaProps: { alt: 'Login Times Chart' },
       },
       {
         Type: 'img',
         caption: 'Login Rates Chart',
-        src: getFile('projects/professional/kovid/login-rates-chart.jpg'),
+        src: '/projects/professional/kovid/login-rates-chart.jpg',
         mediaProps: { alt: 'Login Rates Chart' },
       },
     ],

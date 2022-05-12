@@ -88,7 +88,7 @@ const NavBar = (props: Props) => {
                 className={cx(styles.navLink, styles.desktopNavItem, {
                   [styles.activeNavItem]: location.pathname.includes(e.route),
                 })}
-                to={e.route}
+                to={e.subItems ? e.subItems[0].route : e.route}
               >
                 {e.name.toUpperCase()}
               </Link>
