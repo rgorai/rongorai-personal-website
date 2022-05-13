@@ -104,7 +104,7 @@ const App = () => (
       <Footer
         navItems={APP_CONTENT.map((e) => ({
           name: e.name,
-          route: parseRoute(e.name),
+          route: parseRoute(e.name, e.subItems ? e.subItems[0] : ''),
         }))}
       />
     </BrowserRouter>
