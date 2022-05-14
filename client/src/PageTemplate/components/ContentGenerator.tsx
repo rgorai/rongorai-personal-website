@@ -75,11 +75,13 @@ const ContentGenerator = (props: Props) => {
             media.onload = () => {
               mediaProps.flex = media.width / media.height
               setNumUnloadedMedia((prev) => prev - 1)
+              media.remove()
             }
           } else if (Type === 'video') {
             media.onloadedmetadata = () => {
               mediaProps.flex = media.videoWidth / media.videoHeight
               setNumUnloadedMedia((prev) => prev - 1)
+              media.remove()
             }
           }
           media.onerror = () => {
