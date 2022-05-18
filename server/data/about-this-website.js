@@ -81,6 +81,7 @@ export default [
       'Added media error handling',
       'Fixed resume page render issues',
       'Created separate code for development to reduce S3 API calls / invalidations',
+      'Added email notifications for new guestbook entries',
     ],
   }),
 
