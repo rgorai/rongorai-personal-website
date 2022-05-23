@@ -5,9 +5,9 @@ import ApiError from './Misc/components/ApiError'
 import GuestbookPage from './Guestbook/components/GuestbookPage'
 import NavBar from './Home/components/NavBar'
 import HomePage from './Home/components/HomePage'
-import Footer from './Home/components/Footer'
-import PageTemplate from './PageTemplate/components/PageTemplate'
+import PageTemplate from './Home/components/PageTemplate'
 import ResumePage from './Home/components/ResumePage'
+import Footer from './Misc/components/Footer'
 
 export type NavInfo = {
   name: string
@@ -37,78 +37,87 @@ const APP_CONTENT = [
   element?: ReactNode
 }>
 
-const App = () => (
-  <div className="App">
-    <BrowserRouter>
-      <NavBar
-        navItems={APP_CONTENT.map((e) => ({
-          name: e.name,
-          route: parseRoute(e.name),
-          subItems: e.subItems?.map((f) => ({
-            name: f,
-            route: parseRoute(e.name, f),
-          })),
-        }))}
-      />
+const App = () => {
+  const RouteError = (
+    <Route
+      path="*"
+      element={
+        <ApiError
+          status={404}
+          statusText="Page Not Found"
+          data="invalid react route"
+        />
+      }
+    />
+  )
 
-      <main>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <HomePage
-                startLocation={parseRoute(
-                  APP_CONTENT[0].name,
-                  APP_CONTENT[0].subItems ? APP_CONTENT[0].subItems[0] : ''
-                )}
-              />
-            }
-          />
-          <Route path="/home" element={<Navigate replace to="/" />} />
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <NavBar
+          navItems={APP_CONTENT.map((e) => ({
+            name: e.name,
+            route: parseRoute(e.name),
+            subItems: e.subItems?.map((f) => ({
+              name: f,
+              route: parseRoute(e.name, f),
+            })),
+          }))}
+        />
 
-          <Route path="/resume" element={<ResumePage />} />
+        <main>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  startLocation={parseRoute(
+                    APP_CONTENT[0].name,
+                    APP_CONTENT[0].subItems ? APP_CONTENT[0].subItems[0] : ''
+                  )}
+                />
+              }
+            />
+            <Route path="/home" element={<Navigate replace to="/" />} />
 
-          {APP_CONTENT.map((e, i) => (
-            <React.Fragment key={i}>
-              <Route
-                path={parseRoute(e.name, e.subItems ? '*' : '')}
-                element={
-                  e.element ? (
-                    <PageTemplate contentTitle={e.name} element={e.element} />
-                  ) : (
+            <Route path="/resume" element={<ResumePage />} />
+
+            {APP_CONTENT.map((e, i) => (
+              <React.Fragment key={i}>
+                <Route
+                  path={parseRoute(e.name, e.subItems ? '*' : '')}
+                  element={
                     <PageTemplate
-                      contentTitle={e.name}
-                      src={parseFilename(e.name)}
-                      subItems={e.subItems}
+                      {...{
+                        contentTitle: e.name,
+                        RouteError: RouteError,
+                        ...(e.element
+                          ? { element: e.element }
+                          : {
+                              src: parseFilename(e.name),
+                              subItems: e.subItems,
+                            }),
+                      }}
                     />
-                  )
-                }
-                key={parseRoute(e.name)}
-              />
-            </React.Fragment>
-          ))}
+                  }
+                  key={parseRoute(e.name)}
+                />
+              </React.Fragment>
+            ))}
 
-          <Route
-            path="*"
-            element={
-              <ApiError
-                status={404}
-                statusText="Page Not Found"
-                data="invalid react route"
-              />
-            }
-          />
-        </Routes>
-      </main>
+            {RouteError}
+          </Routes>
+        </main>
 
-      <Footer
-        navItems={APP_CONTENT.map((e) => ({
-          name: e.name,
-          route: parseRoute(e.name, e.subItems ? e.subItems[0] : ''),
-        }))}
-      />
-    </BrowserRouter>
-  </div>
-)
+        <Footer
+          navItems={APP_CONTENT.map((e) => ({
+            name: e.name,
+            route: parseRoute(e.name, e.subItems ? e.subItems[0] : ''),
+          }))}
+        />
+      </BrowserRouter>
+    </div>
+  )
+}
 
 export default App

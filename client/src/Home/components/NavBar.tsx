@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Spin as Hamburger } from 'hamburger-react'
 import styles from '../styles/navBar.module.scss'
 import type { NavInfo } from '../../App'
-import Logo from './Logo'
+import Logo from '../../Misc/components/Logo'
 
 const SUBITEM_HEIGHT = 2.5
 const SUBNAV_PADDING_TOP = 0.5
