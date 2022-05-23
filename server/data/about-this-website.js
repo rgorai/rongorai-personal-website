@@ -61,7 +61,7 @@ export default [
       'Redux to better manage data loading / storage',
       'Pagination for guestbook entries list',
       'Dark / light mode switch',
-      'MovieHub project running on a route',
+      'MediaHub project running on a route',
       'Admin portal with JWT to update website data from the website itself',
       'Bug fixes / improvements:',
       [
@@ -69,6 +69,14 @@ export default [
         'better page loading / caching',
         'anything else I figure out',
       ],
+    ],
+  }),
+
+  Tag('h3', '1.2 (______)'),
+  Component('BulletedList', {
+    items: [
+      'Implemented night mode switch that saves theme to localStorage',
+      'Refactored CSS variables into a structure inspired by IBMs Carbon Design System',
     ],
   }),
 

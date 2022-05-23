@@ -9,6 +9,7 @@ const FORM_CONTENT = [
     label: 'Name',
     placeholder: 'Your name',
     Tag: 'input',
+    type: 'text',
     required: true,
   },
   {
@@ -27,6 +28,7 @@ const FORM_CONTENT = [
   label: string
   placeholder: string
   Tag: 'input' | 'textarea'
+  type?: string
   required: boolean
 }>
 
@@ -39,17 +41,17 @@ const reduceFormContent = (mutation: (c: any) => [string, any] | undefined) =>
     }
   }, {}) as { [key: string]: any }
 
-const DEFAULT_DATA = reduceFormContent((c) => [c.label, ''])
+const DEFAULT_DATA_STATE = reduceFormContent((c) => [c.label, ''])
 
-const DEFAULT_ERROR = reduceFormContent((c) => [c.label, false])
+const DEFAULT_ERROR_STATE = reduceFormContent((c) => [c.label, false])
 
 type Props = {
   updateData: Function
 }
 
 const GuestbookForm = (props: Props) => {
-  const [formError, setFormError] = useState(DEFAULT_ERROR)
-  const [formData, setFormData] = useState(DEFAULT_DATA)
+  const [formError, setFormError] = useState(DEFAULT_ERROR_STATE)
+  const [formData, setFormData] = useState(DEFAULT_DATA_STATE)
   const [captchaPassed, setCaptchaPassed] = useState(false)
   const recaptchaRef = useRef<typeof ReCAPTCHA>(null)
   const siteKey =
@@ -59,7 +61,7 @@ const GuestbookForm = (props: Props) => {
 
   const onSubmit = (e: any) => {
     e.preventDefault()
-    setFormError(DEFAULT_ERROR)
+    setFormError(DEFAULT_ERROR_STATE)
 
     // error check
     try {
@@ -87,7 +89,7 @@ const GuestbookForm = (props: Props) => {
       )
       .then((_) => {
         props.updateData()
-        setFormData(DEFAULT_DATA)
+        setFormData(DEFAULT_DATA_STATE)
         setCaptchaPassed(false)
         recaptchaRef.current?.reset()
       })
@@ -116,7 +118,7 @@ const GuestbookForm = (props: Props) => {
                 [styles.formError]: formError[e.label],
               })}
               placeholder={e.placeholder}
-              name={e.label}
+              type={e.type}
               value={formData[e.label]}
               onChange={(ev) =>
                 setFormData((prev) => ({ ...prev, [e.label]: ev.target.value }))

@@ -12,7 +12,7 @@
   .tableContainer {
     @include display-flex(column, flex-start, flex-start);
 
-    border-left: $content-border;
+    border-left: var(--content-border);
     padding: 0.5em 1.25em;
 
     ul {
@@ -30,7 +30,7 @@
     }
 
     .tocLink {
-      color: color.adjust($nav-link-color, $lightness: 10%);
+      color: var(--toc-link-color);
       text-decoration: none;
       line-height: 1.5em;
 

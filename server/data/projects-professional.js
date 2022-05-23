@@ -14,7 +14,7 @@ export default [
   }),
   Component('Media', {
     Type: 'img',
-    src: '/projects/professional/neuraflash/neuraflash-logo.png',
+    src: '/projects/professional/neuraflash/neuraflash-logo.jpg',
     mediaProps: { alt: 'NeuraFlash Logo' },
     adjustWidth: 95,
   }),

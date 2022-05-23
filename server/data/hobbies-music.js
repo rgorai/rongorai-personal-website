@@ -61,7 +61,7 @@ export default [
     media: [
       {
         Type: 'img',
-        src: '/hobbies/music/javits-center/stage-shot1.jpg',
+        src: '/hobbies/music/javits-center/stage-shot3.jpg',
         mediaProps: { alt: 'Stage Shot 1' },
       },
       {
@@ -71,7 +71,7 @@ export default [
       },
       {
         Type: 'img',
-        src: '/hobbies/music/javits-center/stage-shot3.jpg',
+        src: '/hobbies/music/javits-center/stage-shot1.jpg',
         mediaProps: { alt: 'Stage Shot 3' },
       },
     ],

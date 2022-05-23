@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <title>Ron Gorai's Personal Website</title>
 
+    <!-- site metadata -->
     <meta name="author" content="Ron Gorai" />
     <meta
       name="image"
@@ -16,6 +18,11 @@
       property="og:description"
       content="The purpose of this website is to share my hobby and work experiences and practice my skills as a professional software developer."
     />
+
+    <!-- apply page theme -->
+    <script>
+        if (localStorage.theme) document.documentElement.setAttribute("data-theme", localStorage.theme);
+    </script>
 
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" />
     <!--
@@ -32,7 +39,6 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Ron Gorai's Personal Website</title>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script

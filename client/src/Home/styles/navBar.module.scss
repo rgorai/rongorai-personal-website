@@ -14,10 +14,6 @@ nav {
     width: 100%;
     padding: 0.9em 6vw;
   }
-
-  .activeNavItem {
-    color: $accent-color;
-  }
 }
 
 .desktopNavContainer {
@@ -29,7 +25,7 @@ nav {
   width: 100%;
   height: $nav-height;
   box-sizing: border-box;
-  border-bottom: 1px solid color.adjust($nav-background-color, $lightness: 4%);
+  // border-bottom: var(--content-border);
   z-index: 99;
 
   .logoContainer {
@@ -76,6 +72,11 @@ nav {
     filter: invert(0.9);
     cursor: pointer;
   }
+
+  .nightSwitchWrapper {
+    margin-left: auto;
+    margin-right: 2.75vw;
+  }
 }
 
 .mobileNavBackdrop {
@@ -112,7 +113,7 @@ nav {
   transition: transform 0.15s ease-in-out;
   z-index: 3;
   overflow-y: auto;
-  border-left: 1px solid color.adjust($nav-background-color, $lightness: 5%);
+  border-top: 1px solid color.adjust($nav-background-color, $lightness: 4%);
 
   ul {
     width: 100%;
@@ -135,10 +136,12 @@ nav {
       overflow: hidden;
       border-bottom: 0 solid transparent;
       word-wrap: break-word;
+      cursor: pointer;
     }
 
     .activeNavItem {
       font-weight: 600;
+      color: $accent-color;
       background-color: color.adjust($nav-background-color, $lightness: 6%);
       border-bottom:
         1px solid

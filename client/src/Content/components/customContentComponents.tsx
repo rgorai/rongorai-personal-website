@@ -6,16 +6,19 @@ import { getMedia } from '../../services/utils'
 
 type AnyObject = { [key: string]: any }
 
+type StyleClasses = {
+  floatLeft?: boolean
+  floatRight?: boolean
+  adjustWidth?: number
+}
+
 type MediaProps = {
   Type: 'img' | 'video'
   src: string
   mediaProps: AnyObject
-  caption?: string
-  floatLeft?: boolean
-  floatRight?: boolean
-  adjustWidth?: number
   flex: number
-}
+  caption?: string
+} & StyleClasses
 
 const Media = (props: MediaProps) => {
   const [mediaError, setMediaError] = useState(false)
