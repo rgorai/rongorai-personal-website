@@ -10,12 +10,12 @@ export default [
   ),
   Tag('a', 'More about this website', { href: '/about/this-website' }),
 
-  Tag('h2', 'Web Programming Final Project: MovieHub'),
+  Tag('h2', 'Web Programming Final Project: MediaHub'),
   Tag(
     'p',
-    `My final project for Web Programming was not only a fantastic learning and leadership experience, but was also the main inspiration for me to build this website. The premise of my project, dubbed <i>MovieHub</i>, is to provide users with a single location to search a catalog of movies and TV shows to: view/search existing movies/shows, provide opinions through ratings and comments, find streaming platforms on which the movie/show is available, create watchlists of movies/shows to watch, and much more.`
+    `My final project for Web Programming was not only a fantastic learning and leadership experience, but was also the main inspiration for me to build this website. The premise of my project, dubbed <i>MediaHub</i>, is to provide users with a single location to search a catalog of movies and TV shows to: view/search existing movies/shows, provide opinions through ratings and comments, find streaming platforms on which the movie/show is available, create watchlists of movies/shows to watch, and much more.`
   ),
-  Tag('a', 'MovieHub Repository', {
+  Tag('a', 'MediaHub Repository', {
     href: 'https://github.com/rgorai/cs546-final-project',
     ...openLinkInNewTab,
   }),
@@ -31,17 +31,17 @@ export default [
     'p',
     `During the process of developing our project, I gained a lot of experience with project management. Since I had professional experience with React and SDLC from my co-ops, my groupmates looked to me for overall guidance. After a couple meetings, we were able to determine each of our interests and strengths; accordingly, I divided the tasks between us. In the end, everyone was able to complete their work remarkably and the project was an overall success.`
   ),
-  Tag('a', 'MovieHub Proposal', {
-    href: getDocument('/projects/personal/moviehub-proposal.pdf'),
+  Tag('a', 'MediaHub Proposal', {
+    href: getDocument('/projects/personal/mediahub-proposal.pdf'),
     ...openLinkInNewTab,
   }),
-  Tag('a', 'MovieHub Pitch Slides', {
-    href: getDocument('/projects/personal/moviehub-pitch-slides.pdf'),
+  Tag('a', 'MediaHub Pitch Slides', {
+    href: getDocument('/projects/personal/mediahub-pitch-slides.pdf'),
     ...openLinkInNewTab,
   }),
   Component('Media', {
     Type: 'video',
-    caption: 'MovieHub demo',
-    src: '/projects/personal/moviehub-demo.mp4',
+    caption: 'MediaHub demo',
+    src: '/projects/personal/mediahub-demo.mp4',
   }),
 ]
