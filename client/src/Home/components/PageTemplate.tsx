@@ -1,5 +1,5 @@
 import { ReactNode, useState } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { parseFilename, parseRoute } from '../../services/utils'
 import styles from '../styles/pageTemplate.module.scss'
 import TableOfContents from '../../Content/components/TableOfContents'
