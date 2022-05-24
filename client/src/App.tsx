@@ -1,5 +1,11 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import React, { ReactNode } from 'react'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from 'react-router-dom'
+import React, { ReactNode, useEffect } from 'react'
 import { parseRoute, parseFilename } from './services/utils'
 import ApiError from './Misc/components/ApiError'
 import GuestbookPage from './Guestbook/components/GuestbookPage'
@@ -38,6 +44,7 @@ const APP_CONTENT = [
 }>
 
 const App = () => {
+  // const {pathname} = useLocation()
   const RouteError = (
     <Route
       path="*"
@@ -50,6 +57,10 @@ const App = () => {
       }
     />
   )
+
+  // useEffect(() => {
+  //   console.log('route changed', pathname)
+  // }, [pathname])
 
   return (
     <div className="App">

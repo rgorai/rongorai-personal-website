@@ -120,17 +120,23 @@ const ContentGenerator = (props: Props) => {
 
   // scroll window to desired vertical position when pageData loads
   useEffect(() => {
-    if (pageData.length > 0) {
-      const offsetMarginTop = 75
-      window.scrollTo(
-        0,
-        window.location.hash.length > 0
-          ? (document.getElementById(window.location.hash.slice(1))
-              ?.offsetTop ?? offsetMarginTop) - offsetMarginTop
-          : 0
-      )
+    if (pageData.length > 0 && numUnloadedMedia === 0) {
+      const marginTopOffset = 75
+      if (window.location.hash.length > 0)
+        window.scrollTo(
+          0,
+          (document.getElementById(window.location.hash.slice(1))?.offsetTop ??
+            marginTopOffset) - marginTopOffset
+        )
+      // window.scrollTo(
+      //   0,
+      //   window.location.hash.length > 0
+      //     ? (document.getElementById(window.location.hash.slice(1))
+      //         ?.offsetTop ?? marginTopOffset) - marginTopOffset
+      //     : 0
+      // )
     }
-  }, [pageData])
+  }, [pageData, numUnloadedMedia])
 
   return Object.keys(apiError).length ? (
     <ApiError {...apiError} />
