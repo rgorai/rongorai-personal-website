@@ -32,10 +32,12 @@
     }
 
     .startLinksContainer {
-      @include display-flex(row);
+      @include display-flex(row, center);
 
+      max-width: 100%;
       margin-top: 1.5rem;
       gap: 2em;
+      flex-wrap: wrap;
     }
 
     .startLink {

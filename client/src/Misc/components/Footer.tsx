@@ -5,7 +5,6 @@ import styles from '../styles/footer.module.scss'
 import type { NavInfo } from '../../App'
 import Logo from './Logo'
 
-const EMAIL = 'ron.gorai2020@gmail.com'
 const SOCIAL_LINKS = [
   {
     name: 'LinkedIn',
