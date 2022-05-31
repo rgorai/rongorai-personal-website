@@ -128,13 +128,6 @@ const ContentGenerator = (props: Props) => {
           (document.getElementById(window.location.hash.slice(1))?.offsetTop ??
             marginTopOffset) - marginTopOffset
         )
-      // window.scrollTo(
-      //   0,
-      //   window.location.hash.length > 0
-      //     ? (document.getElementById(window.location.hash.slice(1))
-      //         ?.offsetTop ?? marginTopOffset) - marginTopOffset
-      //     : 0
-      // )
     }
   }, [pageData, numUnloadedMedia])
 

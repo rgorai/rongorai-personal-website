@@ -36,7 +36,13 @@ const APP_CONTENT = [
   {
     name: 'Pets',
   },
-  { name: 'Guestbook', element: <GuestbookPage /> },
+  {
+    name: 'Guestbook',
+    element: <GuestbookPage />,
+  },
+  {
+    name: 'Resume',
+  },
 ] as Array<{
   name: string
   subItems?: Array<string>
@@ -85,17 +91,7 @@ const App = () => {
         <main>
           <ScrollToTop>
             <Routes>
-              <Route
-                path="/"
-                element={
-                  <HomePage
-                    startLocation={parseRoute(
-                      APP_CONTENT[0].name,
-                      APP_CONTENT[0].subItems ? APP_CONTENT[0].subItems[0] : ''
-                    )}
-                  />
-                }
-              />
+              <Route path="/" element={<HomePage />} />
               <Route path="/home" element={<Navigate replace to="/" />} />
 
               <Route path="/resume" element={<ResumePage />} />

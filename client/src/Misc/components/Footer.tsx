@@ -34,24 +34,14 @@ const Footer = (props: Props) => {
     {
       heading: 'INFO',
       items: [
-        <p className={styles.message} key={0}>
+        <p className={styles.message}>
+          I am currently a senior at the Stevens Institute of Technology in
+          Hoboken, NJ pursuing a BS in Computer Science with a strong passion
+          for web development.
+        </p>,
+        <p className={styles.message}>
           Learn about my professional experience and hobbies on my website
           created from scratch. Be sure to sign my guestbook before you go!
-        </p>,
-        <p key={1}>
-          <a
-            className={styles.footerLink}
-            href={`mailto:${EMAIL}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {EMAIL}
-          </a>
-        </p>,
-        <p key={2}>
-          <a id="resume" className={styles.footerLink} href="/resume">
-            My Resume
-          </a>
         </p>,
       ],
     },
@@ -73,13 +63,13 @@ const Footer = (props: Props) => {
           href={e.link}
           target="_blank"
           rel="noreferrer"
+          key={i}
         >
           <img
             className={styles.socialIcon}
             src={`${process.env.PUBLIC_URL}/social_icons/${e.name}.svg`}
             title={e.name}
             alt={e.name}
-            key={i}
           />
         </a>
       )),

@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom'
 import styles from '../styles/homePage.module.scss'
 import { getMedia } from '../../services/utils'
 
-type Props = {
-  startLocation: string
-}
-
 const PROFILE_IMG = '/home/profile-image.jpg'
 
-const HomePage = (props: Props) => {
+const START_LINKS = [
+  { label: 'About', link: '/about' },
+  { label: 'Projects', link: '/projects' },
+  { label: 'Resume', link: '/resume' },
+]
+
+const HomePage = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -26,13 +28,13 @@ const HomePage = (props: Props) => {
           <div className={styles.messageContainer}>
             <div className={styles.title}>Ron Gorai</div>
             <div className={styles.welcome}>Welcome to my website</div>
-            <Link className={styles.getStarted} to={props.startLocation}>
-              Learn more
-              <img
-                src={`${process.env.PUBLIC_URL}/menu_icons/right-arrow.png`}
-                alt="about this website"
-              />
-            </Link>
+            <div className={styles.startLinksContainer}>
+              {START_LINKS.map((e, i) => (
+                <Link className={styles.startLink} to={e.link} key={i}>
+                  {e.label}
+                </Link>
+              ))}
+            </div>
           </div>
           <div className={styles.profileImg}>
             <picture>
