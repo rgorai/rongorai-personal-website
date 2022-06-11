@@ -6,16 +6,12 @@
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   transition:
-    background-color 0.1s linear,
-    border-color 0.1s linear,
+    background-color 0.1s ease-in-out,
+    border-color 0.1s ease-in-out,
     color 0.1s ease-in-out;
 
-  &:hover {
-    // transition: color 0s;
-  }
-
   ::selection {
-    background: color.adjust($accent-color, $lightness: 10%, $alpha: -0.6%);
+    background: var(--blue-10);
   }
 }
 
@@ -23,7 +19,7 @@ main {
   width: 100%;
   height: 100%;
   min-height: calc(100vh - $nav-height);
-  background-color: var(--site-background-color);
+  background-color: var(--background-01);
 }
 
 body {
@@ -45,19 +41,21 @@ code {
     monospace;
 }
 
-$border-type-color: solid $content-border-color;
-
 input[type='text'],
 textarea {
   border: 0;
-  border-bottom: 0.17em $border-type-color;
+  border-bottom: 3px solid var(--content-border-color);
   border-radius: 0.25em;
   padding: 0.4em 0.6em;
   font-size: 1em;
   resize: vertical;
   width: 100%;
   box-sizing: border-box;
-  transition: border 0.2s ease-in-out;
+  transition:
+    border 0.2s ease-in-out,
+    background-color 0.1 ease-in-out,
+    color 0.1s ease-in-out;
+  color: var(--text-01);
 
   &:hover,
   &:focus {
@@ -67,7 +65,7 @@ textarea {
 
   &:focus {
     appearance: none;
-    box-shadow: 0 0 0 1px $content-border-color;
+    box-shadow: 0 0 0 1px var(--content-border-color);
   }
 
   &::placeholder {
@@ -84,7 +82,7 @@ button {
   border: 0;
   border-radius: 0.3em;
   cursor: pointer;
-  background-color: $primary-button-color;
+  background-color: var(--accent-01);
   opacity: 1;
   transition: all 0.15s ease-in-out;
   font-size: 1em;
@@ -92,11 +90,11 @@ button {
   color: white;
 
   &:hover {
-    background-color: color.adjust($primary-button-color, $lightness: 6%);
+    background-color: var(--accent-02);
   }
 
   &:active {
-    background-color: color.adjust($primary-button-color, $lightness: -6%);
+    background-color: var(--accent-03);
   }
 
   &:disabled {

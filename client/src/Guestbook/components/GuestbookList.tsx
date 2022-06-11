@@ -13,8 +13,6 @@ const GuestbookList = (props: Props) => {
         <div className={styles.entryListContainer}>
           {props.data.map((e, i) => (
             <div className={styles.entryContainer} key={i}>
-              {i > 0 && <hr />}
-
               <div className={styles.nameContainer}>
                 <div className={styles.name}>{e.name}</div>
                 <div className={styles.date}>

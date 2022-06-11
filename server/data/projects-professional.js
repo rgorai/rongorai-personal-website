@@ -16,7 +16,6 @@ export default [
     Type: 'img',
     src: '/projects/professional/neuraflash/neuraflash-logo.jpg',
     mediaProps: { alt: 'NeuraFlash Logo' },
-    adjustWidth: 95,
   }),
 
   Tag('h2', 'IBM'),

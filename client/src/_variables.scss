@@ -1,47 +1,60 @@
 @use 'sass:color';
 
-// colors
 :root {
+  // colors
   --gray-10: #ececec;
-  --gray-20: #bebebe;
+  --gray-20: #ccc;
   --gray-30: #a0a0a0;
-  --gray-40: #6c6c6c;
-  --gray-50: #525252;
-  --gray-90: #111;
+  --gray-40: #8f8f8f;
+  --gray-50: #6c6c6c;
+  --gray-60: #525252;
+  --gray-70: #303030;
+  --gray-75: #202020;
+  --gray-80: #1e1e1e;
+  --gray-90: #121212;
   --blue-gray-05: #f7f7f9;
   --blue-gray-10: #e7e7ea;
-  --blue-gray-50: #3b3b3f;
-  --blue-gray-60: #212529;
+  --blue-gray-70: #2b2b2f;
+  --blue-gray-75: #212529;
+  --blue-10: #6eb0ed66;
+  --blue-40-hs: 209, 78%;
+  // --blue-50: #4197e7;
+
+  // light theme
+  --accent-01: hsl(var(--blue-40-hs), 58%);
+  --accent-02: hsl(var(--blue-40-hs), 50%);
+  --accent-03: hsl(var(--blue-40-hs), 42%);
+  // --accent-02: var(--blue-50);
+  --layer-01: white;
+  --layer-02: var(--blue-gray-05);
+  --layer-03: var(--blue-gray-10);
+  --background-01: var(--layer-01);
+  --background-02: var(--layer-02);
+  --background-03: var(--layer-03);
+  --text-01: black;
+  --text-02: var(--gray-60);
+  --text-03: var(--gray-50);
+  --input-01: var(--layer-01);
+  --nav-background-color: var(--blue-gray-75);
+  --content-border-color: var(--gray-20);
+  --content-border: 1px solid var(--content-border-color);
 }
 
-// themes
-[data-theme='light'] {
-  --background-01: white;
-  --background-02: var(--blue-gray-05);
-  --background-03: var(--blue-gray-10);
-  --text-primary: black;
-  --text-secondary: var(--gray-50);
-  --text-tertiary: var(--gray-40);
-  --content-border: 1px solid #ccc;
-  --site-background-color: white;
-  --side-nav-background-color: var(--blue-gray-05);
-  --font-color: black;
-  --side-nav-link-color: #6c6c6c;
-  --side-nav-link-background-color-active: #e7e7ea;
-  --toc-link-color: #6c6c6c;
-}
-
-[data-theme='night'] {
-  --background-01: #121212;
-  // --background-02
-
-  --site-background-color: #121212;
-  --side-nav-background-color: #121212;
-  --font-color: #ececec;
-  --side-nav-link-color: #ccc;
-  --side-nav-link-background-color-active: #3b3b3f;
-  --toc-link-color: var(--gray-30);
-  --content-border: 1px solid #303030;
+// dark theme
+[data-theme='dark'] {
+  --accent-01: hsl(var(--blue-40-hs), 58%);
+  --layer-01: var(--gray-90);
+  --layer-02: var(--blue-gray-70);
+  --background-01: var(--layer-01);
+  --background-02: var(--layer-01);
+  --background-03: var(--layer-02);
+  --text-01: var(--gray-10);
+  --text-02: var(--gray-20);
+  --text-03: var(--gray-30);
+  --input-01: var(--layer-02);
+  --nav-background-color: var(--gray-75);
+  --content-border-color: var(--gray-60);
+  --content-border: 1px solid var(--gray-70);
 }
 
 // colors
@@ -53,7 +66,7 @@ $side-nav-background-color: color.adjust(
   $blue: 1%
 );
 $side-nav-link-color: #525252;
-$nav-hover-color: $accent-color;
+// $nav-hover-color: $accent-color;
 $link-color: #1062c0;
 $visited-link-color: rgb(140, 68, 158);
 $active-link-color: rgb(228, 67, 67);

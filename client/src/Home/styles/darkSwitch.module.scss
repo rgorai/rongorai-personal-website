@@ -35,7 +35,7 @@ $slider-width: calc($track-height - 2 * $slider-margin);
       top: $slider-margin;
       left: $slider-margin;
       background-color: white;
-      transition: 0.2s;
+      transition: 0.2s ease-in-out;
       border-radius: 100em;
     }
   }

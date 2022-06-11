@@ -59,24 +59,19 @@ export default [
   Component('BulletedList', {
     items: [
       'Redux to better manage data loading / storage',
-      'Pagination for guestbook entries list',
-      'Dark / light mode switch',
+      'Color theme options for users',
       'MediaHub project running on a route',
+      'Pagination for guestbook entries list',
       'Admin portal with JWT to update website data from the website itself',
-      'Bug fixes / improvements:',
-      [
-        'better image compression / loading',
-        'better page loading / caching',
-        'anything else I figure out',
-      ],
     ],
   }),
 
   Tag('h3', '1.2 (______)'),
   Component('BulletedList', {
     items: [
-      'Implemented night mode switch that saves theme to localStorage',
-      'Refactored CSS variables into a structure inspired by IBMs Carbon Design System',
+      'Constructed store using React Context API to manage app state like theme',
+      'Implemented dark mode switch that saves theme to localStorage',
+      `Refactored CSS variables into a structure inspired by IBM's Carbon Design System`,
     ],
   }),
 

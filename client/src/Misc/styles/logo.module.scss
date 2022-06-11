@@ -20,7 +20,7 @@ $base-color: rgb(52, 62, 77);
   }
 
   .initial {
-    color: $accent-color;
+    color: var(--accent-01);
   }
 
   .firstName {

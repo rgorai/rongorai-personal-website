@@ -3,8 +3,9 @@ import axios from 'axios'
 import ReCAPTCHA from 'react-google-recaptcha'
 import cx from 'classnames'
 import styles from '../styles/guestbookForm.module.scss'
+import ThemedReCAPTCHA from './ThemedReCAPTCHA'
 
-const FORM_CONTENT = [
+const FORM_SPECS = [
   {
     label: 'Name',
     placeholder: 'Your name',
@@ -20,7 +21,7 @@ const FORM_CONTENT = [
   },
   {
     label: 'Message',
-    placeholder: "Anything you'd like to say",
+    placeholder: `Anything you'd like to say`,
     Tag: 'textarea',
     required: false,
   },
@@ -32,8 +33,8 @@ const FORM_CONTENT = [
   required: boolean
 }>
 
-const reduceFormContent = (mutation: (c: any) => [string, any] | undefined) =>
-  FORM_CONTENT.reduce((p, c) => {
+const reduceFormSpecs = (mutation: (c: any) => [string, any] | undefined) =>
+  FORM_SPECS.reduce((p, c) => {
     const mutVal = mutation(c)
     return {
       ...p,
@@ -41,9 +42,9 @@ const reduceFormContent = (mutation: (c: any) => [string, any] | undefined) =>
     }
   }, {}) as { [key: string]: any }
 
-const DEFAULT_DATA_STATE = reduceFormContent((c) => [c.label, ''])
+const DEFAULT_DATA_STATE = reduceFormSpecs((c) => [c.label, ''])
 
-const DEFAULT_ERROR_STATE = reduceFormContent((c) => [c.label, false])
+const DEFAULT_ERROR_STATE = reduceFormSpecs((c) => [c.label, false])
 
 type Props = {
   updateData: Function
@@ -54,10 +55,6 @@ const GuestbookForm = (props: Props) => {
   const [formData, setFormData] = useState(DEFAULT_DATA_STATE)
   const [captchaPassed, setCaptchaPassed] = useState(false)
   const recaptchaRef = useRef<typeof ReCAPTCHA>(null)
-  const siteKey =
-    process.env.NODE_ENV === 'production'
-      ? process.env.REACT_APP_CAPTCHA_KEY_PRODUCTION
-      : process.env.REACT_APP_CAPTCHA_KEY_DEVELOPMENT
 
   const onSubmit = (e: any) => {
     e.preventDefault()
@@ -65,7 +62,7 @@ const GuestbookForm = (props: Props) => {
 
     // error check
     try {
-      const requiredItems = reduceFormContent((c) =>
+      const requiredItems = reduceFormSpecs((c) =>
         c.required ? [c.label, formData[c.label]] : undefined
       )
       const errorItems = []
@@ -85,7 +82,7 @@ const GuestbookForm = (props: Props) => {
     axios
       .post(
         '/api/guestbook',
-        reduceFormContent((c) => [c.label.toLowerCase(), formData[c.label]])
+        reduceFormSpecs((c) => [c.label.toLowerCase(), formData[c.label]])
       )
       .then((_) => {
         props.updateData()
@@ -104,7 +101,7 @@ const GuestbookForm = (props: Props) => {
       className={styles.formContainer}
       onSubmit={onSubmit}
     >
-      {FORM_CONTENT.map((e, i) => {
+      {FORM_SPECS.map((e, i) => {
         const inputId = `${e.label}-input`
         return (
           <React.Fragment key={i}>
@@ -129,10 +126,9 @@ const GuestbookForm = (props: Props) => {
       })}
 
       <div className={styles.captchaContainer}>
-        <ReCAPTCHA
-          sitekey={siteKey}
+        <ThemedReCAPTCHA
           onChange={(tok: any) => setCaptchaPassed(tok !== null)}
-          ref={recaptchaRef}
+          recaptchaRef={recaptchaRef}
         />
       </div>
 
@@ -140,7 +136,7 @@ const GuestbookForm = (props: Props) => {
         className={styles.formSubmit}
         type="submit"
         form="guestbook-form"
-        disabled={!captchaPassed}
+        // disabled={!captchaPassed}
       >
         Submit
       </button>

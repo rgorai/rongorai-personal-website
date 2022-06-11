@@ -13,7 +13,7 @@
   .formLabel {
     margin-bottom: 0.5rem;
     font-size: 0.9em;
-    color: $label-color;
+    color: var(--text-03);
     word-spacing: 0;
 
     span {
@@ -24,10 +24,12 @@
   .formInput {
     font-family: inherit;
     margin-bottom: 1.5rem;
-    background-color: white;
+    background-color: var(--input-01);
   }
 
   .captchaContainer {
+    width: 304px;
+    height: 78px;
     margin-bottom: 1.5rem;
   }
 

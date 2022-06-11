@@ -47,7 +47,6 @@ const Media = (props: MediaProps) => {
           <picture>
             <source srcSet={getMedia(props.src, true)} type="image/webp" />
             <img
-              className={styles.zoomIn}
               src={getMedia(props.src)}
               title={mediaTitle}
               ref={mediaRef as MutableRefObject<HTMLImageElement>}

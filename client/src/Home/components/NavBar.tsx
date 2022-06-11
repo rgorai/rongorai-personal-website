@@ -5,7 +5,7 @@ import { Spin as Hamburger } from 'hamburger-react'
 import styles from '../styles/navBar.module.scss'
 import type { NavInfo } from '../../App'
 import Logo from '../../Misc/components/Logo'
-import NightSwitch from './NightSwitch'
+import DarkSwitch from './DarkSwitch'
 
 const SUBITEM_HEIGHT = 2.5
 const SUBNAV_PADDING_TOP = 0.5
@@ -98,7 +98,7 @@ const NavBar = (props: Props) => {
         </ul>
 
         <div className={styles.nightSwitchWrapper}>
-          <NightSwitch />
+          <DarkSwitch />
         </div>
 
         <div className={styles.mobileNavButtonContainer} ref={buttonRef}>
