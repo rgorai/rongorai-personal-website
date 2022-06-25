@@ -58,7 +58,6 @@ export default [
   Tag('h3', '2.0 (Upcoming)'),
   Component('BulletedList', {
     items: [
-      'Redux to better manage data loading / storage',
       'Color theme options for users',
       'MediaHub project running on a route',
       'Pagination for guestbook entries list',
@@ -66,10 +65,10 @@ export default [
     ],
   }),
 
-  Tag('h3', '1.2 (______)'),
+  Tag('h3', '1.2 (6/25/22)'),
   Component('BulletedList', {
     items: [
-      'Constructed store using React Context API to manage app state like theme',
+      'Constructed store using React Context API to manage app state',
       'Implemented dark mode switch that saves theme to localStorage',
       `Refactored CSS variables into a structure inspired by IBM's Carbon Design System`,
     ],
