@@ -6,6 +6,7 @@
   max-width: 58rem;
   font-size: 1.1rem;
   margin: 0 auto;
+  color: var(--text-01);
 
   h1 {
     text-align: center;
@@ -43,14 +44,14 @@
     font-weight: 700;
     margin: 2rem auto 2.5rem;
     text-decoration: none;
-    color: $link-color;
+    color: var(--text-link);
 
     &:visited {
-      color: $visited-link-color;
+      color: var(--text-link-visited);
     }
 
     &:active {
-      color: $active-link-color;
+      color: var(--text-link-active);
     }
 
     &:hover {

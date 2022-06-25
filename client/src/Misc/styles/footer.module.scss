@@ -6,7 +6,7 @@
   width: 100%;
   flex-wrap: wrap;
   padding: 2rem 5vw 6rem;
-  background-color: $nav-background-color;
+  background-color: var(--nav-background-color);
   color: white;
   row-gap: 1.5rem;
   column-gap: 10%;
@@ -17,7 +17,7 @@
     text-decoration: none;
 
     &:hover {
-      color: $nav-hover-color;
+      color: var(--accent-01);
     }
   }
 

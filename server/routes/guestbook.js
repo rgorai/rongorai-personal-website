@@ -6,7 +6,7 @@ import { isValidString } from '../misc/errors.js'
 const guestbookRouter = express.Router()
 
 // send all guestbook entries
-guestbookRouter.get('/', async (req, res) => {
+guestbookRouter.get('/', async (_, res) => {
   try {
     res.status(200).json(await getAllEntries())
   } catch (e) {

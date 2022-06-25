@@ -9,8 +9,6 @@
   font-family: Ubuntu, sans-serif;
 }
 
-$base-color: rgb(52, 62, 77);
-
 .logoContainer {
   font-size: 1.5rem;
 
@@ -19,28 +17,19 @@ $base-color: rgb(52, 62, 77);
     text-decoration: none;
   }
 
-  .initial {
-    color: $accent-color;
-  }
-
   .firstName {
     @include name;
 
-    background-color: $base-color;
+    background-color: var(--logo-base-color);
     padding-right: 0;
     word-spacing: 0;
-    border: 0.25em solid $base-color;
+    border: 0.25em solid var(--logo-base-color);
   }
 
   .lastName {
     @include name;
 
-    background-color:
-      color.adjust(
-        $accent-color,
-        $lightness: -10%,
-        $saturation: -15%
-      );
+    background-color: var(--accent-02);
     margin-left: 0.3rem;
     padding-left: 0.5rem;
     padding-right: 0.6rem;

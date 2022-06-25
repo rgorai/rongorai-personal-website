@@ -1,0 +1,70 @@
+@use '../../variables' as *;
+
+$track-height: 26px;
+$track-width: 52px;
+$slider-margin: 3px;
+$slider-width: calc($track-height - 2 * $slider-margin);
+
+.track {
+  position: relative;
+  display: inline-block;
+  width: $track-width;
+  height: $track-height;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    // &:focus {
+    //   .slider {
+    //     background-color: red;
+    //   }
+    // }
+  }
+
+  .slider {
+    @include display-flex(row, space-between);
+
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--blue-gray-50);
+    border-radius: 100em;
+    padding: 0 calc(1.5 * $slider-margin);
+
+    &::before {
+      position: absolute;
+      content: '';
+      height: $slider-width;
+      width: $slider-width;
+      top: $slider-margin;
+      left: $slider-margin;
+      background-color: var(--blue-gray-35);
+      transition: 0.2s ease-in-out;
+      border-radius: 100em;
+      z-index: 2;
+    }
+  }
+
+  input:checked + .slider::before {
+    transform: translateX($track-width - $slider-width - 2 * $slider-margin);
+  }
+
+  img {
+    filter: brightness(0.9);
+    z-index: 1;
+  }
+
+  .lightIcon {
+    width: calc($track-height - 2.75 * $slider-margin);
+    margin-right: calc(0.3 * $slider-margin);
+  }
+
+  .darkIcon {
+    width: calc($track-height - 2 * $slider-margin);
+  }
+}

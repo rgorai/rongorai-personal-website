@@ -8,15 +8,10 @@ nav {
   z-index: 100;
 
   .navLink {
-    color: rgba(255, 255, 255, 60%);
-    color: white;
+    color: var(--gray-10);
     text-decoration: none;
     width: 100%;
     padding: 0.9em 6vw;
-  }
-
-  .activeNavItem {
-    color: $accent-color;
   }
 }
 
@@ -24,12 +19,11 @@ nav {
   @include display-flex(row);
 
   position: relative;
-  background-color: $nav-background-color;
+  background-color: var(--nav-background-color);
   margin: 0;
   width: 100%;
   height: $nav-height;
   box-sizing: border-box;
-  border-bottom: 1px solid color.adjust($nav-background-color, $lightness: 4%);
   z-index: 99;
 
   .logoContainer {
@@ -48,17 +42,16 @@ nav {
 
     .navLink {
       font-weight: 600;
-      color: rgba(255, 255, 255, 95%);
     }
 
     .navLink:hover {
-      color: $nav-hover-color;
+      color: var(--accent-01);
     }
 
     .activeNavItem {
       text-decoration: underline;
       text-underline-offset: 0.4rem;
-      color: $accent-color;
+      color: var(--accent-01);
     }
   }
 
@@ -75,6 +68,11 @@ nav {
     width: 2rem;
     filter: invert(0.9);
     cursor: pointer;
+  }
+
+  .nightSwitchWrapper {
+    margin-left: auto;
+    margin-right: 2.75vw;
   }
 }
 
@@ -106,13 +104,13 @@ nav {
   max-width: 100vw;
   min-width: 15em;
   height: calc(100vh - $nav-height);
-  background-color: $nav-background-color;
+  background-color: var(--nav-background-color);
   padding: 0;
   transform: translateX(101%);
   transition: transform 0.15s ease-in-out;
   z-index: 3;
   overflow-y: auto;
-  border-left: 1px solid color.adjust($nav-background-color, $lightness: 5%);
+  border-top: 1px solid var(--gray-70);
 
   ul {
     width: 100%;
@@ -133,26 +131,30 @@ nav {
 
       transition: all 0.2s ease-in-out;
       overflow: hidden;
-      border-bottom: 0 solid transparent;
       word-wrap: break-word;
+      cursor: pointer;
+
+      > .navLink {
+        border-top: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+      }
     }
 
     .activeNavItem {
       font-weight: 600;
-      background-color: color.adjust($nav-background-color, $lightness: 6%);
-      border-bottom:
-        1px solid
-        color.adjust($nav-background-color, $lightness: 10%);
-      border-top: 1px solid color.adjust($nav-background-color, $lightness: 10%);
+      color: var(--accent-01);
+      background-color: var(--blue-gray-65);
+      border-bottom: 1px solid var(--blue-gray-60);
+      border-top: 1px solid var(--blue-gray-60);
     }
 
     .subMenuOpen {
-      background-color: color.adjust($nav-background-color, $lightness: 6%);
+      background-color: var(--blue-gray-65);
+      border-top: 1px solid var(--blue-gray-60);
+      border-bottom: 1px solid var(--blue-gray-60);
 
       > .navLink {
-        border-bottom:
-          1px solid
-          color.adjust($nav-background-color, $lightness: 15%);
+        border-bottom: 1px solid var(--blue-gray-50);
       }
     }
 
@@ -197,13 +199,13 @@ nav {
       padding: 0.5em 10vw;
 
       &:hover {
-        color: $nav-hover-color;
+        color: var(--accent-01);
         text-decoration: underline;
       }
     }
 
     .activeSubItem {
-      color: $accent-color;
+      color: var(--accent-01);
       font-weight: 700;
     }
   }

@@ -14,6 +14,7 @@ import HomePage from './Home/components/HomePage'
 import PageTemplate from './Home/components/PageTemplate'
 import ResumePage from './Home/components/ResumePage'
 import Footer from './Misc/components/Footer'
+import { StoreProvider } from './services/store'
 
 export type NavInfo = {
   name: string
@@ -42,6 +43,7 @@ const APP_CONTENT = [
   },
   {
     name: 'Resume',
+    element: <ResumePage />,
   },
 ] as Array<{
   name: string
@@ -76,61 +78,63 @@ const App = () => {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <NavBar
-          navItems={APP_CONTENT.map((e) => ({
-            name: e.name,
-            route: parseRoute(e.name),
-            subItems: e.subItems?.map((f) => ({
-              name: f,
-              route: parseRoute(e.name, f),
-            })),
-          }))}
-        />
+      <StoreProvider>
+        <BrowserRouter>
+          <NavBar
+            navItems={APP_CONTENT.map((e) => ({
+              name: e.name,
+              route: parseRoute(e.name),
+              subItems: e.subItems?.map((f) => ({
+                name: f,
+                route: parseRoute(e.name, f),
+              })),
+            }))}
+          />
 
-        <main>
-          <ScrollToTop>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/home" element={<Navigate replace to="/" />} />
+          <main>
+            <ScrollToTop>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/home" element={<Navigate replace to="/" />} />
 
-              <Route path="/resume" element={<ResumePage />} />
+                <Route path="/resume" element={<ResumePage />} />
 
-              {APP_CONTENT.map((e, i) => (
-                <React.Fragment key={i}>
-                  <Route
-                    path={parseRoute(e.name, e.subItems ? '*' : '')}
-                    element={
-                      <PageTemplate
-                        {...{
-                          contentTitle: e.name,
-                          RouteError: RouteError,
-                          ...(e.element
-                            ? { element: e.element }
-                            : {
-                                src: parseFilename(e.name),
-                                subItems: e.subItems,
-                              }),
-                        }}
-                      />
-                    }
-                    key={parseRoute(e.name)}
-                  />
-                </React.Fragment>
-              ))}
+                {APP_CONTENT.map((e, i) => (
+                  <React.Fragment key={i}>
+                    <Route
+                      path={parseRoute(e.name, e.subItems ? '*' : '')}
+                      element={
+                        <PageTemplate
+                          {...{
+                            contentTitle: e.name,
+                            RouteError: RouteError,
+                            ...(e.element
+                              ? { element: e.element }
+                              : {
+                                  src: parseFilename(e.name),
+                                  subItems: e.subItems,
+                                }),
+                          }}
+                        />
+                      }
+                      key={parseRoute(e.name)}
+                    />
+                  </React.Fragment>
+                ))}
 
-              {RouteError}
-            </Routes>
-          </ScrollToTop>
-        </main>
+                {RouteError}
+              </Routes>
+            </ScrollToTop>
+          </main>
 
-        <Footer
-          navItems={APP_CONTENT.map((e) => ({
-            name: e.name,
-            route: parseRoute(e.name, e.subItems ? e.subItems[0] : ''),
-          }))}
-        />
-      </BrowserRouter>
+          <Footer
+            navItems={APP_CONTENT.map((e) => ({
+              name: e.name,
+              route: parseRoute(e.name, e.subItems ? e.subItems[0] : ''),
+            }))}
+          />
+        </BrowserRouter>
+      </StoreProvider>
     </div>
   )
 }
