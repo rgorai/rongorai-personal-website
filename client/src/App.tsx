@@ -97,6 +97,8 @@ const App = () => {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/home" element={<Navigate replace to="/" />} />
 
+                <Route path="/resume" element={<ResumePage />} />
+
                 {APP_CONTENT.map((e, i) => (
                   <React.Fragment key={i}>
                     <Route
