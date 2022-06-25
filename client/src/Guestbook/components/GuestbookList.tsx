@@ -13,30 +13,28 @@ const GuestbookList = (props: Props) => {
         <div className={styles.entryListContainer}>
           {props.data.map((e, i) => (
             <div className={styles.entryContainer} key={i}>
-              {i > 0 && <hr />}
-
               <div className={styles.nameContainer}>
-                <div className={styles.name}>{e.name}</div>
-                <div className={styles.date}>
+                <p className={styles.name}>{e.name}</p>
+                <p className={styles.date}>
                   {((date: Date): string =>
                     `${
                       date.getMonth() + 1
                     }/${date.getDate()}/${date.getFullYear()}`)(
                     new Date(e.date)
                   )}
-                </div>
+                </p>
               </div>
 
               <div className={styles.infoWrapper}>
                 <div className={styles.infoContainer}>
-                  <div className={styles.label}>Background</div>
-                  <div className={styles.background}>{e.background}</div>
+                  <p className={styles.label}>Background</p>
+                  <p className={styles.background}>{e.background}</p>
                 </div>
 
                 {e.message && (
                   <div className={styles.infoContainer}>
-                    <div className={styles.label}>Message</div>
-                    <div className={styles.message}>{e.message}</div>
+                    <p className={styles.label}>Message</p>
+                    <p className={styles.message}>{e.message}</p>
                   </div>
                 )}
               </div>

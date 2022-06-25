@@ -1,5 +1,5 @@
 import { ReactNode, useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { parseFilename, parseRoute } from '../../services/utils'
 import styles from '../styles/pageTemplate.module.scss'
 import TableOfContents from '../../Content/components/TableOfContents'
@@ -43,6 +43,15 @@ const PageTemplate = (props: AppContent | Other) => {
           <div className={styles.contentGeneratorWrapper}>
             {props.subItems ? (
               <Routes>
+                <Route
+                  path=""
+                  element={
+                    <Navigate
+                      replace
+                      to={parseRoute(props.src, props.subItems[0])}
+                    />
+                  }
+                />
                 {props.subItems.map((e, i) => (
                   <Route
                     path={parseRoute(e)}

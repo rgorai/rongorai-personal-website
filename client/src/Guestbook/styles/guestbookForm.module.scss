@@ -5,29 +5,30 @@
   @include display-flex(column, flex-start, flex-start);
 
   .formError {
-    border-bottom-color: $error-color;
-    appearance: none;
-    box-shadow: 0 0 0 0.1em $error-color;
+    box-shadow: 0 0 0 0.1em var(--text-error);
+    border-bottom-color: var(--text-error);
   }
 
   .formLabel {
     margin-bottom: 0.5rem;
     font-size: 0.9em;
-    color: $label-color;
+    color: var(--text-03);
     word-spacing: 0;
 
     span {
-      color: $error-color;
+      color: var(--text-error);
     }
   }
 
   .formInput {
     font-family: inherit;
     margin-bottom: 1.5rem;
-    background-color: white;
+    background-color: var(--input-01);
   }
 
   .captchaContainer {
+    width: 304px;
+    height: 78px;
     margin-bottom: 1.5rem;
   }
 

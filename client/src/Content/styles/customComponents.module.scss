@@ -1,10 +1,6 @@
 @use '../../variables' as *;
 @use 'sass:color';
 
-.zoomIn {
-  cursor: zoom-in;
-}
-
 .adjustWidth {
   width: 100%;
   text-align: center;
@@ -34,10 +30,8 @@ figcaption {
     vertical-align: middle;
   }
 
-  .pngImage {
-    padding: 1rem;
-    background-color: color.adjust($site-background-color, $lightness: 6%);
-    box-sizing: border-box;
+  img {
+    cursor: zoom-in;
   }
 }
 
@@ -101,7 +95,7 @@ $float-spacing: 1.75rem;
   flex-wrap: wrap;
   padding: 1.5rem 1.5rem 0.75rem;
   border-radius: 0.5rem;
-  background-color: color.adjust($site-background-color, $lightness: -4%);
+  background-color: var(--layer-02);
 
   .statContainer {
     @include display-flex(row, flex-start, flex-start);
@@ -114,13 +108,13 @@ $float-spacing: 1.75rem;
     .label {
       width: 9rem;
       font-size: 0.9rem;
-      color: $accent-color;
+      color: var(--accent-01);
       line-height: 1.4rem;
     }
 
     .stat {
       width: 100%;
-      color: $label-color;
+      color: var(--text-02);
     }
   }
 }

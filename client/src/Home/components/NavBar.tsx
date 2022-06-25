@@ -5,7 +5,7 @@ import { Spin as Hamburger } from 'hamburger-react'
 import styles from '../styles/navBar.module.scss'
 import type { NavInfo } from '../../App'
 import Logo from '../../Misc/components/Logo'
-import NightSwitch from './NightSwitch'
+import DarkSwitch from './DarkSwitch'
 
 const SUBITEM_HEIGHT = 2.5
 const SUBNAV_PADDING_TOP = 0.5
@@ -98,7 +98,7 @@ const NavBar = (props: Props) => {
         </ul>
 
         <div className={styles.nightSwitchWrapper}>
-          <NightSwitch />
+          <DarkSwitch />
         </div>
 
         <div className={styles.mobileNavButtonContainer} ref={buttonRef}>
@@ -116,107 +116,116 @@ const NavBar = (props: Props) => {
         </div>
       </div>
 
-      <div
-        className={cx(styles.mobileNavBackdrop, {
-          [styles.showBackdrop]: displayMobileNav,
-        })}
-      />
+      {window.innerWidth <= 900 && (
+        <>
+          <div
+            className={cx(styles.mobileNavBackdrop, {
+              [styles.showBackdrop]: displayMobileNav,
+            })}
+          />
 
-      <div
-        className={cx(styles.mobileNavContainer, {
-          [styles.showMobileContainer]: displayMobileNav,
-        })}
-        ref={navRef}
-      >
-        <ul className={styles.mobileNav}>
-          {props.navItems.map((e, i) => (
-            <li
-              className={cx(styles.mobileNavItem, {
-                [styles.subMenuOpen]: displaySubMenu[e.name],
-              })}
-              key={i}
-            >
-              {e.subItems ? (
-                <>
-                  <div
-                    className={cx(styles.navLink, {
-                      [styles.activeNavItem]: location.pathname.includes(
-                        e.route
-                      ),
-                    })}
-                    onClick={() =>
-                      // open chosen sub menu and close all others
-                      setDisplaySubMenu((prev) =>
-                        props.navItems
-                          .filter((e) => e.subItems)
-                          .reduce(
-                            (p, c) =>
-                              e.name === c.name
-                                ? { ...p, [c.name]: !prev[c.name] }
-                                : { ...p, [c.name]: false },
-                            {}
-                          )
-                      )
-                    }
-                  >
-                    <span className={styles.navLinkTextContainer}>
-                      <span>{e.name.toUpperCase()}</span>
-                      <div className={styles.iconSpacer} />
-                      <img
-                        className={cx(styles.expandIcon, {
-                          [styles.closeIcon]: displaySubMenu[e.name],
-                        })}
-                        src={`${process.env.PUBLIC_URL}/menu_icons/expand-icon.png`}
-                        alt="Expand Menu"
-                      />
-                    </span>
-                  </div>
-                  <ul
-                    className={styles.subItemDropdown}
-                    style={
-                      displaySubMenu[e.name]
-                        ? {
-                            height: `${
-                              e.subItems.length * SUBITEM_HEIGHT +
-                              SUBNAV_PADDING_TOP +
-                              SUBNAV_PADDING_BOTTOM
-                            }em`,
-                            paddingTop: `${SUBNAV_PADDING_TOP}em`,
-                            paddingBottom: `${SUBNAV_PADDING_BOTTOM}em`,
-                          }
-                        : {}
-                    }
-                  >
-                    {e.subItems.map((f, j) => (
-                      <li style={{ height: `${SUBITEM_HEIGHT}em` }} key={j}>
-                        <Link
-                          className={cx(styles.navLink, styles.subItemLink, {
-                            [styles.activeSubItem]: location.pathname.includes(
-                              f.route
-                            ),
-                          })}
-                          to={f.route}
-                        >
-                          {f.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ) : (
-                <Link
-                  className={cx(styles.navLink, {
-                    [styles.activeNavItem]: location.pathname.includes(e.route),
+          <div
+            className={cx(styles.mobileNavContainer, {
+              [styles.showMobileContainer]: displayMobileNav,
+            })}
+            ref={navRef}
+          >
+            <ul className={styles.mobileNav}>
+              {props.navItems.map((e, i) => (
+                <li
+                  className={cx(styles.mobileNavItem, {
+                    [styles.subMenuOpen]: displaySubMenu[e.name],
                   })}
-                  to={e.route}
+                  key={i}
                 >
-                  {e.name.toUpperCase()}
-                </Link>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
+                  {e.subItems ? (
+                    <>
+                      <div
+                        className={cx(styles.navLink, {
+                          [styles.activeNavItem]: location.pathname.includes(
+                            e.route
+                          ),
+                        })}
+                        onClick={() =>
+                          // open chosen sub menu and close all others
+                          setDisplaySubMenu((prev) =>
+                            props.navItems
+                              .filter((e) => e.subItems)
+                              .reduce(
+                                (p, c) =>
+                                  e.name === c.name
+                                    ? { ...p, [c.name]: !prev[c.name] }
+                                    : { ...p, [c.name]: false },
+                                {}
+                              )
+                          )
+                        }
+                      >
+                        <span className={styles.navLinkTextContainer}>
+                          <span>{e.name.toUpperCase()}</span>
+                          <div className={styles.iconSpacer} />
+                          <img
+                            className={cx(styles.expandIcon, {
+                              [styles.closeIcon]: displaySubMenu[e.name],
+                            })}
+                            src={`${process.env.PUBLIC_URL}/menu_icons/expand-icon.png`}
+                            alt="Expand Menu"
+                          />
+                        </span>
+                      </div>
+                      <ul
+                        className={styles.subItemDropdown}
+                        style={
+                          displaySubMenu[e.name]
+                            ? {
+                                height: `${
+                                  e.subItems.length * SUBITEM_HEIGHT +
+                                  SUBNAV_PADDING_TOP +
+                                  SUBNAV_PADDING_BOTTOM
+                                }em`,
+                                paddingTop: `${SUBNAV_PADDING_TOP}em`,
+                                paddingBottom: `${SUBNAV_PADDING_BOTTOM}em`,
+                              }
+                            : {}
+                        }
+                      >
+                        {e.subItems.map((f, j) => (
+                          <li style={{ height: `${SUBITEM_HEIGHT}em` }} key={j}>
+                            <Link
+                              className={cx(
+                                styles.navLink,
+                                styles.subItemLink,
+                                {
+                                  [styles.activeSubItem]:
+                                    location.pathname.includes(f.route),
+                                }
+                              )}
+                              to={f.route}
+                            >
+                              {f.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  ) : (
+                    <Link
+                      className={cx(styles.navLink, {
+                        [styles.activeNavItem]: location.pathname.includes(
+                          e.route
+                        ),
+                      })}
+                      to={e.route}
+                    >
+                      {e.name.toUpperCase()}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
+      )}
     </nav>
   )
 }

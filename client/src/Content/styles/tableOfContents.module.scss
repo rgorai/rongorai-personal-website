@@ -30,12 +30,12 @@
     }
 
     .tocLink {
-      color: var(--toc-link-color);
+      color: var(--text-03);
       text-decoration: none;
       line-height: 1.5em;
 
       &:hover {
-        color: color.adjust($accent-color, $lightness: -10%);
+        color: var(--accent-01);
       }
     }
   }

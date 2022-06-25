@@ -19,10 +19,6 @@ $base-color: rgb(52, 62, 77);
     text-decoration: none;
   }
 
-  .initial {
-    color: $accent-color;
-  }
-
   .firstName {
     @include name;
 
@@ -35,12 +31,7 @@ $base-color: rgb(52, 62, 77);
   .lastName {
     @include name;
 
-    background-color:
-      color.adjust(
-        $accent-color,
-        $lightness: -10%,
-        $saturation: -15%
-      );
+    background-color: var(--accent-02);
     margin-left: 0.3rem;
     padding-left: 0.5rem;
     padding-right: 0.6rem;

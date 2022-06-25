@@ -1,7 +1,7 @@
 @use '../../variables' as *;
 @use 'sass:color';
 
-$nav-background-accent: var(--side-nav-link-background-color-active);
+$nav-background-accent: var(--background-03);
 
 .sideNavContainer {
   height: 100%;
@@ -9,7 +9,7 @@ $nav-background-accent: var(--side-nav-link-background-color-active);
   min-width: 11.5rem;
   padding: 0.75rem;
   box-sizing: border-box;
-  background-color: var(--side-nav-background-color);
+  background-color: var(--background-02);
   z-index: 2;
   font-size: 1.1rem;
   border-right: var(--content-border);
@@ -29,12 +29,11 @@ $nav-background-accent: var(--side-nav-link-background-color-active);
     .sideNavLink {
       display: block;
       width: 100%;
-      color: var(--side-nav-link-color);
+      color: var(--text-02);
       text-decoration: none;
       padding: 0.5rem 1rem;
       box-sizing: border-box;
       border-radius: 0.4rem;
-      // transition: background-color 0.1s ease-in-out;
 
       &:hover {
         background-color: $nav-background-accent;
@@ -42,8 +41,8 @@ $nav-background-accent: var(--side-nav-link-background-color-active);
     }
 
     .activeSideNavLink {
-      color: $accent-color;
-      background-color: $nav-background-accent;
+      color: var(--accent-01);
+      background-color: var(--background-03);
     }
   }
 }

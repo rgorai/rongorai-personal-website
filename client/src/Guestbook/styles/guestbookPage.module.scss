@@ -13,6 +13,7 @@
   height: 100%;
 
   h1 {
+    color: var(--text-01);
     margin-top: 0;
     margin-bottom: 2rem;
     scroll-margin-top: 4rem;
@@ -30,8 +31,8 @@
     width: 35%;
     min-width: 23em;
     padding: $padding-top 5vw;
-    border-right: $content-border;
-    background-color: $side-nav-background-color;
+    border-right: var(--content-border);
+    background-color: var(--background-02);
   }
 
   .listContainer {
@@ -41,6 +42,7 @@
     padding: $padding-top 7% 5rem;
 
     h1 {
+      color: var(--text-01);
       font-size: 2.5em;
     }
   }
@@ -57,7 +59,7 @@
       min-width: 100%;
       height: fit-content;
       border-right: 0;
-      border-bottom: $content-border;
+      border-bottom: var(--content-border);
       padding: 2em 7vw 3em;
       margin-bottom: 2rem;
       overflow-x: hidden;

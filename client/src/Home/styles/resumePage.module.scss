@@ -38,7 +38,7 @@ $a4-ratio: 1.294;
 
   hr {
     height: 1px;
-    background-color: $content-border-color;
+    background-color: var(--content-border-color);
     border: 0;
   }
 

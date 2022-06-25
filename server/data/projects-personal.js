@@ -13,7 +13,7 @@ export default [
   Tag('h2', 'Web Programming Final Project: MediaHub'),
   Tag(
     'p',
-    `My final project for Web Programming was not only a fantastic learning and leadership experience, but was also the main inspiration for me to build this website. The premise of my project, dubbed <i>MediaHub</i>, is to provide users with a single location to search a catalog of movies and TV shows to: view/search existing movies/shows, provide opinions through ratings and comments, find streaming platforms on which the movie/show is available, create watchlists of movies/shows to watch, and much more.`
+    `My final project for Web Programming was not only a fantastic learning and leadership experience, but was also the main inspiration for me to build this website. The premise of this project, dubbed <i>MediaHub</i>, was to provide users with a single location to search a catalog of movies and TV shows to view/search existing movies/shows, provide opinions through ratings and comments, find streaming platforms on which the movie/show is available, create watchlists of movies/shows to watch, and much more.`
   ),
   Tag('a', 'MediaHub Repository', {
     href: 'https://github.com/rgorai/cs546-final-project',
@@ -25,7 +25,7 @@ export default [
   ),
   Tag(
     'p',
-    `In addition to being able to build a more complex and functional application, the main reason I wanted to use React over Handlebars was for the learning experience it would provide to me and my group members, graduate students Shweta Naik, Jaiganesh Rao, and Sushant Bhat. One caveat of this plan, however, was that my groupmates hadn't had any experience with React, and were unsure if they wanted to continue with it. To convey why it would be a better idea to try React for our project, I helped them understand how React works and what gaps it fills that Handlebars cannot. In the end, they saw the value of learing React for the project and decided to join me in taking the extra step.`
+    `In addition to being able to build a more complex and functional application, the main reason I wanted to use React over Handlebars was for the learning experience it would provide to me and my groupmates, graduate students Shweta Naik, Jaiganesh Rao, and Sushant Bhat. One caveat of this plan, however, was that my groupmates hadn't had any experience with React and were unsure if they wanted to move forward with it. To convey why it would be a better idea to try React for our project, I helped them understand how React works and what gaps it fills that Handlebars cannot. In the end, they saw the value of learning React for the project and decided to join me in taking the extra step.`
   ),
   Tag(
     'p',
