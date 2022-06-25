@@ -138,7 +138,7 @@ const GuestbookForm = (props: Props) => {
         className={styles.formSubmit}
         type="submit"
         form="guestbook-form"
-        disabled={!captchaPassed}
+        // disabled={!captchaPassed}
       >
         Submit
       </button>
