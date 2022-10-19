@@ -21,7 +21,11 @@ export type NavInfo = {
   route: string
 }
 
-const APP_CONTENT = [
+const APP_CONTENT: Array<{
+  name: string
+  subItems?: Array<string>
+  element?: ReactNode
+}> = [
   {
     name: 'About',
     subItems: ['Myself', 'This Website'],
@@ -45,11 +49,7 @@ const APP_CONTENT = [
     name: 'Resume',
     element: <ResumePage />,
   },
-] as Array<{
-  name: string
-  subItems?: Array<string>
-  element?: ReactNode
-}>
+]
 
 const App = () => {
   const RouteError = (

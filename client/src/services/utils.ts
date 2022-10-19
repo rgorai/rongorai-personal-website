@@ -12,9 +12,9 @@ const getMedia = (path: string, compressed?: boolean) => {
   const newPath =
     compressed && ext !== 'gif' ? `/_compressed${filename}.webp` : path
 
-  return process.env.NODE_ENV === 'development'
-    ? `/api/localS3/${encodeURIComponent(newPath)}`
-    : `${process.env.REACT_APP_AWS_DISTRIBUTION_URL}${newPath}`
+  return process.env.NODE_ENV === 'production'
+    ? `${process.env.REACT_APP_AWS_DISTRIBUTION_URL}${newPath}`
+    : `/api/localS3/${encodeURIComponent(newPath)}`
 }
 
 const parseId = (text: string) => text.replaceAll(' ', '-').toLowerCase()

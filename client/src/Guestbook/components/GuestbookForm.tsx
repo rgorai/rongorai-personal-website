@@ -33,7 +33,7 @@ const FORM_SPECS = [
   required: boolean
 }>
 
-const reduceFormSpecs = (mutation: (c: any) => [string, any] | undefined) =>
+const reduceFormSpecs = (mutation: (_: any) => [string, any] | undefined) =>
   FORM_SPECS.reduce((p, c) => {
     const mutVal = mutation(c)
     return {
@@ -56,8 +56,8 @@ const GuestbookForm = (props: Props) => {
   const [captchaPassed, setCaptchaPassed] = useState(false)
   const recaptchaRef = useRef<typeof ReCAPTCHA>(null)
 
-  const onSubmit = (e: any) => {
-    e.preventDefault()
+  const onSubmit = (ev: any) => {
+    ev.preventDefault()
     setFormError(DEFAULT_ERROR_STATE)
 
     // error check

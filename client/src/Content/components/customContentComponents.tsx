@@ -106,8 +106,8 @@ const MediaGrid = (props: MediaGridProps) => {
     <div className={styles.mediaGridContainer}>
       <figure>
         <div className={styles.mediaGridComponents} style={{ gap: gridGap }}>
-          {/* thought this in-place function declaration/invocation was
-              a fun way to easily split props.media into rows on render */}
+          {/* thought this IIFE was a fun way to
+              easily split props.media into rows on render */}
           {(() => {
             const rows = []
             for (let i = 0; i < props.media.length / columns; i++) {
