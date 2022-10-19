@@ -75,7 +75,7 @@ const Footer = (props: Props) => {
       horizontal: true,
     },
     {
-      heading: 'CREATED BY',
+      heading: 'BUILT BY',
       items: [<Logo />],
     },
   ] as Array<{
