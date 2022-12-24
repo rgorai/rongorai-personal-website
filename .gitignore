@@ -1,5 +1,6 @@
 # My additions
 .local/
+.vscode/
 
 # Logs
 logs
