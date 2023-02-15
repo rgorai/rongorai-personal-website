@@ -3,6 +3,8 @@ import { Tag, openLinkInNewTab, Component, getDocument } from '../misc/utils.js'
 export default [
   Tag('h1', 'Professional Projects'),
 
+  Tag('h2', 'LISDIN'),
+
   Tag('h2', 'NeuraFlash'),
   Tag(
     'p',
