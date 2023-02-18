@@ -4,22 +4,32 @@ import {
   PropsWithChildren,
   Context,
   useContext,
+  SetStateAction,
+  Dispatch,
 } from 'react'
+import { PageData } from '../Content/components/ContentGenerator'
+import { GuestbookEntries } from '../Guestbook/components/GuestbookPage'
 
-const DEFAULT_STATE = {
-  theme: localStorage.getItem('theme') ?? 'light',
+type AppState = {
+  theme: string
+  pageData: { [key: string]: PageData | null }
+  guestbookEntries: GuestbookEntries | null
 }
 
-let appContext: Context<any> = createContext(DEFAULT_STATE)
+const DEFAULT_STATE: AppState = {
+  theme: localStorage.getItem('theme') ?? 'light',
+  pageData: {},
+  guestbookEntries: null,
+}
 
-const StoreProvider = (props: PropsWithChildren<{}>) => {
+export const appContext: Context<any> = createContext(DEFAULT_STATE)
+
+export const StoreProvider = (props: PropsWithChildren<{}>) => {
   const [store, setStore] = useState(DEFAULT_STATE)
   return <appContext.Provider value={{ store, setStore }} {...props} />
 }
 
-const useStore = () => {
-  const { store, setStore } = useContext(appContext)
-  return { store, setStore }
-}
-
-export { appContext, StoreProvider, useStore }
+export const useStore = (): {
+  store: AppState
+  setStore: Dispatch<SetStateAction<AppState>>
+} => useContext(appContext)
