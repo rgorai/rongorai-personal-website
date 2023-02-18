@@ -3,6 +3,8 @@ import { Tag, openLinkInNewTab, Component } from '../misc/utils.js'
 export default [
   Tag('h1', 'Music'),
 
+  Component('UpdatedOn', { date: 'May 23, 2022' }),
+
   Tag(
     'p',
     `I first took an interest in music when my dad gave me his iPod with all his old music on it in 2009. The first song I played was The Trooper by Iron Maiden, and I instantly fell in love with the sound. That night, I listened to hundreds of songs by them and bands like Megadeth, AC/DC, and Guns N' Roses. A passion for crazy solos and intricate rhythms instantly grew within me.`

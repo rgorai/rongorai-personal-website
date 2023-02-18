@@ -3,6 +3,8 @@ import { Tag, openLinkInNewTab, Component } from '../misc/utils.js'
 export default [
   Tag('h1', 'About This Website'),
 
+  Component('UpdatedOn', { date: 'February 18, 2023' }),
+
   Tag('h2', 'Summary'),
   Tag(
     'p',
@@ -55,13 +57,21 @@ export default [
 
   Tag('h2', 'Release Notes'),
 
-  Tag('h3', '2.0 (Upcoming)'),
+  Tag('h3', '2.0 (Upcoming Ideas)'),
   Component('BulletedList', {
     items: [
       'Color theme options for users',
       'MediaHub project running on a route',
       'Pagination for guestbook entries list',
       'Admin portal with JWT to update website data from the website itself',
+    ],
+  }),
+
+  Tag('h3', '1.2.1 (2/18/23)'),
+  Component('BulletedList', {
+    items: [
+      'Improved page loading with Context API to effectively cache page data between refreshes',
+      'Added last updated date to content pages',
     ],
   }),
 

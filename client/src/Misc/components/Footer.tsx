@@ -45,7 +45,7 @@ const Footer = (props: Props) => {
       ],
     },
     {
-      heading: 'MENU',
+      heading: 'LINKS',
       items: props.navItems.map((e, i) => (
         <p key={i}>
           <Link className={styles.footerLink} to={e.route}>
@@ -55,7 +55,7 @@ const Footer = (props: Props) => {
       )),
     },
     {
-      heading: 'SOCIAL LINKS',
+      heading: 'SOCIAL MEDIA',
       items: SOCIAL_LINKS.map((e, i) => (
         <a
           className={styles.socialIconLink}

@@ -3,12 +3,48 @@ import { Tag, openLinkInNewTab, Component, getDocument } from '../misc/utils.js'
 export default [
   Tag('h1', 'Professional Projects'),
 
+  Component('UpdatedOn', { date: 'February 18, 2023' }),
+
   Tag('h2', 'LISDIN'),
+  Tag(
+    'p',
+    `I am currently working part-time as a Founding Engineer for a small startup named LISDIN, which is short for our motto: Life Is Short, Do It Now. While their website is currently a simple blog for sharing ideas, we are working on building “a new platform that cultivates all ideas to accelerate innovation”. Here, users will be able to create and share their own project ideas, research market interest, calculate potential value, and more.`
+  ),
+  Tag(
+    'p',
+    `My role in the company is to establish and build upon the entire codebase required to run our product. Being the start of a potentially enterprise-level infrastructure, I tried to keep scalability and futureproofing in mind when setting things up. The demo version of the app is currently under development using ReactTS, Redux, Express, JWT, and MongoDB. We plan to host on AWS, and perhaps integrate more AWS services for a beta or future release, such as Cognito and S3.`
+  ),
+  Tag('a', `LISDIN homepage`, {
+    href: 'https://www.lisdin.com/',
+    ...openLinkInNewTab,
+  }),
+  Component('Media', {
+    Type: 'img',
+    src: '/projects/professional/lisdin/lisdin-logo.jpeg',
+    mediaProps: { alt: 'LISDIN Logo' },
+    adjustWidth: 70,
+  }),
 
   Tag('h2', 'NeuraFlash'),
   Tag(
     'p',
-    `I am currently working at NeuraFlash as a Software Developer Co-op on projects involving React, Apex, and Lightning Web Components.`
+    `For my final co-op term at Stevens, I was a Software Developer Co-op at NeuraFlash. In order to get accustomed to their work culture and technical practices, I was tasked with improving an internal tool for my first project, called the UI Enhancer Payload Generator. This tool is a React application that was built to assist our Einstein Bot - one of the main products of NeuraFlash - developers in building enhanced UI for the bot’s chat box. It supported a small handful of our custom Lightning Web Components (LWCs), such as a MiniCard, a simple card with a title, image, and description, or a FormCard, a component that allowed our bot builders to create any arbitrary form for users of a chat bot. The UI Enhancer served as a platform for builders to input the UI data (or payload) in a user-friendly manner, compared to the conventional method of typing out the data in JSON manually into a basic textbox on a SalesForce dashboard.`
+  ),
+  Tag(
+    'p',
+    `The existing application kind of got the job done, but I could see that there was a lot of room for improvement. So, instead of incrementally updating the existing codebase and potentially leaving a number of gaps given my timeframe, I decided I should rebuild the application from the ground up with TypeScript and Sass to both considerably improve the tool, and to deeply practice my project development skills. In addition to utilizing newer technologies for better features and security, I wanted to make the codebase more efficient and easy to work off of for future developers - skills that would be very useful in my career ahead.`
+  ),
+  Tag(
+    'p',
+    `Perhaps my favorite of the improvements I made was a complex, yet simple, system I developed for generating a UI for the different LWCs that the tool supported. The existing application was hard-coding all the form data and payload information for specific LWCs. However, since there could be any number of LWCs that we would want to support on the tool, and each with their own set of specifications, I felt that the current structure was inefficient for scaling with the range of LWCs supported. So, I devised an object-based structure for various aspects of the application where different blocks of code would be executed based on information provided in a single object. For example, I created an array of objects that specified the name and other metadata for each of the LWCs that the app would support, which was then read by various other components of the application to generate navigation links, route names, page headings, and more. So, in order to provide support for more LWC components in the future, all you would have to do is add the relevant information to the main object, which brings me to my favorite part of this project.`
+  ),
+  Tag(
+    'p',
+    `In order to continue the theme of efficiency in the effort to prevent future developers from needing to spend unnecessary time developing support for future LWCs, I used my object-based generation system to create a recursive React component that generates the form UI for every LWC’s payload generator page. This was done with a seed object that resembled the default state of the payload. Then, the React component would recurse through the values in the seed to generate a different form UI element based on the data type encountered - e.g. a text input for string/number values, a checkbox for boolean values, and a recursive operation for object or array values. However, there could of course be more complex data/UI types than simple primitive values, like options for a select input, a textarea instead of a simple text input, or even a code input area. To remedy custom cases like this, I implemented a key system similar to that of MongoDB query selectors, to allow the developer to specify special data in the seed to render special UI components. For example, I implemented a ‘$useSelectOptions’ keyword to specify options for a select input, as well as any associated extra form fields.`
+  ),
+  Tag(
+    'p',
+    `After polishing up the internal tool, I started working on creating some of my own LWCs and Apex classes for one of NeuraFlash’s clients. For me, LWC development is reminiscent of Handlebars, and Apex of Java, so it was relatively easy to get into the hang of them. The first component I made was a Breadcrumb for the topic/article navigation, and the second a rating + feedback component.`
   ),
   Tag('a', `Neuraflash homepage`, {
     href: 'https://www.neuraflash.com/',
@@ -18,6 +54,7 @@ export default [
     Type: 'img',
     src: '/projects/professional/neuraflash/neuraflash-logo.jpg',
     mediaProps: { alt: 'NeuraFlash Logo' },
+    adjustWidth: 90,
   }),
 
   Tag('h2', 'IBM'),
