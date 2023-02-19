@@ -71,16 +71,11 @@ textarea {
     background-color $dark-switch-transition,
     box-shadow $dark-switch-transition;
   color: var(--text-01);
+  box-shadow: 0 0 0 1px var(--content-border-color);
 
-  &:hover,
   &:focus {
     border-bottom: 3px solid var(--accent-01-85);
     outline: 0;
-  }
-
-  &:focus {
-    appearance: none;
-    box-shadow: 0 0 0 1px var(--content-border-color);
   }
 
   &::placeholder {
