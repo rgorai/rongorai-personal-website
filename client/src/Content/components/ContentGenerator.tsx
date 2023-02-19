@@ -6,6 +6,7 @@ import ErrorBoundary from '../../Misc/components/ErrorBoundary'
 import { getMedia, parseId } from '../../services/utils'
 import Loading from '../../Misc/components/Loading'
 import ApiError from '../../Misc/components/ApiError'
+import { useStore } from '../../services/store'
 import * as CustomComponents from './customContentComponents'
 
 type AnyObject = { [key: string]: any }
@@ -21,7 +22,7 @@ type Component = {
   props: AnyObject
 }
 
-type PageData = Array<Tag | Component>
+export type PageData = Array<Tag | Component>
 
 const isTag = (x: any): x is Tag => x.tag !== undefined
 const isHeading = (x: any): x is Tag => x.tag === 'h2'
@@ -33,8 +34,9 @@ type Props = {
 }
 
 const ContentGenerator = (props: Props) => {
-  const [pageData, setPageData] = useState([] as PageData)
-  const [apiError, setApiError] = useState({} as AxiosResponse)
+  const { store, setStore } = useStore()
+  const pageData = store.pageData[props.src]
+  const [apiError, setApiError] = useState<AxiosResponse | null>(null)
   const [numUnloadedMedia, setNumUnloadedMedia] = useState(0)
 
   const getComponent = (e: Component) => {
@@ -43,84 +45,88 @@ const ContentGenerator = (props: Props) => {
   }
 
   useEffect(() => {
-    setPageData([])
-    setApiError({} as AxiosResponse)
+    setApiError(null)
     setNumUnloadedMedia(0)
     props.setHeadingData([])
 
-    axios
-      .get(`/api/data/${encodeURIComponent(`${props.src}`)}`)
-      .then(({ data }: { data: PageData }) => {
-        // calculate total number of media
-        setNumUnloadedMedia(
-          data.reduce(
-            (p, c) =>
-              p +
-              (isComponent(c) &&
-                (c.component === 'Media'
-                  ? 1
-                  : c.component === 'MediaGrid'
-                  ? c.props.media.length
-                  : 0)),
-            0
+    if (!pageData)
+      axios
+        .get(`/api/data/${encodeURIComponent(`${props.src}`)}`)
+        .then(({ data }: { data: PageData }) => {
+          // calculate total number of media
+          setNumUnloadedMedia(
+            data.reduce(
+              (p, c) =>
+                p +
+                (isComponent(c) &&
+                  (c.component === 'Media'
+                    ? 1
+                    : c.component === 'MediaGrid'
+                    ? c.props.media.length
+                    : 0)),
+              0
+            )
           )
-        )
 
-        // pre-load all media
-        const preload = (mediaProps: AnyObject) => {
-          let { Type, src } = mediaProps
-          const media = document.createElement(Type)
+          // pre-load all media
+          const preload = (mediaProps: AnyObject) => {
+            let { Type, src } = mediaProps
+            const media = document.createElement(Type)
 
-          if (Type === 'img') {
-            media.onload = () => {
-              mediaProps.flex = media.width / media.height
-              setNumUnloadedMedia((prev) => prev - 1)
-              media.remove()
+            if (Type === 'img') {
+              media.onload = () => {
+                mediaProps.flex = media.width / media.height
+                setNumUnloadedMedia((prev) => prev - 1)
+                media.remove()
+              }
+            } else if (Type === 'video') {
+              media.onloadedmetadata = () => {
+                mediaProps.flex = media.videoWidth / media.videoHeight
+                setNumUnloadedMedia((prev) => prev - 1)
+                media.remove()
+              }
             }
-          } else if (Type === 'video') {
-            media.onloadedmetadata = () => {
-              mediaProps.flex = media.videoWidth / media.videoHeight
-              setNumUnloadedMedia((prev) => prev - 1)
-              media.remove()
+            media.onerror = () => {
+              media.src = getMedia('/not-found-image.webp', true)
+            }
+
+            // trigger browser download
+            media.src = getMedia(src, Type === 'img')
+          }
+          for (const e of data) {
+            if (isComponent(e)) {
+              if (e.component === 'Media') preload(e.props)
+              else if (e.component === 'MediaGrid')
+                for (const f of e.props.media) preload(f)
             }
           }
-          media.onerror = () => {
-            media.src = getMedia('/not-found-image.webp', true)
-          }
 
-          // trigger browser download
-          media.src = getMedia(src, Type === 'img')
-        }
-        for (const e of data) {
-          if (isComponent(e)) {
-            if (e.component === 'Media') preload(e.props)
-            else if (e.component === 'MediaGrid')
-              for (const f of e.props.media) preload(f)
-          }
-        }
-
-        // apply page data, giving all headings a generated id
-        setPageData(
-          data.map((e) =>
-            isHeading(e)
-              ? { ...e, props: { ...e.props, id: parseId(e.text) } }
-              : e
-          )
-        )
-      })
-      .catch((err) => setApiError(err.response))
+          // apply page data, giving all headings a generated id
+          setStore((prev) => ({
+            ...prev,
+            pageData: {
+              ...prev.pageData,
+              [props.src]: data.map((e) =>
+                isHeading(e)
+                  ? { ...e, props: { ...e.props, id: parseId(e.text) } }
+                  : e
+              ),
+            },
+          }))
+        })
+        .catch((err) => setApiError(err.response))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.src])
 
   useEffect(() => {
-    if (pageData.length > 0 && numUnloadedMedia === 0)
+    if (pageData && numUnloadedMedia === 0)
       props.setHeadingData(pageData.filter((e) => isHeading(e)))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageData, numUnloadedMedia, props.setHeadingData])
 
   // scroll window to desired vertical position when pageData loads
   useEffect(() => {
-    if (pageData.length > 0 && numUnloadedMedia === 0) {
+    if (pageData && numUnloadedMedia === 0) {
       const marginTopOffset = 75
       if (window.location.hash.length > 0)
         window.scrollTo(
@@ -131,9 +137,9 @@ const ContentGenerator = (props: Props) => {
     }
   }, [pageData, numUnloadedMedia])
 
-  return Object.keys(apiError).length ? (
+  return apiError ? (
     <ApiError {...apiError} />
-  ) : pageData.length > 0 && numUnloadedMedia === 0 ? (
+  ) : pageData && numUnloadedMedia === 0 ? (
     <ErrorBoundary message="Content page error">
       <article className={styles.contentContainer}>
         {pageData.map((e, i) => (

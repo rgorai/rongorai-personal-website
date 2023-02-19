@@ -5,14 +5,15 @@
   "main": "server/index.js",
   "type": "module",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "NODE_ENV=production && node server/index.js",
     "start-watch": "nodemon server/index.js",
-    "build": "npm run build --prefix client",
-    "dev": "concurrently \"npm run start-watch\" \"cd client && yarn dev\"",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
+    "build": "yarn --cwd client build",
+    "dev": "concurrently \"yarn start-watch\" \"yarn --cwd dev\"",
+    "heroku-postbuild": "yarn --cwd client install && yarn build",
     "precommit": "lint-staged",
     "seed": "node server/tasks/seed.js",
-    "lint": "eslint --fix --ext .tsx,.ts,.js,.html && prettier --write \"**/*.{tsx,ts,js,scss,html}\" && stylelint --fix **/*.scss"
+    "lint": "eslint --fix --ext .tsx,.ts,.js,.html && prettier --write \"**/*.{tsx,ts,js,scss,html}\" && stylelint --fix **/*.scss",
+    "prepare": "husky install && chmod ug+x .husky/*"
   },
   "lint-staged": {
     "**/*.{tsx,ts,js}": [

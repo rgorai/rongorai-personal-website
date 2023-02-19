@@ -3,6 +3,8 @@ import { Tag, Component, openLinkInNewTab, getDocument } from '../misc/utils.js'
 export default [
   Tag('h1', 'Personal Projects'),
 
+  Component('UpdatedOn', { date: 'May 30, 2022' }),
+
   Tag('h2', 'Personal Website'),
   Tag(
     'p',

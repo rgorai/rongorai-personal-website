@@ -1,6 +1,7 @@
 # My additions
 .local/
 .vscode/
+.DS_STORE
 
 # Logs
 logs

@@ -3,6 +3,8 @@ import { Tag, openLinkInNewTab, Component } from '../misc/utils.js'
 export default [
   Tag('h1', 'Bowling'),
 
+  Component('UpdatedOn', { date: 'May 12, 2022' }),
+
   Tag(
     'p',
     `I started bowling competitively at the age of 15 and made it to the Montville varsity team that winter. I felt honored and excited to be on a team of very talented bowlers, including our captain Erik Kattermann who was a top 5 varsity bowler in the state.`

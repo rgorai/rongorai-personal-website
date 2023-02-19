@@ -36,7 +36,7 @@ const APP_CONTENT: Array<{
   },
   {
     name: 'Hobbies',
-    subItems: ['Music', 'Snowboarding', 'Bowling', 'STEM'],
+    subItems: ['GDSC Stevens', 'Music', 'Snowboarding', 'Bowling', 'STEM'],
   },
   {
     name: 'Pets',

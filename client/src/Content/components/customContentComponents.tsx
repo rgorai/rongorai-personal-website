@@ -20,7 +20,7 @@ type MediaProps = {
   caption?: string
 } & StyleClasses
 
-const Media = (props: MediaProps) => {
+export const Media = (props: MediaProps) => {
   const [mediaError, setMediaError] = useState(false)
   const mediaRef = useRef({ offsetWidth: 0, offsetHeight: 0 })
   const mediaTitle = ((split) => split[split.length - 1])(props.src.split('/'))
@@ -78,7 +78,7 @@ type MediaGridProps = {
   caption?: string
 }
 
-const MediaGrid = (props: MediaGridProps) => {
+export const MediaGrid = (props: MediaGridProps) => {
   const calcColumns = useCallback(
     () =>
       props.columns -
@@ -107,7 +107,7 @@ const MediaGrid = (props: MediaGridProps) => {
       <figure>
         <div className={styles.mediaGridComponents} style={{ gap: gridGap }}>
           {/* thought this IIFE was a fun way to
-              easily split props.media into rows on render */}
+              easily split props.media into rows on renyarn upgradeder */}
           {(() => {
             const rows = []
             for (let i = 0; i < props.media.length / columns; i++) {
@@ -139,7 +139,7 @@ const MediaGrid = (props: MediaGridProps) => {
   )
 }
 
-const StatGrid = (props: AnyObject) => (
+export const StatGrid = (props: AnyObject) => (
   <div className={styles.statGridContainer}>
     {Object.keys(props).map((e, i) => (
       <div className={styles.statContainer} key={i}>
@@ -158,7 +158,7 @@ type BulletedListProps = {
 }
 
 // recursion, yay!
-const BulletedList = (props: BulletedListProps) => (
+export const BulletedList = (props: BulletedListProps) => (
   <div className={styles.bulletedListContainer} key={props.key}>
     <ul>
       {props.items.map((e, i) =>
@@ -172,4 +172,6 @@ const BulletedList = (props: BulletedListProps) => (
   </div>
 )
 
-export { Media, MediaGrid, StatGrid, BulletedList }
+export const UpdatedOn = ({ date }: { date: string }) => (
+  <div className={styles.updatedOn}>Updated {date}</div>
+)
