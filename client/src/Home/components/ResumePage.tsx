@@ -40,6 +40,7 @@ const ResumePage = () => {
           </React.Fragment>
         ))}
       </Document>
+
       {numPages !== 0 && (
         <button
           className={styles.resumeLink}
