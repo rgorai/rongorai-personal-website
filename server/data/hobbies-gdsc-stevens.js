@@ -7,7 +7,7 @@ export default [
 
   Tag(
     'p',
-    `During the summer of 2022, I had the honor of being selected by Google as the Google Developer Student Clubs Lead for the Stevens Institute of Technology chapter. As a GDSC Lead, I and a self-appointed team of core members plan and host a variety of events to help undergraduate and graduate students at our school learn Google technologies, compete in various competitions, and just hang out.`
+    `During the summer of 2022, I had the honor of being selected by Google as the Google Developer Student Clubs Lead for the Stevens Institute of Technology chapter. As a GDSC Lead, I and a self-appointed team of core members host a variety of events to help members of our club learn Google technologies, compete in various competitions, and just hang out.`
   ),
   Tag('a', `Official chapter homepage`, {
     href: 'https://gdsc.community.dev/stevens-institute-of-technology/',
@@ -34,7 +34,7 @@ export default [
   }),
   Tag(
     'p',
-    `For our first event of the school year, we held a little info session to share with students what our club is all about. After that, I conducted a codelab where we created a simple chat application using Firebase Authentication, Hosting, Cloud Storage, Cloud Messaging, and Firestore.`
+    `For our first event of the school year, we held an info session to share with students what our club is all about. After that, I conducted a codelab where we created a simple chat application using Firebase Authentication, Hosting, Cloud Storage, Cloud Messaging, and Firestore.`
   ),
   Component('MediaGrid', {
     columns: 2,
@@ -61,7 +61,7 @@ export default [
   Tag('h2', `Solution Challenge Info Session + Flutter Workshop`),
   Tag(
     'p',
-    `For this event, we wanted to share with our members more about Google’s Solution Challenge, which is an annual competition for GDSC members across the globe to design a special application for a cash prize. The prompt for 2023 is a continuation of 2022’s, which is to build a solution that solves one or more of the United Nations’ 17 Sustainable Development Goals on any scale. To more effectively communicate what Solution Challenge is all about, I invited North America GDSC Program Manager Daniel Fiorillo to join us and speak about it with our members. `
+    `For this event, we introduced Google's Solution Challenge, an annual competition for GDSC members across the globe to design a special application for a cash prize, to the members of our chapter. The prompt for 2023 is a continuation of 2022's, which is to build a solution that solves one or more of the United Nations' 17 Sustainable Development Goals on any scale. To more effectively communicate what Solution Challenge is all about, I invited North America GDSC Program Manager Daniel Fiorillo to join us and speak about it with our members. `
   ),
   Tag(
     'p',
@@ -109,7 +109,7 @@ export default [
   Tag('h2', `Keras Workshop Series`),
   Tag(
     'p',
-    `Our latest event, a 2-part series, is being hosted in collaboration with the Hoboken chapter of Google Developer Groups. Hosting workshops for both sessions, Google ML Engineer Shilpa Kancharla will be speaking about KerasNLP and KerasCV, which are natural language processing and computer vision APIs developed by Google. `
+    `Our latest event, a 2-part series, is being hosted in collaboration with the Hoboken chapter of Google Developer Groups. Hosting workshops for both sessions, Google ML Engineer Shilpa Kancharla will be speaking about KerasNLP and KerasCV, which are natural language processing and computer vision APIs developed by Google.`
   ),
   Tag('a', `GDG Hoboken homepage`, {
     href: 'https://gdg.community.dev/gdg-hoboken/',
