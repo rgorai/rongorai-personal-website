@@ -47,12 +47,12 @@ export default [
       },
       {
         Type: 'img',
-        src: '/extracurriculars/gdsc/info-session/presenting-codelab.png',
+        src: '/extracurriculars/gdsc/info-session/presenting-codelab.jpg',
         mediaProps: { alt: 'Me conducting the codelab' },
       },
       {
         Type: 'img',
-        src: '/extracurriculars/gdsc/info-session/audience.png',
+        src: '/extracurriculars/gdsc/info-session/audience.jpg',
         mediaProps: { alt: 'Our audience' },
       },
     ],
@@ -78,7 +78,7 @@ export default [
       },
       {
         Type: 'img',
-        src: '/extracurriculars/gdsc/solution-challenge/group-picture.png',
+        src: '/extracurriculars/gdsc/solution-challenge/group-picture.jpeg',
         mediaProps: { alt: 'A group photo' },
       },
     ],
@@ -87,7 +87,7 @@ export default [
   Tag('h2', `Stevens CS Carnivale`),
   Tag(
     'p',
-    `The Stevens Computer Science Carnivale was a first of a kind open house event at our school where groups ranging from student organizations to research labs came together to share what the CS Department has to offer at Stevens. It was a cool experience with free food, giveaways, and even a scavenger hunt. In order to help GDSC gain more publicity at Stevens, I partnered with Domains for Devs, a Google program that helps developers publicize their work with deals on Google Domains. Students who came to our booth and performed well on our Google trivia quiz won a free domain name for a year! I felt that this would help our members create a more special Solution Challenge application, or even just help refine their coding skills by allowing them to host their own project.`
+    `The Stevens Computer Science Carnivale was a first-of-a-kind open house event at our school where groups ranging from student organizations to research labs came together to share what the CS Department has to offer at Stevens. It was a cool experience with free food, giveaways, and even a scavenger hunt. In order to help GDSC gain more publicity at Stevens, I partnered with Domains for Devs, a Google program that helps developers publicize their work with deals on Google Domains. Students who came to our booth and performed well on our Google trivia quiz won a free domain name for a year! I felt that this would help our members create a more special Solution Challenge application, or even just help refine their coding skills by allowing them to host their own project.`
   ),
   Tag('a', `Domains for Devs homepage`, {
     href: 'https://get.dev/domainsfordevs/',
