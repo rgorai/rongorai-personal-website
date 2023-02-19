@@ -39,8 +39,9 @@ const Footer = (props: Props) => {
           for web development.
         </p>,
         <p className={styles.message}>
-          Learn about my professional experience and hobbies on my website
-          created from scratch. Be sure to sign my guestbook before you go!
+          Learn about my professional experience and extracurricular activities
+          on my website created from scratch. Be sure to sign my guestbook
+          before you go!
         </p>,
       ],
     },

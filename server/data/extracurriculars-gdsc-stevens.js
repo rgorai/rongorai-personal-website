@@ -18,12 +18,12 @@ export default [
     media: [
       {
         Type: 'img',
-        src: '/hobbies/gdsc/main/logo.png',
+        src: '/extracurriculars/gdsc/main/logo.png',
         mediaProps: { alt: 'GDSC Stevens logo' },
       },
       {
         Type: 'img',
-        src: '/hobbies/gdsc/main/banner.png',
+        src: '/extracurriculars/gdsc/main/banner.png',
         mediaProps: { alt: 'GDSC Stevens banner' },
       },
     ],
@@ -42,17 +42,17 @@ export default [
     media: [
       {
         Type: 'img',
-        src: '/hobbies/gdsc/info-session/poster.png',
+        src: '/extracurriculars/gdsc/info-session/poster.png',
         mediaProps: { alt: 'Info Session Poster' },
       },
       {
         Type: 'img',
-        src: '/hobbies/gdsc/info-session/presenting-codelab.png',
+        src: '/extracurriculars/gdsc/info-session/presenting-codelab.png',
         mediaProps: { alt: 'Me conducting the codelab' },
       },
       {
         Type: 'img',
-        src: '/hobbies/gdsc/info-session/audience.png',
+        src: '/extracurriculars/gdsc/info-session/audience.png',
         mediaProps: { alt: 'Our audience' },
       },
     ],
@@ -73,12 +73,12 @@ export default [
     media: [
       {
         Type: 'img',
-        src: '/hobbies/gdsc/solution-challenge/poster.png',
+        src: '/extracurriculars/gdsc/solution-challenge/poster.png',
         mediaProps: { alt: 'Solution challenge event poster' },
       },
       {
         Type: 'img',
-        src: '/hobbies/gdsc/solution-challenge/group-picture.png',
+        src: '/extracurriculars/gdsc/solution-challenge/group-picture.png',
         mediaProps: { alt: 'A group photo' },
       },
     ],
@@ -99,7 +99,7 @@ export default [
     media: [
       {
         Type: 'img',
-        src: '/hobbies/gdsc/cs-carnivale/poster.jpeg',
+        src: '/extracurriculars/gdsc/cs-carnivale/poster.jpeg',
         mediaProps: { alt: '' },
         adjustWidth: 60,
       },
@@ -121,12 +121,12 @@ export default [
     media: [
       {
         Type: 'img',
-        src: '/hobbies/gdsc/keras/nlp-poster.jpeg',
+        src: '/extracurriculars/gdsc/keras/nlp-poster.jpeg',
         mediaProps: { alt: 'NLP Workshop audience' },
       },
       {
         Type: 'img',
-        src: '/hobbies/gdsc/keras/nlp-audience.jpeg',
+        src: '/extracurriculars/gdsc/keras/nlp-audience.jpeg',
         mediaProps: { alt: 'NLP Workshop audience' },
       },
     ],

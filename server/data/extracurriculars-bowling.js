@@ -23,32 +23,32 @@ export default [
     media: [
       {
         Type: 'img',
-        src: '/hobbies/bowling/team-picture.jpg',
+        src: '/extracurriculars/bowling/team-picture.jpg',
         mediaProps: { alt: 'Team Picture' },
       },
       {
         Type: 'img',
-        src: '/hobbies/bowling/sectional-championship-cert.jpg',
+        src: '/extracurriculars/bowling/sectional-championship-cert.jpg',
         mediaProps: { alt: 'Sectional Championship Certificate' },
       },
       {
         Type: 'img',
-        src: '/hobbies/bowling/township-proclamation.jpg',
+        src: '/extracurriculars/bowling/township-proclamation.jpg',
         mediaProps: { alt: 'Montville Township Proclamation' },
       },
       {
         Type: 'img',
-        src: '/hobbies/bowling/varsity-plaque.jpg',
+        src: '/extracurriculars/bowling/varsity-plaque.jpg',
         mediaProps: { alt: 'Varsity Plaque' },
       },
       {
         Type: 'img',
-        src: '/hobbies/bowling/sectional-championship-team.jpg',
+        src: '/extracurriculars/bowling/sectional-championship-team.jpg',
         mediaProps: { alt: 'Sectional Championship' },
       },
       {
         Type: 'video',
-        src: '/hobbies/bowling/a-strike.mp4',
+        src: '/extracurriculars/bowling/a-strike.mp4',
         mediaProps: { loop: true },
       },
     ],

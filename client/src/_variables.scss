@@ -2,6 +2,7 @@
 
 :root {
   // colors
+  --gray-05: #fafafa;
   --gray-10: #ececec;
   --gray-20: #ccc;
   --gray-30: #a0a0a0;
@@ -42,7 +43,7 @@
   --accent-03: hsl(var(--blue-40-hs), 42%);
   //
   --layer-01: white;
-  --layer-02: var(--blue-gray-05);
+  --layer-02: var(--gray-05);
   --layer-03: var(--blue-gray-10);
   //
   --background-01: var(--layer-01);

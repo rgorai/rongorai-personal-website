@@ -35,7 +35,7 @@ const APP_CONTENT: Array<{
     subItems: ['Professional', 'Personal', 'Other'],
   },
   {
-    name: 'Hobbies',
+    name: 'Extracurriculars',
     subItems: ['GDSC Stevens', 'Music', 'Snowboarding', 'Bowling', 'STEM'],
   },
   {

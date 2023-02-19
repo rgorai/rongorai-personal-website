@@ -29,12 +29,12 @@ export default [
     media: [
       {
         Type: 'img',
-        src: '/hobbies/snowboarding/jay-peak/danny-glading.jpg',
+        src: '/extracurriculars/snowboarding/jay-peak/danny-glading.jpg',
         mediaProps: { alt: 'Danny glading' },
       },
       {
         Type: 'video',
-        src: '/hobbies/snowboarding/jay-peak/jay-peak-glading.mp4',
+        src: '/extracurriculars/snowboarding/jay-peak/jay-peak-glading.mp4',
         mediaProps: { loop: true },
       },
     ],
@@ -47,17 +47,17 @@ export default [
     media: [
       {
         Type: 'video',
-        src: '/hobbies/snowboarding/camelback/smooth-jump.mp4',
+        src: '/extracurriculars/snowboarding/camelback/smooth-jump.mp4',
         mediaProps: { loop: true },
       },
       {
         Type: 'video',
-        src: '/hobbies/snowboarding/camelback/toe-grab.mp4',
+        src: '/extracurriculars/snowboarding/camelback/toe-grab.mp4',
         mediaProps: { loop: true },
       },
       {
         Type: 'img',
-        src: '/hobbies/snowboarding/camelback/heel-grab.jpg',
+        src: '/extracurriculars/snowboarding/camelback/heel-grab.jpg',
         mediaProps: { alt: 'Heel Grab' },
       },
     ],
@@ -69,22 +69,22 @@ export default [
     media: [
       {
         Type: 'img',
-        src: '/hobbies/snowboarding/killington/mountain-shot4.jpg',
+        src: '/extracurriculars/snowboarding/killington/mountain-shot4.jpg',
         mediaProps: { alt: 'Killington Shot 4' },
       },
       {
         Type: 'img',
-        src: '/hobbies/snowboarding/killington/mountain-shot2.jpg',
+        src: '/extracurriculars/snowboarding/killington/mountain-shot2.jpg',
         mediaProps: { alt: 'Killington Shot 2' },
       },
       {
         Type: 'img',
-        src: '/hobbies/snowboarding/killington/mountain-shot1.jpg',
+        src: '/extracurriculars/snowboarding/killington/mountain-shot1.jpg',
         mediaProps: { alt: 'Killington Shot 1' },
       },
       {
         Type: 'img',
-        src: '/hobbies/snowboarding/killington/mountain-shot3.jpg',
+        src: '/extracurriculars/snowboarding/killington/mountain-shot3.jpg',
         mediaProps: { alt: 'Killington Shot 3' },
       },
     ],
