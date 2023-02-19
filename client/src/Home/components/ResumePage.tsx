@@ -47,7 +47,7 @@ const ResumePage = () => {
             window.open(`${process.env.PUBLIC_URL}/Ron_Gorai_Resume.pdf`)
           }
         >
-          Open in browser
+          Download
         </button>
       )}
     </div>

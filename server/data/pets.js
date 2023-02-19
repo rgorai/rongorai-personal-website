@@ -14,9 +14,7 @@ const getMedia = async (name) => {
   let files = []
 
   if (process.env.NODE_ENV === 'development') {
-    files = fs.readdirSync(
-      path.resolve('server', '.local', 's3-bucket', 'pets', name)
-    )
+    files = fs.readdirSync(path.resolve('.local', 's3-bucket', 'pets', name))
   } else {
     const s3 = new S3({
       accessKeyId: process.env.AWS_ACCESS_KEY_ID,

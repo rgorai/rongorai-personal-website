@@ -18,7 +18,6 @@ s3Router.get('/:encodedFilepath', async (req, res) => {
       .status(200)
       .sendFile(
         path.resolve(
-          'server',
           '.local',
           's3-bucket',
           decodeURIComponent(encodedFilepath).slice(1)

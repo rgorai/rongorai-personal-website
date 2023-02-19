@@ -3,6 +3,8 @@ import { Tag, openLinkInNewTab, Component } from '../misc/utils.js'
 export default [
   Tag('h1', 'Snowboarding'),
 
+  Component('UpdatedOn', { date: 'May 12, 2022' }),
+
   Tag(
     'p',
     `I began snowboarding at the age of 10. My dad had started skiing the previous season and once he was more comfortable the following year, he wanted me to join him on the slopes. But, I didn't want to ski - I wanted to snowboard; I simply felt that it was more exciting.`
