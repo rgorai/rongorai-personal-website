@@ -107,7 +107,7 @@ export const MediaGrid = (props: MediaGridProps) => {
       <figure>
         <div className={styles.mediaGridComponents} style={{ gap: gridGap }}>
           {/* thought this IIFE was a fun way to
-              easily split props.media into rows on render */}
+              easily split props.media into rows on renyarn upgradeder */}
           {(() => {
             const rows = []
             for (let i = 0; i < props.media.length / columns; i++) {
