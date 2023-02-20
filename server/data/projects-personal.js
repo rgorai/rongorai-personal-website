@@ -3,19 +3,35 @@ import { Tag, Component, openLinkInNewTab, getDocument } from '../misc/utils.js'
 export default [
   Tag('h1', 'Personal Projects'),
 
-  Component('UpdatedOn', { date: 'May 30, 2022' }),
+  Component('UpdatedOn', { date: 'February 20, 2023' }),
 
   Tag('h2', 'Personal Website'),
   Tag(
     'p',
-    `The purpose of this website is to share my hobby and work experiences, as well as showcase my professional skills as a software developer. I created this website from nothing but an empty folder and the knowledge I've gained from my classes and co-ops. It is a web application built on the MERN (MongoDB, Express, React, Node) Stack, utilizing modern programming technologies like TypeScript and Sass.`
+    `The purpose of this website is to share my hobby and work experiences, as well as showcase my professional skills as a software developer. I created this website from nothing but an empty folder and the knowledge I've gained from my classes and co-ops. It is a web application built on the MERN stack (MongoDB, Express, React, and Node), utilizing modern programming technologies like TypeScript and Sass.`
   ),
   Tag('a', 'More about this website', { href: '/about/this-website' }),
 
-  Tag('h2', 'Web Programming Final Project: MediaHub'),
+  // Tag('h2', 'Web Programming II Final Project: TitansChat'),
+  // Tag('p', ``),
+  // Tag('a', 'TitansChat Repository', {
+  //   href: 'https://github.com/matttarantino/TitanChat',
+  //   ...openLinkInNewTab,
+  // }),
+  // Tag('a', 'TitansChat Proposal', {
+  //   href: getDocument('/projects/personal/titanschat-proposal.pdf'),
+  //   ...openLinkInNewTab,
+  // }),
+  // Component('Media', {
+  //   Type: 'video',
+  //   caption: 'TitansChat demo',
+  //   src: '/projects/personal/titanschat-demo.mp4',
+  // }),
+
+  Tag('h2', 'Web Programming I Final Project: MediaHub'),
   Tag(
     'p',
-    `My final project for Web Programming was not only a fantastic learning and leadership experience, but was also the main inspiration for me to build this website. The premise of this project, dubbed <i>MediaHub</i>, was to provide users with a single location to search a catalog of movies and TV shows to view/search existing movies/shows, provide opinions through ratings and comments, find streaming platforms on which the movie/show is available, create watchlists of movies/shows to watch, and much more.`
+    `My final project for Web Programming I was not only a fantastic learning and leadership experience, but was also the main inspiration for me to build this website. The premise of this project, dubbed <i>MediaHub</i>, was to provide users with a single location to search a catalog of movies and TV shows to view/search existing movies/shows, provide opinions through ratings and comments, find streaming platforms on which the movie/show is available, create watchlists of movies/shows to watch, and much more.`
   ),
   Tag('a', 'MediaHub Repository', {
     href: 'https://github.com/rgorai/cs546-final-project',

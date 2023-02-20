@@ -3,6 +3,7 @@ import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
 import styles from '../styles/resumePage.module.scss'
 import Loading from '../../Misc/components/Loading'
 import ApiError from '../../Misc/components/ApiError'
+import { UpdatedOn } from '../../Content/components/customContentComponents'
 
 const ResumePage = () => {
   const [numPages, setNumPages] = useState(0)
@@ -42,14 +43,18 @@ const ResumePage = () => {
       </Document>
 
       {numPages !== 0 && (
-        <button
-          className={styles.resumeLink}
-          onClick={() =>
-            window.open(`${process.env.PUBLIC_URL}/Ron_Gorai_Resume.pdf`)
-          }
-        >
-          Download
-        </button>
+        <>
+          <button
+            className={styles.resumeLink}
+            onClick={() =>
+              window.open(`${process.env.PUBLIC_URL}/Ron_Gorai_Resume.pdf`)
+            }
+          >
+            Download
+          </button>
+
+          <UpdatedOn date="February 19, 2023" />
+        </>
       )}
     </div>
   )

@@ -1,4 +1,9 @@
-const getDocument = (path) => process.env.REACT_APP_AWS_DISTRIBUTION_URL + path
+const getDocument = (path) =>
+  process.env.NODE_ENV === 'production'
+    ? process.env.REACT_APP_AWS_DISTRIBUTION_URL + path
+    : `http://localhost:${
+        process.env.PORT ?? 5000 + 1
+      }/api/localS3/${encodeURIComponent(path)}`
 
 const Tag = (tag, text, props) => ({ tag, text, props })
 

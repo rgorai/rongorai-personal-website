@@ -143,7 +143,7 @@ export const StatGrid = (props: AnyObject) => (
   <div className={styles.statGridContainer}>
     {Object.keys(props).map((e, i) => (
       <div className={styles.statContainer} key={i}>
-        <div className={styles.label}>{e}:</div>
+        <div className={styles.label}>{e}</div>
         <div className={styles.stat}>{props[e]}</div>
       </div>
     ))}

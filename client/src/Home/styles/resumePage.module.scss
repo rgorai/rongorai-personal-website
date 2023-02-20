@@ -3,11 +3,15 @@
 
 $a4-ratio: 1.294;
 
+[data-theme='dark'] :global(.react-pdf__Page__svg) > svg {
+  filter: invert(100%);
+}
+
 .resumeContainer {
   @include display-flex(column, flex-start, flex-end);
 
   width: 100%;
-  padding-bottom: 5rem;
+  padding: 2em 0 1em;
 
   :global(.react-pdf__Document) {
     width: fit-content;
@@ -43,13 +47,13 @@ $a4-ratio: 1.294;
   }
 
   .resumeLink {
-    margin: 2rem auto 0;
+    margin: 2rem auto 1em;
   }
 }
 
 @media (max-width: 900px) {
   .resumeContainer {
-    padding-bottom: 10vw;
+    padding-top: 1em;
 
     $resume-width: 100vw;
 
