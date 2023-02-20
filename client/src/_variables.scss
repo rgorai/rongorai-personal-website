@@ -23,6 +23,7 @@
   --blue-gray-65: #2f343a;
   --blue-gray-70: #2b2b2f;
   --blue-gray-75: #212529;
+  --blue-gray-80: #161b1f;
   //
   --blue-10: #6eb0ed66;
   --blue-40-hs: 209, 78%;
@@ -44,7 +45,7 @@
   //
   --layer-01: white;
   --layer-02: var(--gray-05);
-  --layer-03: var(--blue-gray-10);
+  --layer-03: var(--gray-10);
   //
   --background-01: var(--layer-01);
   --background-02: var(--layer-02);
@@ -72,12 +73,14 @@
 // dark theme
 [data-theme='dark'] {
   //
-  --layer-01: var(--gray-90);
-  --layer-02: var(--blue-gray-70);
+  --layer-01: black;
+  --layer-02: var(--gray-90);
+  --layer-03: var(--gray-80);
   //
   --background-01: var(--layer-01);
   --background-02: var(--layer-01);
   --background-03: var(--layer-02);
+  --nav-background-color: var(--blue-gray-80);
   //
   --text-01: var(--gray-10);
   --text-02: var(--gray-20);

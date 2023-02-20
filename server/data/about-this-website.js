@@ -72,6 +72,7 @@ export default [
     items: [
       'Improved page loading with Context API to effectively cache page data between refreshes',
       'Added last updated date to content pages',
+      'Implemented dark mode on resume',
     ],
   }),
 

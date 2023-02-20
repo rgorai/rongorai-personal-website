@@ -14,7 +14,9 @@ const getMedia = (path: string, compressed?: boolean) => {
 
   return process.env.NODE_ENV === 'production'
     ? `${process.env.REACT_APP_AWS_DISTRIBUTION_URL}${newPath}`
-    : `/api/localS3/${encodeURIComponent(newPath)}`
+    : `http://localhost:${
+        process.env.PORT ?? 5000 + 1
+      }/api/localS3/${encodeURIComponent(newPath)}`
 }
 
 const parseId = (text: string) => text.replaceAll(' ', '-').toLowerCase()

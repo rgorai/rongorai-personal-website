@@ -12,7 +12,7 @@ export default [
   ),
   Tag(
     'p',
-    `My role in the company is to establish and build upon the entire codebase required to run our product. Being the start of a potentially enterprise-level infrastructure, I tried to keep scalability and futureproofing in mind when setting things up. The demo version of the app is currently under development using ReactTS, Redux, Express, JWT, and MongoDB. We plan to host on AWS, and perhaps integrate more AWS services for a beta or future release, such as Cognito and S3.`
+    `My role in the company is to establish and build upon the entire codebase required to run our product. Being the start of a potentially enterprise-level infrastructure, I tried to keep scalability and futureproofing in mind when setting things up. The demo version of the app is currently under development using ReactTS, Sass, Redux, Express, JWT, MongoDB and more. We plan to host on AWS, and perhaps integrate more AWS services for a beta or future release, such as Cognito and S3.`
   ),
   Tag('a', `LISDIN homepage`, {
     href: 'https://www.lisdin.com/',
@@ -50,7 +50,7 @@ export default [
     'p',
     `After polishing up the internal tool, I started working on creating some of my own LWCs and Apex classes for one of NeuraFlash's clients. For me, LWC development is reminiscent of Handlebars, and Apex of Java, so it was relatively easy to get into the hang of them. The first component I made was a Breadcrumb for the topic/article navigation, and the second a rating + feedback component.`
   ),
-  Tag('a', `Neuraflash homepage`, {
+  Tag('a', `NeuraFlash homepage`, {
     href: 'https://www.neuraflash.com/',
     ...openLinkInNewTab,
   }),
