@@ -3,7 +3,7 @@ import { Tag, openLinkInNewTab, Component } from '../misc/utils.js'
 export default [
   Tag('h1', 'About This Website'),
 
-  Component('UpdatedOn', { date: 'February 18, 2023' }),
+  Component('UpdatedOn', { date: 'February 20, 2023' }),
 
   Tag('h2', 'Summary'),
   Tag(
@@ -67,12 +67,12 @@ export default [
     ],
   }),
 
-  Tag('h3', '1.2.1 (2/18/23)'),
+  Tag('h3', '1.2.1 (2/20/23)'),
   Component('BulletedList', {
     items: [
       'Improved page loading with Context API to effectively cache page data between refreshes',
+      'Dark mode now defaults to browser/OS default theme',
       'Added last updated date to content pages',
-      'Implemented dark mode on resume',
     ],
   }),
 

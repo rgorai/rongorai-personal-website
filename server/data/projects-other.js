@@ -3,27 +3,40 @@ import { Tag, openLinkInNewTab, Component } from '../misc/utils.js'
 export default [
   Tag('h1', 'Other Work Experience'),
 
-  Component('UpdatedOn', { date: 'May 12, 2022' }),
+  Component('UpdatedOn', { date: 'February 21, 2023' }),
 
   Tag('h2', 'Stevens Institute of Technology'),
 
-  Tag('h3', 'Fall 2021'),
+  Tag('h3', 'Fall 2022'),
   Tag(
     'p',
-    `During this semester, I worked as a Course Assistant for the Introduction to Computer Science class at Stevens. I tutored students in course topics such as recursion, memoization, and dynamic programming. Additionally, I conducted labs to train students on topics covered in lecture with Python.`
+    `For my last semester as a Course Assistant at Stevens, I got to be with perhaps my favorite class at Stevens yet: Web Programming I. Here, I tutored students in course topics such as JavaScript, Express, MongoDB, and much more. At the end, I also thoroughly graded final projects with a penetration-testing mindset.`
   ),
-  Tag('a', 'CS 115 Course Syllabus', {
-    href: 'https://web.stevens.edu/academic_files/courses/syllabus/CS115syl.pdf',
+  Tag('a', 'CS 546 Course Syllabus', {
+    href: 'https://web.stevens.edu/academic_files/courses/syllabus/CS546syl.pdf',
     ...openLinkInNewTab,
+  }),
+  Tag('a', 'My work in CS 546', {
+    href: '/projects/personal#web-programming-i-final-project:-mediahub',
   }),
 
   Tag('h3', 'Spring 2021'),
   Tag(
     'p',
-    `During this semester, I worked as a Course Assistant for the Systems Programming class at Stevens. I tutored students in course topics such as system calls, concurrent programming, and sockets, while also helping them in understanding Bash and C. Additionally, I assessed students with exams written by the professor and self-designed lab assignments.`
+    `During this semester, I worked as a Course Assistant for the Systems Programming class at Stevens. I tutored students in course topics such as system calls, concurrent programming, and sockets, while also helping them in understanding Bash and C. Plus, I assessed students with exams written by the professor and self-designed lab assignments.`
   ),
   Tag('a', 'CS 392 Course Syllabus', {
     href: 'https://web.stevens.edu/academic_files/courses/syllabus/CS392syl.pdf',
+    ...openLinkInNewTab,
+  }),
+
+  Tag('h3', 'Fall 2021'),
+  Tag(
+    'p',
+    `For my first semester as a Course Assistant, I was part of the Introduction to Computer Science class at Stevens. I tutored students in course topics such as recursion, memoization, and dynamic programming. Additionally, I conducted labs to train students on topics covered in lecture with Python.`
+  ),
+  Tag('a', 'CS 115 Course Syllabus', {
+    href: 'https://web.stevens.edu/academic_files/courses/syllabus/CS115syl.pdf',
     ...openLinkInNewTab,
   }),
 

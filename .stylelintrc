@@ -1,7 +1,6 @@
 {
   "extends": "stylelint-config-standard-scss",
   "rules": {
-    "string-quotes": "single",
     "selector-class-pattern": "",
     "color-function-notation": "legacy",
     "scss/double-slash-comment-whitespace-inside": null,
@@ -9,6 +8,6 @@
     "no-descending-specificity": null,
     "selector-pseudo-class-no-unknown": null,
     "no-empty-source": null,
-    "scss/comment-no-empty": null,
+    "scss/comment-no-empty": null
   }
 }
