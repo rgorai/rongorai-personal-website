@@ -3,6 +3,7 @@
 :root {
   // colors
   --gray-05: #fafafa;
+  --gray-07: #f6f6f6;
   --gray-10: #ececec;
   --gray-20: #ccc;
   --gray-30: #a0a0a0;
@@ -45,6 +46,7 @@
   //
   --layer-01: white;
   --layer-02: var(--gray-05);
+  --layer-025: var(--gray-07);
   --layer-03: var(--gray-10);
   //
   --background-01: var(--layer-01);
@@ -76,6 +78,7 @@
   //
   --layer-01: black;
   --layer-02: var(--gray-90);
+  --layer-025: var(--gray-80);
   --layer-03: var(--gray-80);
   //
   --background-01: var(--layer-01);
@@ -96,7 +99,7 @@
   --button-primary-03: hsl(var(--blue-40-hs), 35%);
   //
   --input-01: var(--layer-02);
-  --nav-link-color: var(--gray-30);
+  --nav-link-color: var(--gray-20);
   --content-border-color: var(--gray-60);
   --content-border: 1px solid var(--gray-70);
 }

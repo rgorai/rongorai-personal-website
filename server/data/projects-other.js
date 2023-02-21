@@ -16,8 +16,9 @@ export default [
     href: 'https://web.stevens.edu/academic_files/courses/syllabus/CS546syl.pdf',
     ...openLinkInNewTab,
   }),
-  Tag('a', 'My work in CS 546', {
-    href: '/projects/personal#web-programming-i-final-project:-mediahub',
+  Component('Link', {
+    label: 'My work in CS 546',
+    to: '/projects/personal#web-programming-i-final-project:-mediahub',
   }),
 
   Tag('h3', 'Spring 2021'),

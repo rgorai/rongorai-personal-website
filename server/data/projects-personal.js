@@ -10,23 +10,29 @@ export default [
     'p',
     `The purpose of this website is to share my hobby and work experiences, as well as showcase my professional skills as a software developer. I created this website from nothing but an empty folder and the knowledge I've gained from my classes and co-ops. It is a web application built on the MERN stack (MongoDB, Express, React, and Node), utilizing modern programming technologies like TypeScript and Sass.`
   ),
-  Tag('a', 'More about this website', { href: '/about/this-website' }),
+  Component('Link', {
+    label: 'More about this website',
+    to: '/about/this-website',
+  }),
 
-  // Tag('h2', 'Web Programming II Final Project: TitansChat'),
-  // Tag('p', ``),
-  // Tag('a', 'TitansChat Repository', {
-  //   href: 'https://github.com/matttarantino/TitanChat',
-  //   ...openLinkInNewTab,
-  // }),
-  // Tag('a', 'TitansChat Proposal', {
-  //   href: getDocument('/projects/personal/titanschat-proposal.pdf'),
-  //   ...openLinkInNewTab,
-  // }),
-  // Component('Media', {
-  //   Type: 'video',
-  //   caption: 'TitansChat demo',
-  //   src: '/projects/personal/titanschat-demo.mp4',
-  // }),
+  Tag('h2', 'Web Programming II Final Project: TitansChat'),
+  Tag(
+    'p',
+    `For the final project of my Web Programming II class, my group mates and I created TitansChat, a real-time chat application. Building off of what we learned in Web Programming I, we used both classroom-learned technologies (Socket.io, React, TypeScript, Context API, Bootstrap, Sass) and researched ones (AWS S3, Heroku, JWT). Since I’d already had project experience with a large majority of these technologies, I took the initial responsibility of setting it up and building a skeleton repository in a manner that would be easy for my group to use. Additionally, while my group mates felt uncomfortable with the idea of implementing TypeScript given our timeframe, I assured them that in my opinion/experience, overcoming this steep but very quick learning curve would not only make it a lot easier to complete this project, but will also help them in their careers in the future should they pursue web development. Hence, I gladly provided them prompt support in this regard and the project as a whole when they needed it, and in the end they seemed happy to have done things the way we did.`
+  ),
+  Tag('a', 'TitansChat Repository', {
+    href: 'https://github.com/matttarantino/TitanChat',
+    ...openLinkInNewTab,
+  }),
+  Tag('a', 'TitansChat Proposal', {
+    href: getDocument('/projects/personal/titanschat-proposal.pdf'),
+    ...openLinkInNewTab,
+  }),
+  Component('Media', {
+    Type: 'video',
+    caption: 'TitansChat demo',
+    src: '/projects/personal/titanschat-demo.mp4',
+  }),
 
   Tag('h2', 'Web Programming I Final Project: MediaHub'),
   Tag(
