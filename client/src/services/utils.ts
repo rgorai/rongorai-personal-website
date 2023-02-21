@@ -13,8 +13,8 @@ const getMedia = (path: string, compressed?: boolean) => {
     compressed && ext !== 'gif' ? `/_compressed${filename}.webp` : path
 
   return process.env.NODE_ENV === 'production'
-    ? `${process.env.REACT_APP_AWS_DISTRIBUTION_URL}${newPath}`
-    : `http://localhost:${
+    ? process.env.REACT_APP_AWS_DISTRIBUTION_URL + newPath
+    : `http://${window.location.host.split(':')[0]}:${
         process.env.PORT ?? 5000 + 1
       }/api/localS3/${encodeURIComponent(newPath)}`
 }

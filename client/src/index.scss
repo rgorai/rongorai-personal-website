@@ -1,14 +1,13 @@
 @use 'variables' as *;
 @use 'sass:color';
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap';
 
 $dark-switch-transition: 0.1s ease-in-out;
 
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  transition:
-    background-color $dark-switch-transition,
+  transition: background-color $dark-switch-transition,
     border-color $dark-switch-transition;
 
   ::selection {
@@ -17,7 +16,7 @@ $dark-switch-transition: 0.1s ease-in-out;
 }
 
 html {
-  background-color: var(--nav-background-color);
+  background-color: var(--background-01);
 }
 
 p,
@@ -28,10 +27,8 @@ figcaption,
 h1,
 h2,
 h3 {
-  transition:
-    background-color $dark-switch-transition,
-    border-color $dark-switch-transition,
-    color $dark-switch-transition;
+  transition: background-color $dark-switch-transition,
+    border-color $dark-switch-transition, color $dark-switch-transition;
 }
 
 main {
@@ -51,12 +48,7 @@ body {
 }
 
 code {
-  font-family:
-    source-code-pro,
-    Menlo,
-    Monaco,
-    Consolas,
-    'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
@@ -70,10 +62,8 @@ textarea {
   resize: vertical;
   width: 100%;
   box-sizing: border-box;
-  transition:
-    border-color $dark-switch-transition,
-    background-color $dark-switch-transition,
-    box-shadow $dark-switch-transition;
+  transition: border-color $dark-switch-transition,
+    background-color $dark-switch-transition, box-shadow $dark-switch-transition;
   color: var(--text-01);
   box-shadow: 0 0 0 1px var(--content-border-color);
 

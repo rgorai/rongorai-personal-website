@@ -17,7 +17,11 @@ type AppState = {
 }
 
 const DEFAULT_STATE: AppState = {
-  theme: localStorage.getItem('theme') ?? 'light',
+  theme:
+    localStorage.getItem('theme') ??
+    (window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light'),
   pageData: {},
   guestbookEntries: null,
 }
