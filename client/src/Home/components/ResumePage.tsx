@@ -24,10 +24,11 @@ const ResumePage = () => {
         onLoadSuccess={({ numPages }: { numPages: number }) =>
           setNumPages(numPages)
         }
-        onLoadError={() =>
+        onLoadError={(err: any) =>
           setDocumentError({
             status: 500,
             statusText: 'Internal Server Error',
+            data: err,
           })
         }
         loading={null}
