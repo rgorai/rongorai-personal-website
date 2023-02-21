@@ -24,8 +24,9 @@ export default [
     'p',
     `Since its inception, my personal website has been built with the WordPress website builder. However, after taking Web Programming in Fall 2021 and acing the final project, I was inspired to rebuild my personal website from the ground up in the same fashion. I decided this for 2 reasons: 1) to test the valuable skills I learned from my classes and co-ops; 2) to build my website exactly to my taste.`
   ),
-  Tag('a', 'More on my Web Programming Final', {
-    href: '/projects/personal#web-programming-final-project',
+  Component('Link', {
+    label: 'More on my Web Programming Final',
+    to: '/projects/personal#web-programming-final-project',
   }),
   Tag(
     'p',

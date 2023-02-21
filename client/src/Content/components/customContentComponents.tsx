@@ -1,6 +1,7 @@
 import cx from 'classnames'
 import { MutableRefObject, useRef, useState } from 'react'
 import { useEffect, useCallback } from 'react'
+import { Link as ReactRouterLink } from 'react-router-dom'
 import styles from '../styles/customComponents.module.scss'
 import { getMedia } from '../../services/utils'
 
@@ -174,4 +175,16 @@ export const BulletedList = (props: BulletedListProps) => (
 
 export const UpdatedOn = ({ date }: { date: string }) => (
   <div className={styles.updatedOn}>Updated {date}</div>
+)
+
+type ReactRouterLinkProps = {
+  label: string
+  to: string
+  props: any
+}
+
+export const Link = ({ label, to, props }: ReactRouterLinkProps) => (
+  <ReactRouterLink to={to} {...props}>
+    {label}
+  </ReactRouterLink>
 )
