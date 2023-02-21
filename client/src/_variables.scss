@@ -65,6 +65,7 @@
   //
   --input-01: var(--layer-01);
   --nav-background-color: var(--blue-gray-75);
+  --nav-link-color: var(--gray-10);
   --content-border-color: var(--gray-20);
   --content-border: 1px solid var(--content-border-color);
   --logo-base-color: #343e4d;
@@ -79,7 +80,7 @@
   //
   --background-01: var(--layer-01);
   --background-02: var(--layer-01);
-  --background-03: var(--layer-02);
+  --background-03: var(--layer-03);
   --nav-background-color: var(--blue-gray-80);
   //
   --text-01: var(--gray-10);
@@ -95,6 +96,7 @@
   --button-primary-03: hsl(var(--blue-40-hs), 35%);
   //
   --input-01: var(--layer-02);
+  --nav-link-color: var(--gray-30);
   --content-border-color: var(--gray-60);
   --content-border: 1px solid var(--gray-70);
 }

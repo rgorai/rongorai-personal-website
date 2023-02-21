@@ -19,7 +19,7 @@ const ResumePage = () => {
       {documentError && <ApiError {...documentError} />}
 
       <Document
-        scale={2}
+        // scale={3}
         file={`${process.env.PUBLIC_URL}/Ron_Gorai_Resume.pdf`}
         onLoadSuccess={({ numPages }: { numPages: number }) =>
           setNumPages(numPages)
