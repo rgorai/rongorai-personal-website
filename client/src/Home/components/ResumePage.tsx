@@ -5,9 +5,12 @@ import Loading from '../../Misc/components/Loading'
 import ApiError from '../../Misc/components/ApiError'
 import { UpdatedOn } from '../../Content/components/customContentComponents'
 
-const ResumePage = () => {
+const ResumePage = ({ test }: { test?: true }) => {
   const [numPages, setNumPages] = useState(0)
   const [documentError, setDocumentError] = useState(null as any)
+  const FILE_SRC = `${process.env.PUBLIC_URL}/Ron_Gorai_Resume${
+    test ? '_TEST' : ''
+  }.pdf`
 
   useEffect(() => {
     document.title = `Resume | Ron Gorai's Personal Website`
@@ -19,8 +22,7 @@ const ResumePage = () => {
       {documentError && <ApiError {...documentError} />}
 
       <Document
-        // scale={3}
-        file={`${process.env.PUBLIC_URL}/Ron_Gorai_Resume.pdf`}
+        file={FILE_SRC}
         onLoadSuccess={({ numPages }: { numPages: number }) =>
           setNumPages(numPages)
         }
@@ -47,9 +49,7 @@ const ResumePage = () => {
         <>
           <button
             className={styles.resumeLink}
-            onClick={() =>
-              window.open(`${process.env.PUBLIC_URL}/Ron_Gorai_Resume.pdf`)
-            }
+            onClick={() => window.open(FILE_SRC)}
           >
             Download
           </button>
