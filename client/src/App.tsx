@@ -25,6 +25,7 @@ const APP_CONTENT: Array<{
   name: string
   subItems?: Array<string>
   element?: ReactNode
+  hideOnNav?: true
 }> = [
   {
     name: 'About',
@@ -48,6 +49,11 @@ const APP_CONTENT: Array<{
   {
     name: 'Resume',
     element: <ResumePage />,
+  },
+  {
+    name: 'TEST RESUME',
+    element: <ResumePage test />,
+    hideOnNav: true,
   },
 ]
 
@@ -81,7 +87,7 @@ const App = () => {
       <StoreProvider>
         <BrowserRouter>
           <NavBar
-            navItems={APP_CONTENT.map((e) => ({
+            navItems={APP_CONTENT.filter((e) => !e.hideOnNav).map((e) => ({
               name: e.name,
               route: parseRoute(e.name),
               subItems: e.subItems?.map((f) => ({
