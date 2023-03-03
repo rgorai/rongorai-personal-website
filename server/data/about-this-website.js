@@ -43,7 +43,6 @@ export default [
   Component('BulletedList', {
     items: [
       'Amazon S3, CloudFront, and Route 53 to store and serve static assets',
-      'Cloudflare SSL certification with custom domain names',
       'Google Analytics to view and study user activity / demographics / etc.',
       'TypeScript type guards and nullish operators',
       'React error boundaries with class components',
