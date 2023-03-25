@@ -40,18 +40,24 @@ guestbookRouter.post('/', async (req, res) => {
         {
           from: process.env.GUESTBOOK_EMAIL,
           to: process.env.GUESTBOOK_EMAIL,
-          subject: `GUESTBOOK ENTRY - ${name}`,
-          html: `<b>Background:</b>
+          subject: `GUESTBOOK ENTRY ${
+            process.env.NODE_ENV !== 'production' ? '(DEV)' : ''
+          } - ${name}`,
+          html: `<b>Name:</b>
+${name}
+<br/>
+<br/>
+<b>Background:</b>
 <br/>
 ${background}
 <br/>
 <br/>
 <b>Message:</b>
 <br/>
-${message}`,
+${message.length === 0 ? '<i>None</i>' : message}`,
         },
         (err) => {
-          if (err) console.error('smtp error:', err)
+          if (err) console.error('SMTP error:', err)
         }
       )
   } catch (e) {

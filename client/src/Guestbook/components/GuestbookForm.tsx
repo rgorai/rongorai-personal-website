@@ -53,8 +53,10 @@ type Props = {
 const GuestbookForm = (props: Props) => {
   const [formError, setFormError] = useState(DEFAULT_ERROR_STATE)
   const [formData, setFormData] = useState(DEFAULT_DATA_STATE)
+  const [loading, setLoading] = useState(false)
   const [captchaPassed, setCaptchaPassed] = useState(false)
   const recaptchaRef = useRef<typeof ReCAPTCHA>(null)
+  const submitDisabled = !captchaPassed || loading
 
   const onSubmit = (ev: any) => {
     ev.preventDefault()
@@ -79,20 +81,24 @@ const GuestbookForm = (props: Props) => {
     }
 
     // post data to server
-    axios
-      .post(
-        '/api/guestbook',
-        reduceFormSpecs((c) => [c.label.toLowerCase(), formData[c.label]])
-      )
-      .then((_) => {
-        props.updateData()
-        setFormData(DEFAULT_DATA_STATE)
-        setCaptchaPassed(false)
-        recaptchaRef.current?.reset()
-      })
-      .catch((err) => {
-        console.error(err.response)
-      })
+    if (!submitDisabled) {
+      setLoading(true)
+      axios
+        .post(
+          '/api/guestbook',
+          reduceFormSpecs((c) => [c.label.toLowerCase(), formData[c.label]])
+        )
+        .then((_) => {
+          props.updateData()
+          setFormData(DEFAULT_DATA_STATE)
+          setCaptchaPassed(false)
+          recaptchaRef.current?.reset()
+        })
+        .catch((err) => {
+          console.error(err.response)
+        })
+        .then(() => setLoading(false))
+    }
   }
 
   return (
@@ -138,7 +144,7 @@ const GuestbookForm = (props: Props) => {
         className={styles.formSubmit}
         type="submit"
         form="guestbook-form"
-        disabled={!captchaPassed}
+        disabled={submitDisabled}
       >
         Submit
       </button>

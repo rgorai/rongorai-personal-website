@@ -15,9 +15,6 @@ export type GuestbookEntries = Array<{
 }>
 
 const GuestbookPage = () => {
-  // const [guestbookEntries, setGuestbookEntries] = useState<GuestbookEntries | null>(
-  //   null
-  // )
   const {
     store: { guestbookEntries },
     setStore,

@@ -5,7 +5,10 @@ dotenv.config()
 
 const mongoConfig = {
   serverUrl: process.env.MONGO_URI,
-  database: 'rongorai-personal-website-db',
+  database:
+    process.env.NODE_ENV === 'production'
+      ? 'rongorai-personal-website-db'
+      : 'rongorai-personal-website-db-DEV',
 }
 
 let _connection = undefined

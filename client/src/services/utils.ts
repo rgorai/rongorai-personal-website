@@ -12,8 +12,6 @@ const getMedia = (path: string, compressed?: boolean) => {
   const newPath =
     compressed && ext !== 'gif' ? `/_compressed${filename}.webp` : path
 
-  console.log('HERE', process.env.PUBLIC_URL)
-
   return process.env.NODE_ENV === 'production'
     ? process.env.REACT_APP_AWS_DISTRIBUTION_URL + newPath
     : `http://${window.location.host.split(':')[0]}:${

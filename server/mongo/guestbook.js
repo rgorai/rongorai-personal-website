@@ -27,7 +27,7 @@ const getEntry = async (entryId) => {
   // error check
   try {
     isValidString({ entryId })
-    entryId = ObjectId(entryId)
+    entryId = new ObjectId(entryId)
   } catch (e) {
     throw String(e)
   }
