@@ -28,7 +28,7 @@ export default [
   Tag('h2', 'NeuraFlash'),
   Tag(
     'p',
-    `For my final co-op term at Stevens, I was a Software Developer Co-op at NeuraFlash. In order to get accustomed to their work culture and technical practices, I was tasked with improving an internal tool for my first project, called the UI Enhancer Payload Generator. This tool is a React application that was built to assist our Einstein Bot - one of the main products of NeuraFlash - developers in building enhanced UI for the bot's chat box. It supported a small handful of our custom Lightning Web Components (LWCs), such as a MiniCard, a simple card with a title, image, and description, or a FormCard, a component that allowed our bot builders to create any arbitrary form for users of a chat bot. The UI Enhancer served as a platform for builders to input the UI data (or payload) in a user-friendly manner, compared to the conventional method of typing out the data in JSON manually into a basic textbox on a SalesForce dashboard.`
+    `For my final co-op term at Stevens, I was a Software Developer at NeuraFlash. In order to get accustomed to their work culture and technical practices, I was tasked with improving an internal tool for my first project, called the UI Enhancer Payload Generator. This tool is a React application that was built to assist our Einstein Bot - one of the main products of NeuraFlash - developers in building enhanced UI for the bot's chat box. It supported a small handful of our custom Lightning Web Components (LWCs), such as a MiniCard, a simple card with a title, image, and description, or a FormCard, a component that allowed our bot builders to create any arbitrary form for users of a chat bot. The UI Enhancer served as a platform for builders to input the UI data (or payload) in a user-friendly manner, compared to the conventional method of typing out the data in JSON manually into a basic textbox on a SalesForce dashboard.`
   ),
   Tag(
     'p',
@@ -64,7 +64,7 @@ export default [
   Tag('h2', 'IBM'),
   Tag(
     'p',
-    `In the summer of 2021, I worked at IBM as a Frontend Developer Co-op in their Cloud and Cognitive department for my third co-op. The project I was working on was a web application for IBM's Db2 database migration service. In short, the migration service is a tool to migrate data between Db2 databases. The web application provides a GUI for this service to allow users to easily create a migration service, choose the data they want to migrate, run the migration, and manage multiple migration services.`
+    `In the summer of 2021, I worked at IBM as a Frontend Developer in their Cloud and Cognitive department for my third co-op. The project I was working on was a web application for IBM's Db2 database migration service. In short, the migration service is a tool to migrate data between Db2 databases. The web application provides a GUI for this service to allow users to easily create a migration service, choose the data they want to migrate, run the migration, and manage multiple migration services.`
   ),
   Tag('a', 'More on IBM Db2 Migration Service', {
     href: 'https://www.ibm.com/docs/en/db2/11.5?topic=db2-migration-service',
@@ -103,7 +103,7 @@ export default [
   Tag('h2', 'ZAIS Group'),
   Tag(
     'p',
-    `During the spring of 2020, I participated in my first co-op. I was working as a Technology and Analytics Co-op for ZAIS Group, a financial services company specialized in credit investment and asset management. I worked alongside some of my Stevens classmates, Lucas Berard and Mohammad Khan. I returned for another co-op in Fall 2020, and a part-time position in Spring 2021.`
+    `During the spring of 2020, I participated in my first co-op. I was working as a Technology and Analytics Engineer for ZAIS Group, a financial services company specialized in credit investment and asset management. I worked alongside some of my Stevens classmates, Lucas Berard and Mohammad Khan. I returned for another co-op in Fall 2020, and a part-time position in Spring 2021.`
   ),
   Tag('a', 'ZAIS Group homepage', {
     href: 'https://www.zaisgroup.com',
