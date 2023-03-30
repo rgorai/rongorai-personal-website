@@ -14,7 +14,7 @@ const SUBNAV_PADDING_BOTTOM = 0.5
 type BooleanObject = { [key: string]: boolean }
 
 type Props = {
-  navItems: Array<NavInfo & { subItems: undefined | Array<NavInfo> }>
+  navItems: Array<NavInfo>
 }
 
 const NavBar = (props: Props) => {
@@ -89,7 +89,7 @@ const NavBar = (props: Props) => {
                 className={cx(styles.navLink, styles.desktopNavItem, {
                   [styles.activeNavItem]: location.pathname.includes(e.route),
                 })}
-                to={e.subItems ? e.subItems[0].route : e.route}
+                to={e.route}
               >
                 {e.name.toUpperCase()}
               </Link>

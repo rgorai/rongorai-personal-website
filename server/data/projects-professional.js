@@ -12,7 +12,7 @@ export default [
   ),
   Tag(
     'p',
-    `My role in the company is to establish and build upon the entire codebase required to run our product. Being the start of a potentially enterprise-level infrastructure, I tried to keep scalability and futureproofing in mind when setting things up. The demo version of the app is currently under development using ReactTS, Sass, Redux, Express, JWT, MongoDB and more. We plan to host on AWS, and perhaps integrate more AWS services for a beta or future release, such as Cognito and S3.`
+    `My role in the company is to establish and build upon the entire codebase required to run our product. Being the start of a potentially enterprise-level infrastructure, I tried to keep scalability and futureproofing in mind when setting things up. The demo version of the app is currently under development using ReactTS, Sass, Redux, Express, JWT, MongoDB, and more. We plan to host on AWS, and perhaps integrate more AWS services for a beta or future release, such as Cognito and S3.`
   ),
   Tag('a', `LISDIN homepage`, {
     href: 'https://www.lisdin.com/',

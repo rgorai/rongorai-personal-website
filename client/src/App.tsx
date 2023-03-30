@@ -19,6 +19,7 @@ import { StoreProvider } from './services/store'
 export type NavInfo = {
   name: string
   route: string
+  subItems: Array<Omit<NavInfo, 'subItems'>> | undefined
 }
 
 const APP_CONTENT: Array<{
@@ -57,6 +58,17 @@ const APP_CONTENT: Array<{
   },
 ]
 
+const NAV_ITEMS: Array<NavInfo> = APP_CONTENT.filter((e) => !e.hideOnNav).map(
+  (e) => ({
+    name: e.name,
+    route: parseRoute(e.name),
+    subItems: e.subItems?.map((f) => ({
+      name: f,
+      route: parseRoute(e.name, f),
+    })),
+  })
+)
+
 const App = () => {
   const RouteError = (
     <Route
@@ -86,16 +98,7 @@ const App = () => {
     <div className="App">
       <StoreProvider>
         <BrowserRouter>
-          <NavBar
-            navItems={APP_CONTENT.filter((e) => !e.hideOnNav).map((e) => ({
-              name: e.name,
-              route: parseRoute(e.name),
-              subItems: e.subItems?.map((f) => ({
-                name: f,
-                route: parseRoute(e.name, f),
-              })),
-            }))}
-          />
+          <NavBar navItems={NAV_ITEMS} />
 
           <main>
             <ScrollToTop>
@@ -133,12 +136,7 @@ const App = () => {
             </ScrollToTop>
           </main>
 
-          <Footer
-            navItems={APP_CONTENT.map((e) => ({
-              name: e.name,
-              route: parseRoute(e.name, e.subItems ? e.subItems[0] : ''),
-            }))}
-          />
+          <Footer navItems={NAV_ITEMS} />
         </BrowserRouter>
       </StoreProvider>
     </div>

@@ -28,10 +28,11 @@ export default [
       },
     ],
   }),
-
-  Tag('h2', `Keras Workshop Series`, {
-    style: { marginTop: '3em' },
+  Tag('div', null, {
+    style: { marginBottom: '4em' },
   }),
+
+  Tag('h2', `Keras Workshop Series`),
   Tag(
     'p',
     `Our latest event, a 2-part series, was hosted in collaboration with the Hoboken chapter of Google Developer Groups. For both sessions, Google ML Engineer Shilpa Kancharla spoke about KerasNLP and KerasCV, which are natural language processing and computer vision APIs developed by Google.`
