@@ -3,7 +3,7 @@ import ReCAPTCHA from 'react-google-recaptcha'
 import { useStore } from '../../services/store'
 
 type Props = {
-  onChange: Function
+  onChange: (token: any) => void
   recaptchaRef: MutableRefObject<any>
 }
 

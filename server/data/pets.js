@@ -1,6 +1,6 @@
-import S3 from 'aws-sdk/clients/s3.js'
 import fs from 'fs'
 import path from 'path'
+import S3 from 'aws-sdk/clients/s3.js'
 import { Tag, Component } from '../misc/utils.js'
 
 const getAge = (birthday) => {

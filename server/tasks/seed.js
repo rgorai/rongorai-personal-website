@@ -20,13 +20,13 @@ const main = async () => {
     'really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. ',
     'pretty short message'
   )
-  for (const i of Array(5).keys()) await createEntry('rong', 'owner', 'hello')
+  for (const _ of Array(5).keys()) await createEntry('rong', 'owner', 'hello')
   await createEntry(
     'uday',
     'uday has no background',
     'this is a very long message. this is a very long message. this is a very long message. this is a very long message. this is a very long message. this is a very long message. this is a very long message. this is a very long message. this is a very long message. this is a very long message. this is a very long message. this is a very long message. this is a very long message. '
   )
-  for (const i of Array(5).keys()) await createEntry('rong', 'owner', 'hello')
+  for (const _ of Array(5).keys()) await createEntry('rong', 'owner', 'hello')
   await createEntry(
     'abhi',
     'really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. really long background. ',

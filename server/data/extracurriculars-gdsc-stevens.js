@@ -3,7 +3,7 @@ import { Tag, openLinkInNewTab, Component } from '../misc/utils.js'
 export default [
   Tag('h1', 'GDSC Stevens'),
 
-  Component('UpdatedOn', { date: 'March 7, 2023' }),
+  Component('UpdatedOn', { date: 'March 7, 2023' }), // @@@@@@@@@@@
 
   Tag(
     'p',
@@ -32,10 +32,21 @@ export default [
     style: { marginBottom: '4em' },
   }),
 
+  Tag('h2', 'LeetCode Contest'),
+  Tag(
+    'p',
+    `Our final event of the '22-'23 school year was a LeetCode contest with cash prizes! Our members competed individually as participants of LeetCode's Biweekly Contest (103), with top 3 winners determined amongst the scope of our club. Congratulations to our winners Atharva Kulkarni, Mahesh Dhondge, and Vivek Sharma Ponnekanti!`
+  ),
+  Component('Media', {
+    Type: 'img',
+    src: '/extracurriculars/gdsc/leetcode-contest.jpeg',
+    mediaProps: { alt: 'LeetCode Contest' },
+  }),
+
   Tag('h2', `Keras Workshop Series`),
   Tag(
     'p',
-    `Our latest event, a 2-part series, was hosted in collaboration with the Hoboken chapter of Google Developer Groups. For both sessions, Google ML Engineer Shilpa Kancharla spoke about KerasNLP and KerasCV, which are natural language processing and computer vision APIs developed by Google.`
+    `This event was a 2-part series, was hosted in collaboration with the Hoboken chapter of Google Developer Groups. For both sessions, Google ML Engineer Shilpa Kancharla spoke about KerasNLP and KerasCV, which are natural language processing and computer vision APIs developed by Google.`
   ),
   Tag('a', `GDG Hoboken homepage`, {
     href: 'https://gdg.community.dev/gdg-hoboken/',
@@ -47,7 +58,7 @@ export default [
     media: [
       {
         Type: 'img',
-        src: '/extracurriculars/gdsc/keras/nlp-poster.jpeg',
+        src: '/extracurriculars/gdsc/keras/nlp-poster.png',
         mediaProps: { alt: 'NLP Workshop audience' },
       },
       {

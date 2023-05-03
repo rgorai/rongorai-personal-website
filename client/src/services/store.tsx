@@ -28,7 +28,7 @@ const DEFAULT_STATE: AppState = {
 
 export const appContext: Context<any> = createContext(DEFAULT_STATE)
 
-export const StoreProvider = (props: PropsWithChildren<{}>) => {
+export const StoreProvider = (props: PropsWithChildren) => {
   const [store, setStore] = useState(DEFAULT_STATE)
   return <appContext.Provider value={{ store, setStore }} {...props} />
 }

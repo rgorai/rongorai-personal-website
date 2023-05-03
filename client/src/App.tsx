@@ -85,11 +85,12 @@ const App = () => {
 
   // wrapper to ensure page scrolls to top when navigating
   const ScrollToTop = (props: { children: ReactNode }) => {
-    const { pathname } = useLocation()
+    const { pathname, hash } = useLocation()
+    const url = pathname + hash
 
     useEffect(() => {
-      window.scrollTo(0, 0)
-    }, [pathname])
+      if (url.split('#').length === 1) window.scrollTo(0, 0)
+    }, [url])
 
     return <>{props.children}</>
   }

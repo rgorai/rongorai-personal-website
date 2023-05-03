@@ -28,81 +28,12 @@
     "react-pdf": "5.7.2",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.1",
-    "sass": "^1.45.1",
     "serve": "^14.2.0",
     "typescript": "^4.4.2",
     "web-vitals": "^3.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.0",
-    "@babel/eslint-parser": "^7.16.5",
-    "@typescript-eslint/parser": "^5.53.0",
-    "eslint": "^8.6.0",
-    "eslint-plugin-react": "^7.28.0"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "eslint:recommended"
-    ],
-    "rules": {
-      "jsx-a11y/img-redundant-alt": "off",
-      "react/react-in-jsx-scope": "off",
-      "react/jsx-tag-spacing": "warn",
-      "react/jsx-props-no-multi-spaces": "warn",
-      "react/no-unescaped-entities": "error",
-      "import/order": "warn",
-      "no-unused-vars": "warn",
-      "no-throw-literal": "off",
-      "comma-dangle": [
-        "warn",
-        {
-          "arrays": "always-multiline",
-          "objects": "always-multiline",
-          "imports": "always-multiline",
-          "exports": "always-multiline",
-          "functions": "never"
-        }
-      ],
-      "arrow-spacing": [
-        "warn",
-        {
-          "before": true,
-          "after": true
-        }
-      ],
-      "object-curly-spacing": [
-        "warn",
-        "always"
-      ],
-      "space-in-parens": [
-        "warn",
-        "never"
-      ],
-      "space-unary-ops": [
-        "warn",
-        {
-          "words": true,
-          "nonwords": false
-        }
-      ],
-      "spaced-comment": "warn",
-      "prefer-destructuring": "warn",
-      "no-multi-spaces": "warn",
-      "semi": [
-        "warn",
-        "never"
-      ],
-      "space-infix-ops": "warn",
-      "comma-spacing": [
-        "warn",
-        {
-          "before": false,
-          "after": true
-        }
-      ],
-      "no-trailing-spaces": "warn"
-    }
+    "sass": "^1.62.1"
   },
   "browserslist": {
     "production": [

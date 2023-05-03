@@ -119,7 +119,7 @@ export default [
   Tag('h3', 'Fall 2020'),
   Tag(
     'p',
-    `This time around, I worked on a different project than the other co-ops. The technology team was working on a web application that would aid the company's president (and perhaps even clients in the future) in viewing and managing the company's loan and asset data. The backend of the application was developed with JavaScript and Node, and the frontend was developed with React; I was assigned to the frontend. Being of an artistic background, I really enjoyed combining my software skills with my creative traits such as attention to detail and design sense. As the semester went on, I grew very familiar with the perks of React and how it meshes together with other languages like HTML and CSS to make up a web application.`
+    `This time around, I worked on a different project than the other co-ops. The technology team was working on a web application that would aid the company's president (and perhaps even clients in the future) in viewing and managing the company's loan and asset data. The backend of the application was developed with JavaScript and Node.js, and the frontend was developed with React; I was assigned to the frontend. Being of an artistic background, I really enjoyed combining my software skills with my creative traits such as attention to detail and design sense. As the semester went on, I grew very familiar with the perks of React and how it meshes together with other languages like HTML and CSS to make up a web application.`
   ),
 
   Tag('h3', 'Spring 2020'),
