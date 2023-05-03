@@ -3,7 +3,7 @@ import styles from '../styles/apiError.module.scss'
 
 type Props = {
   status: number
-  statusText: String
+  statusText: string
   data: any
 }
 

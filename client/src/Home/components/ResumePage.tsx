@@ -9,7 +9,7 @@ const ResumePage = ({ test }: { test?: true }) => {
   const [numPages, setNumPages] = useState(0)
   const [documentError, setDocumentError] = useState(null as any)
   const FILE_SRC = `${process.env.PUBLIC_URL}/Ron_Gorai_Resume${
-    test ? '_TEST' : '_ATS'
+    test ? '_TEST' : ''
   }.pdf`
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const ResumePage = ({ test }: { test?: true }) => {
             Download
           </button>
 
-          <UpdatedOn date="April 10, 2023" />
+          <UpdatedOn date="May 3, 2023" />
         </>
       )}
     </div>

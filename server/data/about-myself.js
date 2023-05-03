@@ -3,7 +3,7 @@ import { Tag, Component } from '../misc/utils.js'
 export default [
   Tag('h1', 'About Myself'),
 
-  Component('UpdatedOn', { date: 'February 18, 2023' }),
+  Component('UpdatedOn', { date: 'May 1, 2023' }),
 
   Component('Media', {
     Type: 'img',
@@ -14,7 +14,7 @@ export default [
 
   Tag(
     'p',
-    `Hello! my name is Ron Gorai. I'm currently a 5/5 undergraduate pursuing a BS in Computer Science and Minor in Cybersecurity from Stevens Institute of Technology. My professional interests lie in software development, with a focus on web programming.`
+    `Hello! My name is Ron Gorai. I'm a graduate from Stevens Institute of Technology with a BS in Computer Science and Minor in Cybersecurity. My professional interests lie in software development, with a focus on web programming.`
   ),
 
   Tag(
@@ -29,7 +29,7 @@ export default [
 
   Tag(
     'p',
-    `By the time it was time to apply for college, I had planned to go into an engineering field due to my early interest in machines and science. However, I realized the power of software and the crucial role it holds in modern society, so I decided to pursue a software-related field. Over the years, I founded and refined a handful of new skills with my co-ops and personal projects. After I graduate from Stevens, my dream is to join Google or another MAANG company to help develop beautiful code for their most popular applications and services.`
+    `By the time I was ready to apply for college, I had planned to go into an engineering field due to my early interest in machines and science. However, I realized the power of software and the crucial role it holds in modern society, so I decided to pursue a software-related field. Over the years, I founded and refined a handful of new skills with my co-ops and personal projects. As I look for full-time opportunities, my dream is to join Google or another MAANG company to help develop beautiful code for their most popular applications and services.`
   ),
 
   Component('Media', {

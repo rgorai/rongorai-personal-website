@@ -47,7 +47,7 @@ const DEFAULT_DATA_STATE = reduceFormSpecs((c) => [c.label, ''])
 const DEFAULT_ERROR_STATE = reduceFormSpecs((c) => [c.label, false])
 
 type Props = {
-  updateData: Function
+  updateData: () => void
 }
 
 const GuestbookForm = (props: Props) => {
@@ -135,7 +135,7 @@ const GuestbookForm = (props: Props) => {
 
       <div className={styles.captchaContainer}>
         <ThemedReCAPTCHA
-          onChange={(tok: any) => setCaptchaPassed(tok !== null)}
+          onChange={(token) => setCaptchaPassed(token !== null)}
           recaptchaRef={recaptchaRef}
         />
       </div>

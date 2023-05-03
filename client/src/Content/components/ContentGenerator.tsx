@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import axios, { AxiosResponse } from 'axios'
 import DOMPurify from 'dompurify'
+import { useLocation } from 'react-router-dom'
 import styles from '../styles/appContent.module.scss'
 import ErrorBoundary from '../../Misc/components/ErrorBoundary'
 import { getMedia, parseId } from '../../services/utils'
@@ -9,17 +10,15 @@ import ApiError from '../../Misc/components/ApiError'
 import { useStore } from '../../services/store'
 import * as CustomComponents from './customContentComponents'
 
-type AnyObject = { [key: string]: any }
-
 export type Tag = {
   tag: string
   text: string
-  props?: AnyObject
+  props?: Record<string, any>
 }
 
 type Component = {
   component: string
-  props: AnyObject
+  props: Record<string, any>
 }
 
 export type PageData = Array<Tag | Component>
@@ -30,7 +29,7 @@ const isComponent = (x: any): x is Component => x.component !== undefined
 
 type Props = {
   src: string
-  setHeadingData: Function
+  setHeadingData: Dispatch<SetStateAction<any>>
 }
 
 const ContentGenerator = (props: Props) => {
@@ -38,9 +37,10 @@ const ContentGenerator = (props: Props) => {
   const pageData = store.pageData[props.src]
   const [apiError, setApiError] = useState<AxiosResponse | null>(null)
   const [numUnloadedMedia, setNumUnloadedMedia] = useState(0)
+  const { hash } = useLocation()
 
   const getComponent = (e: Component) => {
-    const Temp = { ...CustomComponents }[e.component] as Function
+    const Temp = { ...CustomComponents }[e.component] as () => JSX.Element
     return <Temp {...e.props} />
   }
 
@@ -69,8 +69,8 @@ const ContentGenerator = (props: Props) => {
           )
 
           // pre-load all media
-          const preload = (mediaProps: AnyObject) => {
-            let { Type, src } = mediaProps
+          const preload = (mediaProps: Record<string, any>) => {
+            const { Type, src } = mediaProps
             const media = document.createElement(Type)
 
             if (Type === 'img') {
@@ -128,14 +128,14 @@ const ContentGenerator = (props: Props) => {
   useEffect(() => {
     if (pageData && numUnloadedMedia === 0) {
       const marginTopOffset = 75
-      if (window.location.hash.length > 0)
+      if (hash.length > 1)
         window.scrollTo(
           0,
-          (document.getElementById(window.location.hash.slice(1))?.offsetTop ??
+          (document.getElementById(hash.slice(1))?.offsetTop ??
             marginTopOffset) - marginTopOffset
         )
     }
-  }, [pageData, numUnloadedMedia])
+  }, [pageData, numUnloadedMedia, hash])
 
   return apiError ? (
     <ApiError {...apiError} />

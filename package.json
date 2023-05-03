@@ -2,6 +2,10 @@
   "name": "rongorai-personal-website",
   "version": "1.0.0",
   "description": "Ron Gorai's personal website",
+  "repository": "https://github.com/rgorai/rongorai-personal-website.git",
+  "author": "Ron Gorai - rgorai",
+  "license": "ISC",
+  "homepage": "https://www.rongorai.com",
   "main": "server/index.js",
   "type": "module",
   "scripts": {
@@ -12,55 +16,48 @@
     "heroku-postbuild": "yarn --cwd client install && yarn build",
     "precommit": "lint-staged",
     "seed": "node server/tasks/seed.js",
-    "lint": "eslint --fix --ext .tsx,.ts,.js,.html && prettier --write \"**/*.{tsx,ts,js,scss,html}\" && stylelint --fix **/*.scss",
     "prepare": "husky install && chmod ug+x .husky/*"
   },
+  "eslintConfig": {
+    "extends": "@rgorai/eslint-config/.eslintrc"
+  },
+  "prettier": "@rgorai/eslint-config/.prettierrc.js",
+  "stylelint": {
+    "extends": "@rgorai/eslint-config/.stylelintrc"
+  },
   "lint-staged": {
-    "**/*.{tsx,ts,js}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "**/*.scss": [
-      "prettier --write",
-      "stylelint --fix"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rgorai/rongorai-personal-website.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rgorai/rongorai-personal-website/issues"
-  },
-  "homepage": "https://github.com/rgorai/rongorai-personal-website#readme",
-  "devDependencies": {
-    "@babel/eslint-parser": "^7.16.5",
-    "concurrently": "^7.6.0",
-    "eslint": "^8.5.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.30.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.1.2",
-    "nodemon": "^2.0.15",
-    "prettier": "2.8.4",
-    "stylelint": "^15.2.0",
-    "stylelint-config-standard-scss": "^7.0.1"
+    "*": "yarn lint"
   },
   "dependencies": {
     "aws-sdk": "^2.1319.0",
     "classnames": "^2.3.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
-    "eslint-config-airbnb": "^19.0.2",
     "express": "^4.17.2",
     "mongodb": "^5.0.1",
     "nodemailer": "^6.7.5",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.16.5",
+    "@rgorai/eslint-config": "^1.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.8.8",
+    "stylelint": "^15.6.1",
+    "stylelint-config-standard-scss": "^9.0.0",
+    "stylelint-prettier": "^3.0.0",
+    "typescript": "^5.0.4"
   },
   "engines": {
     "node": ">=16.0.0",

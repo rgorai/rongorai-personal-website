@@ -11,6 +11,12 @@
   row-gap: 1.5rem;
   column-gap: 10%;
 
+  h1 {
+    font-size: 1.25em;
+    font-weight: 700;
+    margin-bottom: 0.75em;
+  }
+
   .footerLink {
     width: 100%;
     color: rgba(255, 255, 255, 90%);
@@ -55,14 +61,15 @@
     font-weight: 300;
   }
 
-  .socialIconLink {
-    height: 100%;
-    margin-right: 0.75rem;
-    -webkit-tap-highlight-color: initial;
+  .socialLinks {
+    @include display-flex(row);
 
-    .socialIcon {
-      width: 2.25rem;
-      filter: invert(1);
+    gap: 1em;
+
+    .socialIconLink {
+      height: 100%;
+      -webkit-tap-highlight-color: initial;
+      color: white;
     }
   }
 }

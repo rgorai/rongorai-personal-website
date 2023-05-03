@@ -6,9 +6,9 @@ import { getMedia } from '../../services/utils'
 const PROFILE_IMG = '/home/profile-image.jpg'
 
 const START_LINKS = [
-  { label: 'About', link: '/about' },
-  { label: 'Projects', link: '/projects' },
-  { label: 'Resume', link: '/resume' },
+  { label: 'About', path: '/about' },
+  { label: 'Projects', path: '/projects' },
+  { label: 'Resume', path: '/resume' },
 ]
 
 const HomePage = () => {
@@ -30,7 +30,7 @@ const HomePage = () => {
             <div className={styles.welcome}>Welcome to my website</div>
             <div className={styles.startLinksContainer}>
               {START_LINKS.map((e, i) => (
-                <Link className={styles.startLink} to={e.link} key={i}>
+                <Link className={styles.startLink} to={e.path} key={i}>
                   {e.label}
                 </Link>
               ))}
