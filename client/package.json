@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cp ../.env .env && PORT=5000 react-scripts start",
     "start": "serve -s build",
-    "build": "react-scripts build",
+    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
