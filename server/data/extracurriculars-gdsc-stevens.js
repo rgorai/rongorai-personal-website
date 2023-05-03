@@ -3,7 +3,7 @@ import { Tag, openLinkInNewTab, Component } from '../misc/utils.js'
 export default [
   Tag('h1', 'GDSC Stevens'),
 
-  Component('UpdatedOn', { date: 'March 7, 2023' }), // @@@@@@@@@@@
+  Component('UpdatedOn', { date: 'May 3, 2023' }),
 
   Tag(
     'p',
