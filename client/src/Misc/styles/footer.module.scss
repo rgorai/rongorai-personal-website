@@ -62,15 +62,19 @@
   }
 
   .socialLinks {
-    @include display-flex(row);
+    @include display-flex(row, space-between);
 
-    gap: 1em;
+    width: 11em;
 
     .socialIconLink {
       height: 100%;
       -webkit-tap-highlight-color: initial;
       color: white;
     }
+  }
+
+  .otherLinks {
+    margin-top: 2.5em;
   }
 }
 

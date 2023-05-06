@@ -125,19 +125,33 @@ const Footer = (props: Props) => {
     {
       heading: 'SOCIAL LINKS',
       items: (
-        <div className={styles.socialLinks}>
-          {SOCIAL_LINKS.map((e, i) => (
+        <div>
+          <div className={styles.socialLinks}>
+            {SOCIAL_LINKS.map((e, i) => (
+              <a
+                className={styles.socialIconLink}
+                href={e.link}
+                target="_blank"
+                referrerPolicy="no-referrer"
+                key={i}
+                title={e.name}
+              >
+                {e.icon}
+              </a>
+            ))}
+          </div>
+
+          <div className={styles.otherLinks}>
+            <h1>OTHER</h1>
             <a
-              className={styles.socialIconLink}
-              href={e.link}
+              className={styles.footerLink}
+              href="https://rgorai-npm-packages.netlify.app/"
               target="_blank"
               referrerPolicy="no-referrer"
-              key={i}
-              title={e.name}
             >
-              {e.icon}
+              NPM Package Platform
             </a>
-          ))}
+          </div>
         </div>
       ),
     },
