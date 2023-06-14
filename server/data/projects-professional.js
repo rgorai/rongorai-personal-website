@@ -64,7 +64,7 @@ export default [
   Tag('h2', 'IBM'),
   Tag(
     'p',
-    `In the summer of 2021, I worked at IBM as a Frontend Developer in their Cloud and Cognitive department for my third co-op. The project I was working on was a web application for IBM's Db2 database migration service. In short, the migration service is a tool to migrate data between Db2 databases. The web application provides a GUI for this service to allow users to easily create a migration service, choose the data they want to migrate, run the migration, and manage multiple migration services.`
+    `In the summer of 2021, I worked at IBM as a Front-End Developer in their Cloud and Cognitive department for my third co-op. The project I was working on was a web application for IBM's Db2 database migration service. In short, the migration service is a tool to migrate data between Db2 databases. The web application provides a GUI for this service to allow users to easily create a migration service, choose the data they want to migrate, run the migration, and manage multiple migration services.`
   ),
   Tag('a', 'More on IBM Db2 Migration Service', {
     href: 'https://www.ibm.com/docs/en/db2/11.5?topic=db2-migration-service',
@@ -80,7 +80,7 @@ export default [
   ),
   Tag(
     'p',
-    `While creating the view flow component, I had to ensure it worked in every aspect - this meant testing numerous payloads of data. To do this, I first started by creating dummy data in the same format as the creation flow's output. This was very efficient for me during the development of the view flow, since I only needed to run the frontend. However, when I had completed the UI, I had to ensure the component worked with the real data from the backend as well. With the help of some of my teammates, I got our backend server running in a python environment on my machine. to test different payloads with the server, I used an API endpoint called Swagger (which is basically Postman). The only complication I had was that the backend's migration job data structure differed rather drastically from the frontend's, so I wrote a simple function that reads the data from the backend and parses it into the frontend's format.`
+    `While creating the view flow component, I had to ensure it worked in every aspect - this meant testing numerous payloads of data. To do this, I first started by creating dummy data in the same format as the creation flow's output. This was very efficient for me during the development of the view flow, since I only needed to run the frontend. However, when I had completed the UI, I had to ensure the component worked with the real data from the backend as well. With the help of some of my teammates, I got our backend server running in a python environment on my machine. to test different payloads with the server, I used an API platform called Swagger (which is basically Postman). The only complication I had was that the backend's migration job data structure differed rather drastically from the frontend's, so I wrote a simple function that reads the data from the backend and parses it into the frontend's format.`
   ),
   Tag(
     'p',
