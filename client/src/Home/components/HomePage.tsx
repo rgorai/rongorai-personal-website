@@ -27,7 +27,7 @@ const HomePage = () => {
         <>
           <div className={styles.messageContainer}>
             <div className={styles.title}>Ron Gorai</div>
-            <div className={styles.welcome}>Welcome to my website</div>
+            <div className={styles.welcome}>Full Stack Engineer</div>
             <div className={styles.startLinksContainer}>
               {START_LINKS.map((e, i) => (
                 <Link className={styles.startLink} to={e.path} key={i}>
