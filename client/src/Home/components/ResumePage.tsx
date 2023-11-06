@@ -54,7 +54,7 @@ const ResumePage = ({ test }: { test?: true }) => {
             Download
           </button>
 
-          <UpdatedOn date="August 12, 2023" />
+          <UpdatedOn date="November 6, 2023" />
         </>
       )}
     </div>
