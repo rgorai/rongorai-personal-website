@@ -3,7 +3,54 @@ import { Tag, openLinkInNewTab, Component, getDocument } from '../misc/utils.js'
 export default [
   Tag('h1', 'STEM'),
 
-  Component('UpdatedOn', { date: 'May 12, 2022' }),
+  Component('UpdatedOn', { date: 'December 11, 2023' }),
+
+  Tag('h2', 'EDAM'),
+  Tag(
+    'p',
+    `During my junior year of high school, I was accepted into the Engineering Design and Advanced Manufacturing (EDAM) program at the Morris County School of Technology. In this program, I took various engineering classes at the County College of Morris everyday alongside juniors from other schools across the county.`
+  ),
+  Tag(
+    'p',
+    `In addition to these classes, we were also a part of NASA's High school students UNited to Create Hardware (HUNCH). During this program, I helped model bolts and lug nuts in CAD software, then fabricate them using computer-integrated manufacturing machines. These parts were used in a stowage locker which was actually sent up to the ISS by SpaceX on their CRS-10 mission aboard the Dragon C112 spacecraft.`
+  ),
+  Tag('a', 'OSHE Article on the HUNCH Program', {
+    href: 'https://njsecretaryhighereducation.com/2017/04/20/apr2017-ccm/',
+    ...openLinkInNewTab,
+  }),
+  Tag('a', 'More about SpaceX CRS-10', {
+    href: 'https://en.wikipedia.org/wiki/SpaceX_CRS-10',
+    ...openLinkInNewTab,
+  }),
+  Component('MediaGrid', {
+    columns: 2,
+    media: [
+      {
+        Type: 'img',
+        src: '/extracurriculars/stem/edam/astronaut-selfie.jpg',
+        mediaProps: { alt: 'Astronaut Selfie' },
+      },
+      {
+        Type: 'video',
+        src: '/extracurriculars/stem/edam/ccm-hunch-ceremony.mp4',
+        mediaProps: {
+          alt: 'Locker Signing Ceremony',
+          poster:
+            'https://static.rongorai.com/_compressed/extracurriculars/stem/edam/group-image.webp',
+        },
+      },
+      {
+        Type: 'img',
+        src: '/extracurriculars/stem/edam/locker-small-group.jpg',
+        mediaProps: { alt: 'Speaking with a NASA Representative' },
+      },
+      {
+        Type: 'img',
+        src: '/extracurriculars/stem/edam/hunch-memorabilia.jpg',
+        mediaProps: { alt: 'HUNCH Memorabilia' },
+      },
+    ],
+  }),
 
   Tag('h2', 'FTC Robotics'),
   Tag(
@@ -57,31 +104,6 @@ export default [
         Type: 'img',
         src: '/extracurriculars/stem/ftc/game-demonstration.jpg',
         mediaProps: { alt: 'Game Demonstration' },
-      },
-    ],
-  }),
-
-  Tag('h2', 'EDAM'),
-  Tag(
-    'p',
-    `During my junior year of high school, I was accepted into the Engineering Design and Advanced Manufacturing (EDAM) program at the Morris County School of Technology. In this program, I took various engineering classes at the County College of Morris everyday alongside juniors from other schools across the county. In addition to these classes, we were also a part of NASA's High school students UNited to Create Hardware (HUNCH). In that program, we modeled bolts and lug nuts in CAD and then fabricated them using CIMs; these were made to be used in a locker that NASA actually sent up to the ISS.`
-  ),
-  Tag('a', 'NASA HUNCH homepage', {
-    href: 'https://nasahunch.com/',
-    ...openLinkInNewTab,
-  }),
-  Component('MediaGrid', {
-    columns: 2,
-    media: [
-      {
-        Type: 'img',
-        src: '/extracurriculars/stem/edam/astronaut-selfie.jpg',
-        mediaProps: { alt: 'Astronaut Selfie' },
-      },
-      {
-        Type: 'img',
-        src: '/extracurriculars/stem/edam/hunch-memorabilia.jpg',
-        mediaProps: { alt: 'Hunch Memorabilia' },
       },
     ],
   }),

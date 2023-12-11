@@ -38,7 +38,7 @@ export default [
   Tag('h3', 'ESLint Config'),
   Tag(
     'p',
-    `Over the past year, I have worked on a large number of web apps, and every time, I found myself copying the same files and scripts across each of my projects to maintain good codebase quality. So, for my first ever NPM package, I made a simple bundle of my linting setup. Designed to be used for apps that use TypeScript, React, SCSS, and Node.js, my package uses my desired ESLint, Stylelint, and Prettier settings to keep my code looking clean. To auto-fix supported files, I wrote a simple CLI command to lint the project on demand.`
+    `Over the past year, I have worked on a large number of web apps, and every time, I found myself copying the same files and scripts across each of my projects to maintain good codebase quality. So, for my first ever NPM package, I made a simple bundle of my linting setup. Designed to be used for apps that use TypeScript, React, SCSS, and Node.js, my package uses my desired ESLint, Stylelint, and Prettier settings to keep my code looking clean. To quickly fix supported files, I wrote a simple CLI command in Bash to lint the project on demand.`
   ),
   Tag(
     'p',
