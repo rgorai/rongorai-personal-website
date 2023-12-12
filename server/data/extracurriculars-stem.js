@@ -12,8 +12,9 @@ export default [
   ),
   Tag(
     'p',
-    `In addition to these classes, we were also a part of NASA's High school students UNited to Create Hardware (HUNCH). During this program, I helped model bolts and lug nuts in CAD software, then fabricate them using computer-integrated manufacturing machines. These parts were used in a stowage locker which was actually sent up to the ISS by SpaceX on their CRS-10 mission aboard the Dragon C112 spacecraft.`
+    `In addition to attending these classes, I also participated in NASA's High school students UNited to Create Hardware (HUNCH). During this program, I helped model bolts and lug nuts in CAD software, then fabricate them using computer-integrated manufacturing machines. These parts were used in a stowage locker which was actually sent up to the ISS by SpaceX on their CRS-10 mission aboard the Dragon C112 spacecraft.`
   ),
+  Tag('p', `At the end of the program, `),
   Tag('a', 'OSHE Article on the HUNCH Program', {
     href: 'https://njsecretaryhighereducation.com/2017/04/20/apr2017-ccm/',
     ...openLinkInNewTab,
