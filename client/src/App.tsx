@@ -9,6 +9,7 @@ import React, { ReactNode, useEffect } from 'react'
 import { parseRoute, parseFilename } from './services/utils'
 import ApiError from './Misc/components/ApiError'
 import GuestbookPage from './Guestbook/components/GuestbookPage'
+import AppsPage from './Apps/components/AppsPage'
 import NavBar from './Home/components/NavBar'
 import HomePage from './Home/components/HomePage'
 import PageTemplate from './Home/components/PageTemplate'
@@ -42,6 +43,11 @@ const APP_CONTENT: Array<{
   },
   {
     name: 'Pets',
+  },
+  {
+    name: 'Apps',
+    subItems: [],
+    element: <AppsPage />,
   },
   {
     name: 'Guestbook',
