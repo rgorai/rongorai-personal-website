@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import '../styles/tailwind.css'
 import AppsSidebar from './AppsSidebar'
 import JobBuddyPage from './JobBuddyPage'
+import ChoreBuddyPage from './ChoreBuddyPage'
 
 const AppsPage = () => {
   return (
@@ -15,6 +16,7 @@ const AppsPage = () => {
               element={<Navigate replace to="/apps/jobbuddy" />}
             />
             <Route path="/jobbuddy/*" element={<JobBuddyPage />} />
+            <Route path="/chorebuddy/*" element={<ChoreBuddyPage />} />
           </Routes>
         </main>
       </div>
