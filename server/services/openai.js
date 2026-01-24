@@ -190,7 +190,9 @@ Return ONLY the JSON array, no other text.`,
 function deduplicateJobs(jobs) {
   const seen = new Set()
   return jobs.filter((job) => {
-    const key = `${(job.company || '').toLowerCase()}-${(job.title || '').toLowerCase()}`
+    const key = `${(job.company || '').toLowerCase()}-${(
+      job.title || ''
+    ).toLowerCase()}`
     if (seen.has(key)) return false
     seen.add(key)
     return true
@@ -291,7 +293,9 @@ export async function searchJobs(resumeText, jobPreferences) {
   // Step 5: Score and rank
   console.log('Step 5: Scoring jobs...')
   const scoredJobs = await scoreJobs(uniqueJobs, resumeData, jobPreferences)
-  console.log(`Returning ${Array.isArray(scoredJobs) ? scoredJobs.length : 0} scored jobs`)
+  console.log(
+    `Returning ${Array.isArray(scoredJobs) ? scoredJobs.length : 0} scored jobs`
+  )
 
   return Array.isArray(scoredJobs) ? scoredJobs : []
 }

@@ -10,7 +10,10 @@ const AppsPage = () => {
         <AppsSidebar />
         <main className="flex-1 p-6">
           <Routes>
-            <Route path="/" element={<Navigate replace to="/apps/jobbuddy" />} />
+            <Route
+              path="/"
+              element={<Navigate replace to="/apps/jobbuddy" />}
+            />
             <Route path="/jobbuddy/*" element={<JobBuddyPage />} />
           </Routes>
         </main>

@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
-import { cn } from '../lib/utils'
 import { Briefcase } from 'lucide-react'
+import { cn } from '../lib/utils'
 
 type AppItem = {
   name: string

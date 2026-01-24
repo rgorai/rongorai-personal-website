@@ -34,7 +34,9 @@ jobbuddyRouter.post('/search', authMiddleware, async (req, res) => {
   const { resume, jobPreferences } = req.body
 
   if (!resume || !jobPreferences) {
-    return res.status(400).json({ error: 'Resume and job preferences are required' })
+    return res
+      .status(400)
+      .json({ error: 'Resume and job preferences are required' })
   }
 
   try {
@@ -43,7 +45,7 @@ jobbuddyRouter.post('/search', authMiddleware, async (req, res) => {
   } catch (error) {
     console.error('Job search error:', error)
     res.status(500).json({
-      error: error.message || 'An error occurred during job search'
+      error: error.message || 'An error occurred during job search',
     })
   }
 })

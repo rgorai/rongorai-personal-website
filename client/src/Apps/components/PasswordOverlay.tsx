@@ -2,7 +2,13 @@ import { useState } from 'react'
 import { Lock, AlertCircle } from 'lucide-react'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from './ui/card'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from './ui/card'
 import { Alert, AlertDescription } from './ui/alert'
 
 type Props = {
@@ -59,7 +65,11 @@ const PasswordOverlay = ({ onLogin }: Props) => {
                 autoFocus
               />
             </div>
-            <Button type="submit" className="w-full" disabled={isLoading || !password}>
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={isLoading || !password}
+            >
               {isLoading ? 'Verifying...' : 'Access JobBuddy'}
             </Button>
           </form>

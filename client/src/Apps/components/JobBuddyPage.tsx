@@ -6,7 +6,14 @@ import PasswordOverlay from './PasswordOverlay'
 import { Button } from './ui/button'
 import { Textarea } from './ui/textarea'
 import { Label } from './ui/label'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from './ui/card'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from './ui/card'
 import { Badge } from './ui/badge'
 import { Alert, AlertTitle, AlertDescription } from './ui/alert'
 
@@ -25,7 +32,13 @@ type JobResult = {
 type SearchStatus = 'idle' | 'loading' | 'success' | 'error'
 
 const JobBuddyPage = () => {
-  const { isAuthenticated, isLoading: authLoading, login, logout, getAuthHeader } = useJobBuddyAuth()
+  const {
+    isAuthenticated,
+    isLoading: authLoading,
+    login,
+    logout,
+    getAuthHeader,
+  } = useJobBuddyAuth()
   const [resume, setResume] = useState('')
   const [jobPreferences, setJobPreferences] = useState('')
   const [jobs, setJobs] = useState<JobResult[]>([])
@@ -60,7 +73,11 @@ const JobBuddyPage = () => {
       }
     } catch (err: any) {
       setStatus('error')
-      setError(err.response?.data?.error || err.message || 'An error occurred during the search.')
+      setError(
+        err.response?.data?.error ||
+          err.message ||
+          'An error occurred during the search.'
+      )
       setStatusMessage('')
     }
   }
@@ -93,7 +110,9 @@ const JobBuddyPage = () => {
           </div>
           <div>
             <h1 className="text-2xl font-bold text-foreground">JobBuddy</h1>
-            <p className="text-sm text-muted-foreground">AI-powered job search assistant</p>
+            <p className="text-sm text-muted-foreground">
+              AI-powered job search assistant
+            </p>
           </div>
         </div>
         <Button variant="ghost" size="sm" onClick={logout}>
@@ -107,7 +126,8 @@ const JobBuddyPage = () => {
         <CardHeader>
           <CardTitle>Find Your Next Job</CardTitle>
           <CardDescription>
-            Paste your resume and describe what kind of jobs you're looking for. We'll search the web to find the best matches.
+            Paste your resume and describe what kind of jobs you're looking for.
+            We'll search the web to find the best matches.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -137,7 +157,9 @@ const JobBuddyPage = () => {
         <CardFooter>
           <Button
             onClick={handleSearch}
-            disabled={status === 'loading' || !resume.trim() || !jobPreferences.trim()}
+            disabled={
+              status === 'loading' || !resume.trim() || !jobPreferences.trim()
+            }
             className="w-full"
           >
             {status === 'loading' ? (
@@ -217,7 +239,8 @@ const JobBuddyPage = () => {
         <Alert>
           <AlertTitle>No matching jobs found</AlertTitle>
           <AlertDescription>
-            Try adjusting your job preferences or updating your resume to find more matches.
+            Try adjusting your job preferences or updating your resume to find
+            more matches.
           </AlertDescription>
         </Alert>
       )}
