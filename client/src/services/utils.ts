@@ -15,7 +15,7 @@ const getMedia = (path: string, compressed?: boolean) => {
   return process.env.NODE_ENV === 'production'
     ? process.env.REACT_APP_AWS_DISTRIBUTION_URL + newPath
     : `http://${window.location.host.split(':')[0]}:${
-        process.env.PORT ?? 5000 + 1
+        Number(process.env.REACT_APP_PORT) + 1 || 5001
       }/api/localS3/${encodeURIComponent(newPath)}`
 }
 
