@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scoped CSS variables for the Apps section - using tw- prefix to avoid conflicts */
+.apps-container {
+  /* Light mode colors */
+  --tw-background: 210 20% 98%;
+  --tw-foreground: 222 47% 11%;
+  --tw-card: 0 0% 100%;
+  --tw-card-foreground: 222 47% 11%;
+  --tw-primary: 221 83% 53%;
+  --tw-primary-foreground: 210 40% 98%;
+  --tw-secondary: 210 40% 96%;
+  --tw-secondary-foreground: 222 47% 11%;
+  --tw-muted: 210 40% 96%;
+  --tw-muted-foreground: 215 16% 47%;
+  --tw-accent: 210 40% 96%;
+  --tw-accent-foreground: 222 47% 11%;
+  --tw-destructive: 0 84% 60%;
+  --tw-destructive-foreground: 210 40% 98%;
+  --tw-border: 214 32% 91%;
+  --tw-input: 214 32% 91%;
+  --tw-ring: 221 83% 53%;
+  --tw-radius: 0.5rem;
+}
+
+/* Dark mode colors - scoped to apps-container with data-theme */
+[data-theme='dark'] .apps-container {
+  --tw-background: 222 47% 8%;
+  --tw-foreground: 210 40% 98%;
+  --tw-card: 222 47% 11%;
+  --tw-card-foreground: 210 40% 98%;
+  --tw-primary: 217 91% 60%;
+  --tw-primary-foreground: 222 47% 11%;
+  --tw-secondary: 217 33% 17%;
+  --tw-secondary-foreground: 210 40% 98%;
+  --tw-muted: 217 33% 17%;
+  --tw-muted-foreground: 215 20% 65%;
+  --tw-accent: 217 33% 17%;
+  --tw-accent-foreground: 210 40% 98%;
+  --tw-destructive: 0 62% 50%;
+  --tw-destructive-foreground: 210 40% 98%;
+  --tw-border: 217 33% 17%;
+  --tw-input: 217 33% 17%;
+  --tw-ring: 224 76% 48%;
+}
+
+/* Base styling for the apps container */
+.apps-container {
+  min-height: calc(100vh - 4rem);
+  background-color: hsl(var(--tw-background));
+  color: hsl(var(--tw-foreground));
+}
+
+/* Reset some base styles within the apps container */
+.apps-container * {
+  border-color: hsl(var(--tw-border));
+}

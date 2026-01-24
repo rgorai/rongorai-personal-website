@@ -6,7 +6,7 @@ import configRoutes from './routes/index.js'
 
 dotenv.config()
 
-const PORT = process.env.PORT || 5001
+const PORT = Number(process.env.PORT) + 1 || 5001
 
 const app = express()
 app.use(cors())
