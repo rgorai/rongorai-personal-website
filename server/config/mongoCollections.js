@@ -15,4 +15,5 @@ const getCollectionFn = (collection) => {
 
 /* Now, you can list your collections here: */
 const guestbookCollection = getCollectionFn('guestbook')
-export { guestbookCollection }
+const chorebuddyCollection = getCollectionFn('chorebuddy')
+export { guestbookCollection, chorebuddyCollection }
