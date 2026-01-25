@@ -16,7 +16,8 @@
     "heroku-postbuild": "yarn --cwd client install && yarn build",
     "precommit": "lint-staged",
     "seed": "node server/tasks/seed.js",
-    "prepare": "husky install && chmod ug+x .husky/*"
+    "prepare": "husky install && chmod ug+x .husky/*",
+    "typecheck": "yarn --cwd client tsc --noEmit"
   },
   "eslintConfig": {
     "extends": "@rgorai/eslint-config/.eslintrc"
