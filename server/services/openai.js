@@ -1,9 +1,5 @@
 import OpenAI from 'openai'
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
-
 // Maximum number of web searches to perform
 const MAX_SEARCHES = 5
 
@@ -11,6 +7,10 @@ const MAX_SEARCHES = 5
  * Extract structured data from resume text
  */
 async function extractResumeData(resumeText) {
+  const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  })
+
   const response = await openai.chat.completions.create({
     model: 'gpt-5-nano',
     messages: [
@@ -43,6 +43,10 @@ Return ONLY valid JSON, no markdown formatting.`,
  * Generate search queries based on resume and preferences
  */
 async function generateSearchQueries(resumeData, jobPreferences) {
+  const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  })
+
   const response = await openai.chat.completions.create({
     model: 'gpt-4o-mini',
     messages: [
@@ -113,6 +117,10 @@ function extractOutputText(response) {
  */
 async function searchJobsWithWebSearch(queries) {
   const allJobs = []
+
+  const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  })
 
   for (const query of queries.slice(0, MAX_SEARCHES)) {
     try {
@@ -204,6 +212,10 @@ function deduplicateJobs(jobs) {
  */
 async function scoreJobs(jobs, resumeData, jobPreferences) {
   if (jobs.length === 0) return []
+
+  const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  })
 
   const response = await openai.chat.completions.create({
     model: 'gpt-4o-mini',
