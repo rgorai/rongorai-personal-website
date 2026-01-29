@@ -31,6 +31,9 @@ const authMiddleware = (req, res, next) => {
 
 // Job search endpoint with SSE streaming
 jobbuddyRouter.post('/search', authMiddleware, async (req, res) => {
+  // Temporarliy block all access
+  return res.status(403)
+
   const { resume, jobPreferences } = req.body
 
   if (!resume || !jobPreferences) {
