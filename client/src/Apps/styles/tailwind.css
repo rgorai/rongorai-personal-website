@@ -1,10 +1,88 @@
-@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Scoped CSS variables for the Apps section - using tw- prefix to avoid conflicts */
+/*
+ * Scoped Preflight - These are the essential base styles from Tailwind's Preflight,
+ * but scoped to only apply within .apps-container so they don't affect the rest of the site.
+ */
+.apps-container *,
+.apps-container *::before,
+.apps-container *::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: hsl(var(--tw-border));
+}
+
+.apps-container button,
+.apps-container input,
+.apps-container optgroup,
+.apps-container select,
+.apps-container textarea {
+  font-family: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.apps-container button,
+.apps-container [role='button'] {
+  cursor: pointer;
+}
+
+.apps-container button:disabled {
+  cursor: default;
+}
+
+.apps-container h1,
+.apps-container h2,
+.apps-container h3,
+.apps-container h4,
+.apps-container h5,
+.apps-container h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.apps-container a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.apps-container img,
+.apps-container svg,
+.apps-container video,
+.apps-container canvas,
+.apps-container audio,
+.apps-container iframe,
+.apps-container embed,
+.apps-container object {
+  display: block;
+}
+
+.apps-container img,
+.apps-container video {
+  max-width: 100%;
+  height: auto;
+}
+
+.apps-container [hidden] {
+  display: none;
+}
+
+/* Scoped CSS variables and base styling for the Apps section */
 .apps-container {
-  /* Light mode colors */
+  /* Base styling */
+  min-height: calc(100vh - 4rem);
+  background-color: hsl(var(--tw-background));
+  color: hsl(var(--tw-foreground));
+
+  /* Light mode colors - using tw- prefix to avoid conflicts */
   --tw-background: 210 20% 98%;
   --tw-foreground: 222 47% 11%;
   --tw-card: 0 0% 100%;
@@ -44,16 +122,4 @@
   --tw-border: 217 33% 17%;
   --tw-input: 217 33% 17%;
   --tw-ring: 224 76% 48%;
-}
-
-/* Base styling for the apps container */
-.apps-container {
-  min-height: calc(100vh - 4rem);
-  background-color: hsl(var(--tw-background));
-  color: hsl(var(--tw-foreground));
-}
-
-/* Reset some base styles within the apps container */
-.apps-container * {
-  border-color: hsl(var(--tw-border));
 }

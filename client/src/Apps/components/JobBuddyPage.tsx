@@ -126,8 +126,8 @@ const JobBuddyPage = () => {
         <CardHeader>
           <CardTitle>Find Your Next Job</CardTitle>
           <CardDescription>
-            Paste your resume and describe what kind of jobs you're looking for.
-            We'll search the web to find the best matches.
+            {`Paste your resume and describe what kind of jobs you're looking for.
+            We'll search the web to find the best matches.`}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

@@ -24,9 +24,9 @@ const AppsSidebar = () => {
   return (
     <nav className="w-64 min-h-full border-r border-border bg-card p-4">
       <h2 className="text-lg font-semibold mb-4 text-foreground">Apps</h2>
-      <ul className="space-y-2">
+      <ul className="space-y-2 p-0">
         {APPS.map((app) => (
-          <li key={app.route}>
+          <li className="list-none" key={app.route}>
             <Link
               to={app.route}
               className={cn(
