@@ -2,9 +2,6 @@
 module.exports = {
   content: ['./src/Apps/**/*.{js,jsx,ts,tsx}'],
   important: '.apps-container',
-  corePlugins: {
-    preflight: false,
-  },
   theme: {
     extend: {
       colors: {
