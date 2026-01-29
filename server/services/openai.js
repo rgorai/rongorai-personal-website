@@ -12,7 +12,7 @@ const MAX_SEARCHES = 5
  */
 async function extractResumeData(resumeText) {
   const response = await openai.chat.completions.create({
-    model: 'gpt-4o-mini',
+    model: 'gpt-5-nano',
     messages: [
       {
         role: 'system',
@@ -259,43 +259,67 @@ No markdown formatting, just valid JSON.`,
 }
 
 /**
- * Main job search function
+ * Main job search function - async generator that yields status updates
  */
-export async function searchJobs(resumeText, jobPreferences) {
+export async function* searchJobs(resumeText, jobPreferences) {
   if (!process.env.OPENAI_API_KEY) {
     throw new Error('OpenAI API key not configured')
   }
 
   // Step 1: Extract resume data
+  yield { type: 'status', step: 1, message: 'Analyzing your resume...' }
   console.log('Step 1: Extracting resume data...')
   const resumeData = await extractResumeData(resumeText)
   console.log('Resume data extracted:', JSON.stringify(resumeData, null, 2))
 
   // Step 2: Generate search queries
+  yield {
+    type: 'status',
+    step: 2,
+    message: 'Generating search queries based on your profile...',
+  }
   console.log('Step 2: Generating search queries...')
   const queries = await generateSearchQueries(resumeData, jobPreferences)
   console.log('Generated queries:', queries)
 
   // Step 3: Search for jobs using web search
+  yield {
+    type: 'status',
+    step: 3,
+    message: `Searching the web with ${queries.length} queries...`,
+    queries,
+  }
   console.log('Step 3: Searching for jobs...')
   const rawJobs = await searchJobsWithWebSearch(queries)
   console.log(`Found ${rawJobs.length} raw jobs`)
 
   // Step 4: Deduplicate
+  yield {
+    type: 'status',
+    step: 4,
+    message: `Found ${rawJobs.length} jobs, removing duplicates...`,
+  }
   console.log('Step 4: Deduplicating...')
   const uniqueJobs = deduplicateJobs(rawJobs)
   console.log(`${uniqueJobs.length} unique jobs after deduplication`)
 
   if (uniqueJobs.length === 0) {
-    return []
+    yield { type: 'complete', jobs: [] }
+    return
   }
 
   // Step 5: Score and rank
+  yield {
+    type: 'status',
+    step: 5,
+    message: `Scoring and ranking ${uniqueJobs.length} unique jobs...`,
+  }
   console.log('Step 5: Scoring jobs...')
   const scoredJobs = await scoreJobs(uniqueJobs, resumeData, jobPreferences)
   console.log(
     `Returning ${Array.isArray(scoredJobs) ? scoredJobs.length : 0} scored jobs`
   )
 
-  return Array.isArray(scoredJobs) ? scoredJobs : []
+  const finalJobs = Array.isArray(scoredJobs) ? scoredJobs : []
+  yield { type: 'complete', jobs: finalJobs }
 }

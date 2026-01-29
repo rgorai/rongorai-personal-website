@@ -1,7 +1,12 @@
-import { useState } from 'react'
-import axios from 'axios'
+import { useState, useRef } from 'react'
 import { Briefcase, Search, ExternalLink, Loader2, LogOut } from 'lucide-react'
 import { useJobBuddyAuth } from '../lib/useJobBuddyAuth'
+import {
+  SearchStatus,
+  JobResult,
+  TOTAL_STEPS,
+  searchJobs,
+} from '../lib/jobBuddyService'
 import PasswordOverlay from './PasswordOverlay'
 import { Button } from './ui/button'
 import { Textarea } from './ui/textarea'
@@ -17,20 +22,6 @@ import {
 import { Badge } from './ui/badge'
 import { Alert, AlertTitle, AlertDescription } from './ui/alert'
 
-type JobResult = {
-  title: string
-  company: string
-  location: string
-  employment_type: string
-  url: string
-  source: string
-  summary: string
-  match_score: number
-  match_reason: string
-}
-
-type SearchStatus = 'idle' | 'loading' | 'success' | 'error'
-
 const JobBuddyPage = () => {
   const {
     isAuthenticated,
@@ -42,9 +33,12 @@ const JobBuddyPage = () => {
   const [resume, setResume] = useState('')
   const [jobPreferences, setJobPreferences] = useState('')
   const [jobs, setJobs] = useState<JobResult[]>([])
-  const [status, setStatus] = useState<SearchStatus>('idle')
+  const [status, setStatus] = useState(SearchStatus.Idle)
   const [error, setError] = useState('')
   const [statusMessage, setStatusMessage] = useState('')
+  const [currentStep, setCurrentStep] = useState(0)
+  const [searchQueries, setSearchQueries] = useState<string[]>([])
+  const abortControllerRef = useRef<AbortController | null>(null)
 
   const handleSearch = async () => {
     if (!resume.trim() || !jobPreferences.trim()) {
@@ -52,33 +46,57 @@ const JobBuddyPage = () => {
       return
     }
 
-    setStatus('loading')
+    // Cancel any existing request
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort()
+    }
+    abortControllerRef.current = new AbortController()
+
+    setStatus(SearchStatus.Loading)
     setError('')
     setJobs([])
-    setStatusMessage('Analyzing your resume...')
+    setStatusMessage('Starting search...')
+    setCurrentStep(0)
+    setSearchQueries([])
 
     try {
-      const response = await axios.post(
-        '/api/jobbuddy/search',
-        { resume, jobPreferences },
-        { headers: getAuthHeader() }
+      await searchJobs(
+        resume,
+        jobPreferences,
+        getAuthHeader(),
+        abortControllerRef.current.signal,
+        {
+          onStatus: (message, step, queries) => {
+            setStatusMessage(message)
+            setCurrentStep(step)
+            if (queries) {
+              setSearchQueries(queries)
+            }
+          },
+          onComplete: (resultJobs) => {
+            setJobs(resultJobs)
+            setStatus(SearchStatus.Success)
+            setStatusMessage('')
+            setCurrentStep(0)
+          },
+          onError: (errorMessage) => {
+            throw new Error(errorMessage)
+          },
+        }
       )
-
-      if (response.data.jobs) {
-        setJobs(response.data.jobs)
-        setStatus('success')
-        setStatusMessage('')
-      } else {
-        throw new Error('No jobs returned from search')
+    } catch (err: unknown) {
+      if (err instanceof Error && err.name === 'AbortError') {
+        // Request was cancelled, don't show error
+        return
       }
-    } catch (err: any) {
-      setStatus('error')
+      setStatus(SearchStatus.Error)
       setError(
-        err.response?.data?.error ||
-          err.message ||
-          'An error occurred during the search.'
+        err instanceof Error
+          ? err.message
+          : 'An error occurred during the search.'
       )
       setStatusMessage('')
+      setCurrentStep(0)
     }
   }
 
@@ -139,7 +157,7 @@ const JobBuddyPage = () => {
               value={resume}
               onChange={(e) => setResume(e.target.value)}
               className="min-h-[200px] font-mono text-sm"
-              disabled={status === 'loading'}
+              disabled={status === SearchStatus.Loading}
             />
           </div>
           <div className="space-y-2">
@@ -150,19 +168,21 @@ const JobBuddyPage = () => {
               value={jobPreferences}
               onChange={(e) => setJobPreferences(e.target.value)}
               className="min-h-[120px]"
-              disabled={status === 'loading'}
+              disabled={status === SearchStatus.Loading}
             />
           </div>
         </CardContent>
-        <CardFooter>
+        <CardFooter className="flex-col gap-4">
           <Button
             onClick={handleSearch}
             disabled={
-              status === 'loading' || !resume.trim() || !jobPreferences.trim()
+              status === SearchStatus.Loading ||
+              !resume.trim() ||
+              !jobPreferences.trim()
             }
             className="w-full"
           >
-            {status === 'loading' ? (
+            {status === SearchStatus.Loading ? (
               <>
                 <Loader2 className="h-4 w-4 mr-2 animate-spin" />
                 {statusMessage || 'Searching...'}
@@ -174,6 +194,38 @@ const JobBuddyPage = () => {
               </>
             )}
           </Button>
+
+          {/* Progress indicator */}
+          {status === SearchStatus.Loading && currentStep > 0 && (
+            <div className="w-full space-y-3">
+              <div className="flex items-center justify-between text-sm text-muted-foreground">
+                <span>
+                  Step {currentStep} of {TOTAL_STEPS}
+                </span>
+                <span>{Math.round((currentStep / TOTAL_STEPS) * 100)}%</span>
+              </div>
+              <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-primary transition-all duration-300 ease-out"
+                  style={{ width: `${(currentStep / TOTAL_STEPS) * 100}%` }}
+                />
+              </div>
+
+              {/* Show search queries when available */}
+              {searchQueries.length > 0 && (
+                <div className="text-xs text-muted-foreground space-y-1">
+                  <p className="font-medium">Search queries:</p>
+                  <ul className="list-disc list-inside space-y-0.5">
+                    {searchQueries.map((query, i) => (
+                      <li key={i} className="truncate">
+                        {query}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
         </CardFooter>
       </Card>
 
@@ -235,7 +287,7 @@ const JobBuddyPage = () => {
       )}
 
       {/* Empty state after search */}
-      {status === 'success' && jobs.length === 0 && (
+      {status === SearchStatus.Success && jobs.length === 0 && (
         <Alert>
           <AlertTitle>No matching jobs found</AlertTitle>
           <AlertDescription>

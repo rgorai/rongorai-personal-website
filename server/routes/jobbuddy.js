@@ -29,7 +29,7 @@ const authMiddleware = (req, res, next) => {
   }
 }
 
-// Job search endpoint
+// Job search endpoint with SSE streaming
 jobbuddyRouter.post('/search', authMiddleware, async (req, res) => {
   const { resume, jobPreferences } = req.body
 
@@ -39,14 +39,31 @@ jobbuddyRouter.post('/search', authMiddleware, async (req, res) => {
       .json({ error: 'Resume and job preferences are required' })
   }
 
+  // Set up SSE headers
+  res.setHeader('Content-Type', 'text/event-stream')
+  res.setHeader('Cache-Control', 'no-cache')
+  res.setHeader('Connection', 'keep-alive')
+  res.flushHeaders()
+
+  // Helper to send SSE event
+  const sendEvent = (data) => {
+    res.write(`data: ${JSON.stringify(data)}\n\n`)
+  }
+
   try {
-    const jobs = await searchJobs(resume, jobPreferences)
-    res.status(200).json({ jobs })
+    const jobSearchGenerator = searchJobs(resume, jobPreferences)
+
+    for await (const event of jobSearchGenerator) {
+      sendEvent(event)
+    }
   } catch (error) {
     console.error('Job search error:', error)
-    res.status(500).json({
-      error: error.message || 'An error occurred during job search',
+    sendEvent({
+      type: 'error',
+      message: error.message || 'An error occurred during job search',
     })
+  } finally {
+    res.end()
   }
 })
 

@@ -44,11 +44,11 @@ const APP_CONTENT: Array<{
   {
     name: 'Pets',
   },
-  {
-    name: 'Apps',
-    subItems: [],
-    element: <AppsPage />,
-  },
+  // {
+  //   name: 'Apps',
+  //   subItems: [],
+  //   element: <AppsPage />,
+  // },
   {
     name: 'Guestbook',
     element: <GuestbookPage />,
