@@ -8,7 +8,11 @@ export default [
   Tag('h2', 'CyberConvoy'),
   Tag(
     'p',
-    `Throughout 2024, I worked as a full-time Full-Stack Engineer at CyberConvoy, an early-stage cybersecurity startup building a security operations platform for enterprise and internal clients. What made this role particularly formative was the scope of ownership I had across the entire product. I wasn't just implementing features from a spec - I was a core architect who built systems from scratch, made foundational technical decisions, and shipped production code across the full stack. Over the course of the year, I became the most active contributor to the codebase, working across every major feature the platform offered.`
+    `Throughout 2024, I worked as a full-time Full-Stack Engineer at CyberConvoy, an early-stage cybersecurity startup. The company had two main departments: security analysts who provided managed security services, and engineers who built the platform. Most of what we built was for our own analysts to use - threat hunting tools, case management, alerting systems - but we also offered the platform directly to clients with limited permissions so they could stay up to date on their security posture in real time.`
+  ),
+  Tag(
+    'p',
+    `What made this role particularly formative was the scope of ownership I had across the entire product. I wasn't just implementing features from a spec - I was a core architect who built systems from scratch, made foundational technical decisions, and shipped production code across the full stack. Over the course of the year, I became the most active contributor to the codebase, working across every major feature the platform offered.`
   ),
   Tag(
     'p',
@@ -18,7 +22,7 @@ export default [
   Tag('h3', 'Investigate'),
   Tag(
     'p',
-    `Before Investigate, our team relyed on Snowflake for ad-hoc queries, which was getting expensive as data volumes grew. Analysts also had to context-switch between tools or wait on pre-built reports that rarely answered their specific questions. We built Investigate as a cost-effective alternative using Trino, giving analysts the same query capabilities directly within the platform without the licensing overhead.`
+    `Before Investigate, our team relied on Snowflake for ad-hoc queries, which was getting expensive as data volumes grew. Analysts also had to context-switch between tools or wait on pre-built reports that rarely answered their specific questions. We built Investigate as a cost-effective alternative using Trino, giving analysts the same query capabilities directly within the platform without the licensing overhead.`
   ),
   Tag(
     'p',
