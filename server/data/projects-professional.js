@@ -139,6 +139,7 @@ export default [
     href: '/projects/professional/zais/spring-2020-report.pdf',
     ...openLinkInNewTab,
   }),
+
   Component('Media', {
     Type: 'img',
     src: '/projects/professional/zais/zais-office.jpg',
