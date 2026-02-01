@@ -12,6 +12,10 @@ export default [
   ),
   Tag(
     'p',
+    `At a high level, the platform was a SIEM - a system for collecting, analyzing, and acting on security data. Each of our clients installed lightweight agent software on their employees' machines, which collected logs about user activity: software installs, websites visited, file access, and so on. All of this telemetry flowed into a central data lake, which analysts could query directly through Investigate. Some of the data was also processed into PostgreSQL via scheduled jobs to power dashboards and case management within the app.`
+  ),
+  Tag(
+    'p',
     `What made this role particularly formative was the scope of ownership I had across the entire product. I wasn't just implementing features from a spec - I was a core architect who built systems from scratch, made foundational technical decisions, and shipped production code across the full stack. Over the course of the year, I became the most active contributor to the codebase, working across every major feature the platform offered.`
   ),
   Tag(
