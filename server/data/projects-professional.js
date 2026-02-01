@@ -8,36 +8,62 @@ export default [
   Tag('h2', 'CyberConvoy'),
   Tag(
     'p',
-    `For about a year, from February 2024 to February 2025, I worked as a Full-Stack Engineer at CyberConvoy, an early-stage cybersecurity startup building a security operations platform for enterprise clients. What made this role particularly formative was the sheer scope of ownership I had across the entire product. I wasn't just implementing features from a spec - I was architecting systems from scratch, making foundational technical decisions, and shipping production code across the full stack with minimal oversight. In total, I contributed over 900 commits and roughly 175,000 lines of code to the platform.`
+    `Throughout 2024, I worked as a full-time Full-Stack Engineer at CyberConvoy, an early-stage cybersecurity startup building a security operations platform for enterprise and internal clients. What made this role particularly formative was the scope of ownership I had across the entire product. I wasn't just implementing features from a spec - I was a core architect who built systems from scratch, made foundational technical decisions, and shipped production code across the full stack. Over the course of the year, I became the most active contributor to the codebase, working across every major feature the platform offered.`
   ),
   Tag(
     'p',
-    `The core platform was built with React and TypeScript on the frontend, with a Node.js/Express backend connected to PostgreSQL via Prisma. One of my earliest major contributions was leading the full TypeScript migration of the codebase and setting up ESLint configuration to enforce code quality standards. This was critical for a fast-moving team where multiple engineers were shipping code daily - having strict typing and consistent linting caught countless bugs before they ever made it to production.`
+    `The core platform was built with React and TypeScript on the frontend, with a Node.js/Express backend connected to PostgreSQL via Prisma. My earliest major contribution was leading the full TypeScript migration of the codebase and setting up ESLint configuration to enforce code quality standards. This was critical for a fast-moving team where multiple engineers were shipping code daily - having strict typing and consistent linting caught countless bugs before they ever made it to production.`
   ),
+
   Tag('h3', 'Investigate'),
   Tag(
     'p',
-    `Perhaps the most technically challenging feature I built was what we called "Investigate" - essentially a Snowflake-style SQL query interface that allowed security analysts to run ad-hoc threat hunts against petabyte-scale security data. The backend connected to Trino, a distributed SQL query engine, and the main challenge was handling queries that could return millions of rows without blowing up the server or making the user wait forever.`
+    `Before Investigate, our team relyed on Snowflake for ad-hoc queries, which was getting expensive as data volumes grew. Analysts also had to context-switch between tools or wait on pre-built reports that rarely answered their specific questions. We built Investigate as a cost-effective alternative using Trino, giving analysts the same query capabilities directly within the platform without the licensing overhead.`
   ),
   Tag(
     'p',
-    `To solve this, I designed a streaming architecture using async generators and HTTP chunked transfer encoding. On the backend, I wrote an async generator function that would yield result chunks as they came back from Trino, and then the Express route would iterate over this generator with a for-await loop, writing each chunk to the response stream. This meant users could see their first results within seconds, even for queries that would ultimately return hundreds of thousands of rows. To handle the frontend rendering of these massive datasets, I implemented row virtualization using TanStack Virtual, so the browser would only render the rows currently visible in the viewport rather than trying to DOM-render the entire result set. Combined with a caching layer that stored result chunks keyed by query ID, users could paginate through enormous datasets smoothly.`
+    `The main technical challenge was handling queries that could return millions of rows without overwhelming the server or making the user wait indefinitely. To solve this, I designed a streaming architecture using async generators and HTTP chunked transfer encoding. On the backend, I wrote an async generator function that would yield result chunks as they came back from Trino, and then the Express route would iterate over this generator with a for-await loop, writing each chunk to the response stream. This meant users could see their first results within seconds, even for queries that would ultimately return hundreds of thousands of rows. To handle the frontend rendering of these massive datasets, I implemented row virtualization using TanStack Virtual, so the browser would only render the rows currently visible in the viewport rather than trying to DOM-render the entire result set. Combined with a caching layer that stored result chunks keyed by query ID, analysts could paginate through enormous datasets smoothly - turning what used to be a multi-hour investigation into something they could complete in minutes.`
   ),
+
   Tag('h3', 'Armada (AI Assistant)'),
   Tag(
     'p',
-    `Another interesting system I built was our AI-powered security assistant, which we called "Armada". The goal was to let analysts ask natural language questions about their security data and get back SQL queries they could run, along with explanations of what the queries did. I implemented this using a streaming architecture similar to Investigate - the backend would connect to our AI model (we used Flowise to manage our LLM pipelines), and I'd iterate over the response stream with an async generator, writing chunks to the HTTP response as they came in. On the frontend, this created a ChatGPT-like experience where the response would appear word-by-word in real time rather than making the user wait for the full response to generate.`
+    `Many of our clients' security analysts had deep domain expertise but limited SQL knowledge, which created a bottleneck: they knew exactly what threats they were looking for, but translating that intuition into a working query took time or required pulling in a more technical teammate. Armada eliminated this friction by letting analysts describe what they wanted in plain English and receive a working SQL query in return, along with an explanation of what the query did and why.`
   ),
+  Tag(
+    'p',
+    `I built Armada using a streaming architecture similar to Investigate. The backend connected to our LLM pipeline (managed through Flowise), and I iterated over the response stream with an async generator, writing chunks to the HTTP response as they came in. On the frontend, this created a ChatGPT-like experience where the response appeared word-by-word in real time. Beyond just generating queries, Armada could execute them directly and render the results inline, so analysts could go from question to answer without ever leaving the conversation. This dramatically reduced the time-to-insight for less technical team members and freed up senior engineers to focus on higher-leverage work instead of writing queries for others.`
+  ),
+
   Tag('h3', 'Scout'),
   Tag(
     'p',
-    `I also built out the entire "Scout" module from scratch - an external threat reconnaissance platform that helped organizations discover their attack surface. This involved integrating with five or six different security intelligence APIs: DNStwist for detecting typosquatting domains, Subfinder for subdomain enumeration, Censys for discovering exposed hosts, Dehashed for finding leaked credentials, and a few others. Each of these APIs had their own quirks and data formats, so I built a normalization layer that would ingest data from all of them and present a unified view to the user. I also added a Leaflet-based map visualization for geolocating discovered hosts, which turned out to be a really effective way for analysts to spot anomalies - like if a company only operates in the US but suddenly has hosts appearing in Eastern Europe.`
+    `Security teams often struggled to maintain visibility into their external attack surface - the domains, subdomains, and hosts that could be exploited by attackers. The data existed across multiple intelligence sources, but each API returned information in wildly different formats with varying levels of detail, making it nearly impossible to get a unified picture without significant manual effort. Scout solved this by aggregating data from five different security intelligence APIs - DNStwist for detecting typosquatting domains, Subfinder for subdomain enumeration, Censys for discovering exposed hosts, Dehashed for finding leaked credentials, and Flare for dark web monitoring - and normalizing everything into a consistent, searchable interface.`
   ),
-  Tag('h3', 'Real-Time Features'),
   Tag(
     'p',
-    `Beyond the major features, I built a number of foundational systems that the rest of the platform relied on. I implemented our real-time notification infrastructure using Socket.IO, which allowed security alerts to appear instantly rather than requiring a page refresh. I designed and built our whitelist management system, which let analysts create exception lists for detection rules to reduce false positive fatigue. I also implemented our Auth0 RBAC integration with multi-tier roles for analysts, engineers, and junior engineers - this was important because different users needed access to different parts of the platform based on their experience level and clearance.`
+    `Beyond just aggregating data, I built a Leaflet-based map visualization that geolocated discovered hosts, which became one of the most effective features for quickly identifying anomalies. For example, if a company only operates in the United States but Scout suddenly shows hosts appearing in Eastern Europe, that's an immediate red flag worth investigating. This kind of visual pattern recognition would have been nearly impossible when the data was scattered across different tools. One client discovered a phishing domain impersonating their brand within hours of it being registered - something that previously might have gone unnoticed for weeks until customers started reporting it. Catching threats like this early can mean the difference between a minor incident and a major breach costing millions in damages and lost trust.`
   ),
+
+  Tag('h3', 'Foundational Systems'),
+  Tag(
+    'p',
+    `I also built several foundational systems that the rest of the platform relied on, each addressing a specific operational pain point.`
+  ),
+  Tag(
+    'p',
+    `Security alerts are time-sensitive, but analysts were missing critical notifications because they had to manually refresh the page to see new activity. I implemented a real-time notification infrastructure using Socket.IO that pushed alerts instantly to the browser - whether it was a new threat detection, a case update, or a status change. This reduced response times significantly and ensured that high-priority alerts didn't sit unnoticed while an analyst was focused on something else.`
+  ),
+  Tag(
+    'p',
+    `Detection rules inevitably generate false positives, and without a proper exception system, analysts waste hours triaging the same benign alerts over and over. I designed and built a whitelist management system that let analysts create exception lists for specific rules, with support for expiration dates so temporary exceptions wouldn't become permanent blind spots. This reduced alert fatigue and let the team focus their attention on genuine threats rather than known false positives.`
+  ),
+  Tag(
+    'p',
+    `I also implemented Auth0 RBAC integration with multi-tier roles for analysts, engineers, and junior engineers. Different users needed access to different parts of the platform based on their experience level and clearance - junior analysts shouldn't be able to modify detection rules, for instance, while senior engineers needed full access to system configuration. Getting this right was important for both security and compliance, ensuring people had exactly the permissions they needed without unnecessary friction.`
+  ),
+
+  Tag('h3', 'Reflections'),
   Tag(
     'p',
     `Looking back, what I valued most about this role was the 0-to-1 experience. When you're at an early-stage startup, you can't just Google "how to build X" and follow a tutorial - you're often solving problems that don't have clean answers yet. You have to make judgment calls about architecture, trade-offs, and what's worth building now versus later. That kind of ownership and autonomy is hard to find elsewhere, and it fundamentally shaped how I approach engineering problems today.`
@@ -50,7 +76,7 @@ export default [
   Tag('h2', 'LISDIN'),
   Tag(
     'p',
-    `I am currently working part-time as a Founding Engineer for a small startup named LISDIN, which is short for our motto: Life Is Short, Do It Now. While their website is currently a simple blog for sharing ideas, we are working on building “a new platform that cultivates all ideas to accelerate innovation”. Here, users will be able to create and share their own project ideas, research market interest, calculate potential value, and more.`
+    `Until about the middle of 2024, I was working part-time as a Founding Engineer for a small startup named LISDIN, which is short for our motto: Life Is Short, Do It Now. While their website is currently a simple blog for sharing ideas, we are working on building “a new platform that cultivates all ideas to accelerate innovation”. Here, users will be able to create and share their own project ideas, research market interest, calculate potential value, and more.`
   ),
   Tag(
     'p',
