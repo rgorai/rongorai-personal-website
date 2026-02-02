@@ -60,19 +60,7 @@ export default [
   Tag('h3', 'Foundational Systems'),
   Tag(
     'p',
-    `I also built several foundational systems that the rest of the platform relied on, each addressing a specific operational pain point.`
-  ),
-  Tag(
-    'p',
-    `Security alerts are time-sensitive, but analysts were missing critical notifications because they had to manually refresh the page to see new activity. I implemented a real-time notification infrastructure using Socket.IO that pushed alerts instantly to the browser - whether it was a new threat detection, a case update, or a status change. This reduced response times significantly and ensured that high-priority alerts didn't sit unnoticed while an analyst was focused on something else.`
-  ),
-  Tag(
-    'p',
-    `Detection rules inevitably generate false positives, and without a proper exception system, analysts waste hours triaging the same benign alerts over and over. I designed and built a whitelist management system that let analysts create exception lists for specific rules, with support for expiration dates so temporary exceptions wouldn't become permanent blind spots. This reduced alert fatigue and let the team focus their attention on genuine threats rather than known false positives.`
-  ),
-  Tag(
-    'p',
-    `I also implemented Auth0 RBAC integration with multi-tier roles for analysts, engineers, and junior engineers. Different users needed access to different parts of the platform based on their experience level and clearance - junior analysts shouldn't be able to modify detection rules, for instance, while senior engineers needed full access to system configuration. Getting this right was important for both security and compliance, ensuring people had exactly the permissions they needed without unnecessary friction.`
+    `I also built several systems the rest of the platform relied on: real-time notifications using Socket.IO so analysts didn't miss time-sensitive alerts, a whitelist management system with expiration dates to reduce false positive fatigue, and Auth0 RBAC integration with multi-tier roles for analysts, engineers, and clients. Each addressed a specific pain point that was slowing down the team or creating security gaps.`
   ),
 
   Tag('h3', 'Reflections'),
