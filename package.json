@@ -17,7 +17,8 @@
     "precommit": "lint-staged",
     "seed": "node server/tasks/seed.js",
     "prepare": "husky install && chmod ug+x .husky/*",
-    "typecheck": "yarn --cwd client tsc --noEmit"
+    "typecheck": "yarn --cwd client tsc --noEmit",
+    "compress-images": "bash .local/cwebp-directory.sh"
   },
   "eslintConfig": {
     "extends": "@rgorai/eslint-config/.eslintrc"
