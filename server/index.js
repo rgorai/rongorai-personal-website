@@ -6,7 +6,9 @@ import configRoutes from './routes/index.js'
 
 dotenv.config()
 
-const PORT = Number(process.env.PORT) + 1 || 5001
+const PORT =
+  Number(process.env.PORT) + (process.env.NODE_ENV === 'production' ? 0 : 1) ||
+  5001
 
 const app = express()
 app.use(cors())
