@@ -36,11 +36,15 @@ export default [
   Tag('h3', 'Armada (AI Assistant)'),
   Tag(
     'p',
-    `Many of our clients' security analysts had deep domain expertise but limited SQL knowledge, which created a bottleneck: they knew exactly what threats they were looking for, but translating that intuition into a working query took time or required pulling in a more technical teammate. Armada eliminated this friction by letting analysts describe what they wanted in plain English and receive a working SQL query in return, along with an explanation of what the query did and why.`
+    `Our clients - generally business stakeholders rather than technical analysts - often wanted quick insights from their security data but didn't have the SQL knowledge to query it directly. We built Armada to bridge that gap: an AI assistant that let users describe what they wanted in plain English, like "show me all users with suspicious logins over the last 7 days", and get back a conversational response explaining the approach along with a working SQL query to execute.`
   ),
   Tag(
     'p',
-    `I built Armada using a streaming architecture similar to Investigate. The backend connected to our LLM pipeline (managed through Flowise), and I iterated over the response stream with an async generator, writing chunks to the HTTP response as they came in. On the frontend, this created a ChatGPT-like experience where the response appeared word-by-word in real time. Beyond just generating queries, Armada could execute them directly and render the results inline, so analysts could go from question to answer without ever leaving the conversation. This dramatically reduced the time-to-insight for less technical team members and freed up senior engineers to focus on higher-leverage work instead of writing queries for others.`
+    `The interface offered preset prompts for common questions or let users type their own. Under the hood, our CTO maintained a self-hosted LLM (we cycled through many public models like Mistral, Claude, and GPT depending on performance) fine-tuned on our schema. We instructed the model to respond in markdown, wrapping any generated SQL in code blocks. On the frontend, I parsed out the SQL using regex, displayed it to the user for transparency, and fired it against our data lake. The UI would then smoothly split - chat on the left, a live data table on the right showing the query results. From there, users could export the data or jump directly into a full investigation.`
+  ),
+  Tag(
+    'p',
+    `I worked on the integration end-to-end: the streaming architecture that displayed responses word-by-word using async generators, the markdown parsing, the dynamic split-view UI, and the query execution pipeline. The real-time streaming was important for UX - watching the response appear progressively felt much more responsive than waiting for the full generation. This gave non-technical users a way to self-serve insights that previously would have required asking an analyst to write a query for them.`
   ),
 
   Tag('h3', 'Scout'),
@@ -80,6 +84,11 @@ export default [
     href: 'https://www.cyberconvoy.com/',
     ...openLinkInNewTab,
   }),
+  // Component('Media', {
+  //   Type: 'img',
+  //   src: '/projects/professional/cyberconvoy/cyberconvoy-logo.webp',
+  //   mediaProps: { alt: 'CyberConvoy Logo' },
+  // }),
 
   Tag('h2', 'LISDIN'),
   Tag(
