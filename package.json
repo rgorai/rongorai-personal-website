@@ -18,7 +18,7 @@
     "seed": "node server/tasks/seed.js",
     "prepare": "husky install && chmod ug+x .husky/*",
     "typecheck": "yarn --cwd client tsc --noEmit",
-    "compress-images": "bash .local/cwebp-directory.sh"
+    "compress-images": "bash scripts/compress-images.sh"
   },
   "eslintConfig": {
     "extends": "@rgorai/eslint-config/.eslintrc"

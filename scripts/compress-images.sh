@@ -22,4 +22,4 @@ convert () {
   done
 }
 
-convert "${1:-.}"
+convert "${1:-.local/s3-bucket}"
