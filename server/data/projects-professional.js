@@ -3,12 +3,85 @@ import { Tag, openLinkInNewTab, Component, getDocument } from '../misc/utils.js'
 export default [
   Tag('h1', 'Professional Projects'),
 
-  Component('UpdatedOn', { date: 'February 18, 2023' }),
+  Component('UpdatedOn', { date: 'February 1, 2026' }),
+
+  Tag('h2', 'CyberConvoy'),
+  Tag(
+    'p',
+    `Throughout 2024, I worked as a full-time Full-Stack Engineer at CyberConvoy, an early-stage cybersecurity startup. The company had two main departments: security analysts who provided managed security services, and engineers who built the platform. Most of what we built was for our own analysts to use - threat hunting tools, case management, alerting systems - but we also offered the platform directly to clients with limited permissions so they could stay up to date on their security posture in real time.`
+  ),
+  Tag(
+    'p',
+    `At a high level, the platform was a SIEM - a system for collecting, analyzing, and acting on security data. Each of our clients installed lightweight agent software on their employees' machines, which collected logs about user activity: software installs, websites visited, file access, and so on. All of this telemetry flowed into a central data lake, which analysts could query directly through Investigate. Some of the data was also processed into PostgreSQL via scheduled jobs to power dashboards and case management within the app.`
+  ),
+  Tag(
+    'p',
+    `What made this role particularly formative was the scope of ownership I had across the entire product. I wasn't just implementing features from a spec - I was a core architect who built systems from scratch, made foundational technical decisions, and shipped production code across the full stack. Over the course of the year, I became the most active contributor to the codebase, working across every major feature the platform offered.`
+  ),
+  Tag(
+    'p',
+    `The core platform was built with React and TypeScript on the frontend, with a Node.js/Express backend connected to PostgreSQL via Prisma. My earliest major contribution was leading the full TypeScript migration of the codebase and setting up ESLint configuration to enforce code quality standards. This was critical for a fast-moving team where multiple engineers were shipping code daily - having strict typing and consistent linting caught countless bugs before they ever made it to production.`
+  ),
+
+  Tag('h3', 'Investigate'),
+  Tag(
+    'p',
+    `Before Investigate, our team relied on Snowflake for ad-hoc queries, which was getting expensive as data volumes grew. Analysts also had to context-switch between tools or wait on pre-built reports that rarely answered their specific questions. We built Investigate as a cost-effective alternative using Trino, giving analysts the same query capabilities directly within the platform without the licensing overhead.`
+  ),
+  Tag(
+    'p',
+    `The main technical challenge was handling queries that could return millions of rows without overwhelming the server or making the user wait indefinitely. To solve this, I designed a streaming architecture using async generators and HTTP chunked transfer encoding. On the backend, I wrote an async generator function that would yield result chunks as they came back from Trino, and then the Express route would iterate over this generator with a for-await loop, writing each chunk to the response stream. This meant users could see their first results within seconds, even for queries that would ultimately return hundreds of thousands of rows. To handle the frontend rendering of these massive datasets, I implemented row virtualization using TanStack Virtual, so the browser would only render the rows currently visible in the viewport rather than trying to DOM-render the entire result set. Combined with a caching layer that stored result chunks keyed by query ID, analysts could paginate through enormous datasets smoothly - turning what used to be a multi-hour investigation into something they could complete in minutes.`
+  ),
+
+  Tag('h3', 'Assist (AI Assistant)'),
+  Tag(
+    'p',
+    `Our clients - generally business stakeholders rather than technical analysts - often wanted quick insights from their security data but didn't have the SQL knowledge to query it directly. We built Assist to bridge that gap: an AI chat feature powered by our in-house model, Armada, that let users describe what they wanted in plain English, like "show me all users with suspicious logins over the last 7 days", and get back a conversational response explaining the approach along with a working SQL query to execute.`
+  ),
+  Tag(
+    'p',
+    `The interface offered preset prompts for common questions or let users type their own. Under the hood, our CTO maintained Armada as a self-hosted LLM (we cycled through many public models like Mistral, Claude, and GPT depending on performance) fine-tuned on our schema. We instructed the model to respond in markdown, wrapping any generated SQL in code blocks. On the frontend, I parsed out the SQL using regex, displayed it to the user for transparency, and fired it against our data lake. The UI would then smoothly split - chat on the left, a live data table on the right showing the query results. From there, users could export the data or jump directly into a full investigation.`
+  ),
+  Tag(
+    'p',
+    `I worked on the integration end-to-end: the streaming architecture that displayed responses word-by-word using async generators, the markdown parsing, the dynamic split-view UI, and the query execution pipeline. The real-time streaming was important for UX - watching the response appear progressively felt much more responsive than waiting for the full generation. This gave non-technical users a way to self-serve insights that previously would have required asking an analyst to write a query for them.`
+  ),
+
+  Tag('h3', 'Scout'),
+  Tag(
+    'p',
+    `Security teams often struggled to maintain visibility into their external attack surface - the domains, subdomains, and hosts that could be exploited by attackers. The data existed across multiple intelligence sources, but each API returned information in wildly different formats with varying levels of detail, making it nearly impossible to get a unified picture without significant manual effort. Scout solved this by aggregating data from five different security intelligence APIs - DNStwist for detecting typosquatting domains, Subfinder for subdomain enumeration, Censys for discovering exposed hosts, Dehashed for finding leaked credentials, and Flare for dark web monitoring - and normalizing everything into a consistent, searchable interface.`
+  ),
+  Tag(
+    'p',
+    `Beyond just aggregating data, I built a Leaflet-based map visualization that geolocated discovered hosts, which became one of the most effective features for quickly identifying anomalies. For example, if a company only operates in the United States but Scout suddenly shows hosts appearing in Eastern Europe, that's an immediate red flag worth investigating. This kind of visual pattern recognition would have been nearly impossible when the data was scattered across different tools.`
+  ),
+
+  Tag('h3', 'Foundational Systems'),
+  Tag(
+    'p',
+    `I also built several systems the rest of the platform relied on: real-time notifications using Socket.IO so analysts didn't miss time-sensitive alerts, a whitelist management system with expiration dates to reduce false positive fatigue, and Auth0 RBAC integration with multi-tier roles for analysts, engineers, and clients. Each addressed a specific pain point that was slowing down the team or creating security gaps.`
+  ),
+
+  Tag('h3', 'Reflections'),
+  Tag(
+    'p',
+    `Looking back, what I valued most about this role was the 0-to-1 experience. When you're at an early-stage startup, you can't just Google "how to build X" and follow a tutorial - you're often solving problems that don't have clean answers yet. You have to make judgment calls about architecture, trade-offs, and what's worth building now versus later. That kind of ownership and autonomy is hard to find elsewhere, and it fundamentally shaped how I approach engineering problems today.`
+  ),
+  Tag('a', `CyberConvoy homepage`, {
+    href: 'https://www.cyberconvoy.com/',
+    ...openLinkInNewTab,
+  }),
+  Component('Media', {
+    Type: 'img',
+    src: '/projects/professional/cyberconvoy/cyberconvoy-logo.webp',
+    mediaProps: { alt: 'CyberConvoy Logo' },
+  }),
 
   Tag('h2', 'LISDIN'),
   Tag(
     'p',
-    `I am currently working part-time as a Founding Engineer for a small startup named LISDIN, which is short for our motto: Life Is Short, Do It Now. While their website is currently a simple blog for sharing ideas, we are working on building “a new platform that cultivates all ideas to accelerate innovation”. Here, users will be able to create and share their own project ideas, research market interest, calculate potential value, and more.`
+    `Until about the middle of 2024, I was working part-time as a Founding Engineer for a small startup named LISDIN, which is short for our motto: Life Is Short, Do It Now. While their website is currently a simple blog for sharing ideas, we are working on building “a new platform that cultivates all ideas to accelerate innovation”. Here, users will be able to create and share their own project ideas, research market interest, calculate potential value, and more.`
   ),
   Tag(
     'p',
@@ -139,6 +212,7 @@ export default [
     href: '/projects/professional/zais/spring-2020-report.pdf',
     ...openLinkInNewTab,
   }),
+
   Component('Media', {
     Type: 'img',
     src: '/projects/professional/zais/zais-office.jpg',
