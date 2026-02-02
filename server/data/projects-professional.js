@@ -54,7 +54,7 @@ export default [
   ),
   Tag(
     'p',
-    `Beyond just aggregating data, I built a Leaflet-based map visualization that geolocated discovered hosts, which became one of the most effective features for quickly identifying anomalies. For example, if a company only operates in the United States but Scout suddenly shows hosts appearing in Eastern Europe, that's an immediate red flag worth investigating. This kind of visual pattern recognition would have been nearly impossible when the data was scattered across different tools. One client discovered a phishing domain impersonating their brand within hours of it being registered - something that previously might have gone unnoticed for weeks until customers started reporting it. Catching threats like this early can mean the difference between a minor incident and a major breach costing millions in damages and lost trust.`
+    `Beyond just aggregating data, I built a Leaflet-based map visualization that geolocated discovered hosts, which became one of the most effective features for quickly identifying anomalies. For example, if a company only operates in the United States but Scout suddenly shows hosts appearing in Eastern Europe, that's an immediate red flag worth investigating. This kind of visual pattern recognition would have been nearly impossible when the data was scattered across different tools.`
   ),
 
   Tag('h3', 'Foundational Systems'),
@@ -84,11 +84,11 @@ export default [
     href: 'https://www.cyberconvoy.com/',
     ...openLinkInNewTab,
   }),
-  // Component('Media', {
-  //   Type: 'img',
-  //   src: '/projects/professional/cyberconvoy/cyberconvoy-logo.webp',
-  //   mediaProps: { alt: 'CyberConvoy Logo' },
-  // }),
+  Component('Media', {
+    Type: 'img',
+    src: '/projects/professional/cyberconvoy/cyberconvoy-logo.webp',
+    mediaProps: { alt: 'CyberConvoy Logo' },
+  }),
 
   Tag('h2', 'LISDIN'),
   Tag(
