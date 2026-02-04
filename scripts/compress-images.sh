@@ -13,11 +13,24 @@ convert () {
   for FILE in $1/*; do
     if [[ -d $FILE ]] && [[ "$(basename $FILE)" != "_compressed" ]]; then
       convert "$FILE"
+    elif [[ $FILE == *.webp ]]; then
+      # Copy existing webp files directly
+      REL_PATH="${FILE#$BASE_DIR/}"
+      OUT_DIR="$COMPRESSED_DIR/$(dirname "$REL_PATH")"
+      OUT_FILE="$OUT_DIR/$(basename "$FILE")"
+
+      [[ -f "$OUT_FILE" ]] && continue
+
+      mkdir -p "$OUT_DIR"
+      cp "$FILE" "$OUT_FILE"
     elif [[ $FILE == *.@(jpg|jpeg|tif|tiff|png) ]]; then
       # Get relative path from base dir and create output path under _compressed
       REL_PATH="${FILE#$BASE_DIR/}"
       OUT_DIR="$COMPRESSED_DIR/$(dirname "$REL_PATH")"
       OUT_FILE="$OUT_DIR/$(basename "${FILE%.*}").webp"
+
+      # Skip if compressed version already exists
+      [[ -f "$OUT_FILE" ]] && continue
 
       mkdir -p "$OUT_DIR"
       cwebp $PARAMS "$FILE" -o "$OUT_FILE"
