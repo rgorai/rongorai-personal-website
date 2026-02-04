@@ -3,12 +3,107 @@ import { Tag, openLinkInNewTab, Component, getDocument } from '../misc/utils.js'
 export default [
   Tag('h1', 'Professional Projects'),
 
-  Component('UpdatedOn', { date: 'February 1, 2026' }),
+  Component('UpdatedOn', { date: 'February 2, 2026' }),
+
+  Tag('h2', 'Code Climate'),
+  Tag(
+    'p',
+    `In 2025, I worked as a Full-Stack Product Engineer at Code Climate, a company building an engineering intelligence platform for enterprise organizations. The product ingested data from developer tools - GitHub, GitLab, Jira, Bitbucket, and others - to surface engineering metrics that helped managers understand team performance, identify bottlenecks, and make data-driven decisions. Our largest clients had over 5,000 engineers and millions of pull requests flowing through our system, so everything we built had to work at scale.`
+  ),
+  Tag(
+    'p',
+    `What made this role unique was that I joined during a major platform modernization effort. The company was rebuilding its core product from the ground up with a modern stack - React, TypeScript, Remix for server-side rendering, and ClickHouse for analytics queries. This was true 0-to-1 work: we weren't incrementally improving an existing product, we were re-architecting it to handle enterprise-scale data while shipping features fast enough to retain customers during the transition. Over my time there, I became one of the most active contributors to the codebase, owning multiple major features end-to-end from design through production deployment.`
+  ),
+
+  Tag('h3', 'Metrics Explorer V2'),
+  Tag(
+    'p',
+    `Before V2, customers could only view one metric at a time in a basic line chart - useful for simple questions, but frustrating when they wanted to correlate multiple metrics or spot trends across different dimensions. Engineering leaders would often export data to Excel just to put two metrics side by side. We built Metrics Explorer V2 to change that: a fully interactive query builder where users could select multiple metrics, group by any dimension, compare against prior periods, and visualize everything in one unified view.`
+  ),
+  Tag(
+    'p',
+    `The visualization layer was the most technically complex piece. Since each metric could have different units - cycle time in hours, deployment frequency as a count, code review coverage as a percentage - I had to design a chart system that could intelligently handle mixed units. I built dual Y-axis support using ECharts, with automatic axis assignment based on unit type. Users could also mix chart types within the same view: line charts for trends, bar charts for comparisons, all rendered together coherently.`
+  ),
+  Tag(
+    'p',
+    `One challenge I'm particularly proud of solving was color accessibility. With potentially dozens of series on a single chart, I needed to generate distinguishable colors algorithmically without any collisions. I implemented a color palette system using Adobe's color generation principles, ensuring that every series was visually distinct even for users with color vision deficiencies. The chart implementation also included dynamic tooltips, responsive axis labels with intelligent spacing, and smooth transitions when users modified their query - small details that made the difference between a tool people tolerated and one they actually enjoyed using.`
+  ),
+
+  Tag('h3', 'Scorecard V2'),
+  Tag(
+    'p',
+    `The Scorecard was one of our flagship features - a hierarchical view of an organization's engineering metrics. Think of it as a data table where rows are people or teams, columns are metrics, and the whole thing is navigable like a file system. You start at the organization root and drill down: click into a department to see its teams, click into a team to see individual engineers. At every level, you see the aggregated metric values for that node and its children.`
+  ),
+  Tag(
+    'p',
+    `The V2 rewrite migrated this from client-side rendering to server-side rendering with Remix, which was critical for performance with large organizations. But the bigger technical challenge was the data layer. Each organization could configure which metrics appeared as columns, and each metric required its own API call. For a scorecard with five metrics and fifty visible rows, that could mean hundreds of individual requests. I implemented request batching that reduced API calls by roughly two-thirds, grouping metrics intelligently and parallelizing where possible.`
+  ),
+  Tag(
+    'p',
+    `I also rebuilt the navigation experience to feel instantaneous. When a user clicks into a node, they see a skeleton loading state immediately while the new data loads - a small UX detail that made hierarchical exploration feel responsive even when the backend was doing heavy lifting. The breadcrumb system I implemented let users understand where they were in the hierarchy and jump directly to any ancestor node, which was especially important for organizations with deep team structures.`
+  ),
+
+  Tag('h3', 'Admin Portal Migration'),
+  Tag(
+    'p',
+    `When I joined, customer administrators had to switch between two separate applications to manage their account - the main analytics app for viewing data, and a legacy Portal for configuration. Customers had been asking for a unified experience, so I led the migration of four major admin pages into the main application: the Issues page for viewing data ingestion problems, the Usage Data page for tracking API consumption, the Data Uploads page for manual data imports, and the Source Events page for monitoring integration health.`
+  ),
+  Tag(
+    'p',
+    `Each page had its own complexity. The Data Uploads page integrated with Dromo, a third-party data import widget, and required defining validation schemas for HR data. The Issues page needed a system for mapping cryptic API errors to human-readable explanations - I built a JSON-based mapping system covering eight different integrations, with dynamic markdown loading for contextual help documentation. The Usage Data page required implementing file download functionality with proper streaming and progress indicators.`
+  ),
+  Tag(
+    'p',
+    `Beyond just porting functionality, I added redundant permission checks to every admin route - a defense-in-depth approach that became important for our enterprise clients with strict security requirements. I also built real-time domain validation for the source configuration flow, giving users immediate feedback if they mistyped a URL rather than letting them submit and fail.`
+  ),
+
+  Tag('h3', 'Testing Infrastructure'),
+  Tag(
+    'p',
+    `When I arrived, the codebase had almost no end-to-end testing - just scattered unit tests that didn't cover actual user workflows. I established the E2E testing infrastructure using Playwright, eventually reaching 80-90% coverage of major features. The test suite included comprehensive coverage for Metrics Explorer, Scorecard, the admin pages I migrated, and the core application flows.`
+  ),
+  Tag(
+    'p',
+    `What made this work particularly interesting was my approach to AI-assisted development. Rather than writing every test by hand, I developed a systematic workflow: I'd write a detailed markdown specification explaining the feature to test, relevant file paths, testing methodology, and specific edge cases. I'd then submit this to an AI tool to generate the initial test code asynchronously. Once complete, I'd review thoroughly - not just checking that tests passed, but understanding every assertion and ensuring the coverage actually validated what mattered. I'd run the tests in a real browser, iterate on failures, and refine my specifications based on what worked.`
+  ),
+  Tag(
+    'p',
+    `I documented this entire process in a markdown guide that I refined over time, creating a feedback loop that made each subsequent test suite faster to produce. This wasn't about using AI as a crutch - it was about recognizing that test writing is often mechanical once you know what to test, and redirecting my time toward the harder problem of defining comprehensive test strategies. The tests now run in GitHub Actions on every PR, taking about 10 minutes with parallel workers, and have caught regressions before they ever reached production.`
+  ),
+
+  Tag('h3', 'Production Ownership'),
+  Tag(
+    'p',
+    `Being at a startup meant everyone owned production, not just whoever was officially on-call. We used Sentry for error monitoring, and the whole team kept an eye on the error feed - especially after deploying new features. I regularly picked up frontend issues as they surfaced: hydration mismatches from timezone differences between server and client, chart rendering edge cases, SSR performance problems with our date picker component. None of these were glamorous fixes, but catching and resolving them quickly was part of maintaining the trust our enterprise clients placed in us.`
+  ),
+  Tag(
+    'p',
+    `I also contributed to security remediation work when we went through SOC-2 compliance. This involved patching several high-severity vulnerabilities flagged by Vanta - issues in dependencies like js-yaml, jws, and node-forge that could have exposed us to code execution or signature bypass attacks. The work itself was mostly dependency updates, but doing it under audit deadlines with production systems running taught me how compliance intersects with real engineering work.`
+  ),
+
+  Tag('h3', 'Reflections'),
+  Tag(
+    'p',
+    `Code Climate reinforced what I'd learned at previous startups: the value of owning outcomes, not just tasks. When you're building for enterprise customers with thousands of engineers depending on your data, "it works on my machine" isn't good enough. You have to think about scale, edge cases, and the downstream impact of every decision. At the same time, the pace was relentless - we deployed to production on every merge to main, which meant shipping with confidence and fixing quickly when things broke.`
+  ),
+  Tag(
+    'p',
+    `I'm also proud of how I approached AI-assisted development here. Rather than treating AI as either a magic solution or something to avoid, I found a middle ground: using it to accelerate the mechanical parts of my work while staying deeply engaged with the output. The testing infrastructure I built is a direct result of that philosophy - I couldn't have written 500+ lines of E2E tests across four admin pages in a reasonable timeframe without AI assistance, but every test reflects decisions I made about what to validate and why.`
+  ),
+  Tag('a', 'Code Climate homepage', {
+    href: 'https://codeclimate.com/',
+    ...openLinkInNewTab,
+  }),
+  Component('Media', {
+    Type: 'img',
+    src: '/projects/professional/code-climate/code-climate-cover.jpeg',
+    mediaProps: { alt: 'Code Climate Logo' },
+  }),
 
   Tag('h2', 'CyberConvoy'),
   Tag(
     'p',
-    `Throughout 2024, I worked as a full-time Full-Stack Engineer at CyberConvoy, an early-stage cybersecurity startup. The company had two main departments: security analysts who provided managed security services, and engineers who built the platform. Most of what we built was for our own analysts to use - threat hunting tools, case management, alerting systems - but we also offered the platform directly to clients with limited permissions so they could stay up to date on their security posture in real time.`
+    `Throughout 2024, I worked as a Full-Stack Engineer at CyberConvoy, an early-stage cybersecurity startup. The company had two main departments: security analysts who provided managed security services, and engineers who built the platform. Most of what we built was for our own analysts to use - threat hunting tools, case management, alerting systems - but we also offered the platform directly to clients with limited permissions so they could stay up to date on their security posture in real time.`
   ),
   Tag(
     'p',

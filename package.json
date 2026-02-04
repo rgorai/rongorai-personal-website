@@ -17,7 +17,10 @@
     "precommit": "lint-staged",
     "seed": "node server/tasks/seed.js",
     "prepare": "husky install && chmod ug+x .husky/*",
-    "typecheck": "yarn --cwd client tsc --noEmit"
+    "typecheck": "yarn --cwd client tsc --noEmit",
+    "compress-images": "bash scripts/compress-images.sh",
+    "s3:diff": "aws s3 sync .local/s3-bucket/ s3://rongorai-personal-website-bucket/ --exclude '*.DS_Store' --dryrun",
+    "s3:sync": "aws s3 sync .local/s3-bucket/ s3://rongorai-personal-website-bucket/ --exclude '*.DS_Store'"
   },
   "eslintConfig": {
     "extends": "@rgorai/eslint-config/.eslintrc"
