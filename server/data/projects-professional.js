@@ -8,7 +8,7 @@ export default [
   Tag('h2', 'Code Climate'),
   Tag(
     'p',
-    `In 2025, I worked as a Full-Stack Engineer at Code Climate, a company building an engineering intelligence platform for enterprise organizations. The product ingested data from developer tools - GitHub, GitLab, Jira, Bitbucket, and others - to surface engineering metrics that helped managers understand team performance, identify bottlenecks, and make data-driven decisions. Our largest clients had over 5,000 engineers and millions of pull requests flowing through our system, so everything we built had to work at scale.`
+    `In 2025, I worked as a Full-Stack Product Engineer at Code Climate, a company building an engineering intelligence platform for enterprise organizations. The product ingested data from developer tools - GitHub, GitLab, Jira, Bitbucket, and others - to surface engineering metrics that helped managers understand team performance, identify bottlenecks, and make data-driven decisions. Our largest clients had over 5,000 engineers and millions of pull requests flowing through our system, so everything we built had to work at scale.`
   ),
   Tag(
     'p',
@@ -103,7 +103,7 @@ export default [
   Tag('h2', 'CyberConvoy'),
   Tag(
     'p',
-    `Throughout 2024, I worked as a full-time Full-Stack Engineer at CyberConvoy, an early-stage cybersecurity startup. The company had two main departments: security analysts who provided managed security services, and engineers who built the platform. Most of what we built was for our own analysts to use - threat hunting tools, case management, alerting systems - but we also offered the platform directly to clients with limited permissions so they could stay up to date on their security posture in real time.`
+    `Throughout 2024, I worked as a Full-Stack Engineer at CyberConvoy, an early-stage cybersecurity startup. The company had two main departments: security analysts who provided managed security services, and engineers who built the platform. Most of what we built was for our own analysts to use - threat hunting tools, case management, alerting systems - but we also offered the platform directly to clients with limited permissions so they could stay up to date on their security posture in real time.`
   ),
   Tag(
     'p',
