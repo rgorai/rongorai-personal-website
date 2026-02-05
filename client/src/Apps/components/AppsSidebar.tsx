@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Briefcase } from 'lucide-react'
+import { Briefcase, ClipboardList } from 'lucide-react'
 import { cn } from '../lib/utils'
 
 type AppItem = {
@@ -15,6 +15,12 @@ const APPS: AppItem[] = [
     route: '/apps/jobbuddy',
     icon: <Briefcase className="h-5 w-5" />,
     description: 'AI-powered job search assistant',
+  },
+  {
+    name: 'ChoreBuddy',
+    route: '/apps/chorebuddy',
+    icon: <ClipboardList className="h-5 w-5" />,
+    description: 'Chore tracking for couples',
   },
 ]
 
