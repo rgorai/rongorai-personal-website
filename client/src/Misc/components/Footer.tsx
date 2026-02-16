@@ -97,7 +97,7 @@ const Footer = (props: Props) => {
         <div>
           <p className={styles.message}>
             {
-              "I'm a graduate from Stevens Institute of Technology with a BS in Computer Science, Minor in Cybersecurity, and a strong passion for web development."
+              "I'm a software engineer in the NYC area who loves owning products end-to-end and shipping features that make a real difference for users."
             }
           </p>
           <p className={styles.message}>
