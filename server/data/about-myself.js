@@ -3,7 +3,7 @@ import { Tag, Component } from '../misc/utils.js'
 export default [
   Tag('h1', 'About Myself'),
 
-  Component('UpdatedOn', { date: 'May 1, 2023' }),
+  Component('UpdatedOn', { date: 'February 15, 2026' }),
 
   Component('Media', {
     Type: 'img',
@@ -29,7 +29,12 @@ export default [
 
   Tag(
     'p',
-    `By the time I was ready to apply for college, I had planned to go into an engineering field due to my early interest in machines and science. However, I realized the power of software and the crucial role it holds in modern society, so I decided to pursue a software-related field. Over the years, I founded and refined a handful of new skills with my co-ops and personal projects. As I look for full-time opportunities, my dream is to join Google or another MAANG company to help develop beautiful code for their most popular applications and services.`
+    `By the time I was ready to apply for college, I had planned to go into an engineering field due to my early interest in machines and science. However, I realized the power of software and the crucial role it holds in modern society, so I decided to pursue a software-related field. Over the years, I founded and refined a handful of new skills with my co-ops and personal projects.`
+  ),
+
+  Tag(
+    'p',
+    `Today, I am a full stack product engineer in the NYC area who thrives in fast-paced startup environments. I'm at my best when I have true ownership of the product — working across the entire stack from frontend to backend and infrastructure, while staying closely connected to the people who use what I build. There's nothing more rewarding to me than shipping features end-to-end and seeing their direct impact on users.`
   ),
 
   Component('Media', {
