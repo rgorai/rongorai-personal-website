@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
+import { Document, Page, pdfjs } from 'react-pdf'
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`
 import styles from '../styles/resumePage.module.scss'
 import Loading from '../../Misc/components/Loading'
 import ApiError from '../../Misc/components/ApiError'

@@ -3,7 +3,8 @@
 
 $a4-ratio: 1.294;
 
-[data-theme='dark'] :global(.react-pdf__Page__svg) > svg {
+[data-theme='dark'] :global(.react-pdf__Page__svg) {
+  transition: filter $dark-switch-transition;
   filter: invert(100%);
 }
 
