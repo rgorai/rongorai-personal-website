@@ -176,11 +176,31 @@ export default [
   Tag('h2', 'LISDIN'),
   Tag(
     'p',
-    `Until about the middle of 2024, I was working part-time as a Founding Engineer for a small startup named LISDIN, which is short for our motto: Life Is Short, Do It Now. While their website is currently a simple blog for sharing ideas, we are working on building “a new platform that cultivates all ideas to accelerate innovation”. Here, users will be able to create and share their own project ideas, research market interest, calculate potential value, and more.`
+    `From mid-2022 through early 2025, I was the Founding Engineer at LISDIN (Life Is Short, Do It Now), a small startup building a platform for idea validation and team formation. The goal was to give aspiring founders a single workspace to develop their idea, validate their market with AI-generated analysis, recruit collaborators, and manage their team — instead of scattering all of that across docs, spreadsheets, and browser tabs. I was the primary engineer by far, owning over 90% of the codebase across a React/TypeScript/Vite frontend and Node.js/Express/MongoDB backend, with 260+ commits over the life of the project.`
   ),
+
+  Tag('h3', 'The Idea Dashboard'),
   Tag(
     'p',
-    `My role in the company is to establish and build upon the entire codebase required to run our product. Being the start of a potentially enterprise-level infrastructure, I tried to keep scalability and futureproofing in mind when setting things up. The demo version of the app is currently under development using ReactTS, Sass, Redux, Express, JWT, MongoDB, and more. We plan to host on AWS, and perhaps integrate more AWS services for a beta or future release, such as Cognito and S3.`
+    `The core of the product was a tabbed dashboard where founders could flesh out every dimension of their idea in one place: product description, team management, traction metrics, AI-generated market trends, AI-generated pitch deck, and strategic pivots. The most interesting technical problem here was autosave. With dozens of input fields spread across six tabs, I needed to persist changes transparently without hammering the API on every keystroke. I built an AutoSave component that tracked modified fields using a keychain pattern — an array of keys representing the path to any nested value in the idea object, like ['team', 'members', 0, 'specialty']. Changes were collected and dispatched through a lodash debounce with a two-second delay, sending only the modified fields via PATCH. Redux Toolkit handled the immediate UI updates in two slices (session data and user data), so the interface stayed responsive while the network calls were batched behind the scenes.`
+  ),
+
+  Tag('h3', 'AI-Powered Market Intelligence'),
+  Tag(
+    'p',
+    `I integrated OpenAI's GPT-4o (after migrating from an initial Google Gemini integration) to power three features. Industry Trends generation produced a structured market analysis — market size, audience, growth projections over multiple horizons, current trends, and a competitive landscape with market share breakdowns. I engineered the prompts to enforce strict JSON output, then parsed and rendered the data as interactive charts (pie charts for competitors, line charts for growth) using MUI X-Charts. To avoid redundant API calls, I cached results in a dedicated MongoDB collection with a compound index and 90-day TTL. The Pitch Deck and Pivot features took the user's full idea payload and generated structured markdown outputs — an investor narrative and a set of strategic variations, respectively — both persisted in the idea document so nothing was lost between sessions.`
+  ),
+
+  Tag('h3', 'Collaboration & Discovery'),
+  Tag(
+    'p',
+    `I built a full collaboration pipeline around the ideas. The Browse page let users discover public ideas with industry filtering (URL-persisted for shareable links), trending/recency sorting, and upvoting. From there, users could submit join requests that idea owners would accept or deny from their Team tab. I implemented a privacy layer where the API returned different MongoDB projections based on the requester's role — owners saw everything, members saw idea details minus join requests, and public viewers only got minimal metadata for private ideas. I also built threaded discussions organized around structured prompts (impacts, limitations, opportunities), each with their own comment threads, upvoting/downvoting, and sorting.`
+  ),
+
+  Tag('h3', 'Reflections'),
+  Tag(
+    'p',
+    `LISDIN was my first experience as a founding engineer, and it shaped how I approach building products. When you're the only engineer, every decision — TypeScript or JavaScript, custom auth or managed service, denormalized data or normalized — is yours to make and live with. I also migrated the entire codebase to TypeScript, set up the full code quality pipeline (publishing a shared ESLint config as an npm package), and moved from Create React App to Vite. This was where I first integrated generative AI into a product, and the prompt engineering and caching patterns I built here directly informed the AI work I did later at CyberConvoy. More than anything, it taught me that I work best when I own the full picture end to end.`
   ),
   Tag('a', `LISDIN homepage`, {
     href: 'https://www.lisdin.com/',
