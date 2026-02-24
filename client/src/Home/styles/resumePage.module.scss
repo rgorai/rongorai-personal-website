@@ -13,6 +13,14 @@
     margin: 0 auto;
   }
 
+  :global(.react-pdf__Page) {
+    transition: background-color $dark-switch-transition;
+
+    [data-theme='dark'] & {
+      background-color: #000 !important;
+    }
+  }
+
   :global(.react-pdf__Page__canvas) {
     transition: filter $dark-switch-transition;
 
