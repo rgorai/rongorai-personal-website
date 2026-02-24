@@ -64,7 +64,6 @@ const ResumePage = ({ test }: { test?: true }) => {
           </React.Fragment>
         ))}
       </Document>
-
       {numPages !== 0 && (
         <>
           <button

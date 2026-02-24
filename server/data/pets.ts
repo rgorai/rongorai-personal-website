@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import S3 from 'aws-sdk/clients/s3.js'
+import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3'
 import { Tag, Component } from '../misc/utils.js'
 import { HtmlTag, ComponentName, MediaType } from '../types/enums.js'
 import type { PageData, MediaProps } from '../types/content.js'
@@ -19,18 +19,19 @@ const getMedia = async (name: string): Promise<MediaProps[]> => {
   if (process.env.NODE_ENV === 'development') {
     files = fs.readdirSync(path.resolve('.local', 's3-bucket', 'pets', name))
   } else {
-    const s3 = new S3({
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-      signatureVersion: 'v4',
+    const s3 = new S3Client({
+      credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+      },
       region: 'us-east-1',
     })
-    const result = await s3
-      .listObjectsV2({
+    const result = await s3.send(
+      new ListObjectsV2Command({
         Bucket: 'rongorai-personal-website-bucket',
         Prefix: `pets/${name}`,
       })
-      .promise()
+    )
     files = (result.Contents ?? []).map((e) => {
       const split = (e.Key ?? '').split('/')
       return split[split.length - 1]
