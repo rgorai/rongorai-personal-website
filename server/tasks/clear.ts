@@ -1,6 +1,6 @@
 import { connectToDb, closeConnection } from '../config/mongoConnection.js'
 
-const main = async () => {
+const main = async (): Promise<void> => {
   const db = await connectToDb()
   await db.dropDatabase()
   closeConnection()
