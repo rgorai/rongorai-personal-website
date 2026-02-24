@@ -76,7 +76,8 @@
   },
   "resolutions": {
     "braces": "^3.0.3",
-    "js-yaml": "^4.1.1"
+    "js-yaml": "^4.1.1",
+    "socks": "^2.8.0"
   },
   "engines": {
     "node": ">=16.0.0",
