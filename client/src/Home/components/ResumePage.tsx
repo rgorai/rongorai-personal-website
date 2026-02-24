@@ -1,23 +1,38 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Document, Page, pdfjs } from 'react-pdf'
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`
 import styles from '../styles/resumePage.module.scss'
 import Loading from '../../Misc/components/Loading'
 import ApiError from '../../Misc/components/ApiError'
 import { UpdatedOn } from '../../Content/components/customContentComponents'
+import 'react-pdf/dist/Page/TextLayer.css'
+
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.mjs',
+  import.meta.url
+).toString()
 
 const ResumePage = ({ test }: { test?: true }) => {
   const [numPages, setNumPages] = useState(0)
   const [documentError, setDocumentError] = useState(null as any)
+  const [pageWidth, setPageWidth] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null)
   const FILE_SRC = `/Ron_Gorai_Resume${test ? '_TEST' : ''}.pdf`
 
   useEffect(() => {
     document.title = `Resume | Ron Gorai's Personal Website`
   }, [])
 
+  useEffect(() => {
+    if (!containerRef.current) return
+    const observer = new ResizeObserver(([entry]) =>
+      setPageWidth(Math.min(entry.contentRect.width, 880))
+    )
+    observer.observe(containerRef.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <div className={styles.resumeContainer}>
+    <div className={styles.resumeContainer} ref={containerRef}>
       {numPages === 0 && !documentError && <Loading />}
       {documentError && <ApiError {...documentError} />}
 
@@ -35,11 +50,16 @@ const ResumePage = ({ test }: { test?: true }) => {
         }
         loading={null}
         error={null}
-        renderMode="svg"
       >
         {Array.from(Array(numPages)).map((_, i) => (
           <React.Fragment key={i}>
-            <Page pageNumber={i + 1} key={i} loading={null} />
+            <Page
+              pageNumber={i + 1}
+              key={i}
+              loading={null}
+              renderAnnotationLayer={false}
+              width={pageWidth || undefined}
+            />
             {i !== numPages - 1 && <hr />}
           </React.Fragment>
         ))}

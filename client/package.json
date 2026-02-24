@@ -23,7 +23,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-google-recaptcha": "^2.1.0",
-    "react-pdf": "7",
+    "react-pdf": "^10.4.0",
     "react-router-dom": "^6.30.2",
     "serve": "^14.2.0",
     "tailwind-merge": "^3.4.0",
@@ -39,9 +39,11 @@
     "tar": "^7.5.8",
     "minimatch": "^10.2.1",
     "qs": "^6.14.2",
+    "brace-expansion": "^2.0.2",
     "path-to-regexp": "^0.1.12",
     "semver": "^7.5.2",
     "braces": "^3.0.3",
+    "cross-spawn": "^7.0.5",
     "ws": "^8.17.1",
     "body-parser": "^1.20.3",
     "express": "^4.20.0",
@@ -50,7 +52,7 @@
     "postcss": "^8.4.31",
     "form-data": "^4.0.4",
     "cookie": "^0.7.0",
-    "pdfjs-dist": "^4.2.67"
+    "pdfjs-dist": "5.4.296"
   },
   "browserslist": {
     "production": [
