@@ -168,7 +168,7 @@ const NavBar = (props: Props) => {
                             className={cx(styles.expandIcon, {
                               [styles.closeIcon]: displaySubMenu[e.name],
                             })}
-                            src={`${process.env.PUBLIC_URL}/menu_icons/expand-icon.png`}
+                            src="/menu_icons/expand-icon.png"
                             alt="Expand Menu"
                           />
                         </span>

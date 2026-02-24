@@ -11,9 +11,9 @@ const ThemedReCAPTCHA = (props: Props) => {
   const { store } = useStore()
   const ReCAPTCHAProps = {
     sitekey:
-      process.env.NODE_ENV === 'production'
-        ? process.env.REACT_APP_CAPTCHA_KEY_PRODUCTION
-        : process.env.REACT_APP_CAPTCHA_KEY_DEVELOPMENT,
+      import.meta.env.MODE === 'production'
+        ? import.meta.env.VITE_CAPTCHA_KEY_PRODUCTION
+        : import.meta.env.VITE_CAPTCHA_KEY_DEVELOPMENT,
     onChange: props.onChange,
     ref: props.recaptchaRef,
     theme: store.theme,
