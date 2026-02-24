@@ -1,0 +1,9 @@
+{
+  "name": "rongorai-personal-website",
+  "stack": "heroku-24",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
