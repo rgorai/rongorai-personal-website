@@ -29,6 +29,12 @@
     }
   }
 
+  :global(.react-pdf__Page__textContent) {
+    [data-theme='dark'] & {
+      filter: invert(100%) hue-rotate(180deg);
+    }
+  }
+
   hr {
     height: 1px;
     background-color: var(--content-border-color);

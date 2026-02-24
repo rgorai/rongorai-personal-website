@@ -4,6 +4,7 @@ import styles from '../styles/resumePage.module.scss'
 import Loading from '../../Misc/components/Loading'
 import ApiError from '../../Misc/components/ApiError'
 import { UpdatedOn } from '../../Content/components/customContentComponents'
+import 'react-pdf/dist/Page/TextLayer.css'
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.mjs',
@@ -56,7 +57,6 @@ const ResumePage = ({ test }: { test?: true }) => {
               pageNumber={i + 1}
               key={i}
               loading={null}
-              renderTextLayer={false}
               renderAnnotationLayer={false}
               width={pageWidth || undefined}
             />
