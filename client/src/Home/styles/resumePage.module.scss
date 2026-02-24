@@ -1,13 +1,6 @@
 @use '../../variables' as *;
 @use 'sass:color';
 
-$a4-ratio: 1.294;
-
-[data-theme='dark'] :global(.react-pdf__Page__svg) {
-  transition: filter $dark-switch-transition;
-  filter: invert(100%);
-}
-
 .resumeContainer {
   @include display-flex(column, flex-start, flex-end);
 
@@ -16,29 +9,16 @@ $a4-ratio: 1.294;
 
   :global(.react-pdf__Document) {
     width: fit-content;
+    max-width: 55rem;
     margin: 0 auto;
   }
 
-  $resume-width: 55rem;
+  :global(.react-pdf__Page__canvas) {
+    transition: filter $dark-switch-transition;
 
-  :global(.react-pdf__Page) {
-    width: $resume-width;
-    height: calc(($resume-width) * $a4-ratio);
-  }
-
-  :global(.react-pdf__Page__svg) {
-    width: 100% !important;
-    height: 100% !important;
-
-    > svg {
-      width: 100%;
-      height: 100%;
+    [data-theme='dark'] & {
+      filter: invert(100%) hue-rotate(180deg);
     }
-  }
-
-  :global(.react-pdf__Page__textContent),
-  :global(.react-pdf__Page__annotations) {
-    display: none;
   }
 
   hr {
@@ -55,13 +35,6 @@ $a4-ratio: 1.294;
 @media (max-width: 900px) {
   .resumeContainer {
     padding-top: 1em;
-
-    $resume-width: 100vw;
-
-    :global(.react-pdf__Page) {
-      width: $resume-width;
-      height: calc(($resume-width) * $a4-ratio);
-    }
 
     .resumeLink {
       width: 75%;
