@@ -10,9 +10,7 @@ import { UpdatedOn } from '../../Content/components/customContentComponents'
 const ResumePage = ({ test }: { test?: true }) => {
   const [numPages, setNumPages] = useState(0)
   const [documentError, setDocumentError] = useState(null as any)
-  const FILE_SRC = `${process.env.PUBLIC_URL}/Ron_Gorai_Resume${
-    test ? '_TEST' : ''
-  }.pdf`
+  const FILE_SRC = `/Ron_Gorai_Resume${test ? '_TEST' : ''}.pdf`
 
   useEffect(() => {
     document.title = `Resume | Ron Gorai's Personal Website`

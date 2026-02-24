@@ -17,9 +17,9 @@ app.use(express.urlencoded({ extended: true }))
 
 configRoutes(app)
 
-app.use(express.static(path.resolve('client', 'build')))
+app.use(express.static(path.resolve('client', 'dist')))
 app.get('*', (_, res) => {
-  res.sendFile(path.resolve('client', 'build', 'index.html'))
+  res.sendFile(path.resolve('client', 'dist', 'index.html'))
 })
 
 app.listen(PORT, () => {
