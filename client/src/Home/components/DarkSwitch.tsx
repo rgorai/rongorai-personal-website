@@ -28,12 +28,12 @@ const DarkSwitch = () => {
       <span className={styles.slider}>
         <img
           className={styles.darkIcon}
-          src={`${process.env.PUBLIC_URL}/menu_icons/moon-icon-light.png`}
+          src="/menu_icons/moon-icon-light.png"
           alt="Dark Mode"
         />
         <img
           className={styles.lightIcon}
-          src={`${process.env.PUBLIC_URL}/menu_icons/sun-icon-light.png`}
+          src="/menu_icons/sun-icon-light.png"
           alt="Light Mode"
         />
       </span>

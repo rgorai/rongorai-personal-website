@@ -1,4 +1,4 @@
-// / <reference types="react-scripts" />
+// / <reference types="vite/client" />
 declare module '*.scss'
 declare module 'react-google-recaptcha'
 declare module 'react-pdf/dist/esm/entry.webpack'

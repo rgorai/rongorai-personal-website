@@ -11,10 +11,11 @@
   "scripts": {
     "start": "NODE_ENV=production node dist/server/index.js",
     "start-watch": "nodemon --ext ts --exec tsx server/index.ts",
-    "build": "yarn --cwd client build",
+    "build": "yarn build:client && yarn build:server",
+    "build:client": "yarn --cwd client build",
     "build:server": "tsc -p server/tsconfig.json",
     "dev": "concurrently \"yarn start-watch\" \"yarn --cwd client dev\"",
-    "heroku-postbuild": "yarn --cwd client install && yarn build && yarn build:server",
+    "heroku-postbuild": "yarn --cwd client install && yarn build",
     "precommit": "lint-staged",
     "seed": "tsx server/tasks/seed.ts",
     "prepare": "husky install && chmod ug+x .husky/*",
