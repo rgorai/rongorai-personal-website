@@ -1,11 +1,13 @@
-import express from 'express'
+import express, { Request, Response, NextFunction } from 'express'
 import { searchJobs } from '../services/openai.js'
+import { SseEventType } from '../types/enums.js'
+import type { JobPreferences, SseEvent } from '../types/openai.js'
 
 const jobbuddyRouter = express.Router()
 
 // Simple password authentication
 jobbuddyRouter.post('/auth', (req, res) => {
-  const { password } = req.body
+  const { password } = req.body as { password: string }
   const correctPassword = process.env.JOBBUDDY_PW
 
   if (!correctPassword) {
@@ -20,7 +22,7 @@ jobbuddyRouter.post('/auth', (req, res) => {
 })
 
 // Middleware to check auth header
-const authMiddleware = (req, res, next) => {
+const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
   const authHeader = req.headers['x-jobbuddy-auth']
   if (authHeader === 'authenticated') {
     next()
@@ -31,10 +33,13 @@ const authMiddleware = (req, res, next) => {
 
 // Job search endpoint with SSE streaming
 jobbuddyRouter.post('/search', authMiddleware, async (req, res) => {
-  // Temporarliy block all access
+  // Temporarily block all access
   return res.status(403)
 
-  const { resume, jobPreferences } = req.body
+  const { resume, jobPreferences } = req.body as {
+    resume: string
+    jobPreferences: JobPreferences
+  }
 
   if (!resume || !jobPreferences) {
     return res
@@ -48,8 +53,7 @@ jobbuddyRouter.post('/search', authMiddleware, async (req, res) => {
   res.setHeader('Connection', 'keep-alive')
   res.flushHeaders()
 
-  // Helper to send SSE event
-  const sendEvent = (data) => {
+  const sendEvent = (data: SseEvent) => {
     res.write(`data: ${JSON.stringify(data)}\n\n`)
   }
 
@@ -62,8 +66,9 @@ jobbuddyRouter.post('/search', authMiddleware, async (req, res) => {
   } catch (error) {
     console.error('Job search error:', error)
     sendEvent({
-      type: 'error',
-      message: error.message || 'An error occurred during job search',
+      type: SseEventType.Error,
+      message:
+        (error as Error).message || 'An error occurred during job search',
     })
   } finally {
     res.end()

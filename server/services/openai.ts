@@ -1,12 +1,19 @@
 import OpenAI from 'openai'
+import { SseEventType } from '../types/enums.js'
+import type {
+  ResumeData,
+  JobPreferences,
+  RawJob,
+  ScoredJob,
+  SseEvent,
+  StatusEvent,
+  CompleteEvent,
+} from '../types/openai.js'
 
 // Maximum number of web searches to perform
 const MAX_SEARCHES = 5
 
-/**
- * Extract structured data from resume text
- */
-async function extractResumeData(resumeText) {
+const extractResumeData = async (resumeText: string): Promise<ResumeData> => {
   const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
   })
@@ -36,13 +43,13 @@ Return ONLY valid JSON, no markdown formatting.`,
     response_format: { type: 'json_object' },
   })
 
-  return JSON.parse(response.choices[0].message.content)
+  return JSON.parse(response.choices[0].message.content ?? '{}') as ResumeData
 }
 
-/**
- * Generate search queries based on resume and preferences
- */
-async function generateSearchQueries(resumeData, jobPreferences) {
+const generateSearchQueries = async (
+  resumeData: ResumeData,
+  jobPreferences: JobPreferences
+): Promise<string[]> => {
   const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
   })
@@ -75,48 +82,63 @@ Return JSON with a "queries" array of strings. No markdown formatting.`,
     response_format: { type: 'json_object' },
   })
 
-  return JSON.parse(response.choices[0].message.content).queries
+  const parsed = JSON.parse(response.choices[0].message.content ?? '{}') as {
+    queries: string[]
+  }
+  return parsed.queries
 }
 
-/**
- * Helper to extract text from Responses API output
- */
-function extractOutputText(response) {
-  // Handle different response formats
-  if (response.output_text) {
+type ResponsesApiOutput =
+  | { output_text?: string; output?: string | ResponsesApiOutputItem[] }
+  | { choices?: { message?: { content?: string | null } }[] }
+
+type ResponsesApiOutputItem = {
+  type: string
+  content?: ResponsesApiContentItem[]
+  text?: string
+}
+
+type ResponsesApiContentItem = {
+  type: string
+  text?: string
+}
+
+const extractOutputText = (response: ResponsesApiOutput): string => {
+  if ('output_text' in response && response.output_text) {
     return response.output_text
   }
-  if (response.output) {
+  if ('output' in response && response.output) {
     if (typeof response.output === 'string') {
       return response.output
     }
     if (Array.isArray(response.output)) {
-      // Find text content in output array
       for (const item of response.output) {
         if (item.type === 'message' && item.content) {
           for (const content of item.content) {
             if (content.type === 'output_text' || content.type === 'text') {
-              return content.text
+              return content.text ?? ''
             }
           }
         }
         if (item.type === 'text') {
-          return item.text
+          return item.text ?? ''
         }
       }
     }
   }
-  if (response.choices?.[0]?.message?.content) {
+  if (
+    'choices' in response &&
+    response.choices?.[0]?.message?.content != null
+  ) {
     return response.choices[0].message.content
   }
   return ''
 }
 
-/**
- * Search for jobs using OpenAI's web search via Responses API
- */
-async function searchJobsWithWebSearch(queries) {
-  const allJobs = []
+const searchJobsWithWebSearch = async (
+  queries: string[]
+): Promise<RawJob[]> => {
+  const allJobs: RawJob[] = []
 
   const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
@@ -126,10 +148,9 @@ async function searchJobsWithWebSearch(queries) {
     try {
       console.log(`Searching for: "${query}"`)
 
-      // Use the Responses API with web search tool
       const response = await openai.responses.create({
         model: 'gpt-4o',
-        tools: [{ type: 'web_search' }],
+        tools: [{ type: 'web_search' as const }],
         input: `Search for current job openings: "${query}"
 
 Find real job listings from job sites like LinkedIn Jobs, Indeed, Glassdoor, or company career pages.
@@ -159,47 +180,45 @@ Return the results as a JSON array with this structure:
 Return ONLY the JSON array, no other text.`,
       })
 
-      // Parse the response to extract job data
-      const content = extractOutputText(response)
+      const content = extractOutputText(
+        response as unknown as ResponsesApiOutput
+      )
       console.log(`Response content length: ${content.length}`)
 
-      // Try to extract JSON from the response
       const jsonMatch = content.match(/\[[\s\S]*?\]/g)
       if (jsonMatch) {
         for (const match of jsonMatch) {
           try {
-            const jobs = JSON.parse(match)
+            const jobs = JSON.parse(match) as unknown[]
             if (Array.isArray(jobs) && jobs.length > 0) {
-              // Validate job structure
-              const validJobs = jobs.filter(
+              const validJobs = (jobs as RawJob[]).filter(
                 (j) => j && (j.title || j.company || j.url)
               )
               allJobs.push(...validJobs)
               console.log(`Found ${validJobs.length} jobs from this search`)
               break
             }
-          } catch (parseError) {
+          } catch {
             // Try next match
           }
         }
       }
     } catch (error) {
-      console.error(`Search error for query "${query}":`, error.message)
-      // Continue with other queries
+      console.error(
+        `Search error for query "${query}":`,
+        (error as Error).message
+      )
     }
   }
 
   return allJobs
 }
 
-/**
- * Deduplicate jobs by company + title
- */
-function deduplicateJobs(jobs) {
-  const seen = new Set()
+const deduplicateJobs = (jobs: RawJob[]): RawJob[] => {
+  const seen = new Set<string>()
   return jobs.filter((job) => {
-    const key = `${(job.company || '').toLowerCase()}-${(
-      job.title || ''
+    const key = `${(job.company ?? '').toLowerCase()}-${(
+      job.title ?? ''
     ).toLowerCase()}`
     if (seen.has(key)) return false
     seen.add(key)
@@ -207,10 +226,11 @@ function deduplicateJobs(jobs) {
   })
 }
 
-/**
- * Score and explain job matches
- */
-async function scoreJobs(jobs, resumeData, jobPreferences) {
+const scoreJobs = async (
+  jobs: RawJob[],
+  resumeData: ResumeData,
+  jobPreferences: JobPreferences
+): Promise<ScoredJob[]> => {
   if (jobs.length === 0) return []
 
   const openai = new OpenAI({
@@ -256,7 +276,7 @@ No markdown formatting, just valid JSON.`,
       {
         role: 'user',
         content: JSON.stringify({
-          jobs: jobs.slice(0, 20), // Limit input to save tokens
+          jobs: jobs.slice(0, 20),
           resumeData,
           jobPreferences,
         }),
@@ -266,66 +286,74 @@ No markdown formatting, just valid JSON.`,
     response_format: { type: 'json_object' },
   })
 
-  const result = JSON.parse(response.choices[0].message.content)
-  return result.jobs || result.results || (Array.isArray(result) ? result : [])
+  const result = JSON.parse(response.choices[0].message.content ?? '{}') as
+    | { jobs?: ScoredJob[]; results?: ScoredJob[] }
+    | ScoredJob[]
+  if (Array.isArray(result)) return result
+  return result.jobs ?? result.results ?? []
 }
 
-/**
- * Main job search function - async generator that yields status updates
- */
-export async function* searchJobs(resumeText, jobPreferences) {
+export async function* searchJobs(
+  resumeText: string,
+  jobPreferences: JobPreferences
+): AsyncGenerator<SseEvent> {
   if (!process.env.OPENAI_API_KEY) {
     throw new Error('OpenAI API key not configured')
   }
 
-  // Step 1: Extract resume data
-  yield { type: 'status', step: 1, message: 'Analyzing your resume...' }
+  const step1: StatusEvent = {
+    type: SseEventType.Status,
+    step: 1,
+    message: 'Analyzing your resume...',
+  }
+  yield step1
   console.log('Step 1: Extracting resume data...')
   const resumeData = await extractResumeData(resumeText)
   console.log('Resume data extracted:', JSON.stringify(resumeData, null, 2))
 
-  // Step 2: Generate search queries
-  yield {
-    type: 'status',
+  const step2: StatusEvent = {
+    type: SseEventType.Status,
     step: 2,
     message: 'Generating search queries based on your profile...',
   }
+  yield step2
   console.log('Step 2: Generating search queries...')
   const queries = await generateSearchQueries(resumeData, jobPreferences)
   console.log('Generated queries:', queries)
 
-  // Step 3: Search for jobs using web search
-  yield {
-    type: 'status',
+  const step3: StatusEvent = {
+    type: SseEventType.Status,
     step: 3,
     message: `Searching the web with ${queries.length} queries...`,
     queries,
   }
+  yield step3
   console.log('Step 3: Searching for jobs...')
   const rawJobs = await searchJobsWithWebSearch(queries)
   console.log(`Found ${rawJobs.length} raw jobs`)
 
-  // Step 4: Deduplicate
-  yield {
-    type: 'status',
+  const step4: StatusEvent = {
+    type: SseEventType.Status,
     step: 4,
     message: `Found ${rawJobs.length} jobs, removing duplicates...`,
   }
+  yield step4
   console.log('Step 4: Deduplicating...')
   const uniqueJobs = deduplicateJobs(rawJobs)
   console.log(`${uniqueJobs.length} unique jobs after deduplication`)
 
   if (uniqueJobs.length === 0) {
-    yield { type: 'complete', jobs: [] }
+    const done: CompleteEvent = { type: SseEventType.Complete, jobs: [] }
+    yield done
     return
   }
 
-  // Step 5: Score and rank
-  yield {
-    type: 'status',
+  const step5: StatusEvent = {
+    type: SseEventType.Status,
     step: 5,
     message: `Scoring and ranking ${uniqueJobs.length} unique jobs...`,
   }
+  yield step5
   console.log('Step 5: Scoring jobs...')
   const scoredJobs = await scoreJobs(uniqueJobs, resumeData, jobPreferences)
   console.log(
@@ -333,5 +361,9 @@ export async function* searchJobs(resumeText, jobPreferences) {
   )
 
   const finalJobs = Array.isArray(scoredJobs) ? scoredJobs : []
-  yield { type: 'complete', jobs: finalJobs }
+  const complete: CompleteEvent = {
+    type: SseEventType.Complete,
+    jobs: finalJobs,
+  }
+  yield complete
 }

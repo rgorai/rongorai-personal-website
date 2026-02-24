@@ -16,7 +16,11 @@ guestbookRouter.get('/', async (_, res) => {
 
 // create guestbook entry
 guestbookRouter.post('/', async (req, res) => {
-  const { name, background, message } = req.body
+  const { name, background, message } = req.body as {
+    name: string
+    background: string
+    message: string
+  }
 
   try {
     isValidString({ name })

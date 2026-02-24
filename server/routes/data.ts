@@ -1,5 +1,6 @@
 import express from 'express'
 import { isValidString } from '../misc/errors.js'
+import type { PageData } from '../types/content.js'
 
 const dataRouter = express.Router()
 
@@ -13,7 +14,10 @@ dataRouter.get('/:filename', async (req, res) => {
   }
 
   try {
-    res.status(200).json((await import(`../data/${filename}.js`)).default)
+    const data = (await import(`../data/${filename}.js`)) as {
+      default: PageData
+    }
+    res.status(200).json(data.default)
   } catch (e) {
     res.status(500).send(String(e))
   }
